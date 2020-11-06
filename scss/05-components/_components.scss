@@ -182,12 +182,12 @@
                 opacity: 1;
             }
             100% {
-                height: 300px;
-                width: 300px;
+                height: 200px;
+                width: 200px;
                 opacity: 0;
             }
         }
-        @include animation(5s ease-in shine infinite); 
+        @include animation(3s ease-in shine infinite); 
         @media screen and (min-width: $bp--medium) {
             height: 366px;
             width: 366px;
@@ -201,7 +201,6 @@
                     opacity: 0;
                 }
             }
-            @include animation(3s ease-in shine infinite); 
         }  
         @media screen and (min-width: $bp--xlarge) {
             height: 406px;

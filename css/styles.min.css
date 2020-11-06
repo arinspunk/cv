@@ -1052,53 +1052,49 @@ a {
     border: 1px solid var(--color-sun);
     border-radius: 100%;
     opacity: 0;
-    -webkit-animation: 5s ease-in shine infinite;
-    -moz-animation: 5s ease-in shine infinite;
-    -ms-animation: 5s ease-in shine infinite;
-    animation: 5s ease-in shine infinite; }
+    -webkit-animation: 3s ease-in shine infinite;
+    -moz-animation: 3s ease-in shine infinite;
+    -ms-animation: 3s ease-in shine infinite;
+    animation: 3s ease-in shine infinite; }
 @-webkit-keyframes shine {
   33% {
     opacity: 1; }
   100% {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     opacity: 0; } }
 @-moz-keyframes shine {
   33% {
     opacity: 1; }
   100% {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     opacity: 0; } }
 @-ms-keyframes shine {
   33% {
     opacity: 1; }
   100% {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     opacity: 0; } }
 @-o-keyframes shine {
   33% {
     opacity: 1; }
   100% {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     opacity: 0; } }
 @keyframes shine {
   33% {
     opacity: 1; }
   100% {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     opacity: 0; } }
     @media screen and (min-width: 48em) {
       .c-info__sun-ray {
         height: 366px;
-        width: 366px;
-        -webkit-animation: 3s ease-in shine infinite;
-        -moz-animation: 3s ease-in shine infinite;
-        -ms-animation: 3s ease-in shine infinite;
-        animation: 3s ease-in shine infinite; }
+        width: 366px; }
       @-webkit-keyframes shine {
         33% {
           opacity: 1; }
@@ -1453,11 +1449,11 @@ a {
     filter: blur(0); }
     .cursor--hover::before, .cursor--hover::after {
       opacity: 1;
-      left: 0px;
-      top: 29px; }
+      left: -6px;
+      top: 25px; }
     .cursor--hover::after {
-      left: -9px;
-      top: 36px; }
+      left: 36px;
+      top: 25px; }
   .cursor--follower-1 {
     width: 4px;
     height: 4px;
@@ -1470,8 +1466,8 @@ a {
       height: 10px;
       filter: blur(2px); }
       .cursor--follower-1.cursor--hover::before {
-        left: 8px;
-        top: 23px;
+        left: 3px;
+        top: 13px;
         width: 50px;
         height: 50px;
         background-color: transparent;
@@ -1479,8 +1475,8 @@ a {
         border: 1px solid var(--color-light);
         filter: blur(0.5px); }
       .cursor--follower-1.cursor--hover::after {
-        left: 50px;
-        top: 31px;
+        left: -5px;
+        top: 24px;
         width: 20px;
         height: 20px;
         background-color: transparent;
@@ -1500,8 +1496,8 @@ a {
       height: 7px;
       filter: blur(5px); }
       .cursor--follower-2.cursor--hover::before {
-        left: 49px;
-        top: 24px;
+        left: -7px;
+        top: 50px;
         width: 20px;
         height: 20px;
         background-color: transparent;
@@ -1509,8 +1505,8 @@ a {
         border: 1px solid var(--color-light);
         filter: blur(0.5px); }
       .cursor--follower-2.cursor--hover::after {
-        left: 9px;
-        top: 6px;
+        left: 16px;
+        top: 21px;
         width: 35px;
         height: 35px;
         background-color: transparent;
@@ -1533,8 +1529,8 @@ a {
       border: 1px solid var(--color-light);
       filter: blur(0px); }
       .cursor--follower-3.cursor--hover::before {
-        left: 0px;
-        top: 11px;
+        left: 18px;
+        top: -1px;
         width: 35px;
         height: 35px;
         background-color: transparent;
@@ -1542,8 +1538,8 @@ a {
         border: 1px dotted var(--color-light);
         filter: blur(0px); }
       .cursor--follower-3.cursor--hover::after {
-        left: -1px;
-        top: 18px;
+        left: 3px;
+        top: -8px;
         width: 55px;
         height: 55px;
         background-color: transparent;
