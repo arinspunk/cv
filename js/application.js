@@ -11,19 +11,19 @@ let totalWidth  = window.innerWidth
 let scrollPos = 0 // Initial state
 // adding scroll event
 window.addEventListener('scroll', function(){
-	// detects new state and compares it with the new one
-	// Scroll up
-	if ((document.body.getBoundingClientRect()).top > scrollPos) {
-		header.classList.remove('c-header--hide')
-	}
-	// Scroll down
-	else {
-		header.classList.add('c-header--hide')
-	}
-	// saves the new position for iteration.
-	scrollPos = (document.body.getBoundingClientRect()).top
-
-	if (window.pageYOffset<150) {} else {}
+	if (window.pageYOffset>250) {
+		// detects new state and compares it with the new one
+		// Scroll up
+		if ((document.body.getBoundingClientRect()).top > scrollPos) {
+			header.classList.remove('c-header--hide')
+		}
+		// Scroll down
+		else {
+			header.classList.add('c-header--hide')
+		}
+		// saves the new position for iteration.
+		scrollPos = (document.body.getBoundingClientRect()).top
+	} else {}
 })
 
 
