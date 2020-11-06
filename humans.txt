@@ -1,0 +1,14 @@
+/* TEAM */
+UX Engineer: Xúlio Zé. 
+Contact: arinspunk@gmail.com
+Twitter: @arinspunk.  
+Location: Sevilla, Spain.
+    
+/* SITE */   
+Last update: 2020/01/22    
+Standards: HTML5 & CSS3
+Components: Lazysizes
+Software: Sublime Text 3 & Firefox
+
+/* THANKS */
+Thanks… Internet!
