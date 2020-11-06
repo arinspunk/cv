@@ -1,0 +1,329 @@
+/*
+    Mixins
+*/
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  animation
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage:
+    @include keyframes(slide-down) {
+      lo que sea…
+    }
+    @include animation(slide-down 5s 3); 
+  Podemos variar el número de valores, @include animation(slide-down 5s 3 forwards); por ejemplo.
+
+*/
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+@mixin animation($args){
+  -webkit-animation: $args;
+     -moz-animation: $args;
+      -ms-animation: $args;
+          animation: $args;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  animation-delay
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include animation-delay('slide-down 5s 3'); 
+
+*/
+@mixin animation-delay($value){
+  -webkit-animation-delay: $value;
+     -moz-animation-delay: $value;
+      -ms-animation-delay: $value;
+          animation-delay: $value;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  border-radius
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include border-radius(30px); 
+  Podemos variar el número de valores, @include animation(30px 0 30px 30px); por ejemplo.
+
+*/
+@mixin border-radius($args) {
+  -webkit-border-radius: $args;
+     -moz-border-radius: $args;
+      -ms-border-radius: $args;
+          border-radius: $args;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  box-shadow
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include box-shadow(0, 1px, 2px, 2px, rgba(0, 0, 0, 0.2));
+
+*/
+@mixin box-shadow($top, $left, $blur, $spread, $color) {
+  -webkit-box-shadow: $top $left $blur $spread $color;
+     -moz-box-shadow: $top $left $blur $spread $color;
+      -ms-box-shadow: $top $left $blur $spread $color;
+          box-shadow: $top $left $blur $spread $color;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  box-shadow (none) 
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include box-shadow-none();
+
+*/
+@mixin box-shadow-none() {
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+      -ms-box-shadow: none;
+          box-shadow: none;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  box-shadow (for variables)
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include shadow1();
+         @include shadow2();
+         @include shadow3();
+
+*/
+@mixin shadow1(){
+  -webkit-box-shadow: $shadow1; // $shadow1, $shadow2 and $shadow3 are setting in _variables.scss
+     -moz-box-shadow: $shadow1;
+          box-shadow: $shadow1;
+}
+@mixin shadow2(){
+  -webkit-box-shadow: $shadow2;
+     -moz-box-shadow: $shadow2;
+          box-shadow: $shadow2;
+}
+@mixin shadow3(){
+  -webkit-box-shadow: $shadow3;
+     -moz-box-shadow: $shadow3;
+          box-shadow: $shadow3;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  column-count
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include column-count(2);
+*/
+@mixin column-count($col){
+  -webkit-column-count: $col;
+     -moz-column-count: $col;
+          column-count: $col;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  column-gap
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include column-gap(50px);
+*/
+@mixin column-gap($gap){
+  -webkit-column-gap: $gap;
+     -moz-column-gap: $gap;
+          column-gap: $gap;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  legibility
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include legibility();
+*/
+@mixin legibility() {
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+           text-rendering: optimizeLegibility;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  linear-gradient
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include linear-gradient(135deg,$brand-color,$brand-color--medium);
+
+*/
+@mixin linear-gradient($direction, $from, $to) {
+  background: $to;
+  background: -moz-linear-gradient($direction, $from 0%, $to 100%);
+  background: -webkit-gradient(linear, $direction, left bottom, color-stop(0%,$from), color-stop(100%,$to));
+  background: -webkit-linear-gradient($direction, $from 0%,$to 100%);
+  background: -o-linear-gradient($direction, $from 0%,$to 100%);
+  background: linear-gradient($direction, $from 0%,$to 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#{$from}, endColorstr=#{$to})
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  placeholder
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include placeholder($main,1);
+
+*/
+@mixin placeholder($color, $opacity){
+    &::-webkit-input-placeholder{
+      color: $color;
+      opacity: $opacity;
+    }
+    &::-moz-placeholder{
+      color: $color;
+      opacity: $opacity;
+    }
+    &:-ms-input-placeholder{
+      color: $color;
+      opacity: $opacity;
+    }
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  rotate
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include rotate(90deg); 
+
+*/
+ @mixin rotate($value) {
+  -webkit-transform: rotate($value);
+     -moz-transform: rotate($value);
+      -ms-transform: rotate($value);
+          transform: rotate($value);
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  scale
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include scale(1.3); 
+
+*/
+ @mixin scale($value) {
+  -webkit-transform: scale($value);
+     -moz-transform: scale($value);
+      -ms-transform: scale($value);
+          transform: scale($value);
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  transition
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include transition(.3s ease); 
+  Podemos variar el número de valores, @include @include transition(.3s ease-in .4s);  por ejemplo.
+
+*/
+@mixin transition($args){
+  -webkit-transition: $args;
+     -moz-transition: $args;
+      -ms-transition: $args;
+          transition: $args;
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  translate
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include translate(-50%,-50%); 
+
+*/
+@mixin translate($valueA,$valueB){
+  -webkit-transform: translate($valueA,$valueB);
+     -moz-transform: translate($valueA,$valueB);
+      -ms-transform: translate($valueA,$valueB);
+          transform: translate($valueA,$valueB);
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  translateX
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include translateX(100px); 
+
+*/
+@mixin translateX($value){
+  -webkit-transform: translateX($value);
+     -moz-transform: translateX($value);
+      -ms-transform: translateX($value);
+          transform: translateX($value);  
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  translateY
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  Usage: @include translateY(100%);  
+
+*/
+@mixin translateY($value){
+  -webkit-transform: translateY($value);
+     -moz-transform: translateY($value);
+      -ms-transform: translateY($value);
+          transform: translateY($value);  
+}
+
+/*
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  transform
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+*/
+
+@mixin transform($args) {
+  -webkit-transform: $args;
+     -moz-transform: $args;
+      -ms-transform: $args;
+          transform: $args;
+}
+
+/// Slightly lighten a color
+// @access public
+// @param {Color} $color - color to tint
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+// @access public
+// @param {Color} $color - color to shade
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

@@ -1,0 +1,197 @@
+/*
+    Elements
+*/
+/* Base typography */
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+    height: 100%;
+    @media screen and (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    height: 100%;
+    background-color: $color-paper; 
+    background-color: var(--color-paper);
+    font-family: $fonts-sans;
+    font-family: var(--fonts-sans);
+    font-size: 1rem;
+    font-weight: normal;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
+    line-height: $p-lh-s;
+    line-height: var(--p-lh-s);
+    color: $color-ink;
+    color: var(--color-ink);
+    margin: 0;
+    padding: 0;
+    @media screen and (min-width: $bp--medium) {
+        line-height: $p-lh-m;
+        line-height: var(--p-lh-m);
+    }  
+    @media screen and (min-width: $bp--xlarge) {
+        line-height: $p-lh-l;
+        line-height: var(--p-lh-l);
+    }  
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    font-family: $fonts-sans-alt;
+    font-family: var(--fonts-sans-alt);
+    position: relative;
+    font-weight: normal;
+    font-variant-ligatures: common-ligatures;
+    @include transition(font-size .1s ease); 
+}
+
+h1, .h1 {
+    font-size: $h1-size-s;
+    font-size: var(--h1-size-s);
+    line-height: $h1-lh-s;
+    line-height: var(--h1-lh-s);
+    margin: 0 0 43px;
+    @media screen and (min-width: $bp--medium) {
+        font-size: $h1-size-m;
+        font-size: var(--h1-size-m);
+        line-height: $h1-lh-m;
+        line-height: var(--h1-lh-m);
+        margin: 0 0 39px;
+    }   
+    @media screen and (min-width: $bp--xlarge) {
+        font-size: $h1-size-l;
+        font-size: var(--h1-size-l);
+        line-height: $h1-lh-l;
+        line-height: var(--h1-lh-l);
+        margin: 0 0 43px;
+    }  
+}
+
+h2, .h2 {
+    position: relative;
+    font-size: $h2-size-s;
+    font-size: var(--h2-size-s);
+    line-height: $h2-lh-s;
+    line-height: var(--h2-lh-s);
+    padding-top: 245px;
+    margin-top: 0;
+    margin-bottom: 28px;
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: -11px;
+        left: 15px;
+        right: 15px;
+        height: 1px;
+        background-color: $color-paper;
+        background-color: var(--color-paper);
+        opacity: .2;
+        @media screen and (min-width: $bp--medium) {
+            left: 20px;
+            right: 20px;
+        }
+        @media screen and (min-width: $bp--large) {
+            display: none;
+        }  
+    }
+    &.negative:before {
+        background-color: $color-deep;
+        background-color: var(--color-deep);
+        opacity: .15;
+    }
+    @media screen and (min-width: $bp--medium) {
+        font-size: $h2-size-m;
+        font-size: var(--h2-size-m);
+        line-height: $h2-lh-m;
+        line-height: var(--h2-lh-m);
+        margin-bottom: 40px;
+    }  
+    @media screen and (min-width: $bp--xlarge) {
+        font-size: $h2-size-l;
+        font-size: var(--h2-size-l);
+        line-height: $h2-lh-l;
+        line-height: var(--h2-lh-l);
+        margin-bottom: 50px;
+    }  
+}
+
+h3, .h3 {
+    font-size: $h3-size-s;
+    font-size: var(--h3-size-s);
+    line-height: $h3-lh-s;
+    line-height: var(--h3-lh-s);
+    margin: -2px 0 2px;
+    &:first-of-type {
+        margin-top: 14px;
+    }
+    @media screen and (min-width: $bp--medium) {
+        font-size: $h3-size-m;
+        font-size: var(--h3-size-m);
+        line-height: $h3-lh-m;
+        line-height: var(--h3-lh-m);
+        margin: 61px 0 19px;
+        &:first-of-type {
+            margin-top: 13px;
+        }
+    }  
+    @media screen and (min-width: $bp--xlarge) {
+        font-size: $h3-size-l;
+        font-size: var(--h3-size-l);
+        line-height: $h3-lh-l;
+        line-height: var(--h3-lh-l);
+        margin: 76px 0 24px;
+        &:first-of-type {
+            margin-top: 16px;
+        }
+    }  
+}
+
+p, ul, ol {
+    font-size: $p-size-s;
+    font-size: var(--p-size-s);
+    font-variant-ligatures: common-ligatures;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding: 0;
+    @media screen and (min-width: $bp--medium) {
+        font-size: $p-size-m;
+        font-size: var(--p-size-m);
+    }  
+    @media screen and (min-width: $bp--xlarge) {
+        font-size: $p-size-l;
+        font-size: var(--p-size-l);
+        margin-bottom: 30px;
+    }  
+}
+
+a {
+    text-decoration: underline;
+    color: $color-ink;
+    color: var(--color-ink);
+    text-decoration-thickness: 0.0625em;
+    text-underline-offset: .15em;
+    text-decoration-color: tint($color-link, 0%);
+    text-decoration-skip-ink: auto;
+    transition: all .2s ease; 
+    &:link {}
+    &:visited {}
+    &:hover {
+        text-decoration: none;
+        text-decoration-color: tint($color-link, 100%);
+    }
+    @media (pointer: coarse) {
+        &:hover {
+            color: unset;
+            text-decoration: unset;
+        }
+    }
+    &:focus {}
+    &:active {}
+}
