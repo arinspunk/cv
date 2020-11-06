@@ -179,9 +179,11 @@ a {
     text-underline-offset: .15em;
     text-decoration-color: tint($color-link, 0%);
     text-decoration-skip-ink: auto;
-    transition: all .2s ease; 
     &:link {}
-    &:visited {}
+    &:visited {
+        text-decoration: underline;
+        text-decoration-color: tint($color-link, 60%);
+    }
     &:hover {
         text-decoration: none;
         text-decoration-color: tint($color-link, 100%);
