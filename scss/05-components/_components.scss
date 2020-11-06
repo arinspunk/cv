@@ -83,15 +83,17 @@
     }
 }
 .c-info {
-    margin-top: 140px;
+    overflow: hidden;
+    padding-top: 165px;
     @media screen and (min-width: $bp--medium) {
-        margin-top: 179px;
+        padding-top: 179px;
     }
     @media screen and (min-width: $bp--xlarge) {
-        margin-top: 242px;
+        padding-top: 242px;
     }
     &__text {
         opacity: 0;
+        z-index: 10;
         @include translate(0%,100px);
         @include keyframes(appears-text) {
             100% {
@@ -122,8 +124,8 @@
         left: 50%;
         @include translate(-50%,0%);
         display: block;
-        height: 260px;
-        width: 260px;
+        height: 160px;
+        width: 160px;
         border-radius: 100%;
         background-color: $color-sun;
         background-color: var(--color-sun);
@@ -151,7 +153,13 @@
     &__sun-wrap {
         overflow: hidden;
         height: 400px;
+        position: absolute;
+        top: -10px;
+        right: -50%;
         @media screen and (min-width: $bp--medium) {
+            position: relative;
+            top: 0;
+            right: 0;
             height: 600px;
         }
         @media screen and (min-width: $bp--large) {
@@ -163,8 +171,8 @@
         top: 50%;
         left: 50%;
         @include translate(-50%,-50%);
-        height: 266px;
-        width: 266px;
+        height: 166px;
+        width: 166px;
         border: 1px solid $color-sun;
         border: 1px solid var(--color-sun);
         border-radius: 100%;
@@ -217,7 +225,7 @@
     }
 }
 .c-history {
-    margin-top: 44px;
+    margin-top: 69px;
     @media screen and (min-width: $bp--medium) {
         margin-top: 77px;
     }  

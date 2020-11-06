@@ -890,15 +890,17 @@ a {
         text-decoration-color: white; }
 
 .c-info {
-  margin-top: 140px; }
+  overflow: hidden;
+  padding-top: 165px; }
   @media screen and (min-width: 48em) {
     .c-info {
-      margin-top: 179px; } }
+      padding-top: 179px; } }
   @media screen and (min-width: 87.5em) {
     .c-info {
-      margin-top: 242px; } }
+      padding-top: 242px; } }
   .c-info__text {
     opacity: 0;
+    z-index: 10;
     -webkit-transform: translate(0%, 100px);
     -moz-transform: translate(0%, 100px);
     -ms-transform: translate(0%, 100px);
@@ -964,8 +966,8 @@ a {
     -ms-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
     display: block;
-    height: 260px;
-    width: 260px;
+    height: 160px;
+    width: 160px;
     border-radius: 100%;
     background-color: #FFE600;
     background-color: var(--color-sun);
@@ -1023,9 +1025,15 @@ a {
         width: 400px; } }
   .c-info__sun-wrap {
     overflow: hidden;
-    height: 400px; }
+    height: 400px;
+    position: absolute;
+    top: -10px;
+    right: -50%; }
     @media screen and (min-width: 48em) {
       .c-info__sun-wrap {
+        position: relative;
+        top: 0;
+        right: 0;
         height: 600px; } }
     @media screen and (min-width: 63.75em) {
       .c-info__sun-wrap {
@@ -1038,8 +1046,8 @@ a {
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    height: 266px;
-    width: 266px;
+    height: 166px;
+    width: 166px;
     border: 1px solid #FFE600;
     border: 1px solid var(--color-sun);
     border-radius: 100%;
@@ -1173,7 +1181,7 @@ a {
       animation-delay: 2s; }
 
 .c-history {
-  margin-top: 44px; }
+  margin-top: 69px; }
   @media screen and (min-width: 48em) {
     .c-history {
       margin-top: 77px; } }
@@ -1441,11 +1449,11 @@ a {
     filter: blur(0); }
     .cursor--hover::before, .cursor--hover::after {
       opacity: 1;
-      left: 29px;
-      top: 16px; }
+      left: 38px;
+      top: 2px; }
     .cursor--hover::after {
-      left: 32px;
-      top: -7px; }
+      left: 23px;
+      top: 14px; }
   .cursor--follower-1 {
     width: 4px;
     height: 4px;
@@ -1458,8 +1466,8 @@ a {
       height: 10px;
       filter: blur(2px); }
       .cursor--follower-1.cursor--hover::before {
-        left: -6px;
-        top: 24px;
+        left: 19px;
+        top: 32px;
         width: 50px;
         height: 50px;
         background-color: transparent;
@@ -1467,8 +1475,8 @@ a {
         border: 1px solid var(--color-light);
         filter: blur(0.5px); }
       .cursor--follower-1.cursor--hover::after {
-        left: 26px;
-        top: 13px;
+        left: 16px;
+        top: -5px;
         width: 20px;
         height: 20px;
         background-color: transparent;
@@ -1488,8 +1496,8 @@ a {
       height: 7px;
       filter: blur(5px); }
       .cursor--follower-2.cursor--hover::before {
-        left: 50px;
-        top: 29px;
+        left: 18px;
+        top: 26px;
         width: 20px;
         height: 20px;
         background-color: transparent;
@@ -1497,8 +1505,8 @@ a {
         border: 1px solid var(--color-light);
         filter: blur(0.5px); }
       .cursor--follower-2.cursor--hover::after {
-        left: -3px;
-        top: -7px;
+        left: 33px;
+        top: 9px;
         width: 35px;
         height: 35px;
         background-color: transparent;
@@ -1521,8 +1529,8 @@ a {
       border: 1px solid var(--color-light);
       filter: blur(0px); }
       .cursor--follower-3.cursor--hover::before {
-        left: 6px;
-        top: 16px;
+        left: 9px;
+        top: 5px;
         width: 35px;
         height: 35px;
         background-color: transparent;
@@ -1530,8 +1538,8 @@ a {
         border: 1px dotted var(--color-light);
         filter: blur(0px); }
       .cursor--follower-3.cursor--hover::after {
-        left: -5px;
-        top: -3px;
+        left: -3px;
+        top: 1px;
         width: 55px;
         height: 55px;
         background-color: transparent;
