@@ -66,7 +66,7 @@
   --p-lh-m: 1.3157894737;
   --p-lh-s: 1.4705882353;
   --h1-lh-l: 1.125;
-  --h1-lh-m: 0.9027777778;
+  --h1-lh-m: 1.1111111111;
   --h1-lh-s: 1.2195121951;
   --h2-lh-l: 1.3725490196;
   --h2-lh-m: 1.3043478261;
@@ -631,7 +631,7 @@ h1, .h1 {
     h1, .h1 {
       font-size: 4.5rem;
       font-size: var(--h1-size-m);
-      line-height: 0.9027777778;
+      line-height: 1.1111111111;
       line-height: var(--h1-lh-m);
       margin: 0 0 39px; } }
   @media screen and (min-width: 87.5em) {
@@ -1441,11 +1441,11 @@ a {
     filter: blur(0); }
     .cursor--hover::before, .cursor--hover::after {
       opacity: 1;
-      left: -4px;
-      top: 45px; }
+      left: 29px;
+      top: 16px; }
     .cursor--hover::after {
-      left: 26px;
-      top: 3px; }
+      left: 32px;
+      top: -7px; }
   .cursor--follower-1 {
     width: 4px;
     height: 4px;
@@ -1458,8 +1458,8 @@ a {
       height: 10px;
       filter: blur(2px); }
       .cursor--follower-1.cursor--hover::before {
-        left: 9px;
-        top: 11px;
+        left: -6px;
+        top: 24px;
         width: 50px;
         height: 50px;
         background-color: transparent;
@@ -1467,8 +1467,8 @@ a {
         border: 1px solid var(--color-light);
         filter: blur(0.5px); }
       .cursor--follower-1.cursor--hover::after {
-        left: 24px;
-        top: 24px;
+        left: 26px;
+        top: 13px;
         width: 20px;
         height: 20px;
         background-color: transparent;
@@ -1488,8 +1488,8 @@ a {
       height: 7px;
       filter: blur(5px); }
       .cursor--follower-2.cursor--hover::before {
-        left: 48px;
-        top: 43px;
+        left: 50px;
+        top: 29px;
         width: 20px;
         height: 20px;
         background-color: transparent;
@@ -1497,8 +1497,8 @@ a {
         border: 1px solid var(--color-light);
         filter: blur(0.5px); }
       .cursor--follower-2.cursor--hover::after {
-        left: 6px;
-        top: 20px;
+        left: -3px;
+        top: -7px;
         width: 35px;
         height: 35px;
         background-color: transparent;
@@ -1521,8 +1521,8 @@ a {
       border: 1px solid var(--color-light);
       filter: blur(0px); }
       .cursor--follower-3.cursor--hover::before {
-        left: -8px;
-        top: -2px;
+        left: 6px;
+        top: 16px;
         width: 35px;
         height: 35px;
         background-color: transparent;
@@ -1530,8 +1530,8 @@ a {
         border: 1px dotted var(--color-light);
         filter: blur(0px); }
       .cursor--follower-3.cursor--hover::after {
-        left: 24px;
-        top: 13px;
+        left: -5px;
+        top: -3px;
         width: 55px;
         height: 55px;
         background-color: transparent;
