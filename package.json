@@ -1,0 +1,24 @@
+{
+  "name": "xulio-ze-site",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css --output-style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arinspunk/cv.git"
+  },
+  "author": "Xúlio Zé <hello@xulioze.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arinspunk/cv/issues"
+  },
+  "homepage": "https://github.com/arinspunk/cv#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
