@@ -1,14 +1,45 @@
-/* TEAM */
-UX Engineer: Xúlio Zé. 
-Contact: arinspunk@gmail.com
-Twitter: @arinspunk.  
-Location: Sevilla, Spain.
-    
-/* SITE */   
-Last update: 2020/01/22    
-Standards: HTML5 & CSS3
-Components: Lazysizes
-Software: Sublime Text 3 & Firefox
+Hi,
 
-/* THANKS */
-Thanks… Internet!
+my name is Xúlio, I live in Sevilla (Spain) and this is my personal website.
+
+
+This site is made with:
+
+- HTML5
+- CSS3 (through SCSS)
+- a bit of Javascript.
+
+
+I built it with the help of:
+
+- SublimeText 3 to write the code
+- node-sass and Minify to compile the SCSS and minify the CSS
+- Firefox and Chrome to testing and debuging
+- Github for the repo
+- GitHub Desktop to the development workflow
+- Plesk to manage the server
+
+
+The font used is Sawton© (beautiful!), from Atipo Foundry:
+
+- Font: https://www.atipofoundry.com/fonts/sawton
+- License: https://www.atipofoundry.com/license
+
+
+If you want to see all the code, try it or reuse for another project, you can visit the repo: 
+
+- https://github.com/arinspunk/cv
+
+It's under GNU GPLv3 license, except the font, that is under its own license (https://www.atipofoundry.com/license). If you want use it you need to buy it (https://www.atipofoundry.com/fonts/sawton).
+
+
+If you want to chat you can write me at:
+
+- hello@xulioze.com
+- @arinspunk (Twitter)
+
+
+Thanks so much to all these people that share their knowledgement at internet!
+
+
+

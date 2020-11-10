@@ -1,7 +1,7 @@
 const siteBody = document.querySelector('.body')
 
-let totalWidth  = window.innerWidth
-	header  	= document.querySelector('.c-header')
+let totalWidth = window.innerWidth
+	header     = document.querySelector('.c-header')
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -85,8 +85,8 @@ function noHoverLink() {
  		cursor[i].classList.remove('cursor--hover')
 	}
 }
-document.querySelector('.c-footer').onmouseenter 			= enterAbism
-document.querySelector('.c-footer').onmouseleave 			= leaveAbism
+document.querySelector('.c-footer').onmouseenter = enterAbism
+document.querySelector('.c-footer').onmouseleave = leaveAbism
 
 
 let links = document.getElementsByClassName('c-footer__menu-link')
