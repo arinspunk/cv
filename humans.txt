@@ -20,7 +20,7 @@ I built it with the help of:
 - Plesk, to manage the server
 
 
-The font used is Sawton© (beautiful!), from Atipo Foundry:
+The font used is Sawton (beautiful!), from Atipo Foundry:
 
 - Font: https://www.atipofoundry.com/fonts/sawton
 - License: https://www.atipofoundry.com/license
