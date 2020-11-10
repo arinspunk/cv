@@ -1,6 +1,6 @@
 Hi,
 
-my name is Xúlio, I live in Sevilla (Spain) and this is my personal website.
+my name is Xulio, I live in Sevilla (Spain) and this is my personal website.
 
 
 This site is made with:
@@ -12,12 +12,12 @@ This site is made with:
 
 I built it with the help of:
 
-- SublimeText 3 to write the code
-- node-sass and Minify to compile the SCSS and minify the CSS
-- Firefox and Chrome to testing and debuging
-- Github for the repo
-- GitHub Desktop to the development workflow
-- Plesk to manage the server
+- SublimeText 3, to write the code
+- node-sass and Minify, to compile the SCSS and minify the CSS
+- Firefox and Chrome, to testing and debuging
+- Github, for the repo
+- GitHub Desktop, to the development workflow
+- Plesk, to manage the server
 
 
 The font used is Sawton© (beautiful!), from Atipo Foundry:
