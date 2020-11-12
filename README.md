@@ -17,5 +17,4 @@ Well, this is quite old school :grimacing:
 
 Easy, isn't it?
 
-## :wand: :magic: How to compile the CSS ##
 
