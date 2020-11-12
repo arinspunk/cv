@@ -8,7 +8,7 @@ Hi, this is the code of my personal site. Really It's quite simple and it was ma
 
 So if you want to see the code, try it or reuse for another project, feel free to do it :wink:
 
-# How to run this #
+## :tractor: How to run this ##
 
 Well, this is quite old school :grimacing:
 
@@ -16,3 +16,6 @@ Well, this is quite old school :grimacing:
 2. and open the index.html in your favourite browser.
 
 Easy, isn't it?
+
+## :wand: :magic: How to compile the CSS ##
+
