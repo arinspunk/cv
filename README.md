@@ -68,7 +68,7 @@ If you want to test it, follow this instructions:
     npm run compile
     ```
 
-## Licenses ##
+## :copyright: Licenses ##
 
 This project is under [GNU GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.html)
 
