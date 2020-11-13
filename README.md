@@ -72,4 +72,4 @@ If you want to test it, follow this instructions:
 
 This project is under [GNU GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.html)
 
-Sawton, the beautiful font from [Atipo Foundry](https://www.atipofoundry.com), is under [its own license](https://www.atipofoundry.com/license). If you want use it you need to [buy it](https://www.atipofoundry.com/fonts/sawton).
+Sawton, the beautiful font from [Atipo Foundry](https://www.atipofoundry.com), is under [its own license](https://www.atipofoundry.com/license). If you want use it, you need to [buy it](https://www.atipofoundry.com/fonts/sawton).
