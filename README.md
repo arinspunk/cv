@@ -23,7 +23,7 @@ Well, this is quite old school :grimacing:
 
 Easy, isn't it?
 
-## How to compile the CSS ##
+## :mage: How to compile the CSS ##
 
 There are many ways to compile CSS but for this project I tested node-sass, a package of node.js that do it really well.
 
