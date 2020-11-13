@@ -67,3 +67,9 @@ If you want to test it, follow this instructions:
     ```sh
     npm run compile
     ```
+
+## Licenses ##
+
+This project is under [GNU GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.html)
+
+Sawton, the beautiful fon from Atipo Foundry is under [its own license](https://www.atipofoundry.com/license). If you want use it you need to [buy it](https://www.atipofoundry.com/fonts/sawton).
