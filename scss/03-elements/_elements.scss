@@ -183,7 +183,7 @@ a {
     &:link {}
     &:visited {
         text-decoration: underline;
-        text-decoration-color: tint($color-link, 60%);
+        text-decoration-color: tint($color-link, 0%);
     }
     &:hover {
         text-decoration: none;

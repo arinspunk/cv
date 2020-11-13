@@ -8,8 +8,8 @@
     right: 0;
     left: 0;
     z-index: 9999;
-    top: -($bu * 7);
-    height: $bu * 7;
+    top: -($bu * 8);
+    height: $bu * 8;
     background-color: $color-paper;
     background-color: var(--color-paper);
     font-size: $p-size-s;
@@ -39,9 +39,9 @@
     &__logo,
     &__menu {
         position: relative;
-        top: 5px;
+        top: 6px;
         @media screen and (min-width: $bp--medium) {
-            top: 10px;
+            top: 8px;
         }  
     }
     &__menu {
@@ -325,7 +325,7 @@
 }
 .c-footer {
     cursor: none;
-    padding: 1000px 0 99px;
+    padding: 1000px 0 54px;
     background-color: $color-deep;
     background-color: var(--color-deep);
     &__credits,
@@ -353,7 +353,7 @@
     }
     &__menu-item {
         display: inline-block;
-        margin-right: 20px;
+        margin-right: 15px;
         @media screen and (min-width: $bp--large) {
             margin-right: 40px;
         }
