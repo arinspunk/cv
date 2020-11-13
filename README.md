@@ -1,6 +1,6 @@
-# A simple personal site #
+# :bowtie: A simple personal site #
 
-Hi, this is the code of my personal site. Really It's quite simple and it was made with HTML, CSS (SCSS) and some JavaScript, but inside it there are some features that maybe could interest you:
+Hi, this is the code of [my personal site](https://xulioze.com/). Really It's quite simple and it was made with HTML, CSS (SCSS) and some JavaScript, but inside it there are some features that maybe could interest you:
 
 *  I've used [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (and its fallbacks).
 *  For the classes names I've followed [BEM methodology](http://getbem.com/).
