@@ -323,15 +323,120 @@
         }  
     }
 }
+.c-abism {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2000px;
+    background-color: $color-deep;
+    background-color: var(--color-deep);
+    &__fish-wrap {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:hover {
+            @include keyframes(fish) {
+                10% {
+                    $fish-size: 240px;
+                    width: $fish-size;
+                    height: $fish-size;
+                    max-width: $fish-size;
+                    opacity: 1;
+                }
+                15% {
+                    $fish-size: 200px;
+                    width: $fish-size;
+                    height: $fish-size;
+                    max-width: $fish-size;
+                }
+                20% {
+                    $fish-size: 220px;
+                    width: $fish-size;
+                    height: $fish-size;
+                    max-width: $fish-size;
+                }
+                100% {
+                    $fish-size: 220px;
+                    width: $fish-size;
+                    height: $fish-size;
+                    max-width: $fish-size;
+                    opacity: 1;
+                }
+            }
+            .c-abism__fish {
+                @include animation(1.7s ease-in fish forwards); 
+            }
+            .c-abism__fish-light {
+                animation-play-state: paused;
+                opacity: 0;
+            }
+            .c-abism__text {
+                font-family: $fonts-sans-alt;
+                font-family: var(--fonts-sans-alt);
+                opacity: 1;
+                @include rotate(5deg);
+            }
+        }
+    }
+    @include keyframes(pulse) {
+        60% {
+            width: 5px;
+            height: 5px;
+            filter: blur(3px);
+        }
+        100% {
+            width: 1px;
+            height: 1px; 
+            filter: blur(1px);
+        }
+    }
+    &__fish {
+        $fish-size: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: $fish-size;
+        height: $fish-size;
+        max-width: $fish-size;
+        opacity: 0;
+        @include translate(-50%,-50%);
+        @include transition(.1s ease);
+    }
+    &__fish-light {
+        width: 1px;
+        height: 1px;
+        border-radius: 100%;
+        background-color: $color-light;
+        background-color: var(--color-light);
+        filter: blur(1px);
+        @include animation(3s ease pulse infinite); 
+        @include transition(.3s ease);
+    }
+    &__text {
+        position: absolute;
+        bottom: -110px;
+        left: 0;
+        color: $color-light;
+        color: var(--color-light);
+        opacity: 0;
+        width: 150px;
+        @include transition(.1s ease .1s);
+    }
+}
 .c-footer {
+    display: flex;
+    align-items: center;
+    height: $bu * 12;
     cursor: none;
-    padding: 1000px 0 54px;
     background-color: $color-deep;
     background-color: var(--color-deep);
     &__credits,
     &__menu {
         position: relative;
-        top: 10px;
         margin: 0;
         color: $color-link;
         color: var(--color-link)
