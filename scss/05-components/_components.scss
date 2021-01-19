@@ -20,7 +20,7 @@
             top: 0;
         }
     }
-    @include animation(.5s ease header-appears forwards .75s); 
+    @include animation(.25s ease header-appears forwards .375s); 
     @media screen and (min-width: $bp--medium) {
         font-size: $p-size-m;
         font-size: var(--p-size-m);
@@ -104,7 +104,7 @@
                 @include translate(0%,0%);
             }
         }
-        @include animation(1s ease appears-text forwards 1.5s); 
+        @include animation(.5s ease appears-text forwards .75s); 
     }
     &__cite {
         margin: 0 0 50px;
@@ -139,7 +139,7 @@
                 @include translate(-50%,-50%);
             }
         }
-        @include animation(2s ease sunrise forwards); 
+        @include animation(1s ease sunrise forwards); 
         @media screen and (min-width: $bp--medium) {
             height: 360px;
             width: 360px;
