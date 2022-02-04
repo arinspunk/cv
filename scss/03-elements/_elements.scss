@@ -111,6 +111,9 @@ h2, .h2 {
         @media screen and (min-width: $bp--large) {
             display: none;
         }  
+        .blog & {
+            display: none;
+        }
     }
     &.negative:before {
         background-color: $color-deep;
@@ -179,6 +182,13 @@ p, ul, ol, pre, code, .gist {
         font-size: $p-size-l;
         font-size: var(--p-size-l);
         margin-bottom: 30px;
+    }  
+}
+
+ul, ol {
+    padding: 0 0 0 20px;
+    @media screen and (min-width: $bp--medium) {
+        padding: 0;
     }  
 }
 
