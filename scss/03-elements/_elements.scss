@@ -14,8 +14,6 @@ html {
 
 body {
     height: 100%;
-    background-color: $color-deep; 
-    background-color: var(--color-deep);
     font-family: $fonts-sans;
     font-family: var(--fonts-sans);
     font-size: 1rem;
@@ -35,11 +33,12 @@ body {
         line-height: $p-lh-l;
         line-height: var(--p-lh-l);
     }  
-}
-
-body > article {
-    background-color: $color-paper; 
-    background-color: var(--color-paper);
+    &.blog {
+        background-color: $color-deep; 
+        background-color: var(--color-deep);
+        color: $color-paper;
+        color: var(--color-paper);
+    }
 }
 
 img {
@@ -80,13 +79,20 @@ h1, .h1 {
     }  
 }
 
+.h1 {
+    &--blog {
+        @media screen and (min-width: $bp--xlarge) {
+            margin: 0 0 55px;
+        }  
+    }
+}
+
 h2, .h2 {
     position: relative;
     font-size: $h2-size-s;
     font-size: var(--h2-size-s);
     line-height: $h2-lh-s;
     line-height: var(--h2-lh-s);
-    padding-top: 245px;
     margin-top: 0;
     margin-bottom: 28px;
     &:before {
@@ -124,7 +130,7 @@ h2, .h2 {
         font-size: var(--h2-size-l);
         line-height: $h2-lh-l;
         line-height: var(--h2-lh-l);
-        margin-bottom: 50px;
+        margin: 60px 0 30px;
     }  
 }
 
@@ -159,7 +165,7 @@ h3, .h3 {
     }  
 }
 
-p, ul, ol {
+p, ul, ol, pre, code, .gist {
     font-size: $p-size-s;
     font-size: var(--p-size-s);
     font-variant-ligatures: common-ligatures;
@@ -177,11 +183,26 @@ p, ul, ol {
     }  
 }
 
+code {
+    font-family: $font-mono;
+    font-size: 16px;
+    color: $color-code;
+    background-color: $color-terminal;
+    border-radius: 3px;
+    padding: 0 6px;
+    @media screen and (min-width: $bp--medium) {
+        font-size: 18px;
+    }  
+    @media screen and (min-width: $bp--xlarge) {
+        font-size: 18.5px;
+    }  
+}
+
 a {
     text-decoration: underline;
     color: $color-ink;
     color: var(--color-ink);
-    text-decoration-thickness: 0.0625em;
+    //text-decoration-thickness: 0.0625em;
     text-underline-offset: .15em;
     text-decoration-color: tint($color-link, 0%);
     text-decoration-skip-ink: auto;
@@ -202,4 +223,8 @@ a {
     }
     &:focus {}
     &:active {}
+    .blog & {
+        color: $color-paper;
+        color: var(--color-paper);
+    }
 }

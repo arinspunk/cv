@@ -36,6 +36,10 @@
     &--hide {
         @include translateY(-100%);
     } 
+    &--blog {
+        background-color: $color-deep; 
+        background-color: var(--color-deep);
+    }
     &__logo,
     &__menu {
         position: relative;
@@ -43,6 +47,9 @@
         @media screen and (min-width: $bp--medium) {
             top: 8px;
         }  
+    }
+    &__logo-link {
+        text-decoration: none;
     }
     &__menu {
         float: right;
@@ -61,19 +68,16 @@
     }
     &__menu-item {
         display: inline-block;
-        float: right;
-        margin-left: 20px;
-        opacity: .5;
-        &--featured {
-            float: none;
-            margin-left: 0;
-            margin-right: 20px;
-            opacity: 1;
+        margin-right: 30px;
+        &--language {
+            float: right;
+            margin: 0 0 0 20px;
+            opacity: .5;
         }
     }
     &__menu-link {
         text-decoration: none;
-        text-decoration-thickness: 0.0625em !important;
+        //text-decoration-thickness: 0.0625em !important;
         &:hover {
             text-decoration: underline;
         }
@@ -95,6 +99,9 @@
     @media screen and (min-width: $bp--xlarge) {
         padding-top: 242px;
     }
+    &--blog {
+        margin-bottom: 60px;
+    }
     &__text {
         opacity: 0;
         z-index: 10;
@@ -106,6 +113,11 @@
             }
         }
         @include animation(.5s ease appears-text forwards .75s); 
+        &--blog {
+            opacity: 1;
+            animation: none;
+            @include translate(0%,0%);
+        }
     }
     &__cite {
         margin: 0 0 50px;
@@ -228,6 +240,15 @@
         }
     }
 }
+.c-skills {
+    margin-top: 69px;
+    @media screen and (min-width: $bp--medium) {
+        margin-top: 77px;
+    }  
+    @media screen and (min-width: $bp--large) {
+        margin-top: 182px;
+    }
+}
 .c-history {
     margin-top: 69px;
     @media screen and (min-width: $bp--medium) {
@@ -237,7 +258,7 @@
         margin-top: 182px;
     }  
     @media screen and (min-width: $bp--xlarge) {
-        margin-top: 282px;
+        margin-top: 212px;
     }  
     &__ocean {
         position: relative;
@@ -432,18 +453,20 @@
     display: flex;
     align-items: center;
     padding: 32px 0;
-    cursor: none;
     background-color: $color-deep;
     background-color: var(--color-deep);
     @media screen and (min-width: $bp--medium) {
         height: $bu * 12;
     }
+    &--blog {
+        margin-top: 200px;
+    }
     &__credits,
     &__menu {
         position: relative;
         margin: 0;
-        color: $color-link;
-        color: var(--color-link)
+        color: $color-paper;
+        color: var(--color-paper);
     }
     &__menu {
         margin-bottom: 25px;
@@ -465,14 +488,12 @@
         }
     }
     &__menu-link {
-        //cursor: none;
         display: block;
-        color: $color-link;
-        color: var(--color-link);
+        color: $color-paper;
+        color: var(--color-paper);
+        text-decoration: none;
         &:hover {
-            color: $color-light;
-            color: var(--color-light);
-            text-decoration: none;
+            text-decoration: underline;
         }
     }
     &__menu-link-arrow {
@@ -481,6 +502,24 @@
         top: -3px;
         left: -1px;
         @include rotate(-45deg);
+    }
+}
+.c-article {
+    margin-bottom: 50px;
+    &:first-of-type {
+        margin-top: 80px;
+    }
+    &__title {
+        margin: 0;
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+    &__link {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 .appears {

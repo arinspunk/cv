@@ -30,6 +30,8 @@ $color-link: #0000FF;
 $color-deep: #00000B;
 $color-light: #00FFF3;
 $color-sun: #FFE600;
+$color-terminal: #1c1c3d;
+$color-code: #e6e6ff;
 
 :root {
   --color-paper: #{$color-paper};
@@ -38,6 +40,7 @@ $color-sun: #FFE600;
   --color-deep: #{$color-deep};
   --color-light: #{$color-light};
   --color-sun: #{$color-sun};
+  --color-code: #{$color-code};
 }
 
 /* Fonts */
@@ -47,6 +50,7 @@ $fonts-base-serif: Georgia, 'Times New Roman', Times, serif;
 $fonts-sans: 'sawton_industrialthin', $fonts-base-sans; 
 $fonts-sans-alt: 'sawton_bauhausthin', $fonts-base-sans; 
 $fonts-serif: $fonts-base-serif; /* No web fonts specified for Serif */
+$font-mono: 'Space Mono', monospace;
 
 :root {
   --fonts-base-sans: #{$fonts-base-sans};
@@ -55,6 +59,7 @@ $fonts-serif: $fonts-base-serif; /* No web fonts specified for Serif */
   --fonts-sans: #{$fonts-sans};
   --fonts-sans-alt: #{$fonts-sans-alt};
   --fonts-serif: #{$fonts-serif};
+  --font-mono: #{$font-mono};
 }
 
 /* Text sizing */
