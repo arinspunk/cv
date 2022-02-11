@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Meta info -->
-	<title>Frontity y Custom Page Templates - Xúlio Zé</title>
-	<meta property="og:title" content="Frontity y Custom Page Templates - Xúlio Zé">
-	<meta name="twitter:title" content="Frontity y Custom Page Templates - Xúlio Zé">
-	<meta itemprop="name" content="Frontity y Custom Page Templates - Xúlio Zé">       
-	<meta name="description" content="Cómo crear Custom Page Templates en Wordpress y usar un layout específico para ellas en Frontity">
-	<meta property="og:description" content="Cómo crear Custom Page Templates en Wordpress y usar un layout específico para ellas en Frontity">
-	<meta name="twitter:description" content="Cómo crear Custom Page Templates en Wordpress y usar un layout específico para ellas en Frontity">
-	<meta itemprop="description" content="Cómo crear Custom Page Templates en Wordpress y usar un layout específico para ellas en Frontity">
+	<title>Custom Page Templates en Frontity - Xúlio Zé</title>
+	<meta property="og:title" content="Custom Page Templates en Frontity - Xúlio Zé">
+	<meta name="twitter:title" content="Custom Page Templates en Frontity - Xúlio Zé">
+	<meta itemprop="name" content="Custom Page Templates en Frontity - Xúlio Zé">       
+	<meta name="description" content="Cómo crear Custom Page Templates en Wordpress y desarrollar sus layouts en Frontity">
+	<meta property="og:description" content="Cómo crear Custom Page Templates en Wordpress y desarrollar sus layouts en Frontity">
+	<meta name="twitter:description" content="Cómo crear Custom Page Templates en Wordpress y desarrollar sus layouts en Frontity">
+	<meta itemprop="description" content="Cómo crear Custom Page Templates en Wordpress y desarrollar sus layouts en Frontity">
 	<link rel="canonical" href="http://xulioze.com/blog/frontity-custom-page-templates.html">
 	<meta property="og:url" content="http://xulioze.com/blog/frontity-custom-page-templates.html">
 	<meta name="twitter:url" content="http://xulioze.com/blog/frontity-custom-page-templates.html">
@@ -30,7 +30,7 @@
     <meta name="google" content="nositelinkssearchbox">
 
     <!-- iOS -->
-    <meta name="apple-mobile-web-app-title" content="Frontity y Custom Page Templates - Xúlio Zé">
+    <meta name="apple-mobile-web-app-title" content="Custom Page Templates en Frontity - Xúlio Zé">
     <meta name="format-detection" content="telephone=no">
 
     <!-- Favicons -->
@@ -98,13 +98,13 @@
 			</header>
 			<div class="c-info__content o-block o-block--center">
 				<p>
-					Los <a href="https://developer.wordpress.org/themes/template-files-section/page-template-files/#creating-custom-page-templates-for-global-use" title="documentación oficial de Wordpress" target="_blank" rel="noopener">Custom Page Templates</a> son el mecanismo del que disponemos en Wordpress para crear plantillas globales con diseños específicos que se pueden aplicar a una o varias páginas.
+					Las <a href="https://developer.wordpress.org/themes/template-files-section/page-template-files/#creating-custom-page-templates-for-global-use" title="documentación oficial de Wordpress" target="_blank" rel="noopener">Custom Page Templates</a> son el mecanismo del que disponemos en Wordpress para crear plantillas globales con diseños específicos que se pueden aplicar a una o varias páginas.
 				</p>
 				<p>
 					Por ejemplo, si en un site necesitamos dos tipos de página: una a una columna y otra con dos (contenido principal y barra lateral), una buena opción es usar la página por defecto, <code>page.php</code>, para la primera y crear un template, <code>sidebar-page.php</code>, para la segunda. De esta forma, para cada nueva página, podemos elegir uno u otro diseño desde el editor.
 				</p>
 				<p>
-					¿Y en <a href="https://frontity.org/" title="Site del framework" target="_blank" rel="noopener">Frontity</a>, donde el front no se genera a partir de los templates en php del theme de Wordpress si no desde una app en React? Pues los Custom Page Templates continuan siendo la mejor opción para trabajar con múltiples diseños de página porque permiten:
+					¿Y en <a href="https://frontity.org/" title="Site del framework" target="_blank" rel="noopener">Frontity</a>, donde el front no se genera a partir de los templates en php del theme de Wordpress si no desde una app en React? Pues las Custom Page Templates continuan siendo la mejor opción para trabajar con múltiples diseños de página porque permiten:
 				</p>
 				<ul>
 					<li>
@@ -168,7 +168,7 @@
 					</li>
 				</ol>
 				<p>
-					En el primero incluimos un <code>Switch</code> que sirve el segundo, <code>PageDefault</code>, o el tercero, <code>PageTemplate</code>, en función del valor de la propiedad <code>template</code> que aparece en los datos de la página del state de Frontity.
+					En el primero incluimos un <code>Switch</code> que sirve el segundo, <code>PageDefault</code>, o el tercero, <code>PageTemplate</code>, en función del valor de la propiedad <code>template</code> que aparece en los datos de la página del state de Frontity. Si la página publicada en Wordpress usa la plantilla de página por defecto, este valor llegará vacío y si usa una custom, vendrá con el nombre del archivo de la plantilla, <code>custom-page-template.php</code> en nuestro caso.
 				</p>
 				<script src="https://gist.github.com/arinspunk/dbe49b71f4ab06ad1b872beb0b02d53d.js"></script>
 				<p>
