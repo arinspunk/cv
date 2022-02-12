@@ -545,9 +545,9 @@
     }
 }
 .c-message {
-    // display: inline-block;
+    display: block;
     margin: 40px 0 0;
-    padding: 18.58px 20px;
+    padding: 18.58px 15px;
     border-radius: 2.5px;
     background-color: $color-link;
     background-color: var(--color-link);
@@ -556,12 +556,11 @@
     text-align: center;
     font-size: $p-size-s;
     font-size: var(--p-size-s);
-    &__link{
+    span {
         text-decoration: underline;
-        &:visited {
-            text-decoration: underline;
-        }
-        &:hover {
+    }
+    &:hover {
+        span {
             text-decoration: none;
         }
     }
