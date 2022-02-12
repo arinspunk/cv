@@ -140,6 +140,10 @@
             padding: 0;
         }  
     }
+    &__time {
+        font-size: $p-size-s;
+        font-size: var(--p-size-s);
+    }
     &__sun {
         position: absolute;
         top: 50%;
@@ -543,16 +547,20 @@
 .c-message {
     // display: inline-block;
     margin: 40px 0 0;
-    padding: 18.58px 30px;
+    padding: 18.58px 20px;
     border-radius: 2.5px;
     background-color: $color-link;
     background-color: var(--color-link);
     color: $color-paper;
     color: var(--color-paper);
     text-align: center;
-    &__link,
-    &__link:visited {
+    font-size: $p-size-s;
+    font-size: var(--p-size-s);
+    &__link{
         text-decoration: underline;
+        &:visited {
+            text-decoration: underline;
+        }
         &:hover {
             text-decoration: none;
         }
