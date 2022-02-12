@@ -540,6 +540,24 @@
         }
     }
 }
+.c-message {
+    // display: inline-block;
+    margin: 40px 0 0;
+    padding: 18.58px 30px;
+    border-radius: 2.5px;
+    background-color: $color-link;
+    background-color: var(--color-link);
+    color: $color-paper;
+    color: var(--color-paper);
+    text-align: center;
+    &__link,
+    &__link:visited {
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
 .appears {
     opacity: 0;
     @include translateY(120px);
