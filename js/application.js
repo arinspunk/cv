@@ -5,6 +5,16 @@ let totalWidth = window.innerWidth
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Footer Copyright Year 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+const currentDate = new Date()
+const year = currentDate.getFullYear()
+const footerYear = document.querySelector('.c-footer__year')
+footerYear.textContent += year
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Detect Scroll Down/Up
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

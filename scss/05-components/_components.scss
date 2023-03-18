@@ -83,7 +83,6 @@
     }
     &__menu-link {
         text-decoration: none;
-        //text-decoration-thickness: 0.0625em !important;
         &:hover {
             text-decoration: underline;
         }
@@ -92,6 +91,33 @@
             text-decoration-color: tint($color-link, 0%);
             &:hover {
                 text-decoration-color: tint($color-link, 100%);
+            }
+        }
+        &--btn {
+            padding: 1px 5px;
+            border: 1.5px solid $color-link;
+            border-radius: 4px;
+            color: $color-link;
+            color: var(--color-link);
+            transition: .3s ease;
+            @media screen and (min-width: $bp--large) {
+                padding: 2px 6px;
+                border: 2px solid tint($color-link, 0%);
+            }  
+            &:hover {
+                text-decoration: none;
+                background-color: $color-link;
+                background-color: var(--color-link);
+                color: $color-paper;
+                color: var(--color-paper);
+            }
+            .blog & {
+                color: $color-link;
+                color: var(--color-link);
+                &:hover {
+                    color: $color-paper;
+                    color: var(--color-paper);
+                }
             }
         }
     }
@@ -260,15 +286,20 @@
     }
 }
 .c-history {
-    margin-top: 69px;
+    margin-top: 45px;
+    padding-top: 56px;
+    background-color: #fff7f1;
     @media screen and (min-width: $bp--medium) {
-        margin-top: 77px;
+        margin-top: 53px;
+        padding-top: 72px;
     }  
     @media screen and (min-width: $bp--large) {
-        margin-top: 182px;
+        margin-top: 102px;
+        padding-top: 80px;
     }  
     @media screen and (min-width: $bp--xlarge) {
-        margin-top: 212px;
+        margin-top: 124px;
+        padding-top: 88px;
     }  
     &__ocean {
         position: relative;
