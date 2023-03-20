@@ -74,7 +74,7 @@
         }  
         &--language {
             float: right;
-            margin: 0;
+            margin: 0 0 0 3px;
             opacity: .5;
             @media screen and (min-width: $bp--medium) {
                 margin: 0 0 0 20px;
@@ -385,6 +385,20 @@
             margin-bottom: 112px;
         }  
     }
+    &__subtitle {
+        transition: .15s ease;
+        &--fixed {
+            @media screen and (min-width: $bp--large) {
+                position: fixed;
+                top: 60px;
+            }  
+        }
+        &--fixed-out {
+            @media screen and (min-width: $bp--large) {
+                top: -60px;
+            }  
+        }
+    }
 }
 .c-abism {
     display: flex;
@@ -602,6 +616,6 @@
     @include transition(1s ease);
     &--in {
         opacity: 1;
-        @include translateY(0);
+        transform: none;
     }
 }
