@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Custom Page Templates em Frontity - Xúlio Zé</title>
+	<meta property="og:title" content="Custom Page Templates em Frontity - Xúlio Zé">
+	<meta name="twitter:title" content="Custom Page Templates em Frontity - Xúlio Zé">
+	<meta itemprop="name" content="Custom Page Templates em Frontity - Xúlio Zé">       
+	<meta name="description" content="Como criar Custom Page Templates no Wordpress e desenvolver os seus layouts em Frontity">
+	<meta property="og:description" content="Como criar Custom Page Templates no Wordpress e desenvolver os seus layouts em Frontity">
+	<meta name="twitter:description" content="Como criar Custom Page Templates no Wordpress e desenvolver os seus layouts em Frontity">
+	<meta itemprop="description" content="Como criar Custom Page Templates no Wordpress e desenvolver os seus layouts em Frontity">
+	<link rel="canonical" href="http://xulioze.com/pt/blogue/frontity-custom-page-templates.html">
+	<meta property="og:url" content="http://xulioze.com/pt/blogue/frontity-custom-page-templates.html">
+	<meta name="twitter:url" content="http://xulioze.com/pt/blogue/frontity-custom-page-templates.html">
+	<meta property="og:image" content="../../img/xulio-ze-frontity.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="../../img/xulio-ze-frontity.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="../../img/xulio-ze-frontity.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2020 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Custom Page Templates em Frontity - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article>
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="vuelve a mi CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/frontity-custom-page-templates.html" title="Versión en español">
+								Español
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../cv.html" title="o meu curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blogue.html" title="aqui falo de cousas">
+								Blogue
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="mailto:ola@xulioze.com" title="Escreve-me um email">
+								Falamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<article class="o-wrap o-wrap--center">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Custom Page Templates em Frontity? Vigentes e muito simples
+				</h1>
+				Publicado o <time datetime="2022-01-28 12:00:00">3 de fevereiro de 2022</time>
+				<a href="../../blog/frontity-custom-page-templates.html" class="c-message">
+					🐙 Puedes leer este post en <span>español</span>.
+				</a>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+				<p>
+					As <a href="https://developer.wordpress.org/themes/template-files-section/page-template-files/#creating-custom-page-templates-for-global-use" title="documentación oficial de Wordpress" target="_blank" rel="noopener">Custom Page Templates</a> são o mecanismo do que dispomos em Wordpress para criarmos templates globais com designs específicos que podem se aplicar a uma ou mais páginas.
+				</p>
+				<p>
+					Por exemplo, se num site precisamos de dous tipos de página: uma a uma coluna e outra com duas (conteúdo principal y coluna lateral), uma boa opção é usarmos a página por defeito, <code>page.php</code>, para a primeira e criarmos um template, <code>sidebar-page.php</code>, para a segunda. Deste jeito, para cada nova página, podemos eleger um ou outro layout desde o editor.
+				</p>
+				<p>
+					E em <a href="https://frontity.org/" title="Site del framework" target="_blank" rel="noopener">Frontity</a>, onde o frontend não se gera com os templates em php do theme de Wordpress senão desde uma app em React? Pois as Custom Page Templates continuam a ser a melhor opção para trabalharmos com múltiples designs de página porque permitem:
+				</p>
+				<ul>
+					<li>
+						selecionar o design desejado desde o editor duma página,
+					</li>
+					<li>
+						atribuir-lhes grupos de campos <a href="https://www.advancedcustomfields.com/" title="página oficial del plugin" target="_blank" rel="noopener">ACF</a>, extendendo as posibilidades de edição,
+					</li>
+					<li>
+						que na REST API (e no <a href="https://gitbook-docs.frontity.org/learning-frontity/state" title="Descripción en la documentación de Frontity" target="_blank" rel="noopener">state</a> de Frontity) apareça o nome do arqivo do template atribuido a uma página, facilitando a Frontity servir o layout correcto em cada caso.
+					</li>
+				</ul>
+				<p>
+					Vejamos agora o processo completo com um exemplo singelo.
+				</p>
+				<h2>
+					Wordpress
+				</h2>
+				<p>
+					Criamos um arquivo php, <code>custom-page-template.php</code> por exemplo, com um comentário ao início como o seguinte:
+				</p>
+				<script src="https://gist.github.com/arinspunk/c1c7b8d374b0608a64a4f4e63cbb4448.js"></script>
+				<p>
+					“Template name:” é quem lhe indica ao Wordpress que esse ficheiro é uma page template e “My Custom Page Template Name” o nome do nosso novo template, que aparecerá no seletor de templates do editor de cada página.
+				</p>
+				<p>
+					¿Algo mais a fazer? não, isso é tudo na parte do Wordpress 😎
+				</p>
+				<p>
+					Bom, para evitarmos erros (e alguma dor de cabeça) devemos ter en conta que:
+				</p>
+				<ul>
+					<li>
+						As templates personalizadas só funcionan se temos um <code>index.php</code> (pode estar vazio) na raiz do nosso theme de Wordpress,
+					</li>
+					<li>
+						nunca devemos usar <code>page-</code> como prefixo no nome do arquivo, pois o WordPress irá interpretá-lo como uma template especializada destinada a ser aplicada apenas a uma página do site.
+					</li>
+				</ul>
+				<h2>
+					Frontity
+				</h2>
+				<p>
+					Criamos três componentes:
+				</p>
+				<ol>
+					<li>
+						<code>
+							Page
+						</code>
+					</li>
+					<li>
+						<code>
+							PageDefault
+						</code>
+					</li>
+					<li>
+						<code>
+							PageTemplate
+						</code>
+					</li>
+				</ol>
+				<p>
+					No primeiro incluímos um <code>Switch</code> que chama o segundo, <code>PageDefault</code>, ou o terceiro, <code>PageTemplate</code>, em função do valor da propiedade <code>template</code> que aparece nos dados da página do state do Frontity. Se a página publicada em Wordpress utilizar a template da página padrão, este valor chegará vazio e se utilizar uma custom, virá com o nome do ficheiro da template, <code>custom-page-template.php</code> no nosso caso.
+				</p>
+				<script src="https://gist.github.com/arinspunk/dbe49b71f4ab06ad1b872beb0b02d53d.js"></script>
+				<p>
+					E finalmente, na segunda e terceira, incluímos os layouts de ambos os tipos de página.
+				</p>
+				<p>
+					Simples, não é? 
+				</p>
+				<p>Se tiverdes alguma pergunta, achais que há margem para melhorias ou quererdes apenas dizer olá, podeis escrever-me para <a href="mailto:hola@xulioze.com" title="mi email">hola@xulioze.com</a> 😋</p>
+			</div>
+		</article>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Mis repositorios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="Mi email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil de LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>
