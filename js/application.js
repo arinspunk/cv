@@ -2,8 +2,8 @@
 // Footer Copyright Year 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-const footerYear = document.querySelector('.c-footer__year')
-footerYear.textContent += new Date().getFullYear()
+const footerYear = document.querySelector('.c-footer__year');
+footerYear.textContent += new Date().getFullYear();
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -58,24 +58,58 @@ window.addEventListener('scroll', function() {
 // Detect when element appears in viewport 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+// function inViewport(element){
+// 	// Get the elements position relative to the viewport
+// 	let bb = element.getBoundingClientRect()
+// 	// Check if the element is outside the viewport
+// 	// Then invert the returned value because you want to know the opposite
+// 	return !(bb.top > innerHeight || bb.bottom < 0)
+// }
+// let myElement = document.getElementsByClassName('appears')
+// // Listen for the scroll event
+// document.addEventListener( 'scroll', event => {
+// 	var i;
+//  	for (i = 0; i < myElement.length; i++) {
+//  		if( inViewport(myElement[i]) ){
+// 			myElement[i].classList.add('appears--in')
+// 		}
+// 		else {}
+// 	}
+// })
+
+/*
+
+Cache frequently accessed variables: Instead of calling getBoundingClientRect() on each element every time inViewport() is called, you can cache the results in a variable to improve performance.
+
+Use requestAnimationFrame instead of scroll event: The scroll event can be fired many times per second, leading to performance issues, especially on mobile devices. Using requestAnimationFrame can help throttle the number of function calls to only when the browser is ready to paint the screen.
+
+Use classList.toggle() instead of classList.add() and classList.remove(): The classList.toggle() method can simplify the code by toggling the appears--in class on and off with a single method call.
+
+*/
+
 function inViewport(element){
-	// Get the elements position relative to the viewport
-	let bb = element.getBoundingClientRect()
+	// Cache frequently accessed variables
+	const bb = element.getBoundingClientRect();
+	const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 	// Check if the element is outside the viewport
 	// Then invert the returned value because you want to know the opposite
-	return !(bb.top > innerHeight || bb.bottom < 0)
+	return !(bb.top > viewportHeight || bb.bottom < 0);
 }
-let myElement = document.getElementsByClassName('appears')
-// Listen for the scroll event
-document.addEventListener( 'scroll', event => {
-	var i;
- 	for (i = 0; i < myElement.length; i++) {
- 		if( inViewport(myElement[i]) ){
-			myElement[i].classList.add('appears--in')
-		}
-		else {}
-	}
-})
+
+const myElements = document.getElementsByClassName('appears');
+const handleScroll = () => {
+  const visibleElements = Array.from(myElements).filter(inViewport);
+  visibleElements.forEach(element => element.classList.toggle('appears--in', true));
+}
+
+// Throttle scroll event with requestAnimationFrame
+let scrollTimeout;
+document.addEventListener('scroll', () => {
+  if (scrollTimeout) {
+    window.cancelAnimationFrame(scrollTimeout);
+  }
+  scrollTimeout = window.requestAnimationFrame(handleScroll);
+});
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
