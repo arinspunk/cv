@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Construir uma PWA com o ChatGPT - Xúlio Zé</title>
+	<meta property="og:title" content="Construir uma PWA com o ChatGPT - Xúlio Zé">
+	<meta name="twitter:title" content="Construir uma PWA com o ChatGPT - Xúlio Zé">
+	<meta itemprop="name" content="Construir uma PWA com o ChatGPT - Xúlio Zé">       
+	<meta name="description" content="Experimentando o ChatGPT antes que ele nos mande para o desemprego">
+	<meta property="og:description" content="Experimentando o ChatGPT antes que ele nos mande para o desemprego">
+	<meta name="twitter:description" content="Experimentando o ChatGPT antes que ele nos mande para o desemprego">
+	<meta itemprop="description" content="Experimentando o ChatGPT antes que ele nos mande para o desemprego">
+	<link rel="canonical" href="https://xulioze.com/pt/blogue/construir-pwa-com-chatgpt.html">
+	<meta property="og:url" content="https://xulioze.com/pt/blogue/construir-pwa-com-chatgpt.html">
+	<meta name="twitter:url" content="https://xulioze.com/pt/blogue/construir-pwa-com-chatgpt.html">
+	<meta property="og:image" content="../../img/xulio-ze-frontity.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="../../img/xulio-ze-frontity.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="../../img/xulio-ze-frontity.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2023 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Construir uma PWA com o ChatGPT - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="vuelve a mi CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/frontity-custom-page-templates.html" title="Versión en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../cv.html" title="o meu curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blogue.html" title="aqui falo de cousas">
+								Blogue
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="mailto:ola@xulioze.com" title="Escreve-me um email">
+								Falamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Como construir uma PWA com o ChatGPT antes que ele nos mande para o desemprego.
+				</h1>
+				Publicado o <time datetime="2022-01-28 12:00:00">14 de abril de 2023</time>
+				<a href="../../blog/construir-pwa-con-chatgpt.html" class="c-message">
+					🐙 Puedes leer este post en <span>español</span>.
+				</a>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+				<p>
+					A primeira IA que usei (conscientemente) foi a Midjourney: escrever um prompt, pressionar enter, esperar um instante e a imagem surgia do nada. Linda, sofisticada e estranha. Foi como presenciar um ato mágico.
+				</p>
+				<p>
+					Depois experimentei o Dall·E e o Stable Diffusion, igualmente espetaculares, mas no final o tédio venceu a magia. Não achei utilidade para mim, prefiro <a href="https://twitter.com/naia_ze/status/1621621795907420162" title="fio em Twitter" target="_blank" rel="noopener">gerar imagens do meu jeito</a>.
+				</p>
+				<p>
+					Os meses passaram e deixou-se de falar tanto sobre elas, havia novo brinquedo, o Chat GPT.
+				</p>
+				<p>
+					Demorei para usá-lo, mas a semana passada copiei um snippet de JavaScript de um site antigo, colei-o na caixa do chat e perguntei: "Could you optimize this code snippet?"" E o texto foi crescendo enquanto dizia, claro, você pode melhorar isso com aquilo, e aquilo com isso, etc. Deixo um exemplo para você. O exemplo fazia sentido e funcionava. Novamente um ato aparentemente mágico. Novamente a emoção. Mas agora também uma sensação diferente, um pouco de medo.
+				</p>
+				<p>
+					You're fired!
+				</p>
+				<p>
+					Só um pouquinho. A verdade é que não acredito em magia (exceto na de <a href="https://www.nytimes.com/2023/01/02/magazine/juan-tamariz-magic.html" title="The Man Who Made Spain the Magic Capital of the World - NYT" target="_blank" rel="noopener">Tamariz</a>), já vi gastar o adjetivo disruptivo na primeira década do século e a melhor maneira de perder o medo de algo é conhecê-lo.
+				</p>
+				<p>
+					Mãos à obra. Vamos pedir ao chatGPT se ele pode escrever para nós uma PWA com a que conhecermos o clima da nossa vila, antes de nos enviar direitinhas ao desemprego.
+				</p>
+				<p>Começamos com uma petição singela:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="primeira pergunta a chatGPT e a sua resposta">
+				<p>
+					E na resposta obtemos um marcado HTML, um snippet de JS e uma explicação detalhada de todo o código.
+				</p>
+				<p>
+					Sustituimos o <code>your_openweathermap_api_key_here</code> por uma key válida da API OpenWeatherMap e funciona. O único por corregir seria temperatura da cidade, pois indica que são graus Celsius, mas realmente o valor está em Kelvin.
+				</p>
+				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="chatGPT 01" src="https://codepen.io/arinspunk/embed/GRYpLrL?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/GRYpLrL">
+					chatGPT 01</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>Se o nome cidade não existe na base de dados da API, Portox por exemplo, obtemos um erro no fetch à API (com a mensagem que passamos no código: Failed to fetch weather data for Sevilhax). Também acontece que se várias cidades partilham o nome, os dados que vemos pertencem a só uma delas. Por exemplo há Porto em Portugal, Brasil e na Espanha, mas só vemos o tempo do Porto português.</p>
+				<p>Vamos ver se chatGPT pode melhorar isto:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pergunta a chatGPT e a sua resposta">
+				<p>Desta vez acho que o chatGPT não acertou. O único que fez foi comprobar se a cidade existe antes de fazer o fetch à API, mas para o usuário não faz diferência com a versão anterior, agás a troca de mensagem, e não solucionamos o problema das cidades com igual nome.</p>
+				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/qBJOzJX?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/qBJOzJX">
+					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>Vamos seguir:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça pergunta a chatGPT e a sua resposta">
+				<p>Vaia, agora esqueceu-se de disponibilizar o HTML de exemplo com a nova <code>ul</code> de <code>id</code> <code>cityList</code>.</p>
+				<p>E ainda que a lista aparece de forma correcta para cidades de mesmo nome, não podemos clicar nelas, obtendo como resultado os dados de só uma delas ao premermos no botão "Search".</p>
+				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/oNajrao?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/oNajrao">
+					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				  q</iframe>
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Mis repositorios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="Mi email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil de LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>
