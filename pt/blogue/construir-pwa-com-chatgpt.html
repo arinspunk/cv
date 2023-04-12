@@ -119,39 +119,39 @@
 					Só um pouquinho. A verdade é que não acredito em magia (exceto na de <a href="https://www.nytimes.com/2023/01/02/magazine/juan-tamariz-magic.html" title="The Man Who Made Spain the Magic Capital of the World - NYT" target="_blank" rel="noopener">Tamariz</a>), já vi gastar o adjetivo disruptivo na primeira década do século e a melhor maneira de perder o medo de algo é conhecê-lo.
 				</p>
 				<p>
-					Mãos à obra. Vamos pedir ao chatGPT se ele pode escrever para nós uma PWA com a que conhecermos o clima da nossa vila, antes de nos enviar direitinhas ao desemprego.
+					Mãos à obra. Vamos pedir ao ChatGPT se ele pode escrever para nós uma PWA com a que conhecermos o clima da nossa vila, antes de nos enviar direitinhas ao desemprego.
 				</p>
-				<p>Começamos com uma petição singela:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="primeira pergunta a chatGPT e a sua resposta">
+				<p>Começamos com uma petição simples:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="primeira pergunta a ChatGPT e a sua resposta">
 				<p>
-					E na resposta obtemos um marcado HTML, um snippet de JS e uma explicação detalhada de todo o código.
+					E na resposta obtemos um HTML, um snippet de JS e uma explicação detalhada de todo o código.
 				</p>
 				<p>
-					Sustituimos o <code>your_openweathermap_api_key_here</code> por uma key válida da API OpenWeatherMap e funciona. O único por corregir seria temperatura da cidade, pois indica que são graus Celsius, mas realmente o valor está em Kelvin.
+					Sustituimos o <code>your_openweathermap_api_key_here</code> por uma key válida da API OpenWeatherMap e o código funciona. A única correção necessária seria a temperatura da cidade, pois indica que está em graus Celsius, mas na realidade o valor está em Kelvin.
 				</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="chatGPT 01" src="https://codepen.io/arinspunk/embed/GRYpLrL?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/GRYpLrL">
 					chatGPT 01</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Se o nome cidade não existe na base de dados da API, Portox por exemplo, obtemos um erro no fetch à API (com a mensagem que passamos no código: Failed to fetch weather data for Sevilhax). Também acontece que se várias cidades partilham o nome, os dados que vemos pertencem a só uma delas. Por exemplo há Porto em Portugal, Brasil e na Espanha, mas só vemos o tempo do Porto português.</p>
-				<p>Vamos ver se chatGPT pode melhorar isto:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pergunta a chatGPT e a sua resposta">
-				<p>Desta vez acho que o chatGPT não acertou. O único que fez foi comprobar se a cidade existe antes de fazer o fetch à API, mas para o usuário não faz diferência com a versão anterior, agás a troca de mensagem, e não solucionamos o problema das cidades com igual nome.</p>
+				<p>Se o nome cidade não existe na base de dados da API, Portox por exemplo, obtemos um erro no fetch à API (com a mensagem que passamos no código, "Failed to fetch weather data for Sevilhax"). Também ocorre que se várias cidades compartilham o mesmo nome, os dados que vemos pertencem apenas a uma delas. Por exemplo, há cidades chamadas Porto em Portugal, Brasil e Espanha, mas só vemos o clima da cidade do Porto em Portugal.</p>
+				<p>Vamos ver se o ChatGPT pode melhorar isso:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pergunta a ChatGPT e a sua resposta">
+				<p>Desta vez, acho que o ChatGPT não acertou. A única coisa que fez foi verificar se a cidade existe antes de fazer a busca na API, mas para o usuário não faz diferença em relação à versão anterior, exceto pela troca de mensagens, e não resolvemos o problema das cidades com o mesmo nome.</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/qBJOzJX?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/qBJOzJX">
 					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Vamos seguir:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça pergunta a chatGPT e a sua resposta">
-				<p>Vaia, agora esqueceu-se de disponibilizar o HTML de exemplo com a nova <code>ul</code> de <code>id</code> <code>cityList</code>.</p>
-				<p>E ainda que a lista aparece de forma correcta para cidades de mesmo nome, não podemos clicar nelas, obtendo como resultado os dados de só uma delas ao premermos no botão "Search".</p>
+				<p>Vamos continuar:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça pergunta a ChatGPT e a sua resposta">
+				<p>Ops, agora você esqueceu de disponibilizar o exemplo de código HTML com a nova lista <code>ul</code> de <code>id</code> <code>cityList</code>.</p>
+				<p>E embora a lista seja exibida corretamente para cidades com o mesmo nome, não podemos clicar nelas, obtendo como resultado os dados de apenas uma delas ao pressionarmos o botão "Search".</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/oNajrao?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/oNajrao">
 					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
-				  q</iframe>
+				</iframe>
 			</div>
 		</section>
 		
