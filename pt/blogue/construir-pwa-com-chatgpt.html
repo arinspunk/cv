@@ -110,43 +110,40 @@
 					Os meses passaram e deixou-se de falar tanto sobre elas, havia novo brinquedo, o Chat GPT.
 				</p>
 				<p>
-					Demorei para usá-lo, mas a semana passada copiei um snippet de JavaScript de um site antigo, colei-o na caixa do chat e perguntei: "Could you optimize this code snippet?"" E o texto foi crescendo enquanto dizia, claro, você pode melhorar isso com aquilo, e aquilo com isso, etc. Deixo um exemplo para você. O exemplo fazia sentido e funcionava. Novamente um ato aparentemente mágico. Novamente a emoção. Mas agora também uma sensação diferente, um pouco de medo.
+					Demorei para usá-lo, mas a semana passada copiei um snippet de JavaScript de um site antigo, colei-o na caixa do chat e perguntei: "Could you optimize this code snippet?" E o texto foi crescendo enquanto dizia, claro, você pode melhorar isso com aquilo, e aquilo com isso, etc. Deixo um exemplo para você. O exemplo fazia sentido e funcionava. Novamente um ato aparentemente mágico. Novamente a emoção. Mas agora também uma sensação diferente, um pouco de medo.
 				</p>
 				<p>
 					You're fired!
 				</p>
 				<p>
-					Só um pouquinho. A verdade é que não acredito em magia (exceto na de <a href="https://www.nytimes.com/2023/01/02/magazine/juan-tamariz-magic.html" title="The Man Who Made Spain the Magic Capital of the World - NYT" target="_blank" rel="noopener">Tamariz</a>), já vi gastar o adjetivo disruptivo na primeira década do século e a melhor maneira de perder o medo de algo é conhecê-lo.
+					Só um pouquinho. A verdade é que não acredito em magia (exceto na de <a href="https://www.nytimes.com/2023/01/02/magazine/juan-tamariz-magic.html" title="The Man Who Made Spain the Magic Capital of the World - NYT" target="_blank" rel="noopener">Tamariz</a>), já vi gastar o adjetivo disruptivo na primeira década do século e como a melhor maneira de perder o medo de algo é conhecê-lo, pus-me mãos à obra, antes de ele nos enviar direitinhas ao desemprego.
 				</p>
 				<p>
-					Mãos à obra. Vamos pedir ao ChatGPT se ele pode escrever para nós uma PWA com a que conhecermos o clima da nossa vila, antes de nos enviar direitinhas ao desemprego.
+					Hmm… Por onde começar? Bom, a Naia e mais eu temos a ideia de criar uma app meteorológica na que, em troca dos clássicos ícones, mostrar uns desenhos um pouco mais divertidos. Assim que aproveitando a desculpa, escrevi a seguinte pergunta:
 				</p>
-				<p>Começamos com uma petição simples:</p>
 				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="primeira pergunta a ChatGPT e a sua resposta">
 				<p>
-					E na resposta obtemos um HTML, um snippet de JS e uma explicação detalhada de todo o código.
+					Óptimo. Na sua primeira resposta o ChatGPT forneceu um HTML, um snippet de JS e uma explicação detalhada de todo o código.
 				</p>
 				<p>
-					Sustituimos o <code>your_openweathermap_api_key_here</code> por uma key válida da API OpenWeatherMap e o código funciona. A única correção necessária seria a temperatura da cidade, pois indica que está em graus Celsius, mas na realidade o valor está em Kelvin.
+					Sustitui o <code>your_openweathermap_api_key_here</code> por uma key válida da API OpenWeatherMap e funcionou. A única chata salientável seria a temperatura da cidade, pois indicava que estava em graus Celsius, mas na realidade o valor estava em Kelvin.
 				</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="chatGPT 01" src="https://codepen.io/arinspunk/embed/GRYpLrL?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/GRYpLrL">
 					chatGPT 01</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Se o nome cidade não existe na base de dados da API, Portox por exemplo, obtemos um erro no fetch à API (com a mensagem que passamos no código, "Failed to fetch weather data for Sevilhax"). Também ocorre que se várias cidades compartilham o mesmo nome, os dados que vemos pertencem apenas a uma delas. Por exemplo, há cidades chamadas Porto em Portugal, Brasil e Espanha, mas só vemos o clima da cidade do Porto em Portugal.</p>
-				<p>Vamos ver se o ChatGPT pode melhorar isso:</p>
+				<p>Depois de alguma prova mais, observei que se o nome cidade não existia na base de dados da API, Portox por exemplo, obtinha um erro no fetch (com a mensagem que passávamos no código, "Failed to fetch weather data for Sevilhax"). Também ocorria que se várias cidades compartilhavam o mesmo nome, como Porto, que há em Portugal, Brasil e Espanha, os dados que víamos pertenciam apenas a uma delas. Polo que escrevi uma segunda pegunta:</p>
 				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pergunta a ChatGPT e a sua resposta">
-				<p>Desta vez, acho que o ChatGPT não acertou. A única coisa que fez foi verificar se a cidade existe antes de fazer a busca na API, mas para o usuário não faz diferença em relação à versão anterior, exceto pela troca de mensagens, e não resolvemos o problema das cidades com o mesmo nome.</p>
+				<p>Desta vez o ChatGPT não acertou. Ou mais bem sim acertou, mas não era o que eu queria. O que fiz foi verificar se a cidade existia na base de dados antes de lanzar o fetch do tempo, mas para o usuário não fazia diferença em relação à versão anterior, exceto pela troca de mensagens. E ademais nom resolviamos o problema das cidades com o mesmo nome.</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/qBJOzJX?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/qBJOzJX">
 					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Vamos continuar:</p>
+				<p>Mea culpa e nova pergunta com a cabeça nas cidades de mesmo nome:</p>
 				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça pergunta a ChatGPT e a sua resposta">
-				<p>Ops, agora você esqueceu de disponibilizar o exemplo de código HTML com a nova lista <code>ul</code> de <code>id</code> <code>cityList</code>.</p>
-				<p>E embora a lista seja exibida corretamente para cidades com o mesmo nome, não podemos clicar nelas, obtendo como resultado os dados de apenas uma delas ao pressionarmos o botão "Search".</p>
+				<p>Com o código novo conseguia exibir a lista das cidades de mesmo nome, mas não podia clicar nelas, obtendo como resultado os dados de apenas uma ao pressionar o botão "Search".</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/oNajrao?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/oNajrao">
 					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
