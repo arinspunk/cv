@@ -121,7 +121,7 @@
 				<p>
 					Hmm… Por onde começar? Bom, a Naia e mais eu temos a ideia de criar uma app meteorológica na que, em troca dos clássicos ícones, mostrar uns desenhos um pouco mais divertidos. Assim que aproveitando a desculpa, escrevi a seguinte pergunta:
 				</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="primeira pergunta a ChatGPT e a sua resposta">
+				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="primeira pergunta a ChatGPT e a sua resposta" width="655">
 				<p>
 					Óptimo. Na sua primeira resposta o ChatGPT forneceu um HTML, um snippet de JS e uma explicação detalhada de todo o código.
 				</p>
@@ -133,20 +133,43 @@
 					chatGPT 01</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Depois de alguma prova mais, observei que se o nome cidade não existia na base de dados da API, Portox por exemplo, obtinha um erro no fetch (com a mensagem que passávamos no código, "Failed to fetch weather data for Sevilhax"). Também ocorria que se várias cidades compartilhavam o mesmo nome, como Porto, que há em Portugal, Brasil e Espanha, os dados que víamos pertenciam apenas a uma delas. Polo que escrevi uma segunda pegunta:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pergunta a ChatGPT e a sua resposta">
-				<p>Desta vez o ChatGPT não acertou. Ou mais bem sim acertou, mas não era o que eu queria. O que fiz foi verificar se a cidade existia na base de dados antes de lanzar o fetch do tempo, mas para o usuário não fazia diferença em relação à versão anterior, exceto pela troca de mensagens. E ademais nom resolviamos o problema das cidades com o mesmo nome.</p>
+				<p>Depois de alguma prova mais, observei que se o nome cidade não existia na base de dados da API, Portox por exemplo, obtinha um erro no fetch (com a mensagem que passávamos no código, "Failed to fetch weather data for Portox"). Também ocorria que se várias cidades compartilhavam o mesmo nome, como Porto, que há em Portugal, Brasil e Espanha, os dados que víamos pertenciam apenas a uma delas. Polo que escrevi uma segunda pegunta:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pergunta a ChatGPT e a sua resposta" width="655">
+				<p>Desta vez o ChatGPT não acertou. Ou mais bem sim acertou, mas eu não lhe dei o contexto certo pois o que ele fez foi simplesmente verificar se a cidade existia na base de dados antes de lanzar o fetch do tempo, mas para o usuário não fazia diferença em relação à versão anterior, exceto pela troca de mensagens. E ademais nom resolviamos o problema das cidades com o mesmo nome.</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/qBJOzJX?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/qBJOzJX">
 					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Mea culpa e nova pergunta com a cabeça nas cidades de mesmo nome:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça pergunta a ChatGPT e a sua resposta">
+				<p>Mea culpa e nova pergunta. Desta vez focada nas cidades de mesmo nome:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça pergunta a ChatGPT e a sua resposta" width="655">
 				<p>Com o código novo conseguia exibir a lista das cidades de mesmo nome, mas não podia clicar nelas, obtendo como resultado os dados de apenas uma ao pressionar o botão "Search".</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/oNajrao?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/oNajrao">
 					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>Mais outra pergunta:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-04.jpg" alt="quarta pergunta a ChatGPT e a sua resposta" width="655">
+				<p>Agora sim era possivel clicar numa das cidades da lista e ao fazê-lo obtiamos os seus dados meteorológicos.</p>
+				<iframe  class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 04" src="https://codepen.io/arinspunk/embed/abRpbjQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/abRpbjQ">
+					PWA com ChatGPT 04</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>Restavam alguns pontos por polir:</p>
+				<ul>
+					<li>O botão "Search" realmente não servia para nada.</li>
+					<li>A lista deveria desaparecer ao clicarmos numa das opções.</li>
+					<li>Havia que passar a temperatura a Celsius.</li>
+					<li>Estaria bem indicar o nome do país à direita de cada cidade.</li>
+				</ul>
+				<p>Mas neste ponto decidi deixar o piloto automâtico e passar a "modo manual", pois achei mais rápido modificar eu o código que continuar a perguntar. Muito obrigado ChatGPT!</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-05.jpg" alt="quarta pergunta a ChatGPT e a sua resposta" width="655">
+				<p>Eis o resultado final com as "modifciações humanas":</p>
+				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 05" src="https://codepen.io/arinspunk/embed/wvYgBdP?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/wvYgBdP">
+					PWA com ChatGPT 05</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 			</div>
