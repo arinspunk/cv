@@ -111,8 +111,8 @@
                 color: var(--color-paper);
             }
             .blog & {
-                color: $color-link;
-                color: var(--color-link);
+                // color: $color-link;
+                // color: var(--color-link);
                 &:hover {
                     color: $color-paper;
                     color: var(--color-paper);
@@ -602,18 +602,28 @@
         }
     }
 }
+.c-messages {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .c-message {
+    width: calc(50% - 10px);
     display: block;
     margin: 40px 0 0;
     padding: 18.58px 15px;
     border-radius: 2.5px;
-    background-color: $color-link;
-    background-color: var(--color-link);
+    border: 1px solid;
+    border-color: $color-link;
+    border-color: var(--color-link);
+    // background-color: $color-link;
+    // background-color: var(--color-link);
     color: $color-paper;
     color: var(--color-paper);
     text-align: center;
     font-size: $p-size-s;
     font-size: var(--p-size-s);
+    text-decoration: none;
     span {
         text-decoration: underline;
     }

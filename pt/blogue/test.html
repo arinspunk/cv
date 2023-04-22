@@ -1,0 +1,76 @@
+<html>
+    <head></head>
+    <body>
+        <div>
+            <input type="text" id="cityInput" placeholder="Enter a city name">
+            <button id="searchBtn">Search</button>
+          </div>
+          <ul id="cityList"></ul>
+          <div id="weatherDisplay"></div>
+          <script>
+                const API_KEY = "24cd53fa26cd44895683aabf15ea7da4";
+                const cityInput = document.getElementById("cityInput");
+                const searchBtn = document.getElementById("searchBtn");
+                const weatherDisplay = document.getElementById("weatherDisplay");
+                const cityList = document.getElementById("cityList");
+
+                let timeoutId;
+
+                searchBtn.addEventListener("click", function() {
+                const city = cityInput.value;
+                if (city.trim().length == 0) {
+                    alert("Please enter a city name");
+                    return;
+                }
+                
+                fetchWeatherData(city);
+                });
+
+                cityInput.addEventListener("input", function() {
+                const city = cityInput.value;
+                clearTimeout(timeoutId);
+                if (city.trim().length == 0) {
+                    cityList.innerHTML = "";
+                    return;
+                }
+                
+                timeoutId = setTimeout(() => {
+                    fetch(`https://api.openweathermap.org/data/2.5/find?q=${city}&type=like&appid=${API_KEY}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const cities = data.list.map(city => city.name);
+                        displayCityList(cities);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        cityList.innerHTML = "";
+                    });
+                }, 500);
+                });
+
+                function fetchWeatherData(city) {
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
+                    .then(response => response.json())
+                    .then(data => {
+                    const weather = data.weather[0].main;
+                    const temperature = data.main.temp;
+                    const cityName = data.name;
+                    weatherDisplay.innerHTML = `Current weather in ${cityName}: ${weather}, ${temperature} &#8451;`;
+                    })
+                    .catch(error => {
+                    console.error(error);
+                    weatherDisplay.innerHTML = `Failed to fetch weather data for ${city}`;
+                    });
+                }
+
+                function displayCityList(cities) {
+                let html = "";
+                cities.forEach(city => {
+                    html += `<li>${city}</li>`;
+                });
+                cityList.innerHTML = html;
+                }
+
+          </script>
+    </body>
+</html>
