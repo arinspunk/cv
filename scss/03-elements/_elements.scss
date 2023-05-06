@@ -239,6 +239,20 @@ a {
 }
 
 figure {
-    padding: 0;
+    padding: 0 40px;
     margin: 0 0 30px;
+    blockquote {
+        &::before {
+            content: '';
+        }
+        &::after {
+            content: '';
+        }
+    }
+    blockquote, p {
+        margin: 0;
+    }
+}
+figcaption {
+    text-align: right;
 }
