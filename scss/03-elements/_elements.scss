@@ -239,20 +239,20 @@ a {
 }
 
 figure {
-    padding: 0 40px;
-    margin: 0 0 30px;
-    blockquote {
-        &::before {
-            content: '';
-        }
-        &::after {
-            content: '';
-        }
-    }
+    padding: 0 25px;
+    margin: 0 0 25px;
+    @media screen and (min-width: $bp--medium) {
+        padding: 0 40px;
+        margin: 0 0 30px;
+    }  
     blockquote, p {
         margin: 0;
     }
 }
 figcaption {
     text-align: right;
+    @media screen and (min-width: $bp--medium) {
+        padding: 0 40px;
+        margin: 0 0 30px;
+    }  
 }

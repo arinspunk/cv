@@ -57,30 +57,30 @@
 		<header class="c-header c-header--blog">
 			<div class="o-wrap">
 				<div class="c-header__logo o-block">
-					<a class="c-header__logo-link" href="../cv.html" title="vuelve a mi CV">
+					<a class="c-header__logo-link" href="/" title="vuelve a ni CV">
 						XZ
 					</a>
 				</div>
 				<nav class="c-header__menu o-block">
 					<ul class="c-header__menu-list">
 						<li class="c-header__menu-item c-header__menu-item--language">
-							<a class="c-header__menu-link" href="../../blog/construir-pwa-con-chatgpt.html" title="Versión en español">
-								Es
+							<a class="c-header__menu-link" href="../pt/blogue/construir-pwa-com-chatgpt.html" title="Versão em português">
+								Pt
 							</a>
 						</li>
 						<li class="c-header__menu-item">
-							<a class="c-header__menu-link" href="../cv.html" title="o meu curriculum">
+							<a class="c-header__menu-link" href="../index.html" title="mi currículum">
 								CV
 							</a>
 						</li>
 						<li class="c-header__menu-item">
-							<a class="c-header__menu-link" href="../blogue.html" title="aqui falo de cousas">
-								Blogue
+							<a class="c-header__menu-link" href="../blog.html" title="aquí hablo de cosas">
+								Blog
 							</a>
 						</li>
 						<li class="c-header__menu-item">
-							<a class="c-header__menu-link c-header__menu-link--btn" href="mailto:ola@xulioze.com" title="Escreve-me um email">
-								Falamos?
+							<a class="c-header__menu-link c-header__menu-link--btn" href="mailto:hola@xulioze.com" title="Escríbeme un email">
+								¿Hablamos?
 							</a>
 						</li>
 					</ul>
@@ -92,12 +92,12 @@
 		<section class="o-wrap o-wrap--center c-post__body">
 			<header class="c-info c-info--blog o-block o-block--center">
 				<h1 class="h1--blog">
-					Como construir uma PWA com o ChatGPT antes que ele nos mande para o desemprego
+					Cómo construir una PWA con ChatGPT antes de que nos mande al desempleo
 				</h1>
-				Publicado o <time datetime="2023-04-14 12:00:00">14 de abril de 2023</time>
+				Publicado el <time datetime="2022-04-14 12:00:00">14 de abril de 2023</time>
 				<div class="c-messages">
 					<a href="../../blog/construir-pwa-con-chatgpt.html" class="c-message">
-						🐙 Puedes leer este post en <span>español</span>.
+						🐙 Podes ler este post em <span>português</span>.
 					</a>
 					<a href="../../en/blog/build-pwa-with-chatgpt.html" class="c-message">
 						🦑 You can read this post in <span>english</span>.
@@ -107,21 +107,21 @@
 			<div class="c-info__content o-block o-block--center">
 				<figure>
 					<blockquote>
-						<p>Qualquer tecnologia suficientemente avançada é indistinguível da magia.</p>
+						<p>Cualquier tecnología lo suficientemente avanzada es indistinguible de la magia.</p>
 					</blockquote>
 					<figcaption>Arthur C. Clarke</figcaption>
 				</figure>
 				<p>
-					A primeira IA que usei (conscientemente) foi a <a href="https://www.midjourney.com/" title="site da IA" target="_blank" rel="noopener">Midjourney</a>: escrever um prompt, pressionar enter, esperar um instante e a imagem surgia do nada. Linda, sofisticada e estranha. Foi como presenciar um ato mágico.
+					La primera IA que utilicé (conscientemente) fue <a href="https://www.midjourney.com/" title="site de la IA" target="_blank" rel="noopener">Midjourney</a>: escribir un prompt, presionar enter, esperar un instante y la imagen aparecía de la nada. Bonita, sofisticada y extraña. Fue como presenciar un acto mágico.
 				</p>
 				<p>
-					Depois experimentei o <a href="https://openai.com/research/dall-e" title="site da IA" target="_blank" rel="noopener">Dall·E</a> e o <a href="https://stablediffusionweb.com/" title="site da IA" target="_blank" rel="noopener">Stable Diffusion</a>, igualmente espetaculares, mas no final o tédio venceu a magia. Não achei utilidade para mim, prefiro <a href="https://twitter.com/naia_ze/status/1621621795907420162" title="fio em Twitter" target="_blank" rel="noopener">gerar imagens do meu jeito</a>.
+					Luego probé <a href="https://openai.com/research/dall-e" title="site de la IA" target="_blank" rel="noopener">Dall·E</a> y <a href="https://stablediffusionweb.com/" title="site de la IA" target="_blank" rel="noopener">Stable Diffusion</a>, igualmente espectaculares, pero al final el aburrimiento venció a la magia. No encontré utilidad para mí, prefiero <a href="https://twitter.com/naia_ze/status/1621621795907420162" title="fio em Twitter" target="_blank" rel="noopener">generar imágenes a mi manera</a>.
 				</p>
 				<p>
-					Os meses passaram e deixou-se de falar tanto sobre elas, havia novo brinquedo, o <a href="https://stablediffusionweb.com/" title="site da IA" target="_blank" rel="noopener">ChatGPT</a>.
+					Los meses pasaron y se dejó de hablar tanto sobre ellas, había un nuevo juguete, <a href="https://stablediffusionweb.com/" title="site de la IA" target="_blank" rel="noopener">ChatGPT</a>.
 				</p>
 				<p>
-					Demorei para usá-lo, mas a semana passada copiei um snippet de JavaScript de um site antigo, colei-o na caixa do chat e perguntei: "Could you optimize this code snippet?" E o texto foi crescendo enquanto dizia, claro, você pode melhorar isso com aquilo, e aquilo com isso, etc. Deixo um exemplo para você. O exemplo fazia sentido e funcionava. Novamente um ato aparentemente mágico. Novamente a emoção. Mas agora também uma sensação diferente, um pouco de medo.
+					Tardé en usarlo, pero la semana pasada copié un snippet de JavaScript de un sitio antiguo, lo pegué en el cuadro de chat y pregunté: "¿Podrías optimizar este fragmento de código?" Y el texto fue creciendo mientras decía, claro, puedes mejorar esto con aquello, y aquello con esto, etc. Te dejo un ejemplo. El ejemplo tenía sentido y funcionaba. De nuevo un acto aparentemente mágico. De nuevo la emoción. Pero ahora también una sensación diferente, un poco de miedo.
 				</p>
 				<img class="c-post__body-img" src="../../img/fired.gif" alt="está despedido" width="655">
 				<p>
@@ -146,80 +146,80 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>Después de algunas pruebas más, noté que si el nombre de la ciudad no existía en la base de datos de la API, por ejemplo Portox, obtenía un error en el fetch (con el mensaje que pasábamos en el código, "Failed to fetch weather data for Portox"). También ocurría que si varias ciudades compartían el mismo nombre, como Porto, que hay en Portugal, Brasil y España, los datos que veíamos pertenecían solo a una de ellas. Por lo que escribí una segunda pregunta:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pergunta a ChatGPT e a sua resposta" width="655">
-				<p>Desta vez o ChatGPT não acertou. Ou melhor, acertou mas eu não forneci o contexto correto. Ele simplesmente verificava se a cidade existia na base de dados antes de buscar as informações meteorológicas. No entanto, para o usuário não havia diferença em relação à versão anterior, exceto pela troca de mensagens. Além disso, o problema das cidades com o mesmo nome não era resolvido.</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pregunta a ChatGPT y su respuesta" width="655">
+				<p>Esta vez ChatGPT no acertó. O mejor dicho, acertó pero yo no le proporcioné la pregunta correcta. Simplemente verificaba si la ciudad existía en la base de datos antes de buscar la información meteorológica. Sin embargo, para el usuario no había diferencia en comparación con la versión anterior, excepto por el intercambio de mensajes. Además, el problema de las ciudades con el mismo nombre no se resolvía.</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/qBJOzJX?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/qBJOzJX">
 					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Mea culpa e nova pergunta. Agora focada nas cidades de mesmo nome:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça pergunta a ChatGPT e a sua resposta" width="655">
-				<p>Com o código novo conseguia exibir a lista das cidades, mas não era possível clicar nelas, obtendo como resultado os dados de apenas uma ao pressionarmos o botão "Search".</p>
+				<p>Mea culpa y nueva pregunta. Ahora enfocada en las ciudades con el mismo nombre:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="tercera pregunta a ChatGPT y su respuesta" width="655">
+				<p>Con el nuevo código se mostraba la lista de ciudades, pero no era posible hacer clic en ellas para obtener los datos de solo una al presionar el botón "Buscar".</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/oNajrao?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/oNajrao">
 					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Mais outra pergunta:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-04.jpg" alt="quarta pergunta a ChatGPT e a sua resposta" width="655">
-				<p>Com a troca sim era possível clicar numa das cidades da lista e, ao fazê-lo, obtiamos os seus dados meteorológicos.</p>
+				<p>Otra pregunta más:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-04.jpg" alt="cuarta pregunta a ChatGPT y su respuesta" width="655">
+				<p>Con el cambio, sí era posible hacer clic en una de las ciudades de la lista y, al hacerlo, se obtenían los datos meteorológicos de esa ciudad.</p>
 				<iframe  class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 04" src="https://codepen.io/arinspunk/embed/abRpbjQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/abRpbjQ">
 					PWA com ChatGPT 04</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Mas ainda restavam alguns pontos por polir:</p>
+				<p>Pero aún quedaban algunos puntos por pulir:</p>
 				<ul>
-					<li>O botão "Search" realmente não servia para nada.</li>
-					<li>A lista deveria desaparecer ao clicarmos numa das opções.</li>
-					<li>Havia que passar a temperatura a Celsius.</li>
-					<li>Estaria bem indicar o nome do país à direita de cada cidade.</li>
+					<li>El botón "Buscar" realmente no servía para nada.</li>
+					<li>La lista debería desaparecer al hacer clic en una de las opciones.</li>
+					<li>Había que cambiar la temperatura a Celsius.</li>
+					<li>Sería bueno indicar el nombre del país a la derecha de cada ciudad.</li>
 				</ul>
-				<p>Foi neste ponto que decidi deixar o piloto automâtico e passar a "modo manual", pois achei mais rápido modificar eu o código que continuar a perguntar.</p>
-				<p>Eis o resultado com as "modifciações humanas":</p>
+				<p>Fue en este punto donde decidí dejar el piloto automático y pasar al "modo manual", ya que creí que sería más rápido modificar el código yo mismo que seguir preguntando.</p>
+				<p>Aquí está el resultado con las "modificaciones humanas":</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 05" src="https://codepen.io/arinspunk/embed/wvYgBdP?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/wvYgBdP">
 					PWA com ChatGPT 05</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
-				<p>Já com o código pronto, chegava a hora de transformar nosso site em uma PWA (Progressive Web App):</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-05.jpg" alt="quinta pergunta a ChatGPT e a sua resposta" width="655">
-				<p>E na primeira tentativa funcionou 🥳</p>
-				<p>Eis o resultado: <a href="https://xulioze.com/test/pwa/" target="_blank" rel="noopener" title="Visita e descarrega a PWA">Pe Man</a></p>
-				<p>Muito obrigado ChatGPT!</p>
+				<p>Ahora que el código estaba listo, era hora de convertir nuestro sitio en una PWA (aplicación web progresiva):</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-05.jpg" alt="quinta pregunta a ChatGPT y su respuesta" width="655">
+				<p>En el primer intento funcionó 🥳</p>
+				<p>Este es el resultado: <a href="https://xulioze.com/test/pwa/" target="_blank" rel="noopener" title="Visita y descarga la PWA">Pe Man</a></p>
+				<p>¡Muchas gracias ChatGPT!</p>
 				<img class="c-post__body-img" src="../../img/chatgpt-06.jpg" alt="última pergunta a ChatGPT e a sua resposta" width="655">
 				<h2>
-					Conclusões
+					Conclusiones
 				</h2>
 				<p>
-					A primeira conclusão é que o ChatGPT é capaz de compreender muito bem até mesmo um inglês ruim como o meu 😬
+					La primera conclusión es que ChatGPT es capaz de comprender muy bien incluso un inglés malo como el mío 😬
 				</p>
 				<p>
-					A segunda é que ele pode ser útil para:
+					La segunda es que puede ser útil para:
 				</p>
 				<ul>
 					<li>
-						Escrever um código base, ajudando-nos a poupar tempo. Depois de analisar o meu experimento, devo constatar que a melhor estratégia é escrever um prompt o mais amplo e contextualizado possível, em vez de formular muitas perguntas curtas.
+						Escribir un código base, ayudándonos a ahorrar tiempo. Después de analizar mi experimento, debo constatar que la mejor estrategia es escribir un prompt lo más amplio y contextualizado posible, en lugar de formular muchas preguntas cortas.
 					</li>
 					<li>
-						Fazer melhorias/trocas no código. Até certo ponto, depois é melhor passarmos ao modo manual/humano.
+						Hacer mejoras/cambios en el código. Hasta cierto punto, luego es mejor pasar al modo manual/humano.
 					</li>
 					<li>
-						Realizar consultas a uma API que não conhecemos sem necessidade de visitar sua documentação.
+						Realizar consultas a una API que no conocemos sin necesidad de visitar su documentación.
 					</li>
 					<li>
-						Optimizar o código.
+						Optimizar el código.
 					</li>
 					<li>
-						Ampliar o conhecimento sobre uma linguagem, conhecendo outras abordagens.
+						Ampliar el conocimiento sobre un lenguaje, conociendo otros enfoques.
 					</li>
 					<li>
-						Iniciar-se em novas linguagens/tecnologias.
+						Iniciarse en nuevos lenguajes/tecnologías.
 					</li>
 				</ul>
 				<p>
-					Por fim, a última e mais importante, é que ele não vai mandar as programadoras diretinhas para o desemprego, pelo menos nos próximos meses…
+					Por último, la última y más importante, es que no va a enviar a las programadoras directamente al desempleo, al menos en los próximos meses…
 				</p>
 				<img class="c-post__body-img" src="../../img/fired.gif" alt="primeira pergunta a ChatGPT e a sua resposta" width="655">
 			</div>

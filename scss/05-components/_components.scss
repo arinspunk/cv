@@ -604,11 +604,15 @@
 }
 .c-messages {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    @media screen and (min-width: $bp--medium) {
+        flex-direction: row;
+    }  
 }
 .c-message {
-    width: calc(50% - 10px);
+    width: 100%;
     display: block;
     margin: 40px 0 0;
     padding: 18.58px 15px;
@@ -624,6 +628,15 @@
     font-size: $p-size-s;
     font-size: var(--p-size-s);
     text-decoration: none;
+    & + .c-message {
+        margin-top: 25px;
+    }
+    @media screen and (min-width: $bp--medium) {
+        width: calc(50% - 10px);
+        & + .c-message {
+            margin-top: 40px;
+        }
+    }  
     span {
         text-decoration: underline;
     }
