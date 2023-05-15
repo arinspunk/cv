@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Construir uma PWA com o ChatGPT - Xúlio Zé</title>
+	<meta property="og:title" content="Construir uma PWA com o ChatGPT - Xúlio Zé">
+	<meta name="twitter:title" content="Construir uma PWA com o ChatGPT - Xúlio Zé">
+	<meta itemprop="name" content="Construir uma PWA com o ChatGPT - Xúlio Zé">       
+	<meta name="description" content="Experimentando o ChatGPT antes que ele nos mande para o desemprego">
+	<meta property="og:description" content="Experimentando o ChatGPT antes que ele nos mande para o desemprego">
+	<meta name="twitter:description" content="Experimentando o ChatGPT antes que ele nos mande para o desemprego">
+	<meta itemprop="description" content="Experimentando o ChatGPT antes que ele nos mande para o desemprego">
+	<link rel="canonical" href="https://xulioze.com/en/blog/build-pwa-with-chatgpt.html">
+	<meta property="og:url" content="https://xulioze.com/en/blog/build-pwa-with-chatgpt.html">
+	<meta name="twitter:url" content="https://xulioze.com/en/blog/build-pwa-with-chatgpt.html">
+	<meta property="og:image" content="../../img/xulio-ze-chatgpt.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="../../img/xulio-ze-chatgpt.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="../../img/xulio-ze-chatgpt.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2023 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Construir uma PWA com o ChatGPT - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#0000ff">
+	<meta name="theme-color" content="#0000ff">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="return to my CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../pt/blogue/construir-pwa-com-chatgpt.html" title="Versão do post em português">
+								Pt
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/construir-pwa-con-chatgpt.html" title="Versión del artículo en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../en/cv.html" title="my CV">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../en/blog.html" title="More post">
+								Blog
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="I'm in LinkedIn :)" target="_blank" rel="noopener">
+								Let's talk?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					How to build a PWA with ChatGPT before it sends us to unemployment
+				</h1>
+				Published on <time datetime="2023-04-14 12:00:00">April 14, 2023</time>
+				<div class="c-messages">
+					<a href="../../blog/construir-pwa-con-chatgpt.html" class="c-message">
+						🦀 Puedes leer este post en <span>español</span>.
+					</a>
+					<a href="../../pt/blogue/construir-pwa-com-chatgpt.html" class="c-message">
+						🐙 Podes ler este post em <span>português</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+				<figure>
+					<blockquote>
+						<p>Any sufficiently advanced technology is indistinguishable from magic.</p>
+					</blockquote>
+					<figcaption>Arthur C. Clarke</figcaption>
+				</figure>
+				<p>
+					The first AI I used (consciously) was <a href="https://www.midjourney.com/" title="IA's site" target="_blank" rel="noopener">Midjourney</a>: write a prompt, press enter, wait a moment and the image appeared out of nowhere. Beautiful, sophisticated, and strange. It was like witnessing a magic act.
+				</p>
+				<p>
+					Then I tried <a href="https://openai.com/research/dall-e" title="IA's site" target="_blank" rel="noopener">Dall·E</a> and <a href="https://stablediffusionweb.com/" title="IA's site" target="_blank" rel="noopener">Stable Diffusion</a>, equally spectacular, but in the end, boredom overcame magic. I didn't find them useful for me, I prefer <a href="https://twitter.com/naia_ze/status/1621621795907420162" title="fio em Twitter" target="_blank" rel="noopener">to generate images in my own way</a>.
+				</p>
+				<p>
+					The months passed, and people stopped talking so much about them, there was a new toy in town, <a href="https://stablediffusionweb.com/" title="IA's site" target="_blank" rel="noopener">ChatGPT</a>.
+				</p>
+				<p>
+					It took me a while to use it, but last week I copied a JavaScript snippet from an old website, pasted it into the chat box, and asked, "Could you optimize this code fragment?" And the text grew as it said, of course, you can improve this with that, and that with this, etc. Here's an example. The example made sense and it worked. Again, an apparently magical act. Again, excitement. But now also a different sensation, a little bit of fear.
+				</p>
+				<img class="c-post__body-img" src="../../img/fired.gif" alt="you're fired" width="655">
+				<p>
+					Just a little bit. The truth is, I don't believe in magic (except for <a href="https://www.nytimes.com/2023/01/02/magazine/juan-tamariz-magic.html" title="The Man Who Made Spain the Magic Capital of the World - NYT" target="_blank" rel="noopener">Tamariz</a>'s'), I already saw the adjective "disruptive" being overused in the first decade of the century, and the best way to overcome fear is to get to know something, so I got to work, before it sent us straight to unemployment.
+				</p>
+				<h2>
+					Experiment
+				</h2>
+				<p>
+					Hmm... where to start? Well, <a href="https://twitter.com/naia_ze" title="NZ&A en Twitter" target="_blank" rel="noopener">Naia and I</a> have the idea of creating a weather application in which, instead of the classic icons, some slightly more fun drawings are displayed. So, taking advantage of the excuse, I wrote the following question:
+				</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="first question to ChatGPT and its answer" width="655">
+				<p>
+					Perfect. In its first response, ChatGPT provided an HTML, a JS snippet, and a detailed explanation of the entire code.
+				</p>
+				<p>
+					I replaced <code>your_openweathermap_api_key_here</code> with a valid API key from OpenWeatherMap, and it worked. The only noteworthy error was the city temperature, as it indicated that it was in Celsius degrees, but in reality, the value was in Kelvin.
+				</p>
+				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="chatGPT 01" src="https://codepen.io/arinspunk/embed/GRYpLrL?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/GRYpLrL">
+					chatGPT 01</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>After some more testing, I noticed that if the city name did not exist in the API database, for example Portox, I would get an error in the fetch (with the message we passed in the code, "Failed to fetch weather data for Portox"). It also happened that if several cities shared the same name, such as Porto, which exists in Portugal, Brazil, and Spain, the data we saw belonged only to one of them. So I wrote a second question:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="second question to ChatGPT and its answer" width="655">
+				<p>This time, ChatGPT didn't get it right. Or rather, it got it right, but I didn't provide the correct question. It simply checked if the city existed in the database before searching for weather information. However, for the user, there was no difference compared to the previous version, except for the exchange of messages. Additionally, the problem of cities with the same name remained unsolved.</p>
+				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/qBJOzJX?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/qBJOzJX">
+					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>Mea culpa and a new question. Now focused on cities with the same name:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça question to ChatGPT and its answer" width="655">
+				<p>With the new code, the list of cities was displayed, but it was not possible to click on them to obtain the data of just one when pressing the "Search" button.</p>
+				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/oNajrao?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/oNajrao">
+					PWA com ChatGPT 02</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>Another question:</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-04.jpg" alt="fourth question to ChatGPT and its answer" width="655">
+				<p>With the change, it was possible to click on one of the cities in the list, and upon doing so, the weather data for that city was obtained.</p>
+				<iframe  class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 04" src="https://codepen.io/arinspunk/embed/abRpbjQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/abRpbjQ">
+					PWA com ChatGPT 04</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>But there were still some points to polish:</p>
+				<ul>
+					<li>The "Search" button didn't really do anything.</li>
+					<li>The list should disappear when clicking on one of the options.</li>
+					<li>The temperature needed to be changed to Celsius.</li>
+					<li>It would be good to indicate the name of the country to the right of each city.</li>
+				</ul>
+				<p>It was at this point where I decided to leave autopilot and switch to "manual mode," as I thought it would be faster to modify the code myself than to keep asking questions.</p>
+				<p>Here's the result with the "human modifications":</p>
+				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 05" src="https://codepen.io/arinspunk/embed/wvYgBdP?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/arinspunk/pen/wvYgBdP">
+					PWA com ChatGPT 05</a> by Arinspunk (<a href="https://codepen.io/arinspunk">@arinspunk</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+				<p>Now that the code was ready, it was time to turn our site into a PWA (Progressive Web App):</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-05.jpg" alt="fifth question to ChatGPT and its answer" width="655">
+				<p>It worked on the first try 🥳</p>
+				<p>This is the result: <a href="https://xulioze.com/test/pwa/" target="_blank" rel="noopener" title="Visita e descarrega a PWA">Pe Man</a></p>
+				<p>Thank you very much, ChatGPT!</p>
+				<img class="c-post__body-img" src="../../img/chatgpt-06.jpg" alt="last question to ChatGPT and its answer" width="655">
+				<h2>
+					Conclusions
+				</h2>
+				<p>
+					The first conclusion is that ChatGPT is capable of understanding even bad English like mine very well 😬
+				</p>
+				<p>
+					The second is that it can be useful for:
+				</p>
+				<ul>
+					<li>
+						Writing a base code, helping us to save time. After analyzing my experiment, I must state that the best strategy is to write a prompt that is as broad and contextualized as possible, instead of formulating many short questions.
+					</li>
+					<li>
+						Making improvements/changes in the code. To a certain point, it is better to switch to manual/human mode.
+					</li>
+					<li>
+						Performing queries to an API that we do not know without the need to visit its documentation.
+					</li>
+					<li>
+						Optimizing the code.
+					</li>
+					<li>
+						Expanding knowledge about a language, knowing other approaches.
+					</li>
+					<li>
+						Starting with new languages/technologies.
+					</li>
+				</ul>
+				<p>
+					And last but not least, it is not going to directly send us programmers to unemployment. At least not in the coming months…
+				</p>
+				<p>🥹</p>
+				<img class="c-post__body-img" src="../../img/fired.gif" alt="you are fired" width="655">
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Mis repositorios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="Mi email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil de LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>
