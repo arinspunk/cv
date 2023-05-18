@@ -195,10 +195,22 @@
         @media screen and (min-width: $bp--large) {
             height: 360px;
             width: 360px;
+            @include keyframes(sunrise) {
+                100% {
+                    opacity: 1;
+                    @include translate(-50%,-150%);
+                }
+            }
         }  
         @media screen and (min-width: $bp--xlarge) {
             height: 400px;
             width: 400px;
+            @include keyframes(sunrise) {
+                100% {
+                    opacity: 1;
+                    @include translate(-50%,-120%);
+                }
+            }
         }  
     }
     &__sun-wrap {
