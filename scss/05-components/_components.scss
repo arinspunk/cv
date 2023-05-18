@@ -187,7 +187,7 @@
                 @include translate(-50%,-50%);
             }
         }
-        @include animation(1s ease sunrise forwards); 
+        @include animation(2s ease sunrise forwards); 
         @media screen and (min-width: $bp--medium) {
             height: 360px;
             width: 360px;
@@ -198,7 +198,7 @@
             @include keyframes(sunrise) {
                 100% {
                     opacity: 1;
-                    @include translate(-50%,-150%);
+                    @include translate(-50%,-120%);
                 }
             }
         }  
@@ -208,7 +208,7 @@
             @include keyframes(sunrise) {
                 100% {
                     opacity: 1;
-                    @include translate(-50%,-120%);
+                    @include translate(-50%,-150%);
                 }
             }
         }  
