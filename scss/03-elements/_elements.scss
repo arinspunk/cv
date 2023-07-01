@@ -249,10 +249,15 @@ figure {
         margin: 0;
     }
 }
+
 figcaption {
     text-align: right;
     @media screen and (min-width: $bp--medium) {
         padding: 0 40px;
         margin: 5px 0 30px;
     }  
+}
+
+cite {
+    font-style: normal;
 }
