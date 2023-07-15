@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé</title>
+	<meta property="og:title" content="El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé">
+	<meta name="twitter:title" content="El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé">
+	<meta itemprop="name" content="El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé">       
+	<meta name="description" content="Cómo escribir prompts adecuados a la hora de desarrollar código">
+	<meta property="og:description" content="Cómo escribir prompts adecuados a la hora de desarrollar código">
+	<meta name="twitter:description" content="Cómo escribir prompts adecuados a la hora de desarrollar código">
+	<meta itemprop="description" content="Cómo escribir prompts adecuados a la hora de desarrollar código">
+	<link rel="canonical" href="https://xulioze.com/blog/como-hablar-con-chatgpt.html">
+	<meta property="og:url" content="https://xulioze.com/blog/como-hablar-con-chatgpt.html">
+	<meta name="twitter:url" content="https://xulioze.com/blog/como-hablar-con-chatgpt.html">
+	<meta property="og:image" content="../img/xulio-ze-chatgpt-rachael.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="../img/xulio-ze-chatgpt-rachael.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="../img/xulio-ze-chatgpt-rachael.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2023 Xúlio Zé">
+    <link rel="author" href="../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../index.html" title="regresar a mi CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../pt/blogue/como-falar-com-chatgpt.html" title="Versão em português">
+								Pt
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../en/blog/how-talk-with-chatgpt.html" title="English version">
+								En
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../index.html" title="mi curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blog.html" title="aquí hablo de cosas">
+								Blog
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estoy en LinkedIn :)" target="_blank" rel="noopener">
+								Hablamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					El arte de conversar con ChatGPT (y otros LLMs)
+				</h1>
+				Publicado el <time datetime="2023-06-30 12:00:00">30 de junio de 2023</time>
+				<div class="c-messages">
+					<a href="../en/blog/how-talk-with-chatgpt.html" class="c-message">
+						🦑 You can read this post in <span>english</span>.
+					</a>
+					<a href="../pt/blogue/como-falar-com-chatgpt.html" class="c-message">
+						🐙 Podes ler este post em <span>português</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+				<img class="c-post__body-img" src="../img/chatgpt-rachael.jpg" alt="Rachael y el Voight-Kampff test" width="655">
+				<p>
+					En un intercambio de correos electrónicos sobre ChatGPT, un colega me preguntó cuál sería la mejor forma de escribir prompts al desarrollar código. Bueno, la respuesta no es simple, después de todo esto implica conversar con una red neuronal y muchas veces ya es difícil hacerlo con otras personas, cuanto más con una máquina. Sin embargo, como soy una persona muy educada y que siempre le gusta ayudar cuando es posible, reflexioné y respondí de la mejor manera que pude.
+				</p>
+				<p>
+					La red está llena <a href="https://github.com/readme/guides/coding-generative-ai" title="Harness the power of generative AI for software development - ReadME Project" target="_blank" rel="noopener">consejos</a> para mejorar nuestros prompts y he incorporado muchos de ellos, pero al analizarlos individualmente, no sé qué grado de mejora han traído. Incluso hay algunos en los que no estoy seguro de si tuvieron un impacto significativo. Es normal, la experiencia que acumulo todavía no es suficiente para hacer estadística. Sin embargo, lo que puedo afirmar es que en conjunto y en comparación con mis toscas primeras pruebas, su incorporación ha resultado en una mejora innegable en los resultados obtenidos.
+				</p>
+				<p>
+					Un caso diferente son las estrategias enfocadas en la resolución de tareas más complejas, ya que a diferencia de las simples en las que podemos obtener una respuesta válida e incluso muy similar, usando o no un determinado consejo, la adopción de estas técnicas trae una mejora inmediata y evidente. <a href="https://xulioze.com/blog/construir-pwa-con-chatgpt.html" title="Cómo construir una PWA con ChatGPT antes de que nos mande al paro" target="_blank" rel="noopener">Sin una estrategia definida</a>, el LLM tendía a dispersarse y cometer errores, obligándome a corregirlo y guarlo con nuevas preguntas o instrucciones. Sin embargo, cuando incluí en mi trabajo el <a href="https://www.promptingguide.ai/es/techniques/cot" title="descripción en la Prompt Engineering Guide" target="_blank" rel="noopener">Chain-of-Thought</a> y el <a href="https://www.promptingguide.ai/es/techniques/knowledge" title="descripción en la Prompt Engineering Guide" target="_blank" rel="noopener">Generated Knowledge</a>, estos problemas se resolvieron. (Tengo pendiente un artículo contando cómo desarrollé un blog en React con la ayuda de ChatGPT).
+				</p>
+				<figure>
+					<blockquote cite="https://www.promptingguide.ai/models">
+						<p>Understanding these capabilities are important to understand the limitations of these models and how to use them effectively.</p>
+					</blockquote>
+					<figcaption><cite>Prompt Engineering Guide</cite></figcaption>
+				</figure>
+				<p>
+					Entonces, ¿cómo evaluamos los pequeños consejos que encontramos en la red? Un enfoque inicial (y obvio) es seguir las indicaciones de fuentes confiables. A mí me gusta mucho <a href="https://learnprompting.org/" title="Your Guide to Communicating with Artificial Intelligence" target="_blank" rel="noopener">learnprompting.org</a> y <a href="https://www.promptingguide.ai/es" title="Guía de Ingeniería de Prompt" target="_blank" rel="noopener">promptingguide.ai</a>, pero <a href="https://github.com/openai/openai-cookbook#prompting-guides" title="Prompting guides - OpenAI" target="_blank" rel="noopener">hay muchas más</a>. Otro, complementario, es determinar si el propósito de un consejo tiene sentido con el funcionamiento de los LLM. Es evidente que seguir este enfoque implica un gasto extra de tiempo, ya que:
+				</p>
+				<ol>
+					<li>
+						Tenemos que determinar el propósito del consejo, aunque todos tiendan a buscar:
+						<ul>
+							<li>
+								Reducir el <a href="https://platform.openai.com/tokenizer" title="Contador de tokens - OpenAI (En)" target="_blank" rel="noopener">número de tokens</a> utilizados en las preguntas y respuestas.
+							</li>
+							<li>
+								Optimizar el trabajo del LLM en el procesamiento de las preguntas y en la generación de las respuestas.
+							</li>
+							<li>
+								Obtener la mejor respuesta posible para nuestra tarea.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Y nos obliga a profundizar en la <a href="https://www.promptingguide.ai/es/models" title="principales modelos de lenguaje" target="_blank" rel="noopener">comprensión y el conocimiento de estas herramientas</a>.
+					</li>
+				</ol>
+				<p>
+					Sin embargo, esta siempre es una buena inversión, ya que ayuda a mejorar nuestro trabajo diario y nos permite disfrutar del placer de aprender algo nuevo.
+				</p>
+				<p>
+					Finalmente mi colega, que también es muy educado, agradeció la respuesta. Pero como igualmente es pragmático y directo, quiso después saber si yo había identificado alguna buena práctica. Resumiendo, buscaba una lista de consejos 😬
+				</p>
+				<h2>Mis consejos</h2>
+				<p>
+					Dejo aquí las prácticas que siempre incluyo en mis prompts orientados al desarrollo de tareas simples. Para aprender a escribir código complejo con ChatGPT, te recomiendo comenzar por el artículo "<a href="https://martinfowler.com/articles/2023-chatgpt-xu-hao.html" title="How Xu Hao uses chain of thought and general knowledge prompting with ChatGPT" target="_blank" rel="noopener">An example of LLM prompting for programming</a>".
+				</p>
+				<ul>
+					<li>
+						Evito la formalidad. Nada de "Buenos días", "podría usted…", "muchas gracias", etc. No te preocupes, el LLM no es un ser consciente y siempre es bueno ahorrar algunos tokens.
+					</li>
+					<li>
+						Siempre empiezo con un "As a [rol name]". Con esto busco formatear la respuesta del modelo de una manera más específica.
+					</li>
+					<li>
+						Incluyo detalles con terminología especializada. La idea es proporcionar suficiente contexto para evitar que el modelo tenga que adivinar lo que quiero decir.
+					</li>
+					<li>
+						Procuro ser lo más sintético posible, en equilibrio con el punto anterior. Cuanto más breve y directo sea nuestro prompt, más concisa será la respuesta, además de ahorrar algunos tokens.
+					</li>
+					<li>
+						Limpio mis códigos de ejemplo. Todo lo que no es necesario para desarrollar la tarea solo agrega ruido y desperdicia tokens.
+					</li>
+				</ul>
+				<p>
+					Lo que pretendía ser un borrador de un método para aprender a conversar con las máquinas se ha convertido en otro artículo con consejos para usar ChatGPT. ¿Crees que el propósito de cada uno tiene sentido con el funcionamiento de los LLMs?
+				</p>
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Mis repositorios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="Mi email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil de LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>

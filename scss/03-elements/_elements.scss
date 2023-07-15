@@ -189,6 +189,11 @@ ul, ol {
     padding: 0 0 0 20px;
     @media screen and (min-width: $bp--medium) {
         padding: 0;
+        & ul,
+        & ol {
+            padding: 0 0 0 20px;
+            margin: 0;
+        }
     }  
 }
 
