@@ -253,6 +253,15 @@ figure {
     blockquote, p {
         margin: 0;
     }
+    &.figure-img {
+        padding: 0;
+        img {
+            margin-bottom: 0;
+        }
+        figcaption {
+            padding: 0;
+        }
+    }
 }
 
 figcaption {

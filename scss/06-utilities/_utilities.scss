@@ -1,3 +1,13 @@
 /*
     Utilities
 */
+.separator {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(255,255,255,.25);
+    margin: 0 0 25px;
+    @media screen and (min-width: $bp--medium) {
+        margin: 0 0 30px;
+    }  
+}
