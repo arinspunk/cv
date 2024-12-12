@@ -42,30 +42,47 @@ If you want to test it, follow this instructions:
 3.  Install node-sass:
 
     ```sh
-    npm install node-sass --save-dev
+    npm install sass --save-dev
     ```
     
-    By using ```--dev``` we are specifying in the package.json the node-sass like [devDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file) because in this case it only needed for local development and testing.
+    By using `--save-dev` we are specifying in the package.json the `sass` like [devDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file) because in this case it only needed for local development and testing.
     
-4.  Open the package.json and add the node-sass command in the scripts section, under the test command:
+4.  Open the `package.json` and add the `sass` commands in the scripts section, under the test command:
 
     ```json
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "compile": "node-sass --watch scss -o css --output-style compressed"
+        "build": "sass --style=compressed scss:css",
+        "watch": "sass --watch --style=compressed scss:css"
     }
     ```
     
-    *  ```node-sass```: Refers to the node-sass package.
-    *  ```--watch```: Flag which means “watch all .scss files in the scss/ folder and recompile them every time there’s a change.”
-    *  ```scss```: The folder where we put all our .scss files.
-    *  ```-o css```: The output folder for our compiled CSS.
-    *  ```--output-style compressed```: Flag that indicates how the css should compile.
+    *  `sass`: Refers to the node-sass package.
+    *  `--watch`: Flag which means “watch all .scss files in the scss/ folder and recompile them every time there’s a change.”
+    *  `--style=compressed`: Flag that indicates how the css should compile.
+    *  `scss`: The folder where we put all our .scss files.
+    *  `css`: The output folder for our compiled CSS.
 
 5.  Now, the magic: Run the Script!
 
     ```sh
     npm run compile
+    ```
+
+## :mage: How to minify the JS ##
+
+https://www.npmjs.com/package/uglify-js
+
+1.  Install uglifyjs
+
+    ```
+    npm install uglify-js -g
+    ```
+
+2.  Command line usage
+
+    ```
+    uglifyjs --compress --mangle -- js/application.js
     ```
 
 ## :copyright: Licenses ##
