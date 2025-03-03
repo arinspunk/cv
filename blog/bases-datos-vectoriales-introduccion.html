@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé</title>
+	<meta property="og:title" content="El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé">
+	<meta name="twitter:title" content="El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé">
+	<meta itemprop="name" content="El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé">       
+	<meta name="description" content="Cómo escribir prompts adecuados a la hora de desarrollar código">
+	<meta property="og:description" content="Cómo escribir prompts adecuados a la hora de desarrollar código">
+	<meta name="twitter:description" content="Cómo escribir prompts adecuados a la hora de desarrollar código">
+	<meta itemprop="description" content="Cómo escribir prompts adecuados a la hora de desarrollar código">
+	<link rel="canonical" href="https://xulioze.com/blog/como-hablar-con-chatgpt.html">
+	<meta property="og:url" content="https://xulioze.com/blog/como-hablar-con-chatgpt.html">
+	<meta name="twitter:url" content="https://xulioze.com/blog/como-hablar-con-chatgpt.html">
+	<meta property="og:image" content="../img/xulio-ze-chatgpt-rachael.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="../img/xulio-ze-chatgpt-rachael.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="../img/xulio-ze-chatgpt-rachael.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2023 Xúlio Zé">
+    <link rel="author" href="../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="El arte de conversar con ChatGPT (y otros LLMs) - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../index.html" title="regresar a mi CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../pt/blogue/como-falar-com-chatgpt.html" title="Versão em português">
+								Pt
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../en/blog/how-talk-with-chatgpt.html" title="English version">
+								En
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../index.html" title="mi curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blog.html" title="aquí hablo de cosas">
+								Blog
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estoy en LinkedIn :)" target="_blank" rel="noopener">
+								Hablamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Introducción a las bases de datos vectoriales: ¡datos, más datos!
+				</h1>
+				Publicado el <time datetime="2023-06-30 12:00:00">5 de marzo de 2025</time>
+				<div class="c-messages">
+					<a href="../en/blog/how-talk-with-chatgpt.html" class="c-message">
+						🦑 You can read this post in <span>english</span>.
+					</a>
+					<a href="../pt/blogue/como-falar-com-chatgpt.html" class="c-message">
+						🐙 Podes ler este post em <span>português</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<figure class="figure-img">
+					<img class="c-post__body-img" src="../img/vectorstores-johnny-5-input.webp" alt="Johnny nº5 leyendo un libro" width="768">
+					<figcaption>
+						Animación realizada por <a href="https://www.tumblr.com/orbo-cinemagraphs/171215364977/input-more-input-short-circuit-1986" target="_blank" rel="noopener" title="tumblr del autor">Orbo cinemagraphs</a>
+					</figcaption>
+				</figure>
+
+				<p>Llevo ya unos días desarrollando con mi colega Olivier un proyecto de IA. Nuestra idea es crear una herramienta que permita automatizar tareas de documentación, refactorización y escritura de tests para el código de un repositorio. A día de hoy, no tenemos claro si vamos a conseguir algo realmente operativo, principalmente porque estamos viendo que existen servicios desarrollados específicamente para esto, como <a href="https://www.cursor.com/" target="_blank" rel="noopener" title="Web oficial">Cursor</a> o <a href="https://www.pythagora.ai/" target="_blank" rel="noopener" title="Web oficial">Pythagora</a>. Sin embargo, lo que sí es seguro es que estamos aprendiendo mucho, además de perder algunas horas de sueño 😴</p>
+
+				<p>Cuando nos acercamos por primera vez a una tecnología, lo habitual es sentirnos arrastrados por un torrente de nuevos conceptos y herramientas. En el caso del desarrollo de software con IA, la inundación inicial nos trae términos como LLMs, bases de datos vectoriales, retrievers, RAGs, agentes de IA, sentence transformers, etc.</p>
+
+				<p>En este post voy a centrarme en las bases de datos vectoriales (el título no engaña). Por ser una de las piezas fundamentales en en este ámbito y también por eso de que la mejor manera de comprender un concepto es ser capaz de explicarlo de manera sencilla. Si a ti también te ayuda, mi satisfacción será doble. 😊</p>
+
+				<h2>Vectores</h2>
+
+				<p>Para entender qué son y cómo funcionan las bases de datos vectoriales, primero debemos saber qué es un vector.</p>
+
+				<p>En el ámbito del aprendizaje automático, un vector es una lista ordenada de números que representa datos de cualquier tipo, incluso no estructurados, como documentos de texto, imágenes, audios o vídeos.</p>
+
+				<p>La cantidad de números que componen un vector se conoce como dimensión, y las bases de datos vectoriales manejan vectores de varios cientos de dimensiones. Por ejemplo, el modelo <a href="https://platform.openai.com/docs/guides/embeddings#how-to-get-embeddings" target="_blank" rel="noopener" title="How to get embeddings, por Open AI"><code>text-embedding-3-small</code></a> de OpenAI genera vectores de 1536 dimensiones.</p>
+
+				<p>1536 dimensiones conforman una lista de números muy grande. Si colocáramos uno aquí, lo más seguro es que abandonaras el post aburrido de hacer scroll. Así que, para un ejemplo más manejable, podemos mostrar la representación vectorial en 3 dimensiones de la palabra “amor”:</p>
+
+				<pre><code>[ 0.1234, -0.2567, 0.5432 ]</code></pre>
+
+				<h2>Embeddings</h2>
+
+				<p>Ahora que tenemos más claro lo que son los vectores, toca conocer cómo se almacenan en una base de datos vectorial. La forma de hacerlo es incrustándolos como puntos en un espacio multidimensional.</p>
+
+				<p>El número de dimensiones del espacio viene dado por la dimensionalidad de los vectores guardados. A mí, imaginar puntos distribuidos en 768, 1536 o 3072 dimensiones me resulta un poco complicado. Aunque quizás tú hayas visto <em>Interstellar</em> n veces y te sientas capaz de hacerlo. 😅</p>
+
+				<p>Si no es el caso, volvamos a nuestro ejemplo anterior. Como hemos representado “amor” con un vector de solo 3 dimensiones, este se dispondrá junto al resto de embeddings como un punto en un eje de coordenadas XYZ. Así es más fácil de visualizar, ¿verdad?</p>
+
+				<img class="c-post__body-img" src="../img/vectorstores-embeddings.png" alt="embeddings en un espacio multidimensional" width="768">
+
+				<h2>Consultas</h2>
+
+				<p>Una vez que ya sabemos cómo se almacenan los datos en una base de datos vectorial, solo nos queda conocer cómo se realizan las consultas.</p>
+
+				<p>En primer lugar, la consulta se convierte en un embedding que puede ser comparado con el resto de vectores de la base de datos.</p>
+
+				<p>Dado que los embeddings son de naturaleza numérica, se pueden medir las distancias matemáticas entre ellos usando métricas como:</p>
+
+				<ul>
+					<li>Distancia euclidiana, √Σ(xᵢ - yᵢ)²: mide la distancia geométrica en un espacio multidimensional.</li>
+					<li>Similitud del coseno, cosθ: mide el ángulo entre dos vectores.</li>
+					<li>Distancia de Manhattan, Σ |xᵢ - yᵢ|: suma de diferencias absolutas entre cada coordenada.</li>
+				</ul>
+
+				<p>Las bases de datos vectoriales emplean algoritmos como <code>k-NN</code> (k-Nearest Neighbors) y <code>ANN</code> (Approximate Nearest Neighbors) que utilizan esta métricas para devolver los vectores más cercanos al de la consulta.</p>
+
+				<p>Esta forma de trabajar permite a las bases de datos vectoriales realizar búsquedas rápidas en grandes volúmenes de datos, ya que no es necesario conocer las características internas de cada vector, sino que basta con conocer sus posiciones dentro del espacio multidimensional.</p>
+
+				<p>Además, a diferencia de las bases de datos relacionales, que requieren coincidencias exactas, las bases de datos vectoriales se centran en búsquedas por similitud, lo que les permite devolver resultados aproximados en lugar de buscar coincidencias estrictas.</p>
+
+				<h2>La importancia de la búsqueda por similitud</h2>
+
+				<p>Pero, ¿por qué es tan importante la búsqueda por similitud? Para entenderlo bien, tenemos que volver al punto inicial: la transformación de los datos en vectores, también conocida como <em>embedding</em>.</p>
+
+				<p>Quien se encarga de realizar los embeddings no es la propia base de datos, sino un modelo de lenguaje especializado, llamado modelo de embedding. Estos modelos no hacen una simple traducción numérica del dato, sino que encapsulan la semántica y el contexto de los datos originales.</p>
+
+				<p>Y este es el punto clave que hace a las bases de datos vectoriales tan importantes hoy en día. Las búsquedas por similitud son búsquedas por similitud semántica, lo que facilita que los LLMs comprendan las relaciones existentes en nuestros conjuntos de datos. Esto resulta fundamental, ya sea para entrenarlos o para mejorar sus respuestas con conocimiento específico.</p>
+
+				<img class="c-post__body-img" src="../img/vectorstores-semantic-similarity.png" alt="embeddings próximos semánticamente" width="768">
+
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Mis repositorios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="Mi email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil de LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>
