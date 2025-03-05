@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Introduction to Vector Databases: input, more input! - Xúlio Zé</title>
+	<meta property="og:title" content="Introduction to Vector Databases: input, more input! - Xúlio Zé">
+	<meta name="twitter:title" content="Introduction to Vector Databases: input, more input! - Xúlio Zé">
+	<meta itemprop="name" content="Introduction to Vector Databases: input, more input! - Xúlio Zé">       
+	<meta name="description" content="Discover what vector databases are, how they store embeddings, and why they are key in AI-driven software development.">
+	<meta property="og:description" content="Discover what vector databases are, how they store embeddings, and why they are key in AI-driven software development.">
+	<meta name="twitter:description" content="Discover what vector databases are, how they store embeddings, and why they are key in AI-driven software development.">
+	<meta itemprop="description" content="Discover what vector databases are, how they store embeddings, and why they are key in AI-driven software development.">
+	<link rel="canonical" href="https://xulioze.com/en/blog/vector-stores-introduction.html">
+	<meta property="og:url" content="https://xulioze.com/en/blog/vector-stores-introduction.html">
+	<meta name="twitter:url" content="https://xulioze.com/en/blog/vector-stores-introduction.html">
+	<meta property="og:image" content=https://xulioze.com/img/vectorstore-embeddings.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content=https://xulioze.com/img/vectorstore-embeddings.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content=https://xulioze.com/img/vectorstore-embeddings.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Introduction to Vector Databases: input, more input! - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="return to my CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<!--<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../pt/blogue/como-falar-com-chatgpt.html" title="Versão do post em português">
+								Pt
+							</a>
+						</li> -->
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/bases-datos-vectoriales-introduccion.html" title="Versión del artículo en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../en/cv.html" title="my CV">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../en/blog.html" title="More post">
+								Blog
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="I'm in LinkedIn :)" target="_blank" rel="noopener">
+								Let's talk?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Introduction to Vector Databases: input, more input!
+				</h1>
+				Published on <time datetime="2023-06-30 12:00:00">March 05, 2025</time>
+				<div class="c-messages">
+					<!--<a href="../../pt/blogue/como-falar-com-chatgpt.html" class="c-message">
+						🐙 Podes ler este post em <span>português</span>.
+					</a>-->
+					<a href="../../blog/bases-datos-vectoriales-introduccion.html" class="c-message">
+						🦀 Puedes leer este post en <span>español</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-johnny-5-input.webp" alt="Johnny No. 5 reading a book" width="768">
+
+				<p>I've been working for a few days with my colleague Olivier on an AI project. Our idea is to create a tool that automates documentation, refactoring, and test writing tasks for a repository’s code. As of today, we are not entirely sure if, from an operational standpoint, the effort is worth it, mainly because we’ve seen that there are services specifically developed for this, such as <a href="https://www.cursor.com/" target="_blank" rel="noopener" title="Official website">Cursor</a> or <a href="https://www.pythagora.ai/" target="_blank" rel="noopener" title="Official website">Pythagora</a>. However, what is certain is that we are learning a lot—besides losing a few hours of sleep… 😴</p>
+
+				<p>When we first approach a new technology, we often feel overwhelmed by a torrent of new concepts and tools. In the case of AI-driven software development, this initial flood brings terms like LLMs, vector databases, retrievers, RAGs, AI agents, sentence transformers, etc.</p>
+
+				<p>In this post, I will focus on vector databases (the title doesn’t lie). They are one of the key components in this field, and also, the best way to truly understand a concept is to be able to explain it simply. If this helps you as well, it means I haven’t misunderstood them completely. 😊</p>
+
+				<h2>Vectors</h2>
+
+				<p>To understand what vector databases are and how they work, we first need to understand what a vector is.</p>
+
+				<p>In the field of machine learning, a vector is an ordered list of numbers representing data of any kind, including unstructured data such as text documents, images, audio, or videos.</p>
+
+				<p>The number of values in a vector is known as its dimension, and vector databases handle vectors with several hundred dimensions. For example, OpenAI's <a href="https://platform.openai.com/docs/guides/embeddings#how-to-get-embeddings" target="_blank" rel="noopener" title="How to get embeddings, by OpenAI"><code>text-embedding-3-small</code></a> model generates vectors with 1,536 dimensions.</p>
+
+				<p>1,536 dimensions make up a very large list of numbers. If we placed one here, you would likely leave the post out of boredom from scrolling. So, for a more manageable example, let's show the 3-dimensional vector representation of the word “love”:</p>
+
+				<pre><code>[ 0.1234, -0.2567, 0.5432 ]</code></pre>
+
+				<h2>Embeddings</h2>
+
+				<p>Now that we have a clearer understanding of vectors, it's time to see how they are stored in a vector database. The way this is done is by embedding them as points in a multidimensional space.</p>
+
+				<p>The number of dimensions in the space is determined by the dimensionality of the stored vectors. Personally, imagining points distributed in 768, 1,536, or 3,072 dimensions is a bit challenging. But maybe you’ve watched <em>Interstellar</em> dozens of times and feel capable of doing it. 😅</p>
+
+				<p>If not, let's return to our previous example. Since we represented “love” with a vector of just three dimensions, it will be placed alongside other embeddings as a point on an XYZ coordinate axis. That makes it easier to visualize, right?</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-embeddings.png" alt="embeddings in a multidimensional space" width="768">
+
+				<h2>Queries</h2>
+
+				<p>Now that we know how data is stored in a vector database, let's see how queries are performed.</p>
+
+				<p>First, the query is converted into an embedding that can be compared with the rest of the vectors in the database.</p>
+
+				<p>Since embeddings are numerical representations, the distance between them can be measured using different mathematical metrics. The most common ones include:</p>
+
+				<ul>
+					<li>Euclidean distance ( √Σ(xᵢ - yᵢ)² ): measures the geometric distance in a multidimensional space.</li>
+					<li>Cosine similarity ( cosθ ): measures the angle between two vectors, indicating how similar they are in direction.</li>
+					<li>Manhattan distance ( Σ |xᵢ - yᵢ| ): calculates the sum of the absolute differences between each coordinate.</li>
+				</ul>
+
+				<p>Vector databases use algorithms such as <code>k-NN</code> (k-Nearest Neighbors) and <code>ANN</code> (Approximate Nearest Neighbors), which leverage these metrics to return the vectors closest to the query.</p>
+
+				<p>This method allows for efficient searches across large datasets since it is not necessary to analyze the internal content of each vector—only their positions within the multidimensional space need to be compared.</p>
+
+				<p>While efficiency in queries is crucial, the fundamental characteristic of vector databases is their ability to find the vectors closest to the query, a process known as similarity search.</p>
+
+				<h2>Importance of Similarity Search</h2>
+
+				<p>But why is similarity search so important? To fully grasp this, we need to go back to the beginning: the transformation of data into vectors, also known as embedding.</p>
+
+				<p>The entity responsible for generating embeddings is not the database itself but a specialized language model called an embedding model. These models do not merely translate data into numbers; they encapsulate their semantics and context.</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-semantic-similarity.png" alt="semantically close embeddings" width="768">
+
+				<p>And here lies the key to understanding the importance of this type of search. Similarity searches not only identify elements that are numerically close but also capture semantic similarities, enabling LLMs to recognize deep relationships within stored data.</p>
+
+				<p>In short, vector databases not only facilitate access to information but also enhance LLMs’ ability to interpret and leverage available knowledge. As Johnny No. 5 would say: “Input, more input!”</p>
+
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="My repository">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="write me"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="My profile on LinkedIn">
+								LinkedIn <!-- <span class="c-footer__menu-link-arrow">-></span> -->
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>
