@@ -35,7 +35,7 @@ En los chats, proporcionar el contexto adecuado es fundamental. Dado que su cono
   - Chain-of-Thought
   - Knowledge Generation
 
-Además los chats han ido incorporando la posibilidad de añadir contexto extra permitiendo la carga de archivos desde tu local o incluso directamente desde repositorios de GitHub, como en el caso de Claude.
+Además los chats han evolucionado, incorporando la posibilidad de añadir contexto extra mediante la carga de archivos desde tu local o incluso directamente desde repositorios de GitHub, como en el caso de Claude.
 
 ### Asistentes de código
 
@@ -68,11 +68,11 @@ Al contrario que en los asistentes "tradicionales", los agentes sí tienen el co
 
 ### Desarrollo de agentes propios
 
-Esta vía es las más diferente, ya que su verdadera función no es ayudarnos a desarrollar código, sino crear software con IA integrada. 
+Esta vía es la más diferente, ya que su verdadera función no es ayudarnos a desarrollar código, sino crear software con IA integrada. 
 
 Existen varios frameworks (principalmente de Python) que facilitan el desarrollo del código, la creación de agentes y la integración de LLMs. Entre los más usados están [LlamaIndex](https://docs.llamaindex.ai/en/stable/) y [Crew AI](https://docs.crewai.com/introduction).
 
-En teoría, podríamos desarrollar herramientas propias para la creación de código. Sin embargo, mi opinión es que, a menos que busques una solución muy específica, construir un agente de asistencia no compensa el esfuerzo. La razón es simple: requiere desarrollar múltiples componentes desde 0 que en el caso de los Asistentes como Cursor o Pythagora ya vienen incluidos:
+En teoría, podríamos desarrollar herramientas propias para la creación de código. Sin embargo, mi opinión es que, a menos que busques una solución muy específica, construir un agente de asistencia no compensa el esfuerzo. La razón es simple: requiere desarrollar múltiples componentes desde cero que en el caso de los Asistentes como Cursor o Pythagora ya vienen incluidos:
 - Herramientas para leer el código de un repositorio
 - RAG (Retrieval-Augmented Generation) para dar contexto al LLM:
   - Base de datos vectorial con el código del repositorio
@@ -85,9 +85,8 @@ Sin embargo, creo que la potencia de esta vía está en que podemos incorporar I
 
 ## Algunas reflexiones finales
 
-Creo que merece la pena adentrarse en la creación de software con IA integrada. Porque arrancar es asequible, porque una parte importante de nuestra profesión se va orientar hacia ahí y porque está todo por hacer (¡toneladas de diversión!).
+Creo que merece la pena adentrarse en la creación de software con IA integrada. Porque comenzar es asequible, porque una parte importante de nuestra profesión se va orientar hacia ahí y porque está todo por hacer (¡toneladas de diversión!).
 
-Creo que todos los asistentes de código van a acabar por incluir los agentes y que este tipo de herramientas se convertirá en el estándar de trabajo de cualquier desarrollador en no mucho tiempo.
+Creo que todos los asistentes de código van a acabar por incluir agentes y que este tipo de herramientas se convertirá en el estándar de trabajo de cualquier desarrollador en no mucho tiempo.
 
-Creo que el uso de los chats no va a desaparecer. Quedarse insatisfecho con la propuesta del asistente, preferir contrastar la respuesta con otros modelos, o aprender sobre un nuevo lenguaje mientras vas en el tren, son situaciones en las que recurrir a chats seguirá siendo una buena opción. Así que si ves a una persona haciendo preguntas a su móvil sobre Redux mientras coge un cartón de leche en el súper, dale una oportunidad, quizás no esté del todo loca y simplemente pretenda arrancar esa duda que se trajo clavada del trabajo usando la interfaz de voz de ChatGPT.
-
+Creo que el uso de los chats no va a desaparecer. Quedarse insatisfecho con la propuesta del asistente, preferir contrastar la respuesta con otros modelos, o aprender sobre un nuevo lenguaje mientras vas en el tren, son situaciones en las que recurrir a estas herramientas seguirá siendo una buena opción. Así que si ves a una persona haciendo preguntas a su móvil sobre Redux mientras coge un cartón de leche en el súper, dale una oportunidad, quizás no esté del todo loca y simplemente pretenda arrancar esa duda que se trajo clavada del trabajo usando la interfaz de voz de ChatGPT.
