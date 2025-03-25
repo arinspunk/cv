@@ -85,8 +85,10 @@ Sin embargo, creo que la potencia de esta vía está en que podemos incorporar I
 
 ## Algunas reflexiones finales
 
+Creo que el uso de los chats no va a desaparecer. Quedarse insatisfecho con la propuesta del asistente, preferir contrastar la respuesta con otros modelos, o aprender sobre un nuevo lenguaje mientras vas en el tren, son situaciones en las que recurrir a estas herramientas seguirá siendo una buena opción. Así que si ves a una persona haciendo preguntas a su móvil sobre Redux mientras coge un cartón de leche en el súper, dale una oportunidad, quizás no esté del todo loca y simplemente pretenda arrancar esa duda que se trajo clavada del trabajo usando la interfaz de voz de ChatGPT.
+
+Creo que todos los asistentes de código van a acabar por incluir agentes y que se convertirán en el estándar de trabajo de cualquier desarrollador en no mucho tiempo.
+
 Creo que merece la pena adentrarse en la creación de software con IA integrada. Porque comenzar es asequible, porque una parte importante de nuestra profesión se va orientar hacia ahí y porque está todo por hacer (¡toneladas de diversión!).
 
-Creo que todos los asistentes de código van a acabar por incluir agentes y que este tipo de herramientas se convertirá en el estándar de trabajo de cualquier desarrollador en no mucho tiempo.
-
-Creo que el uso de los chats no va a desaparecer. Quedarse insatisfecho con la propuesta del asistente, preferir contrastar la respuesta con otros modelos, o aprender sobre un nuevo lenguaje mientras vas en el tren, son situaciones en las que recurrir a estas herramientas seguirá siendo una buena opción. Así que si ves a una persona haciendo preguntas a su móvil sobre Redux mientras coge un cartón de leche en el súper, dale una oportunidad, quizás no esté del todo loca y simplemente pretenda arrancar esa duda que se trajo clavada del trabajo usando la interfaz de voz de ChatGPT.
+Entonces, ¿nos dejamos arrastrar por la locura generalizada y nos enamoramos o no? Bueno, si algo aprendimos de Theodore es que enamorarse de una IA no es un buen negocio, así que mejor probemos las nuevas herramientas con calma, aprendamos a usarlas y ya veremos en qué queda todo cuando desaparezca la pasión.
