@@ -16,7 +16,7 @@ A día de hoy existen 5:
 
 ### No usar IA
 
-Entiendo esta postura, sobre todo si eres Senior y además estás un poco harto/a de toda la matraca que se está dando con el tema. Reconozco que [en la IA hay mucho de hype](https://www.wheresyoured.at/longcon/) (dale una oportunidad al artículo, siempre viene bien algo de viento entre tanto humo 😉), pero merece la pena usarla, aunque sólo sea para ahorrarte dar doscientas vueltas por [Stack Overflow](https://stackoverflow.com/) para solucionar un error que se te atasca o evitar tener que leerte toda la doc de una nueva API para desarrollar algo sencillo.
+Ok, esta no es una verdadera vía y entiendo la postura, sobre todo si eres Senior y además estás un poco harto/a de toda la matraca que se está dando con el tema. Reconozco que [en la IA hay mucho de hype](https://www.wheresyoured.at/longcon/) (dale una oportunidad al artículo, siempre viene bien algo de viento entre tanto humo 😉), pero merece la pena usarla, aunque sólo sea para ahorrarte dar doscientas vueltas por [Stack Overflow](https://stackoverflow.com/) para solucionar un error que se te atasca o evitar tener que leerte toda la doc de una nueva API para desarrollar algo sencillo.
 
 ### Chats
 
