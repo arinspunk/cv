@@ -145,6 +145,9 @@ h3, .h3 {
     &:first-of-type {
         margin-top: 14px;
     }
+    .blog & {
+        margin: -2px 0 20px;
+    }
     @media screen and (min-width: $bp--medium) {
         font-size: $h3-size-m;
         font-size: var(--h3-size-m);
