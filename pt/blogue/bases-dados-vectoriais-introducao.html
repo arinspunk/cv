@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Introdução às bases de dados vetoriais: dados, mais dados! - Xúlio Zé</title>
+	<meta property="og:title" content="Introdução às bases de dados vetoriais: dados, mais dados! - Xúlio Zé">
+	<meta name="twitter:title" content="Introdução às bases de dados vetoriais: dados, mais dados! - Xúlio Zé">
+	<meta itemprop="name" content="Introdução às bases de dados vetoriais: dados, mais dados! - Xúlio Zé">       
+	<meta name="description" content="Descobre o que são as bases de dados vetoriais, como armazenam embeddings e por que são fundamentais no desenvolvimento de software com IA.">
+	<meta property="og:description" content="Descobre o que são as bases de dados vetoriais, como armazenam embeddings e por que são fundamentais no desenvolvimento de software com IA.">
+	<meta name="twitter:description" content="Descobre o que são as bases de dados vetoriais, como armazenam embeddings e por que são fundamentais no desenvolvimento de software com IA.">
+	<meta itemprop="description" content="Descobre o que são as bases de dados vetoriais, como armazenam embeddings e por que são fundamentais no desenvolvimento de software com IA.">
+	<link rel="canonical" href="https://xulioze.com/pt/blogue/bases-dados-vectoriais-introducao.html">
+	<meta property="og:url" content="https://xulioze.com/pt/blogue/bases-dados-vectoriais-introducao.html">
+	<meta name="twitter:url" content="https://xulioze.com/pt/blogue/bases-dados-vectoriais-introducao.html">
+	<meta property="og:image" content="https://xulioze.com/img/vectorstore-embeddings.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="https://xulioze.com/img/vectorstore-embeddings.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="https://xulioze.com/img/vectorstore-embeddings.png?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2023 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Introdução às bases de dados vetoriais: dados, mais dados! - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="voltar ao meu CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/bases-datos-vectoriales-introduccion.html" title="Versión en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../en/blog/vector-stores-introduction.html" title="English version">
+								En
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../cv.html" title="o meu curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blogue.html" title="aqui falo de cousas">
+								Blogue
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estou no LinkedIn :)" target="_blank" rel="noopener">
+								Falamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Introdução às bases de dados vetoriais: dados, mais dados!
+				</h1>
+				Publicado o <time datetime="2025-03-05 12:00:00">5 de março de 2025</time>
+				<div class="c-messages">
+					<a href="../../en/blog/vector-stores-introduction.html" class="c-message">
+						🦑 You can read this post in <span>english</span>.
+					</a>
+					<a href="../../blog/bases-datos-vectoriales-introduccion.html" class="c-message">
+						🦀 Puedes leer este post en <span>español</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-johnny-5-input.webp" alt="Johnny nº5 a ler um livro" width="768" loading="lazy">
+
+				<p>Já estou há alguns dias a desenvolver com o meu colega Olivier um projeto de IA. A nossa ideia é criar uma ferramenta que permita automatizar tarefas de documentação, refatoração e escrita de testes para o código de um repositório. Atualmente, não temos a certeza se do ponto de vista operacional vale a pena o esforço, principalmente porque estamos a verificar que existem serviços desenvolvidos especificamente para isto, como <a href="https://www.cursor.com/" target="_blank" rel="noopener" title="Site oficial">Cursor</a> ou <a href="https://www.pythagora.ai/" target="_blank" rel="noopener" title="Site oficial">Pythagora</a>. No entanto, o que é certo é que estamos a aprender muito, além de perder algumas horas de sono... 😴</p>
+
+				<p>Quando nos aproximamos pela primeira vez de uma tecnologia, o habitual é sentirmo-nos arrastados por uma torrente de novos conceitos e ferramentas. No caso do desenvolvimento de software com IA, a inundação inicial traz-nos termos como LLMs, bases de dados vetoriais, retrievers, RAGs, agentes de IA, sentence transformers, etc.</p>
+
+				<p>Neste artigo vou focar-me nas bases de dados vetoriais (o título não engana). Por ser uma das peças fundamentais neste âmbito e também porque a melhor maneira de compreender um conceito é ser capaz de explicá-lo de forma simples. Se também te ajudar, significará que não as compreendi mal de todo. 😊</p>
+
+				<h2>Vetores</h2>
+
+				<p>Para entender o que são e como funcionam as bases de dados vetoriais, primeiro devemos saber o que é um vetor.</p>
+
+				<p>No âmbito da aprendizagem automática, um vetor é uma lista ordenada de números que representa dados de qualquer tipo, inclusive não estruturados, como documentos de texto, imagens, áudios ou vídeos.</p>
+
+				<p>A quantidade de números que compõem um vetor é conhecida como dimensão, e as bases de dados vetoriais gerem vetores de várias centenas de dimensões. Por exemplo, o modelo <a href="https://platform.openai.com/docs/guides/embeddings#how-to-get-embeddings" target="_blank" rel="noopener" title="How to get embeddings, por Open AI"><code>text-embedding-3-small</code></a> da OpenAI gera vetores de 1536 dimensões.</p>
+
+				<p>1536 dimensões formam uma lista de números muito grande. Se colocássemos um aqui, o mais provável é que abandonasses o artigo aborrecido de fazer scroll. Assim, para um exemplo mais manejável, podemos mostrar a representação vetorial em 3 dimensões da palavra "amor":</p>
+
+				<pre><code>[ 0.1234, -0.2567, 0.5432 ]</code></pre>
+
+				<h2>Embeddings</h2>
+
+				<p>Agora que temos mais claro o que são os vetores, é altura de conhecer como são armazenados numa base de dados vetorial. A forma de o fazer é incrustando-os como pontos num espaço multidimensional.</p>
+
+				<p>O número de dimensões do espaço é determinado pela dimensionalidade dos vetores guardados. Para mim, imaginar pontos distribuídos em 768, 1536 ou 3072 dimensões é um pouco complicado. Embora talvez tenhas visto <em>Interstellar</em> n vezes e te sintas capaz de o fazer. 😅</p>
+
+				<p>Se não for o caso, voltemos ao nosso exemplo anterior. Como representámos "amor" com um vetor de apenas 3 dimensões, este dispor-se-á junto dos restantes embeddings como um ponto num eixo de coordenadas XYZ. Assim é mais fácil de visualizar, não é verdade?</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-embeddings.png" alt="embeddings num espaço multidimensional" width="768" loading="lazy">
+
+				<h2>Consultas</h2>
+
+				<p>Agora que sabemos como se armazenam os dados numa base de dados vetorial, vejamos como se realizam as consultas.</p>
+
+				<p>Em primeiro lugar, a consulta é convertida num embedding que pode ser comparado com os restantes vetores da base de dados.</p>
+
+				<p>Dado que os embeddings são representações numéricas, é possível medir a distância entre eles utilizando diferentes métricas matemáticas, entre as mais comuns:</p>
+
+				<ul>
+					<li>Distância euclidiana ( √Σ(xᵢ - yᵢ)² ): mede a distância geométrica num espaço multidimensional.</li>
+					<li>Similaridade do cosseno ( cosθ ): mede o ângulo entre dois vetores, indicando quão semelhantes são em direção.</li>
+					<li>Distância de Manhattan ( Σ |xᵢ - yᵢ| ): calcula a soma das diferenças absolutas entre cada coordenada.</li>
+				</ul>
+
+				<p>As bases de dados vetoriais empregam algoritmos como <code>k-NN</code> (k-Nearest Neighbors) e <code>ANN</code> (Approximate Nearest Neighbors) que utilizam estas métricas para devolver os vetores mais próximos ao da consulta.</p>
+
+				<p>Esta forma de trabalhar permite realizar pesquisas eficientes em grandes volumes de dados, já que não é necessário analisar o conteúdo interno de cada vetor, basta simplesmente comparar as suas posições dentro do espaço multidimensional.</p>
+
+				<p>Embora a eficiência nas consultas seja muito importante, a característica fundamental das bases de dados vetoriais é a sua capacidade para encontrar os vetores mais próximos da consulta, processo conhecido como pesquisa por similaridade.</p>
+
+				<h2>Importância da pesquisa por similaridade</h2>
+
+				<p>Mas, por que é tão importante a pesquisa por similaridade? Para entendê-lo bem, temos de voltar ao ponto inicial: a transformação dos dados em vetores, também conhecida como embedding.</p>
+
+				<p>Quem se encarrega de gerar os embeddings não é a própria base de dados, mas sim um modelo de linguagem especializado, chamado modelo de embedding. Estes modelos não fazem uma simples tradução numérica dos dados, mas encapsulam a sua semântica e contexto.</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-semantic-similarity.png" alt="embeddings próximos semanticamente" width="768" loading="lazy">
+
+				<p>E aqui é onde encontramos a chave para compreender a importância deste tipo de pesquisa. As pesquisas por similaridade não só identificam elementos próximos em termos numéricos, como capturam similaridades semânticas, permitindo aos LLMs reconhecer relações profundas dentro dos dados armazenados.</p>
+
+				<p>Em suma, as bases de dados vetoriais não só facilitam o acesso à informação, como ampliam a capacidade dos LLMs para interpretar e aproveitar o conhecimento disponível. <a href="https://www.youtube.com/watch?v=WnTKllDbu5o" target="_blank" rel="noopener" title="input, more input!">O que a Stephanie teria dado para ter uma em 1986</a>!</p>
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Os meus repositórios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="O meu email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil no LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>
