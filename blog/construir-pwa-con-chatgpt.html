@@ -46,7 +46,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
 
 </head>
 <body class="body blog">
@@ -110,7 +110,7 @@
 				</div>
 			</header>
 			<div class="c-info__content o-block o-block--center">
-				<img class="c-post__body-img" src="../img/chatgpt-hal-9000.jpg" alt="David Bowman delante de HAL 9000" width="655">
+				<img class="c-post__body-img" src="../img/chatgpt-hal-9000.jpg" alt="David Bowman delante de HAL 9000" width="655" loading="lazy">
 				<figure>
 					<blockquote>
 						<p>Cualquier tecnología lo suficientemente avanzada es indistinguible de la magia.</p>
@@ -129,9 +129,9 @@
 				<p>
 					Tardé en usarlo, pero la semana pasada copié un snippet de JavaScript de un sitio antiguo, lo pegué en el cuadro de chat y pregunté: "¿Podrías optimizar este fragmento de código?" Y el texto fue creciendo mientras decía, claro, puedes mejorar esto con aquello, y aquello con esto, etc. Te dejo un ejemplo. El ejemplo tenía sentido y funcionaba. De nuevo un acto aparentemente mágico. De nuevo la emoción. Pero ahora también una sensación diferente, un poco de miedo.
 				</p>
-				<img class="c-post__body-img" src="../../img/fired.gif" alt="está despedido" width="655">
+				<img class="c-post__body-img" src="../img/fired.gif" alt="está despedido" width="655" loading="lazy">
 				<p>
-					Solo un poquito. La verdad es que no creo en la magia (excepto en la de <a href="https://www.nytimes.com/2023/01/02/magazine/juan-tamariz-magic.html" title="The Man Who Made Spain the Magic Capital of the World - NYT" target="_blank" rel="noopener">Tamariz</a>), ya vi gastar el adjetivo disruptivo en la primera década del siglo y como la mejor manera de perder el miedo a algo es conocerlo, me puse manos a la obra, antes de que nos enviara derechasal paro.
+					Solo un poquito. La verdad es que no creo en la magia (excepto en la de <a href="https://www.nytimes.com/2023/01/02/magazine/juan-tamariz-magic.html" title="The Man Who Made Spain the Magic Capital of the World - NYT" target="_blank" rel="noopener">Tamariz</a>), ya vi gastar el adjetivo disruptivo en la primera década del siglo y como la mejor manera de perder el miedo a algo es conocerlo, me puse manos a la obra, antes de que nos enviara derechas al paro.
 				</p>
 				<h2>
 					Experimento
@@ -139,7 +139,7 @@
 				<p>
 					Hmm… ¿Por dónde empezar? Bueno, <a href="https://twitter.com/naia_ze" title="NZ&A en Twitter" target="_blank" rel="noopener">Naia y yo</a> tenemos la idea de crear una aplicación meteorológica en la que, en lugar de los clásicos iconos, se muestren unos dibujos un poco más divertidos. Así que aprovechando la excusa, escribí la siguiente pregunta:
 				</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="primera pregunta a ChatGPT y su respuesta" width="655">
+				<img class="c-post__body-img" src="../img/chatgpt-01.jpg" alt="primera pregunta a ChatGPT y su respuesta" width="655" loading="lazy">
 				<p>
 					Perfecto. En su primera respuesta, ChatGPT proporcionó un HTML, un fragmento de JS y una explicación detallada de todo el código.
 				</p>
@@ -152,7 +152,7 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>Después de algunas pruebas más, noté que si el nombre de la ciudad no existía en la base de datos de la API, por ejemplo Portox, obtenía un error en el fetch (con el mensaje que pasábamos en el código, "Failed to fetch weather data for Portox"). También ocurría que si varias ciudades compartían el mismo nombre, como Porto, que hay en Portugal, Brasil y España, los datos que veíamos pertenecían solo a una de ellas. Por lo que escribí una segunda pregunta:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="segunda pregunta a ChatGPT y su respuesta" width="655">
+				<img class="c-post__body-img" src="../img/chatgpt-02.jpg" alt="segunda pregunta a ChatGPT y su respuesta" width="655" loading="lazy">
 				<p>Esta vez ChatGPT no acertó. O mejor dicho, acertó pero yo no le proporcioné la pregunta correcta. Simplemente verificaba si la ciudad existía en la base de datos antes de buscar la información meteorológica. Sin embargo, para el usuario no había diferencia en comparación con la versión anterior, excepto por el intercambio de mensajes. Además, el problema de las ciudades con el mismo nombre no se resolvía.</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/qBJOzJX?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/qBJOzJX">
@@ -160,7 +160,7 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>Mea culpa y nueva pregunta. Ahora enfocada en las ciudades con el mismo nombre:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="tercera pregunta a ChatGPT y su respuesta" width="655">
+				<img class="c-post__body-img" src="../img/chatgpt-03.jpg" alt="tercera pregunta a ChatGPT y su respuesta" width="655" loading="lazy">
 				<p>Con el nuevo código se mostraba la lista de ciudades, pero no era posible hacer clic en ellas para obtener los datos de solo una al presionar el botón "Buscar".</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/oNajrao?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/oNajrao">
@@ -168,7 +168,7 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>Otra pregunta más:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-04.jpg" alt="cuarta pregunta a ChatGPT y su respuesta" width="655">
+				<img class="c-post__body-img" src="../img/chatgpt-04.jpg" alt="cuarta pregunta a ChatGPT y su respuesta" width="655" loading="lazy">
 				<p>Con el cambio, sí era posible hacer clic en una de las ciudades de la lista y, al hacerlo, se obtenían los datos meteorológicos de esa ciudad.</p>
 				<iframe  class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 04" src="https://codepen.io/arinspunk/embed/abRpbjQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/abRpbjQ">
@@ -190,11 +190,11 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>Ahora que el código estaba listo, era hora de convertir nuestro sitio en una PWA (aplicación web progresiva):</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-05.jpg" alt="quinta pregunta a ChatGPT y su respuesta" width="655">
+				<img class="c-post__body-img" src="../img/chatgpt-05.jpg" alt="quinta pregunta a ChatGPT y su respuesta" width="655" loading="lazy">
 				<p>En el primer intento funcionó 🥳</p>
 				<p>Este es el resultado: <a href="https://xulioze.com/test/pwa/" target="_blank" rel="noopener" title="Visita y descarga la PWA">Pe Man</a></p>
 				<p>¡Muchas gracias ChatGPT!</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-06.jpg" alt="última pergunta a ChatGPT e a sua resposta" width="655">
+				<img class="c-post__body-img" src="../img/chatgpt-06.jpg" alt="última pergunta a ChatGPT e a sua resposta" width="655" loading="lazy">
 				<h2>
 					Conclusiones
 				</h2>
@@ -230,7 +230,7 @@
 				<p>
 					🥹
 				</p>
-				<img class="c-post__body-img" src="../../img/fired.gif" alt="Estás despedido" width="655">
+				<img class="c-post__body-img" src="../img/fired.gif" alt="Estás despedido" width="655" loading="lazy">
 			</div>
 		</section>
 		
@@ -265,7 +265,7 @@
 	</article>
 
 	<!-- JavaScript -->
-	<script src="../../js/application.min.js" defer></script>
+	<script src="../js/application.min.js" defer></script>
 
 </body>
 </html>

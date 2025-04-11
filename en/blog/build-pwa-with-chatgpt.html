@@ -110,7 +110,7 @@
 				</div>
 			</header>
 			<div class="c-info__content o-block o-block--center">
-				<img class="c-post__body-img" src="../../img/chatgpt-hal-9000.jpg" alt="David Bowman in front of HAL 9000" width="655">
+				<img class="c-post__body-img" src="../../img/chatgpt-hal-9000.jpg" alt="David Bowman in front of HAL 9000" width="655" loading="lazy">
 				<figure>
 					<blockquote>
 						<p>Any sufficiently advanced technology is indistinguishable from magic.</p>
@@ -129,7 +129,7 @@
 				<p>
 					It took me a while to use it, but last week I copied a JavaScript snippet from an old website, pasted it into the chat box, and asked, "Could you optimize this code fragment?" And the text grew as it said, of course, you can improve this with that, and that with this, etc. Here's an example. The example made sense and it worked. Again, an apparently magical act. Again, excitement. But now also a different sensation, a little bit of fear.
 				</p>
-				<img class="c-post__body-img" src="../../img/fired.gif" alt="you're fired" width="655">
+				<img class="c-post__body-img" src="../../img/fired.gif" alt="you're fired" width="655" loading="lazy">
 				<p>
 					Just a little bit. The truth is, I don't believe in magic (except for <a href="https://www.nytimes.com/2023/01/02/magazine/juan-tamariz-magic.html" title="The Man Who Made Spain the Magic Capital of the World - NYT" target="_blank" rel="noopener">Tamariz</a>'s'), I already saw the adjective "disruptive" being overused in the first decade of the century, and the best way to overcome fear is to get to know something, so I got to work, before it sent us straight to unemployment.
 				</p>
@@ -139,7 +139,7 @@
 				<p>
 					Hmm... where to start? Well, <a href="https://twitter.com/naia_ze" title="NZ&A en Twitter" target="_blank" rel="noopener">Naia and I</a> have the idea of creating a weather application in which, instead of the classic icons, some slightly more fun drawings are displayed. So, taking advantage of the excuse, I wrote the following question:
 				</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="first question to ChatGPT and its answer" width="655">
+				<img class="c-post__body-img" src="../../img/chatgpt-01.jpg" alt="first question to ChatGPT and its answer" width="655" loading="lazy">
 				<p>
 					Perfect. In its first response, ChatGPT provided an HTML, a JS snippet, and a detailed explanation of the entire code.
 				</p>
@@ -152,7 +152,7 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>After some more testing, I noticed that if the city name did not exist in the API database, for example Portox, I would get an error in the fetch (with the message we passed in the code, "Failed to fetch weather data for Portox"). It also happened that if several cities shared the same name, such as Porto, which exists in Portugal, Brazil, and Spain, the data we saw belonged only to one of them. So I wrote a second question:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="second question to ChatGPT and its answer" width="655">
+				<img class="c-post__body-img" src="../../img/chatgpt-02.jpg" alt="second question to ChatGPT and its answer" width="655" loading="lazy">
 				<p>This time, ChatGPT didn't get it right. Or rather, it got it right, but I didn't provide the correct question. It simply checked if the city existed in the database before searching for weather information. However, for the user, there was no difference compared to the previous version, except for the exchange of messages. Additionally, the problem of cities with the same name remained unsolved.</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/qBJOzJX?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/qBJOzJX">
@@ -160,7 +160,7 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>Mea culpa and a new question. Now focused on cities with the same name:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça question to ChatGPT and its answer" width="655">
+				<img class="c-post__body-img" src="../../img/chatgpt-03.jpg" alt="terça question to ChatGPT and its answer" width="655" loading="lazy">
 				<p>With the new code, the list of cities was displayed, but it was not possible to click on them to obtain the data of just one when pressing the "Search" button.</p>
 				<iframe class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 02" src="https://codepen.io/arinspunk/embed/oNajrao?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/oNajrao">
@@ -168,7 +168,7 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>Another question:</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-04.jpg" alt="fourth question to ChatGPT and its answer" width="655">
+				<img class="c-post__body-img" src="../../img/chatgpt-04.jpg" alt="fourth question to ChatGPT and its answer" width="655" loading="lazy">
 				<p>With the change, it was possible to click on one of the cities in the list, and upon doing so, the weather data for that city was obtained.</p>
 				<iframe  class="c-post__body-iframe" height="300" style="width: 100%;" scrolling="no" title="PWA com ChatGPT 04" src="https://codepen.io/arinspunk/embed/abRpbjQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 					See the Pen <a href="https://codepen.io/arinspunk/pen/abRpbjQ">
@@ -190,11 +190,11 @@
 					on <a href="https://codepen.io">CodePen</a>.
 				</iframe>
 				<p>Now that the code was ready, it was time to turn our site into a PWA (Progressive Web App):</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-05.jpg" alt="fifth question to ChatGPT and its answer" width="655">
+				<img class="c-post__body-img" src="../../img/chatgpt-05.jpg" alt="fifth question to ChatGPT and its answer" width="655" loading="lazy">
 				<p>It worked on the first try 🥳</p>
 				<p>This is the result: <a href="https://xulioze.com/test/pwa/" target="_blank" rel="noopener" title="Visita e descarrega a PWA">Pe Man</a></p>
 				<p>Thank you very much, ChatGPT!</p>
-				<img class="c-post__body-img" src="../../img/chatgpt-06.jpg" alt="last question to ChatGPT and its answer" width="655">
+				<img class="c-post__body-img" src="../../img/chatgpt-06.jpg" alt="last question to ChatGPT and its answer" width="655" loading="lazy">
 				<h2>
 					Conclusions
 				</h2>
@@ -228,7 +228,7 @@
 					And last but not least, it is not going to directly send us programmers to unemployment. At least not in the coming months…
 				</p>
 				<p>🥹</p>
-				<img class="c-post__body-img" src="../../img/fired.gif" alt="you are fired" width="655">
+				<img class="c-post__body-img" src="../../img/fired.gif" alt="you are fired" width="655" loading="lazy">
 			</div>
 		</section>
 		
