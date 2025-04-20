@@ -1,0 +1,79 @@
+# Extended Context: How to Improve the Quality of Work with AI Agents in Complex Projects
+
+The purpose of this post is to describe a strategy for extending context in the development of complex projects with agents. But since LLMs aren't the only ones who need context to understand ideas, I'll start with a bit of context for humans.
+
+*If you're in a hurry and want to know about it directly, you can always skip the intro. Don't worry, no one will know you did* 😉
+
+## Context for Humans
+
+The emergence of agents in code assistants has represented a huge leap in AI-assisted software development.
+
+The first thing that stands out is their ability to automatically iterate on their own responses, create and modify files, run commands in the terminal, etc. But for me, the skill that makes the difference is that they are capable of indexing and analyzing a project's code, including dependencies between files and relationships between components.
+
+If until now tools like GitHub Copilot allowed us to work at the file level, with the emergence of agents (GitHub Copilot Agent Mode, Cursor, etc.) we have moved to working at the architecture level. Now AI not only assists us in writing/fixing parts of our code, but also helps us in building complete projects (and at a speed that sometimes makes you dizzy).
+
+But this increase in the complexity of tasks developed reveals something that was difficult to see before: we are pushing the context window of the agents themselves to the limit.
+
+If you're familiar with using GitHub Copilot Agent Mode or Cursor, you'll already know that to work in agent mode, you just need to open a new chat, select agent, and start the conversation. The issue is that the open chat has a context window, and if we exceed it, context displacement starts to occur—basically, the agent begins to forget the beginning of the conversation.
+
+If the task is simple, there's no problem; the limit is rarely exceeded, and if it does happen, just opening a new chat is enough. But when it comes to building complete projects, how do we maintain the coherence of the conversation and the quality of the work?
+
+For these cases, I use a strategy that I've designed from my experience with Cursor first, and with GitHub Copilot Agent Mode these past few weeks: extended context.
+
+## Extended Context (Using Markdowns as Memory)
+
+This strategy is based on storing markdown files in a folder at the root of the project called context/
+
+The central idea is to create a memory with project information that the LLM (or we) can refer to whenever it needs to know where it stands and what it should do, and to divide the work into as many chats as necessary to avoid reaching the context window limit. This way, we maintain the coherence and quality of the work from start to finish.
+
+### Working Schema
+
+#### Chat 1
+
+1. Prompt to create a synthetic expert in the project's technology: role, experience, technical stack, reasoning approach, and response format. Ending with "don't write code yet."
+2. Prompt where we ask it to:
+   - analyze the project code
+   - generate a report of its analysis
+   - save it in .md format inside the context/ folder with a 00- in front of the filename.
+   If we're not completely satisfied with the report, we can iterate on it until we are.
+3. Prompt where we:
+   - indicate what we want to do (requirements)
+   - ask it to generate a master plan
+   - save the master plan in .md format inside the context/ folder with a 01- in front of the filename.
+   As with the analysis, we can iterate on it until we are satisfied.
+
+#### Chat 2
+
+1. Same prompt for creating a synthetic expert
+2. Prompt asking it to read and internalize the project analysis
+3. Prompt asking it to read and internalize the master plan
+4. Prompt asking it to execute point 1 of the master plan
+5. Normal iteration until point 1 is finished
+6. Prompt asking it to document the work developed in point 1. In an .md inside context/ following the current numbering
+
+#### Chat n
+
+1. Same prompt for creating a synthetic expert
+2. Prompt asking it to read and internalize the project analysis
+3. Prompt asking it to read and internalize the master plan
+4. Prompt asking it to execute point n of the master plan
+5. Normal iteration until point n is finished
+6. Prompt asking it to document the work developed in point n. Inside the documentation .md created previously
+
+### Advantages of Extended Context
+
+This strategy offers several advantages:
+
+1. Continuity: You can close your computer and resume work days later without losing the thread.
+2. Collaboration: Other team members can easily understand the state of the project and continue it at any point.
+3. Automatic documentation: When you finish, you already have structured documentation.
+4. Avoids loss of context: The LLM can consult these files when it needs to remember previous decisions.
+5. Facilitates task division: Perfect for agile methodologies and sprints.
+
+#### Final Reflection
+
+Just as humans need to write things down not to forget them, LLMs also benefit from having their own notes (if they're in markdown, even better—they love markdown!). It's ironic that in this imitation of human thought, we have not only replicated its successes but also its limitations. Although with the race for expanding the context window that exists, perhaps in the future these types of strategies won't be necessary.
+
+This way of working has worked especially well for me in developing my MCP Claude Talk to Figma and especially in the refactoring that I carried out during Easter week (I had already refined the flow). At first, it may feel like we're making the work more complex, but in the end, the time and frustration savings we achieve are completely worth it.
+
+Have you tried a similar approach? Do you have any other strategies for working with agents on complex projects? I'd love to hear about your experience.
