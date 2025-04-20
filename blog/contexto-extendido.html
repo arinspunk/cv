@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé</title>
+	<meta property="og:title" content="Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé">
+	<meta name="twitter:title" content="Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé">
+	<meta itemprop="name" content="Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé">       
+	<meta name="description" content="Descubre la estrategia de 'contexto extendido' para mantener coherencia en proyectos complejos con agentes IA usando archivos markdown como memoria externa para tus LLMs.">
+	<meta property="og:description" content="Descubre la estrategia de 'contexto extendido' para mantener coherencia en proyectos complejos con agentes IA usando archivos markdown como memoria externa para tus LLMs.">
+	<meta name="twitter:description" content="Descubre la estrategia de 'contexto extendido' para mantener coherencia en proyectos complejos con agentes IA usando archivos markdown como memoria externa para tus LLMs.">
+	<meta itemprop="description" content="Descubre la estrategia de 'contexto extendido' para mantener coherencia en proyectos complejos con agentes IA usando archivos markdown como memoria externa para tus LLMs.">
+	<link rel="canonical" href="https://xulioze.com/blog/contexto-extendido.html">
+	<meta property="og:url" content="https://xulioze.com/blog/contexto-extendido.html">
+	<meta name="twitter:url" content="https://xulioze.com/blog/contexto-extendido.html">
+	<meta property="og:image" content="https://xulioze.com/img/claude-talk-to-figma-metas.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="https://xulioze.com/img/claude-talk-to-figma-metas.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="https://xulioze.com/img/claude-talk-to-figma-metas.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="https://xulioze.com/img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://xulioze.com/img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://xulioze.com/img/icons/favicon-16x16.png">
+	<link rel="manifest" href="https://xulioze.com/img/icons/site.webmanifest">
+	<link rel="mask-icon" href="https://xulioze.com/img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../index.html" title="regresar a mi CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<!-- <li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../pt/blogue/desenvolvimento-com-ia.html" title="Versão em português">
+								Pt
+							</a>
+						</li>-->
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../en/blog/extended-context.html" title="English version">
+								En
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../index.html" title="mi curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blog.html" title="aquí hablo de cosas">
+								Blog
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estoy en LinkedIn :)" target="_blank" rel="noopener">
+								Hablamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA
+				</h1>
+				Publicado el <time datetime="2025-04-21 12:00:00">21 de abril de 2025</time>
+				<div class="c-messages">
+					<a href="../en/blog/extended-context.html" class="c-message">
+						🦑 You can read this post in <span>english</span>.
+					</a>
+					<!--<a href="../pt/blogue/claude-talk-to-figma.html" class="c-message">
+						🐙 Podes ler este post em <span>português</span>.
+					</a>
+				</div> -->
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<!-- <img class="c-post__body-img" src="https://xulioze.com/img/claude-talk-to-figma-metas.jpg" alt="Theodore pensando" width="768" loading="lazy"> -->
+
+				<p>El propósito de este post es describir una estrategia de ampliación de contexto en el desarrollo de proyectos complejos con agentes. Pero como no solo los LLMs necesitan contexto para comprender ideas, comienzo con un poco de contexto para humanos.</p>
+
+				<p><em>Si tienes prisa y quieres conocerla directamente, siempre puedes <a href="#contexto-extendido">saltarte la intro</a>. No te preocupes nadie sabrá que lo has hecho</em> 😉</p>
+
+				<h2>Contexto para humanos</h2>
+
+				<p>La aparición de los agentes en los asistentes de código ha supuesto un salto enorme en el desarrollo de software asistido por IA.</p>
+
+				<p>Lo primero que llama la atención es su capacidad para iterar de forma automática sobre sus propias respuestas, crear y modificar archivos, correr comandos en la terminal, etc. Pero para mí, la habilidad que marca la diferencia, es que son capaces de indexar y analizar el código de un proyecto, incluídas las dependencias entre archivos y las relaciones entre sus componentes.</p>
+
+				<p>Si hasta ahora herramientas como GitHub Copilot nos permitían trabajar a nivel archivo, con la aparición de los agentes (GitHub Copilot Agente Mode, Cursor, etc.) hemos pasado a trabajar a nivel arquitectura. Ahora la IA no sólo nos asiste en la escritura/fixing de partes de nuestro código, si no que nos ayuda en la construcción de proyectos completos (además a una velocidad que a veces da vertigo).</p>
+
+				<p>Pero este aumento en la complejidad de las tareas desarrolladas provoca algo que antes era difícil de ver, llevamos al límite la ventana de contexto de los propios agentes.</p>
+
+				<p>Si estás familiarizada con el uso de GitHub Copilot Agent Mode o Cursor, ya sabrás que para trabajar en modo agente basta abrir un nuevo chat, seleccionar agente y arrancar la conversación. El asunto está en que el chat abierto tiene una ventana de contexto, que si superamos, comienza a producirse el desplazamiento del contexto, básicamente el agente empieza a olvidar el inicio de la conversación.</p>
+
+				<p>Si la tarea es sencilla, no hay problema, rara vez se supera el límite y si se da el caso basta abrir un nuevo chat. Pero a la hora de construir proyectos completos, ¿cómo hacemos para mantener la coherencia de la conversación y la calidad del trabajo?</p>
+
+				<p>Para estos casos uso una estrategía que he diseñado a partir de mi experiencia con Cursor primero, y con GitHub Copilot Agente Mode estas últimas semanas: contexto extendido.</p>
+
+				<h2 id="contexto-extendido">Contexto extendido (usando markdowns como memoria)</h2>
+
+				<p>Esta estrategia se basa en el almacenamiento de archivos markdown en una carpeta en la raíz del proyecto llamada context/</p>
+
+				<p>La idea central es crear una memoria con información del proyecto a la que el LLM (o nosotros) puede recurrir siempre que necesite conocer en qué punto está y qué debe hacer y dividir el trabajo en tantos chats como sean necesarios para evitar alcanzar el límite de la ventana de contexto. Manteniendo de esta forma la coherencia y calidad del trabajo de principio a fin.</p>
+
+				<p>Esquema de trabajo:</p>
+
+				<h3>Chat 1</h3>
+
+				<ol>
+					<li>Prompt para crear un experto sintético en la tecnología del proyecto: rol, experiencia, stack técnico, forma de razonamiento y formato de respuesta. Finalizado con un "no escribas código aun".</li>
+					<li>Prompt donde pedimos que:
+						<ul>
+							<li>analice el código del proyecto</li>
+							<li>genere un informe de su análisis</li>
+							<li>lo guarde en formato .md dentro de la carpeta context/ con un 00- delante del nombre del archivo.
+							Si no estamos satisfechos del todo con el informe, podemos iterar sobre él hasta quedar satisfechos.</li>
+						</ul>
+					</li>
+					<li>Prompt donde:
+						<ul>
+							<li>indicamos qué queremos hacer (requisitos)</li>
+							<li>pedimos que genere un plan maestro</li>
+							<li>guarde el plan maestro en formato .md dentro de la carpeta context/ con un 01- delante del nombre del archivo.
+							Al igual que con el análisis, podemos iterar sobre él hasta quedar satisfechos.</li>
+						</ul>
+					</li>
+				</ol>
+
+				<h3>Chat 2</h3>
+
+				<ol>
+					<li>Mismo prompt para creación de experto sintético</li>
+					<li>Prompt pidiendo que lea e interiorice el análisis del proyecto</li>
+					<li>Prompt pidiendo que lea e interiorice el plan maestro</li>
+					<li>Prompt pidiendo que ejecute el punto 1 del plan maestro</li>
+					<li>Iteración normal hasta terminar el punto 1.</li>
+					<li>Prompt pidiendo que documente el trabajo desarrollado en el punto 1. En un .md dentro de context/ siguiendo la numeración actual</li>
+				</ol>
+
+				<h3>Chat n</h3>
+
+				<ol>
+					<li>Mismo prompt para creación de experto sintético</li>
+					<li>Prompt pidiendo que lea e interiorice el análisis del proyecto</li>
+					<li>Prompt pidiendo que lea e interiorice el plan maestro</li>
+					<li>Prompt pidiendo que ejecute el punto n del plan maestro</li>
+					<li>Iteración normal hasta terminar el punto n</li>
+					<li>Prompt pidiendo que documente el trabajo desarrollado en el punto n. Dentro del .md de documentación creado anteriormente</li>
+				</ol>
+
+				<h2>Ventajas del contexto extendido</h2>
+
+				<p>Esta estrategia ofrece varias ventajas:</p>
+
+				<ol>
+					<li>Evita la pérdida de contexto: El LLM puede consultar estos archivos cuando necesite recordar decisiones previas.</li>
+					<li>Continuidad: Puedes cerrar tu ordenador y retomar el trabajo días después sin perder el hilo.</li>
+					<li>Colaboración: Otros miembros del equipo pueden entender fácilmente el estado del proyecto y continuarlo en cualquier punto.</li>
+					<li>Documentación automática: Al finalizar, ya tienes una documentación estructurada.</li>
+					<li>Facilita la división de tareas: Perfecta para metodologías ágiles y sprints.</li>
+				</ol>
+
+				<h2>Reflexión final</h2>
+
+				<p>Igual que los humanos necesitamos escribir las cosas para no olvidarlas, los LLMs también se benefician de tener sus propias notas (si son en markdown mejor, ¡aman el markdown!). Es irónico que en esta imitación del pensamiento humano no sólo hayamos replicado sus aciertos, sino también sus limitaciones. Aunque con la carrera por la ampliación de la ventana de contexto que existe, quizás en el futuro este tipo de estrategias no sean necesarias.</p>
+
+				<p>Esta forma de trabajar me ha funcionado especialmente bien en el desarrollo de mi MCP Claude Talk to Figma y sobre todo en la refactorización que he realizado en él esta semana santa (ya había refinado el flujo). Al principio puede dar la sensación de que estamos complejizando el trabajo, pero a la postre el ahorro de tiempo y frustración que logramos merece completamente la pena.</p>
+
+				<p>¿Has probado algún enfoque similar? ¿Tienes alguna otra estrategia para trabajar con agentes en proyectos complejos? Me encantaría conocer tu experiencia.</p>
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Mis repositorios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="Mi email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil de LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>

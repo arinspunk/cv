@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Extended Context. How to improve the quality of work with AI Agents - Xúlio Zé</title>
+	<meta property="og:title" content="Extended Context. How to improve the quality of work with AI Agents - Xúlio Zé">
+	<meta name="twitter:title" content="Extended Context. How to improve the quality of work with AI Agents - Xúlio Zé">
+	<meta itemprop="name" content="Extended Context. How to improve the quality of work with AI Agents - Xúlio Zé">       
+	<meta name="description" content="Discover the 'extended context' strategy to maintain coherence in complex projects with AI agents using markdown files as external memory for your LLMs.">
+	<meta property="og:description" content="Discover the 'extended context' strategy to maintain coherence in complex projects with AI agents using markdown files as external memory for your LLMs.">
+	<meta name="twitter:description" content="Discover the 'extended context' strategy to maintain coherence in complex projects with AI agents using markdown files as external memory for your LLMs.">
+	<meta itemprop="description" content="Discover the 'extended context' strategy to maintain coherence in complex projects with AI agents using markdown files as external memory for your LLMs.">
+	<link rel="canonical" href="https://xulioze.com/en/blog/ai-for-developers.html">
+	<meta property="og:url" content="https://xulioze.com/en/blog/ai-for-developers.html">
+	<meta name="twitter:url" content="https://xulioze.com/en/blog/ai-for-developers.html">
+	<meta property="og:image" content=https://xulioze.com/img/ia-developing-her.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content=https://xulioze.com/img/ia-developing-her.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content=https://xulioze.com/img/ia-developing-her.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Extended Context. How to improve the quality of work with AI Agents - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="return to my CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<!-- <li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../pt/blogue/desenvolvimento-com-ia.html" title="Versão do post em português">
+								Pt
+							</a>
+						</li> -->
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/contexto-extendido.html" title="Versión del artículo en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../en/cv.html" title="my CV">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../en/blog.html" title="More post">
+								Blog
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="I'm in LinkedIn :)" target="_blank" rel="noopener">
+								Let's talk?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Extended Context. How to improve the quality of work with AI Agents
+				</h1>
+				Published on <time datetime="2025-04-21 12:00:00">April 21, 2025</time>
+				<div class="c-messages">
+					<!-- <a href="../../pt/blogue/desenvolvimento-com-ia.html" class="c-message">
+						🐙 Podes ler este post em <span>português</span>.
+					</a> -->
+					<a href="../../blog/contexto-extendido.html" class="c-message">
+						🦀 Puedes leer este post en <span>español</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<!-- <img class="c-post__body-img" src="https://xulioze.com/img/claude-talk-to-figma-metas.jpg" alt="Theodore thinking" width="768" loading="lazy"> -->
+			
+				<p>The purpose of this post is to describe a context expansion strategy for developing complex projects with agents. But since it's not only LLMs that need context to understand ideas, I'll start with some context for humans.</p>
+			
+				<p><em>If you're in a hurry and want to know about it directly, you can always <a href="#extended-context">skip the intro</a>. Don't worry, no one will know you did</em> 😉</p>
+			
+				<h2>Context for humans</h2>
+			
+				<p>The emergence of agents in code assistants has represented an enormous leap in AI-assisted software development.</p>
+			
+				<p>The first thing that stands out is their ability to automatically iterate on their own responses, create and modify files, run commands in the terminal, etc. But for me, the skill that makes the difference is that they are capable of indexing and analyzing a project's code, including dependencies between files and relationships between components.</p>
+			
+				<p>If until now tools like GitHub Copilot allowed us to work at the file level, with the emergence of agents (GitHub Copilot Agent Mode, Cursor, etc.) we have moved to working at the architecture level. Now AI not only assists us in writing/fixing parts of our code, but also helps us in building complete projects (and at a speed that sometimes causes vertigo).</p>
+			
+				<p>But this increase in the complexity of developed tasks brings about something that was previously difficult to see: we are pushing the context window of the agents themselves to the limit.</p>
+			
+				<p>If you're familiar with using GitHub Copilot Agent Mode or Cursor, you'll already know that to work in agent mode, you just need to open a new chat, select agent, and start the conversation. The issue is that the open chat has a context window, which if we exceed, context displacement begins to occur—basically, the agent starts to forget the beginning of the conversation.</p>
+			
+				<p>If the task is simple, there's no problem; the limit is rarely exceeded, and if it happens, simply opening a new chat is enough. But when building complete projects, how do we maintain conversation coherence and work quality?</p>
+			
+				<p>For these cases, I use a strategy that I've designed from my experience with Cursor first, and with GitHub Copilot Agent Mode in recent weeks: extended context.</p>
+			
+				<h2 id="extended-context">Extended context (using markdowns as memory)</h2>
+			
+				<p>This strategy is based on storing markdown files in a folder at the project root called context/</p>
+			
+				<p>The central idea is to create a memory with project information that the LLM (or we) can refer to whenever it needs to know what point it's at and what it should do, and to divide the work into as many chats as necessary to avoid reaching the context window limit. This way, we maintain the coherence and quality of the work from beginning to end.</p>
+			
+				<p>Work scheme:</p>
+			
+				<h3>Chat 1</h3>
+			
+				<ol>
+					<li>Prompt to create a synthetic expert in the project's technology: role, experience, technical stack, reasoning approach, and response format. Ending with a "don't write code yet".</li>
+					<li>Prompt where we ask to:
+						<ul>
+							<li>analyze the project code</li>
+							<li>generate a report of its analysis</li>
+							<li>save it in .md format inside the context/ folder with a 00- prefix to the filename.
+							If we're not entirely satisfied with the report, we can iterate on it until we are.</li>
+						</ul>
+					</li>
+					<li>Prompt where:
+						<ul>
+							<li>we indicate what we want to do (requirements)</li>
+							<li>ask to generate a master plan</li>
+							<li>save the master plan in .md format inside the context/ folder with a 01- prefix to the filename.
+							As with the analysis, we can iterate on it until we are satisfied.</li>
+						</ul>
+					</li>
+				</ol>
+			
+				<h3>Chat 2</h3>
+			
+				<ol>
+					<li>Same prompt for creating synthetic expert</li>
+					<li>Prompt asking to read and internalize the project analysis</li>
+					<li>Prompt asking to read and internalize the master plan</li>
+					<li>Prompt asking to execute point 1 of the master plan</li>
+					<li>Normal iteration until point 1 is finished.</li>
+					<li>Prompt asking to document the work developed in point 1. In a .md inside context/ following the current numbering</li>
+				</ol>
+			
+				<h3>Chat n</h3>
+			
+				<ol>
+					<li>Same prompt for creating synthetic expert</li>
+					<li>Prompt asking to read and internalize the project analysis</li>
+					<li>Prompt asking to read and internalize the master plan</li>
+					<li>Prompt asking to execute point n of the master plan</li>
+					<li>Normal iteration until point n is finished</li>
+					<li>Prompt asking to document the work developed in point n. Inside the documentation .md created previously</li>
+				</ol>
+			
+				<h2>Advantages of extended context</h2>
+			
+				<p>This strategy offers several advantages:</p>
+			
+				<ol>
+					<li>Avoids context loss: The LLM can consult these files when it needs to remember previous decisions.</li>
+					<li>Continuity: You can close your computer and resume work days later without losing the thread.</li>
+					<li>Collaboration: Other team members can easily understand the project status and continue it at any point.</li>
+					<li>Automatic documentation: Upon completion, you already have structured documentation.</li>
+					<li>Facilitates task division: Perfect for agile methodologies and sprints.</li>
+				</ol>
+			
+				<h2>Final reflection</h2>
+			
+				<p>Just as humans need to write things down so we don't forget them, LLMs also benefit from having their own notes (if they're in markdown, even better—they love markdown!). It's ironic that in this imitation of human thought, we have not only replicated its successes but also its limitations. Although with the race for expanding the context window that exists, perhaps in the future these types of strategies won't be necessary.</p>
+			
+				<p>This way of working has worked especially well for me in developing my MCP Claude Talk to Figma and especially in the refactoring I did during Easter week (I had already refined the flow). At first, it may feel like we're making the work more complex, but in the end, the time and frustration savings we achieve are completely worth it.</p>
+			
+				<p>Have you tried a similar approach? Do you have any other strategy for working with agents on complex projects? I'd love to hear about your experience.</p>
+			
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="My repository">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="write me"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="My profile on LinkedIn">
+								LinkedIn <!-- <span class="c-footer__menu-link-arrow">-></span> -->
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>
