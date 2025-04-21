@@ -110,8 +110,6 @@
 				</div>
 			</header>
 			<div class="c-info__content o-block o-block--center">
-
-				<!-- <img class="c-post__body-img" src="https://xulioze.com/img/claude-talk-to-figma-metas.jpg" alt="Theodore thinking" width="768" loading="lazy"> -->
 			
 				<p>The purpose of this post is to describe a context expansion strategy for developing complex projects with agents. But since it's not only LLMs that need context to understand ideas, I'll start with some context for humans.</p>
 			
@@ -140,8 +138,10 @@
 				<p>The central idea is to create a memory with project information that the LLM (or we) can refer to whenever it needs to know what point it's at and what it should do, and to divide the work into as many chats as necessary to avoid reaching the context window limit. This way, we maintain the coherence and quality of the work from beginning to end.</p>
 			
 				<p>Work scheme:</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context.png" alt="Work scheme with 3 chats" width="840" loading="lazy">
 			
-				<h3>Chat 1</h3>
+				<h3>Chat 0</h3>
 			
 				<ol>
 					<li>Prompt to create a synthetic expert in the project's technology: role, experience, technical stack, reasoning approach, and response format. Ending with a "don't write code yet".</li>
@@ -163,7 +163,7 @@
 					</li>
 				</ol>
 			
-				<h3>Chat 2</h3>
+				<h3>Chat 1</h3>
 			
 				<ol>
 					<li>Same prompt for creating synthetic expert</li>
