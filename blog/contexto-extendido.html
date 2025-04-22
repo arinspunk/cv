@@ -127,9 +127,9 @@
 
 				<p>Pero este aumento en la complejidad de las tareas desarrolladas provoca algo que antes era difícil de ver, llevamos al límite la ventana de contexto de los propios agentes. Desarrollar un proyecto completo requiere muchas tareas, por lo que llegado a un punto de la conversación el agente empieza a olvidar partes de la conversación, haciendo muy difícil (por no decir imposible) mantener la coherencia del trabajo que estamos realizando.</p>
 
-				<p>Cuando ocurre esto lo más normal es abrir un nuevo chat para reiniciar la ventana de contexto,pero, ¿cómo llevamos al agente al punto en el que estábamos? ¿Cómo hacerle recordar que había construido ya y que le queda por desarrollar?</p>
+				<p>Cuando ocurre esto lo más normal es abrir un nuevo chat para reiniciar la ventana de contexto, pero, ¿cómo llevamos al agente al punto en el que estábamos? ¿Cómo hacerle recordar que había construido ya y que le queda por desarrollar?</p>
 
-				<p>En mi caso estoy usando una estrategia que he ido definiendo a partir de mis interacciones con Cursor primero y GitHub Copilot Agent Mode después y a la que llamo Contexto Extendido. Vale sé que no soy muy original, pero creo que expresa decentemente la idea 😊</p>
+				<p>En mi caso estoy usando una estrategia que he ido definiendo a partir de mis interacciones con Cursor primero y GitHub Copilot Agent Mode después y a la que llamo Contexto Extendido. Vale sé que no soy muy original, pero creo que expresa decentemente la idea 🤓</p>
 
 				<h2 id="contexto-extendido">Contexto extendido (usando markdowns como memoria)</h2>
 
@@ -193,23 +193,19 @@
 
 				<h2>Ventajas del contexto extendido</h2>
 
-				<p>Esta estrategia ofrece varias ventajas:</p>
-
 				<ol>
-					<li>Evita la pérdida de contexto: El LLM puede consultar estos archivos cuando necesite recordar decisiones previas.</li>
-					<li>Continuidad: Puedes cerrar tu ordenador y retomar el trabajo días después sin perder el hilo.</li>
-					<li>Colaboración: Otros miembros del equipo pueden entender fácilmente el estado del proyecto y continuarlo en cualquier punto.</li>
-					<li>Documentación automática: Al finalizar, ya tienes una documentación estructurada.</li>
-					<li>Facilita la división de tareas: Perfecta para metodologías ágiles y sprints.</li>
+					<li>Evitamos la pérdida de contexto: el agente puede consultar los archivos cuando necesite recordar de dónde viene y a dónde va.</li>
+					<li>Continuidad: podemos cerrar el ordenador y retomar el trabajo días después sin perder el hilo.</li>
+					<li>Colaboración: otros miembros del equipo pueden entender fácilmente el estado del proyecto y continuarlo (con sus agentes).</li>
+					<li>Documentación automática: al finalizar, tenemos ya una documentación estructurada.</li>
+					<li>Facilita la división de tareas: orientando el trabajo hacia metodologías ágiles y sprints.</li>
 				</ol>
 
-				<h2>Reflexión final</h2>
+				<h2>Terminando</h2>
 
-				<p>Igual que los humanos necesitamos escribir las cosas para no olvidarlas, los LLMs también se benefician de tener sus propias notas (si son en markdown mejor, ¡aman el markdown!). Es irónico que en esta imitación del pensamiento humano no sólo hayamos replicado sus aciertos, sino también sus limitaciones. Aunque con la carrera por la ampliación de la ventana de contexto que existe, quizás en el futuro este tipo de estrategias no sean necesarias.</p>
+				<p>Resulta irónico que en esta imitación del pensamiento humano que representan los modelos de lenguaje, no sólo hayamos copiado sus capacidades, sino también sus limitaciones. Y entre ellas está una muy humana: el olvidar. Así que al igual que los imperfectos humanos, los imperfectos LLMs también necesitan tomar notas. Eso sí, si son en markdown mejor, ¡aman el markdown!</p>
 
-				<p>Esta forma de trabajar me ha funcionado especialmente bien en el desarrollo de mi MCP <a href="claude-talk-to-figma-mcp.html" title="más info en otro post">Claude Talk to Figma</a> y sobre todo en la refactorización que he realizado en él esta semana santa (ya había refinado el flujo). Al principio puede dar la sensación de que estamos complejizando el trabajo, pero a la postre el ahorro de tiempo y frustración que logramos merece completamente la pena.</p>
-
-				<p>¿Has probado algún enfoque similar? ¿Tienes alguna otra estrategia para trabajar con agentes en proyectos complejos? Me encantaría conocer tu experiencia.</p>
+				<p>Por cierto, ¿tú haces tomar notas a tus agentes o tienes alguna otra estrategia a la hora de desarrollar proyectos complejos? Si trabajas de otra forma, me encantaría conocer tu experiencia 😊</p>
 
 			</div>
 		</section>
