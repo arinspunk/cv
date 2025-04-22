@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Meta info -->
-	<title>Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé</title>
-	<meta property="og:title" content="Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé">
-	<meta name="twitter:title" content="Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé">
-	<meta itemprop="name" content="Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé">       
+	<title>Contexto extendido. Los LLMs también necesitan tomar notas - Xúlio Zé</title>
+	<meta property="og:title" content="Contexto extendido. Los LLMs también necesitan tomar notas - Xúlio Zé">
+	<meta name="twitter:title" content="Contexto extendido. Los LLMs también necesitan tomar notas - Xúlio Zé">
+	<meta itemprop="name" content="Contexto extendido. Los LLMs también necesitan tomar notas - Xúlio Zé">       
 	<meta name="description" content="Descubre la estrategia de 'contexto extendido' para mantener coherencia en proyectos complejos con agentes IA usando archivos markdown como memoria externa para tus LLMs.">
 	<meta property="og:description" content="Descubre la estrategia de 'contexto extendido' para mantener coherencia en proyectos complejos con agentes IA usando archivos markdown como memoria externa para tus LLMs.">
 	<meta name="twitter:description" content="Descubre la estrategia de 'contexto extendido' para mantener coherencia en proyectos complejos con agentes IA usando archivos markdown como memoria externa para tus LLMs.">
@@ -30,7 +30,7 @@
     <meta name="google" content="nositelinkssearchbox">
 
     <!-- iOS -->
-    <meta name="apple-mobile-web-app-title" content="Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA - Xúlio Zé">
+    <meta name="apple-mobile-web-app-title" content="Contexto extendido. Los LLMs también necesitan tomar notas - Xúlio Zé">
     <meta name="format-detection" content="telephone=no">
 
     <!-- Favicons -->
@@ -97,7 +97,7 @@
 		<section class="o-wrap o-wrap--center c-post__body">
 			<header class="c-info c-info--blog o-block o-block--center">
 				<h1 class="h1--blog">
-					Contexto extendido. Cómo mejorar la calidad del trabajo con agentes IA
+					Contexto extendido. Los LLMs también necesitan tomar notas
 				</h1>
 				Publicado el <time datetime="2025-04-21 12:00:00">21 de abril de 2025</time>
 				<div class="c-messages">
@@ -115,77 +115,81 @@
 
 				<p>El propósito de este post es describir una estrategia de ampliación de contexto en el desarrollo de proyectos complejos con agentes. Pero como no solo los LLMs necesitan contexto para comprender ideas, comienzo con un poco de contexto para humanos.</p>
 
-				<p><em>Si tienes prisa y quieres conocerla directamente, siempre puedes <a href="#contexto-extendido">saltarte la intro</a>. No te preocupes nadie sabrá que lo has hecho</em> 😉</p>
+				<p><em>Si tienes prisa y pasas de contexto previo, <a href="#contexto-extendido">adelante</a> y no te preocupes, nadie sabrá que has tenido este mini ataque de holgazanería </em> 😬</p>
 
 				<h2>Contexto para humanos</h2>
 
 				<p>La aparición de los agentes en los asistentes de código ha supuesto un salto enorme en el desarrollo de software asistido por IA.</p>
 
-				<p>Lo primero que llama la atención es su capacidad para iterar de forma automática sobre sus propias respuestas, crear y modificar archivos, correr comandos en la terminal, etc. Pero para mí, la habilidad que marca la diferencia, es que son capaces de indexar y analizar el código de un proyecto, incluídas las dependencias entre archivos y las relaciones entre sus componentes.</p>
+				<p>Lo primero que llama la atención es su capacidad para iterar de forma automática sobre sus propias respuestas, crear/modificar archivos y correr comandos en la terminal. Pero creo que la habilidad que realmente marca la diferencia es que son capaces de indexar y analizar el código de un proyecto, incluídas las dependencias entre archivos y las relaciones entre sus componentes.</p>
 
-				<p>Si hasta ahora herramientas como GitHub Copilot nos permitían trabajar a nivel archivo, con la aparición de los agentes (GitHub Copilot Agente Mode, Cursor, etc.) hemos pasado a trabajar a nivel arquitectura. Ahora la IA no sólo nos asiste en la escritura/fixing de partes de nuestro código, si no que nos ayuda en la construcción de proyectos completos (además a una velocidad que a veces da vertigo).</p>
+				<p>Si los asistentes nos permitían trabajar a nivel archivo, con la aparición de los agentes hemos pasado a trabajar a nivel arquitectura. Ahora la IA no sólo nos ayuda en la escritura/fixing de partes de nuestro código, si no que nos asiste en la construcción de proyectos completos (a una velocidad que a veces da vértigo).</p>
 
-				<p>Pero este aumento en la complejidad de las tareas desarrolladas provoca algo que antes era difícil de ver, llevamos al límite la ventana de contexto de los propios agentes.</p>
+				<p>Pero este aumento en la complejidad de las tareas desarrolladas provoca algo que antes era difícil de ver, llevamos al límite la ventana de contexto de los propios agentes. Desarrollar un proyecto completo requiere muchas tareas, por lo que llegado a un punto de la conversación el agente empieza a olvidar partes de la conversación, haciendo muy difícil (por no decir imposible) mantener la coherencia del trabajo que estamos realizando.</p>
 
-				<p>Si estás familiarizada con el uso de GitHub Copilot Agent Mode o Cursor, ya sabrás que para trabajar en modo agente basta abrir un nuevo chat, seleccionar agente y arrancar la conversación. El asunto está en que el chat abierto tiene una ventana de contexto, que si superamos, comienza a producirse el desplazamiento del contexto, básicamente el agente empieza a olvidar el inicio de la conversación.</p>
+				<p>Cuando ocurre esto lo más normal es abrir un nuevo chat para reiniciar la ventana de contexto,pero, ¿cómo llevamos al agente al punto en el que estábamos? ¿Cómo hacerle recordar que había construido ya y que le queda por desarrollar?</p>
 
-				<p>Si la tarea es sencilla, no hay problema, rara vez se supera el límite y si se da el caso basta abrir un nuevo chat. Pero a la hora de construir proyectos completos, ¿cómo hacemos para mantener la coherencia de la conversación y la calidad del trabajo?</p>
-
-				<p>Para estos casos uso una estrategía que he diseñado a partir de mi experiencia con Cursor primero, y con GitHub Copilot Agente Mode estas últimas semanas: contexto extendido.</p>
+				<p>En mi caso estoy usando una estrategia que he ido definiendo a partir de mis interacciones con Cursor primero y GitHub Copilot Agent Mode después y a la que llamo Contexto Extendido. Vale sé que no soy muy original, pero creo que expresa decentemente la idea 😊</p>
 
 				<h2 id="contexto-extendido">Contexto extendido (usando markdowns como memoria)</h2>
 
-				<p>Esta estrategia se basa en el almacenamiento de archivos markdown en una carpeta en la raíz del proyecto llamada context/</p>
+				<p>Esta estrategia se basa en el almacenamiento de archivos markdown con información del proyecto en una carpeta llamada <code>context/</code></p>
 
-				<p>La idea central es crear una memoria con información del proyecto a la que el LLM (o nosotros) puede recurrir siempre que necesite conocer en qué punto está y qué debe hacer y dividir el trabajo en tantos chats como sean necesarios para evitar alcanzar el límite de la ventana de contexto. Manteniendo de esta forma la coherencia y calidad del trabajo de principio a fin.</p>
+				<p>La idea central es crear una memoria a la que el agente (o nosotros) puede recurrir en todo momento permitiéndole saber en qué punto está y qué le queda por hacer</p>
+				
+				<p>Gracias a esta memoria podemos dividir el trabajo en tareas pequeñas y usar tantos chats como sean necesarios para evitar alcanzar el límite de la ventana de contexto. Manteniendo de esta forma la coherencia y calidad del trabajo de principio a fin.</p>
 
-				<p>Esquema de trabajo:</p>
+				<h3>Esquema de trabajo</h3>
+
+				<p>En la siguiente imagen se resume el esquema de trabajo.</p>
 
 				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context.png" alt="Esquema de trabajo con 3 chats" width="840" loading="lazy">
 
-				<h3>Chat 0</h3>
+				<p>Chat 0</p>
 
 				<ol>
 					<li>Prompt para crear un experto sintético en la tecnología del proyecto: rol, experiencia, stack técnico, forma de razonamiento y formato de respuesta. Finalizado con un "no escribas código aun".</li>
 					<li>Prompt donde pedimos que:
 						<ul>
-							<li>analice el código del proyecto</li>
-							<li>genere un informe de su análisis</li>
-							<li>lo guarde en formato .md dentro de la carpeta context/ con un 00- delante del nombre del archivo.
+							<li>analice el código del proyecto,</li>
+							<li>genere un informe de su análisis,</li>
+							<li>y lo guarde en formato <code>.md</code> dentro de la carpeta <code>context/</code> con un 00- delante del nombre del archivo.
 							Si no estamos satisfechos del todo con el informe, podemos iterar sobre él hasta quedar satisfechos.</li>
 						</ul>
 					</li>
 					<li>Prompt donde:
 						<ul>
-							<li>indicamos qué queremos hacer (requisitos)</li>
-							<li>pedimos que genere un plan maestro</li>
-							<li>guarde el plan maestro en formato .md dentro de la carpeta context/ con un 01- delante del nombre del archivo.
+							<li>indicamos qué queremos hacer (requisitos),</li>
+							<li>pedimos que genere un plan maestro,</li>
+							<li>y lo guarde el plan maestro en formato <code>.md</code> dentro de la carpeta <code>context/</code> con un 01- delante del nombre del archivo.
 							Al igual que con el análisis, podemos iterar sobre él hasta quedar satisfechos.</li>
 						</ul>
 					</li>
 				</ol>
 
-				<h3>Chat 1</h3>
+				<p>Chat 1</p>
 
 				<ol>
-					<li>Mismo prompt para creación de experto sintético</li>
-					<li>Prompt pidiendo que lea e interiorice el análisis del proyecto</li>
-					<li>Prompt pidiendo que lea e interiorice el plan maestro</li>
-					<li>Prompt pidiendo que ejecute el punto 1 del plan maestro</li>
+					<li>Mismo prompt para creación de experto sintético.</li>
+					<li>Prompt pidiendo que lea e interiorice el análisis del proyecto.</li>
+					<li>Prompt pidiendo que lea e interiorice el plan maestro.</li>
+					<li>Prompt pidiendo que ejecute el punto 1 del plan maestro.</li>
 					<li>Iteración normal hasta terminar el punto 1.</li>
-					<li>Prompt pidiendo que documente el trabajo desarrollado en el punto 1. En un .md dentro de context/ siguiendo la numeración actual</li>
+					<li>Prompt pidiendo que documente el trabajo desarrollado en el punto 1. en un <code>.md</code> dentro de <code>context/</code> siguiendo la numeración actual y que marque el punto como resuelto en el plan maestro.</li>
 				</ol>
 
-				<h3>Chat n</h3>
+				<p>Chat n</p>
 
 				<ol>
 					<li>Mismo prompt para creación de experto sintético</li>
 					<li>Prompt pidiendo que lea e interiorice el análisis del proyecto</li>
 					<li>Prompt pidiendo que lea e interiorice el plan maestro</li>
 					<li>Prompt pidiendo que ejecute el punto n del plan maestro</li>
-					<li>Iteración normal hasta terminar el punto n</li>
-					<li>Prompt pidiendo que documente el trabajo desarrollado en el punto n. Dentro del .md de documentación creado anteriormente</li>
+					<li>Iteración normal hasta terminar el punto n.</li>
+					<li>Prompt pidiendo que documente el trabajo desarrollado en el punto n. dentro del <code>.md</code> de documentación creado anteriormente y que marque el punto como resuelto en el plan maestro.</li>
 				</ol>
+
+				<p>Evidentemente, este esquema se trata de una base de trabajo que puede ser modificada en función de las necesidades de cada proyecto y que espero mejorar con el tiempo. Aun así, en su forma inicial, creo que ya aporta algunas ventajas respecto a no usar ninguna estrategia.</p>
 
 				<h2>Ventajas del contexto extendido</h2>
 
