@@ -110,101 +110,102 @@
 				</div>
 			</header>
 			<div class="c-info__content o-block o-block--center">
-			
-				<p>The purpose of this post is to describe a context expansion strategy for developing complex projects with agents. But since it's not only LLMs that need context to understand ideas, I'll start with some context for humans.</p>
-			
-				<p><em>If you're in a hurry and want to know about it directly, you can always <a href="#extended-context">skip the intro</a>. Don't worry, no one will know you did</em> 😉</p>
-			
-				<h2>Context for humans</h2>
-			
-				<p>The emergence of agents in code assistants has represented an enormous leap in AI-assisted software development.</p>
-			
-				<p>The first thing that stands out is their ability to automatically iterate on their own responses, create and modify files, run commands in the terminal, etc. But for me, the skill that makes the difference is that they are capable of indexing and analyzing a project's code, including dependencies between files and relationships between components.</p>
-			
-				<p>If until now tools like GitHub Copilot allowed us to work at the file level, with the emergence of agents (GitHub Copilot Agent Mode, Cursor, etc.) we have moved to working at the architecture level. Now AI not only assists us in writing/fixing parts of our code, but also helps us in building complete projects (and at a speed that sometimes causes vertigo).</p>
-			
-				<p>But this increase in the complexity of developed tasks brings about something that was previously difficult to see: we are pushing the context window of the agents themselves to the limit.</p>
-			
-				<p>If you're familiar with using GitHub Copilot Agent Mode or Cursor, you'll already know that to work in agent mode, you just need to open a new chat, select agent, and start the conversation. The issue is that the open chat has a context window, which if we exceed, context displacement begins to occur—basically, the agent starts to forget the beginning of the conversation.</p>
-			
-				<p>If the task is simple, there's no problem; the limit is rarely exceeded, and if it happens, simply opening a new chat is enough. But when building complete projects, how do we maintain conversation coherence and work quality?</p>
-			
-				<p>For these cases, I use a strategy that I've designed from my experience with Cursor first, and with GitHub Copilot Agent Mode in recent weeks: extended context.</p>
-			
-				<h2 id="extended-context">Extended context (using markdowns as memory)</h2>
-			
-				<p>This strategy is based on storing markdown files in a folder at the project root called context/</p>
-			
-				<p>The central idea is to create a memory with project information that the LLM (or we) can refer to whenever it needs to know what point it's at and what it should do, and to divide the work into as many chats as necessary to avoid reaching the context window limit. This way, we maintain the coherence and quality of the work from beginning to end.</p>
-			
-				<p>Work scheme:</p>
+				<!-- <img class="c-post__body-img" src="https://xulioze.com/img/claude-talk-to-figma-metas.jpg" alt="Theodore pensando" width="768" loading="lazy"> -->
 
-				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context.png" alt="Work scheme with 3 chats" width="840" loading="lazy">
-			
-				<h3>Chat 0</h3>
-			
+				<p>The purpose of this post is to describe a context expansion strategy in the development of complex projects with agents. But since not only LLMs need context to understand ideas, I'll start with a bit of context for humans.</p>
+
+				<p><em>If you're in a hurry and want to skip the previous context, <a href="#extended-context">go ahead</a> and don't worry, no one will know you had this mini laziness attack </em> 😬</p>
+
+				<h2>Context for humans</h2>
+
+				<p>The emergence of agents in code assistants has represented a huge leap in AI-assisted software development.</p>
+
+				<p>The first striking feature is their ability to automatically iterate on their own responses, create/modify files, and run commands in the terminal. But I think the skill that really makes a difference is their ability to index and analyze a project's code, including dependencies between files and relationships between its components.</p>
+
+				<p>If assistants allowed us to work at the file level, with the appearance of agents we have moved to working at the architecture level. Now AI not only helps us in writing/fixing parts of our code, but also assists us in building complete projects (at a speed that sometimes makes you dizzy).</p>
+
+				<p>But this increase in the complexity of the tasks developed causes something that was difficult to see before - we push the context window of the agents themselves to the limit. Developing a complete project requires many tasks, so at some point in the conversation the agent begins to forget parts of the conversation, making it very difficult (if not impossible) to maintain the coherence of the work we are doing.</p>
+
+				<p>When this happens, the most common approach is to open a new chat to reset the context window, but how do we bring the agent to the point where we were? How do we make it remember what it had already built and what it still needs to develop?</p>
+
+				<p>In my case, I'm using a strategy that I've been defining from my interactions with Cursor first and GitHub Copilot Agent Mode afterwards, which I call Extended Context. I know I'm not very original, but I think it expresses the idea decently 🤓</p>
+
+				<h2 id="extended-context">Extended context (using markdowns as memory)</h2>
+
+				<p>This strategy is based on storing markdown files with project information in a folder called <code>context/</code></p>
+
+				<p>The central idea is to create a memory that the agent (or we) can access at any time, allowing it to know what point it's at and what remains to be done</p>
+				
+				<p>Thanks to this memory, we can divide the work into small tasks and use as many chats as necessary to avoid reaching the context window limit. This way, we maintain the coherence and quality of the work from start to finish.</p>
+
+				<h3>Working scheme</h3>
+
+				<p>The working scheme is summarized in the following image.</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context.png" alt="Working scheme with 3 chats" width="840" loading="lazy">
+
+				<p>Chat 0</p>
+
 				<ol>
 					<li>Prompt to create a synthetic expert in the project's technology: role, experience, technical stack, reasoning approach, and response format. Ending with a "don't write code yet".</li>
-					<li>Prompt where we ask to:
+					<li>Prompt where we ask it to:
 						<ul>
-							<li>analyze the project code</li>
-							<li>generate a report of its analysis</li>
-							<li>save it in .md format inside the context/ folder with a 00- prefix to the filename.
-							If we're not entirely satisfied with the report, we can iterate on it until we are.</li>
+							<li>analyze the project code,</li>
+							<li>generate a report of its analysis,</li>
+							<li>and save it in <code>.md</code> format inside the <code>context/</code> folder with a 00- prefix in the filename.
+							If we are not completely satisfied with the report, we can iterate on it until we are satisfied.</li>
 						</ul>
 					</li>
 					<li>Prompt where:
 						<ul>
-							<li>we indicate what we want to do (requirements)</li>
-							<li>ask to generate a master plan</li>
-							<li>save the master plan in .md format inside the context/ folder with a 01- prefix to the filename.
+							<li>we indicate what we want to do (requirements),</li>
+							<li>ask it to generate a master plan,</li>
+							<li>and save the master plan in <code>.md</code> format inside the <code>context/</code> folder with a 01- prefix in the filename.
 							As with the analysis, we can iterate on it until we are satisfied.</li>
 						</ul>
 					</li>
 				</ol>
-			
-				<h3>Chat 1</h3>
-			
+
+				<p>Chat 1</p>
+
 				<ol>
-					<li>Same prompt for creating synthetic expert</li>
-					<li>Prompt asking to read and internalize the project analysis</li>
-					<li>Prompt asking to read and internalize the master plan</li>
-					<li>Prompt asking to execute point 1 of the master plan</li>
-					<li>Normal iteration until point 1 is finished.</li>
-					<li>Prompt asking to document the work developed in point 1. In a .md inside context/ following the current numbering</li>
+					<li>Same prompt for creating a synthetic expert.</li>
+					<li>Prompt asking it to read and internalize the project analysis.</li>
+					<li>Prompt asking it to read and internalize the master plan.</li>
+					<li>Prompt asking it to execute point 1 of the master plan.</li>
+					<li>Normal iteration until point 1 is completed.</li>
+					<li>Prompt asking it to document the work developed in point 1 in a <code>.md</code> file inside <code>context/</code> following the current numbering and to mark the point as resolved in the master plan.</li>
 				</ol>
-			
-				<h3>Chat n</h3>
-			
+
+				<p>Chat n</p>
+
 				<ol>
-					<li>Same prompt for creating synthetic expert</li>
-					<li>Prompt asking to read and internalize the project analysis</li>
-					<li>Prompt asking to read and internalize the master plan</li>
-					<li>Prompt asking to execute point n of the master plan</li>
-					<li>Normal iteration until point n is finished</li>
-					<li>Prompt asking to document the work developed in point n. Inside the documentation .md created previously</li>
+					<li>Same prompt for creating a synthetic expert</li>
+					<li>Prompt asking it to read and internalize the project analysis</li>
+					<li>Prompt asking it to read and internalize the master plan</li>
+					<li>Prompt asking it to execute point n of the master plan</li>
+					<li>Normal iteration until point n is completed.</li>
+					<li>Prompt asking it to document the work developed in point n in the previously created documentation <code>.md</code> file and to mark the point as resolved in the master plan.</li>
 				</ol>
-			
+
+				<p>Obviously, this scheme is a working base that can be modified according to the needs of each project and that I hope to improve over time. Even so, in its initial form, I think it already offers some advantages compared to not using any strategy.</p>
+
 				<h2>Advantages of extended context</h2>
-			
-				<p>This strategy offers several advantages:</p>
-			
+
 				<ol>
-					<li>Avoids context loss: The LLM can consult these files when it needs to remember previous decisions.</li>
-					<li>Continuity: You can close your computer and resume work days later without losing the thread.</li>
-					<li>Collaboration: Other team members can easily understand the project status and continue it at any point.</li>
-					<li>Automatic documentation: Upon completion, you already have structured documentation.</li>
-					<li>Facilitates task division: Perfect for agile methodologies and sprints.</li>
+					<li>We avoid context loss: the agent can consult the files when it needs to remember where it came from and where it's going.</li>
+					<li>Continuity: we can close the computer and resume work days later without losing the thread.</li>
+					<li>Collaboration: other team members can easily understand the project's status and continue it (with their agents).</li>
+					<li>Automatic documentation: upon completion, we already have structured documentation.</li>
+					<li>Facilitates task division: orienting work towards agile methodologies and sprints.</li>
 				</ol>
-			
-				<h2>Final reflection</h2>
-			
-				<p>Just as humans need to write things down so we don't forget them, LLMs also benefit from having their own notes (if they're in markdown, even better—they love markdown!). It's ironic that in this imitation of human thought, we have not only replicated its successes but also its limitations. Although with the race for expanding the context window that exists, perhaps in the future these types of strategies won't be necessary.</p>
-			
-				<p>This way of working has worked especially well for me in developing my MCP <a href="claude-talk-to-figma-mcp.html">Claude Talk to Figma</a> and especially in the refactoring I did during Easter week (I had already refined the flow). At first, it may feel like we're making the work more complex, but in the end, the time and frustration savings we achieve are completely worth it.</p>
-			
-				<p>Have you tried a similar approach? Do you have any other strategy for working with agents on complex projects? I'd love to hear about your experience.</p>
-			
+
+				<h2>Finishing up</h2>
+
+				<p>It's ironic that in this imitation of human thinking represented by language models, we have not only copied their capabilities but also their limitations. And among them is a very human one: forgetting. So just like imperfect humans, imperfect LLMs also need to take notes. That said, if they're in markdown, even better - they love markdown!</p>
+
+				<p>By the way, do you have your agents take notes or do you have any other strategy when developing complex projects? If you work differently, I'd love to hear about your experience 😊</p>
+
 			</div>
 		</section>
 		
