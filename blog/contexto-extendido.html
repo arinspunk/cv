@@ -125,17 +125,17 @@
 
 				<p>Si los asistentes nos permitían trabajar a nivel archivo, con la aparición de los agentes hemos pasado a trabajar a nivel arquitectura. Ahora la IA no sólo nos ayuda en la escritura/fixing de partes de nuestro código, si no que nos asiste en la construcción de proyectos completos (a una velocidad que a veces da vértigo).</p>
 
-				<p>Pero este aumento en la complejidad de las tareas desarrolladas provoca algo que antes era difícil de ver, llevamos al límite la ventana de contexto de los propios agentes. Desarrollar un proyecto completo requiere muchas tareas, por lo que llegado a un punto de la conversación el agente empieza a olvidar partes de la conversación, haciendo muy difícil (por no decir imposible) mantener la coherencia del trabajo que estamos realizando.</p>
+				<p>Pero este aumento en la complejidad de las tareas desarrolladas provoca algo que antes era difícil de ver, llevamos al límite la ventana de contexto de los propios agentes. Desarrollar un proyecto completo requiere muchas tareas, por lo que llegado a un punto el agente empieza a olvidar partes de la conversación, haciendo muy difícil (por no decir imposible) mantener la coherencia del trabajo que estamos realizando.</p>
 
 				<p>Cuando ocurre esto lo más normal es abrir un nuevo chat para reiniciar la ventana de contexto, pero, ¿cómo llevamos al agente al punto en el que estábamos? ¿Cómo hacerle recordar que había construido ya y que le queda por desarrollar?</p>
 
-				<p>En mi caso estoy usando una estrategia que he ido definiendo a partir de mis interacciones con Cursor primero y GitHub Copilot Agent Mode después y a la que llamo Contexto Extendido. Vale sé que no soy muy original, pero creo que expresa decentemente la idea 🤓</p>
+				<p>En mi caso estoy usando una estrategia a la que he llegado a partir de mis interacciones con Cursor primero y GitHub Copilot Agent Mode después y a la que llamo Contexto Extendido. Vale, sé que no soy muy original, pero creo que expresa decentemente la idea 🤓</p>
 
 				<h2 id="contexto-extendido">Contexto extendido (usando markdowns como memoria)</h2>
 
 				<p>Esta estrategia se basa en el almacenamiento de archivos markdown con información del proyecto en una carpeta llamada <code>context/</code></p>
 
-				<p>La idea central es crear una memoria a la que el agente (o nosotros) puede recurrir en todo momento permitiéndole saber en qué punto está y qué le queda por hacer</p>
+				<p>La idea es crear una memoria a la que el agente (o nosotros) puede recurrir en todo momento permitiéndole saber en qué punto está y qué le queda por hacer.</p>
 				
 				<p>Gracias a esta memoria podemos dividir el trabajo en tareas pequeñas y usar tantos chats como sean necesarios para evitar alcanzar el límite de la ventana de contexto. Manteniendo de esta forma la coherencia y calidad del trabajo de principio a fin.</p>
 
@@ -154,14 +154,14 @@
 							<li>analice el código del proyecto,</li>
 							<li>genere un informe de su análisis,</li>
 							<li>y lo guarde en formato <code>.md</code> dentro de la carpeta <code>context/</code> con un 00- delante del nombre del archivo.
-							Si no estamos satisfechos del todo con el informe, podemos iterar sobre él hasta quedar satisfechos.</li>
+							Si el informe no nos gusta del todo, podemos iterar sobre él hasta quedar satisfechos.</li>
 						</ul>
 					</li>
 					<li>Prompt donde:
 						<ul>
 							<li>indicamos qué queremos hacer (requisitos),</li>
 							<li>pedimos que genere un plan maestro,</li>
-							<li>y lo guarde el plan maestro en formato <code>.md</code> dentro de la carpeta <code>context/</code> con un 01- delante del nombre del archivo.
+							<li>y lo guarde en formato <code>.md</code> dentro de la carpeta <code>context/</code> con un 01- delante del nombre del archivo.
 							Al igual que con el análisis, podemos iterar sobre él hasta quedar satisfechos.</li>
 						</ul>
 					</li>
@@ -189,7 +189,7 @@
 					<li>Prompt pidiendo que documente el trabajo desarrollado en el punto n. dentro del <code>.md</code> de documentación creado anteriormente y que marque el punto como resuelto en el plan maestro.</li>
 				</ol>
 
-				<p>Evidentemente, este esquema se trata de una base de trabajo que puede ser modificada en función de las necesidades de cada proyecto y que espero mejorar con el tiempo. Aun así, en su forma inicial, creo que ya aporta algunas ventajas respecto a no usar ninguna estrategia.</p>
+				<p>Evidentemente, este esquema se trata de una base de trabajo que puede ser modificada en función de las necesidades de cada proyecto y que espero mejorar con el tiempo. Aun así, en esta primera versión, ya aporta algunas ventajas respecto a no usar ninguna estrategia.</p>
 
 				<h2>Ventajas del contexto extendido</h2>
 
