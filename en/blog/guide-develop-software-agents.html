@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Guide: Developing Quality Software Assisted by AI Agents - Xúlio Zé</title>
+	<meta property="og:title" content="Guide: Developing Quality Software Assisted by AI Agents - Xúlio Zé">
+	<meta name="twitter:title" content="Guide: Developing Quality Software Assisted by AI Agents - Xúlio Zé">
+	<meta itemprop="name" content="Guide: Developing Quality Software Assisted by AI Agents - Xúlio Zé">       
+	<meta name="description" content="A comprehensive guide to implement extended context strategies that allow developing complex projects with AI agents while maintaining coherence and quality.">
+	<meta property="og:description" content="A comprehensive guide to implement extended context strategies that allow developing complex projects with AI agents while maintaining coherence and quality.">
+	<meta name="twitter:description" content="A comprehensive guide to implement extended context strategies that allow developing complex projects with AI agents while maintaining coherence and quality.">
+	<meta itemprop="description" content="A comprehensive guide to implement extended context strategies that allow developing complex projects with AI agents while maintaining coherence and quality.">
+	<link rel="canonical" href="https://xulioze.com/en/blog/guide-develop-software-agents.html">
+	<meta property="og:url" content="https://xulioze.com/en/blog/guide-develop-software-agents.html">
+	<meta name="twitter:url" content="https://xulioze.com/en/blog/guide-develop-software-agents.html">
+	<meta property="og:image" content="https://xulioze.com/img/extended-context-og.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="https://xulioze.com/img/extended-context-og.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="https://xulioze.com/img/extended-context-og.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Guide: Developing Quality Software Assisted by AI Agents - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="https://xulioze.com/img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://xulioze.com/img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://xulioze.com/img/icons/favicon-16x16.png">
+	<link rel="manifest" href="https://xulioze.com/img/icons/site.webmanifest">
+	<link rel="mask-icon" href="https://xulioze.com/img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../../index.html" title="back to my CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../pt/blogue/guia-desenvolver-software-agentes.html" title="Versão em português">
+								Pt
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/guia-desarrollar-software-agentes.html" title="Versión en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../index.html" title="my curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../en/blog.html" title="here I talk about things">
+								Blog
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="I'm on LinkedIn :)" target="_blank" rel="noopener">
+								Let's talk?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Guide: Developing Quality Software Assisted by AI Agents
+				</h1>
+				Published on <time datetime="2025-05-25 12:00:00">May 25, 2025</time>
+				<div class="c-messages">
+					<a href="../../blog/guia-desarrollar-software-agentes.html" class="c-message">
+						🦑 Puedes leer este post en <span>español</span>.
+					</a>
+					<a href="../../pt/blogue/guia-desenvolver-software-agentes.html" class="c-message">
+						🐙 Podes ler este post em <span>português</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context-guide.jpg" alt="notes in a screen"  width="900" height="383" loading="lazy">
+
+				<p>This guide is an improved version of the proposal initially presented in "<a href="extended-context.html" title="Extended Context. Agents also need to take notes">Extended Context. Agents also need to take notes</a>".</p>
+
+				<p>Its purpose is to implement a strategy that allows us to develop complex projects assisted by agents without losing the coherence and quality of the generated code.</p>
+
+				<p>Its writing is oriented for use with tools like Cursor or GitHub Copilot, but it can be easily adapted to many others.</p>
+
+				<h2>Context System Structure</h2>
+
+				<p>To implement this strategy, we create a <code>context/</code> folder in the project root with the following structure:</p>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">context/
+├── 01-expert.md      # Synthetic expert definition
+├── 02-analysis.md    # Analysis of existing code (empty)
+├── 03-plan.md        # Master development plan (empty)
+└── 04-backlog.md     # Detailed tasks and their status (empty)</code></pre>
+
+				<h2>Step 1: Synthetic Expert Definition</h2>
+
+				<p>The first step consists of defining a "synthetic expert": a specific role with clear competencies and restrictions that will guide the AI agent throughout development.</p>
+
+				<h3>Prompt for the agent:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Read the `context/01-expert.md` file to understand your role in the project.
+
+Do not generate code until you receive specific requirements.</code></pre>
+
+				<h3>Example content for <code>context/01-expert.md</code>:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code"># SUDO: Act as a Senior Frontend Development Expert specialized in HTML5, CSS3/SCSS and JavaScript ES6+.
+
+## ROLE
+Senior Frontend Developer (10+ years) expert in semantic HTML5, advanced CSS3/SCSS with BEM and ITCSS methodologies, and modern JavaScript ES6+, with focus on component architecture, performance and accessibility.
+
+## TECHNICAL_COMPETENCIES
+
+- Semantic HTML5 and accessibility (ARIA, WCAG 2.1)
+- Advanced CSS3 (Grid, Flexbox, animations, custom properties)
+- SCSS/Sass with ITCSS architecture (Inverted Triangle CSS)
+- Strict BEM methodology (Block__Element--Modifier)
+- JavaScript ES6+ (async/await, modules, destructuring, classes)
+- State management and component architecture
+- Web performance optimization (Core Web Vitals)
+- Unit and integration testing
+- Modern build tools (Vite, Webpack)
+
+## WORK_PRINCIPLES
+
+- Clean and maintainable code following SOLID principles
+- Clear and concise documentation
+- Mobile-first and responsive approach
+- Progressive enhancement
+- Semantics before presentation
+
+## RESTRICTIONS
+
+- Avoid jQuery and legacy libraries unless specific requirement
+- Maintain compatibility with modern browsers (latest 2 versions)
+- Prioritize native solutions over external dependencies
+- Do not generate code until receiving specific requirements</code></pre>
+
+				<p>⚠️ <strong>Important</strong>: The last restriction ("Do not generate code until receiving specific requirements") is fundamental, models are very proactive 😅</p>
+
+				<h2>Step 2: Project Code Analysis</h2>
+
+				<p>This step is only necessary for existing projects. If you're starting a project from scratch, you can omit it.</p>
+
+				<p>Now we ask the agent to analyze the project code and save its analysis in <code>context/02-analysis.md</code></p>
+
+				<h3>Prompt for the agent:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Analyze in depth the current project code. Exclude the `context/` folder from the analysis.
+
+Save the analysis result in `context/02-analysis.md` with the following structure:
+- Executive summary
+- Current architecture
+- Technologies used
+- Identified patterns
+- Potential improvement areas
+- Critical dependencies
+
+When finished, wait for additional instructions without performing any action.</code></pre>
+
+				<p>⚠️ <strong>Important</strong>: Don't hesitate to iterate with the agent if you're not satisfied with their first analysis.</p>
+
+				<h2>Step 3: Master Plan Creation</h2>
+
+				<p>Once the code is analyzed, we explain to the agent what we want to develop and ask them to define a master plan that should be saved in <code>context/03-plan.md</code></p>
+
+				<p>The master plan is the fundamental document that will guide all development. Take the time necessary to clearly define requirements and objectives.</p>
+
+				<h3>Prompt for the agent:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Based on the following requirements, create a detailed master plan for development:
+
+[PROJECT REQUIREMENTS]
+
+I need to create a REST service that processes images in batches. The service must:
+
+- Receive multiple images in a single request
+- Resize images according to configurable parameters
+- Compress and optimize for web
+- Return processed images in WebP format
+- Implement cache to optimize resources
+- Provide endpoints to query processing status
+
+Technical considerations:
+
+- Use Bun for its performance in intensive operations
+- Evaluate compatibility with image processing libraries
+- Implement asynchronous processing for large batches
+- Include robust input validation
+
+[END OF REQUIREMENTS]
+
+Create a structured master plan and save it in `context/03-plan.md`.
+
+When finished, wait for additional instructions.</code></pre>
+
+				<p>⚠️ <strong>Important</strong>: Continue dialoguing with the agent if you see that the plan is missing or has too much.</p>
+
+				<h2>Step 4: Detailed Backlog Creation</h2>
+
+				<p>At this point we ask the agent to transform the master plan into executable tasks, as small and specific as possible. More granular tasks result in higher quality code.</p>
+
+				<h3>Prompt for the agent:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Divide the master plan into atomic tasks following these criteria:
+
+- Detailed description of technical requirements
+- Clearly identified dependencies
+
+Save the list in `context/04-backlog.md` with this structure:
+
+# Task Backlog - [Project Name]
+
+## Project Summary
+[Brief description and implementation of the plan in `context/03-plan.md`]
+
+## Task Status
+
+### PHASE 1: [PHASE TITLE]
+
+- **1.1** ⏳ [task title]
+  - **Detailed description**:
+  - **Dependencies**:
+  - **Date**: 
+  - **Work completed**: 
+
+- **1.2** ⏳ [task title]
+  - **Detailed description**:
+  - **Dependencies**:
+  - **Date**: 
+  - **Work completed**:
+
+### PHASE 2: [PHASE TITLE]
+[Continue with the same format...]
+
+## Status Legend
+- ⏳ Pending
+- 🔄 In progress
+- ✅ Completed
+- ⚠️ Blocked
+
+## Notes and Dependencies
+[Additional relevant information]
+
+## Progress Tracking
+- Total tasks: 0
+- Completed tasks: 0
+- Progress: 0%
+
+When finished, wait for additional instructions</code></pre>
+
+				<p>⚠️ <strong>Important</strong>: It's necessary to indicate to the LLM the backlog structure we want, otherwise it gets creative 😬</p>
+
+				<h2>Step 5: Task Execution</h2>
+
+				<p>With the backlog defined, we proceed to execute tasks systematically.</p>
+
+				<h3>Prompt to execute a task:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Execute task 1.1 from the backlog (`context/04-backlog.md`) following its description strictly.
+
+Additional context available in:
+- `context/02-analysis.md` (if exists)
+- `context/03-plan.md`
+
+Execution requirements:
+- Use agent tools to create files and folders (not terminal)
+- Follow conventions established in the initial prompt
+- Document code according to defined standards
+- Do not perform actions outside the task scope
+
+Upon completion:
+1. Update task status in `context/04-backlog.md`:
+   - Change status to ✅
+   - Add completion date
+   - Describe work completed
+   - Update Progress Tracking
+2. Wait for additional instructions without executing more tasks</code></pre>
+
+				<p>⚠️ <strong>Important</strong>: It's necessary to ask the LLM not to do anything more than indicated in the task to avoid overstepping.</p>
+
+				<h2>Step 6: Context Window Reset</h2>
+
+				<p>To maintain quality and coherence, it's necessary to periodically reset the context window.</p>
+
+				<p>It's evident that we should reset the context window when we notice the agent starts to "lose direction". But the optimal approach is to never reach this point and open a new chat:</p>
+
+				<ul>
+					<li>Every 4-6 completed tasks</li>
+					<li>When changing phases (our backlog example is structured in phases that are divided into tasks).</li>
+				</ul>
+
+				<h3>Reset prompt:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Initial instructions:
+
+1. Read `context/01-expert.md` to understand your role in this project
+2. Read `context/02-analysis.md` to know the current state of the code
+3. Read `context/03-plan.md` to understand the objectives
+4. Read `context/04-backlog.md` to see progress and pending tasks
+
+Provide a brief summary of:
+
+- Your role and competencies
+- Current project status
+- Next tasks to execute
+
+When finished, wait for additional instructions.</code></pre>
+
+				<h2>🔧 Automation with Shortcuts</h2>
+
+				<p>Both GitHub Copilot and Cursor allow creating custom shortcuts for frequent prompts:</p>
+
+				<h3>GitHub Copilot</h3>
+				<ul>
+					<li>Instructions</li>
+					<li>Prompts</li>
+				</ul>
+
+				<h3>Cursor</h3>
+				<ul>
+					<li>Rules</li>
+				</ul>
+
+				<h2>System Benefits</h2>
+
+				<p>This context management strategy transforms the context window limitation from an obstacle into an opportunity to work more structured and efficiently. The main benefits include:</p>
+
+				<ul>
+					<li><strong>Continuity</strong>: Maintain progress without losing critical information</li>
+					<li><strong>Consistent quality</strong>: The agent maintains the same level of detail and precision</li>
+					<li><strong>Traceability</strong>: Complete record of decisions and project evolution</li>
+					<li><strong>Better collaboration</strong>: Facilitates team work and onboarding of new members</li>
+				</ul>
+
+				<h2>Conclusion</h2>
+
+				<p>By implementing this system, you not only avoid the technical limitations of LLMs but also establish a more professional and scalable development methodology for AI-assisted projects.</p>
+
+				<hr>
+
+				<p>Questions or suggestions? Share your experience implementing this strategy and help improve the guide for the community.</p>
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="My repositories">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="My email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="LinkedIn profile">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html> 

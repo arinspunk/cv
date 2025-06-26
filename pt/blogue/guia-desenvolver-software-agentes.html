@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Guia: desenvolver software de qualidade assistido por agentes de IA - Xúlio Zé</title>
+	<meta property="og:title" content="Guia: desenvolver software de qualidade assistido por agentes de IA - Xúlio Zé">
+	<meta name="twitter:title" content="Guia: desenvolver software de qualidade assistido por agentes de IA - Xúlio Zé">
+	<meta itemprop="name" content="Guia: desenvolver software de qualidade assistido por agentes de IA - Xúlio Zé">       
+	<meta name="description" content="Uma guia completa para implementar estratégias de contexto estendido que permitem desenvolver projetos complexos com agentes IA mantendo coerência e qualidade.">
+	<meta property="og:description" content="Uma guia completa para implementar estratégias de contexto estendido que permitem desenvolver projetos complexos com agentes IA mantendo coerência e qualidade.">
+	<meta name="twitter:description" content="Uma guia completa para implementar estratégias de contexto estendido que permitem desenvolver projetos complexos com agentes IA mantendo coerência e qualidade.">
+	<meta itemprop="description" content="Uma guia completa para implementar estratégias de contexto estendido que permitem desenvolver projetos complexos com agentes IA mantendo coerência e qualidade.">
+	<link rel="canonical" href="https://xulioze.com/pt/blogue/guia-desenvolver-software-agentes.html">
+	<meta property="og:url" content="https://xulioze.com/pt/blogue/guia-desenvolver-software-agentes.html">
+	<meta name="twitter:url" content="https://xulioze.com/pt/blogue/guia-desenvolver-software-agentes.html">
+	<meta property="og:image" content="https://xulioze.com/img/extended-context-og.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="https://xulioze.com/img/extended-context-og.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="https://xulioze.com/img/extended-context-og.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Guia: desenvolver software de qualidade assistido por agentes de IA - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="https://xulioze.com/img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://xulioze.com/img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://xulioze.com/img/icons/favicon-16x16.png">
+	<link rel="manifest" href="https://xulioze.com/img/icons/site.webmanifest">
+	<link rel="mask-icon" href="https://xulioze.com/img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../../index.html" title="voltar ao meu CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/guia-desarrollar-software-agentes.html" title="Versión en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../en/blog/guide-develop-software-agents.html" title="English version">
+								En
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../index.html" title="o meu curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../../pt/blogue.html" title="aqui falo de coisas">
+								Blogue
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estou no LinkedIn :)" target="_blank" rel="noopener">
+								Falamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Guia: desenvolver software de qualidade assistido por agentes de IA
+				</h1>
+				Publicado a <time datetime="2025-05-25 12:00:00">25 de maio de 2025</time>
+				<div class="c-messages">
+					<a href="../../blog/guia-desarrollar-software-agentes.html" class="c-message">
+						🦑 Puedes leer este post en <span>español</span>.
+					</a>
+					<a href="../../en/blog/guide-develop-software-agents.html" class="c-message">
+						🐙 You can read this post in <span>english</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context-guide.jpg" alt="ecrã com notas"  width="900" height="383" loading="lazy">
+
+				<p>Esta guia é uma versão melhorada da proposta inicialmente apresentada em "<a href="contexto-estendido.html" title="Contexto estendido. Os agentes também precisam de tomar notas">Contexto estendido. Os agentes também precisam de tomar notas</a>".</p>
+
+				<p>O seu propósito é implementar uma estratégia que nos permite desenvolver projetos complexos assistidos por agentes sem perder a coerência e qualidade do código gerado.</p>
+
+				<p>A sua redação está orientada para o uso com ferramentas como Cursor ou GitHub Copilot, mas pode ser adaptada de forma simples a muitas outras.</p>
+
+				<h2>Estrutura do Sistema de Contexto</h2>
+
+				<p>Para implementar esta estratégia, criamos uma pasta <code>context/</code> na raiz do projeto com a seguinte estrutura:</p>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">context/
+├── 01-expert.md      # Definição de especialista sintético
+├── 02-analysis.md    # Análise do código existente (vazio)
+├── 03-plan.md        # Plano mestre de desenvolvimento (vazio)
+└── 04-backlog.md     # Tarefas desglosadas e o seu estado (vazio)</code></pre>
+
+				<h2>Passo 1: Definição do Especialista Sintético</h2>
+
+				<p>O primeiro passo consiste em definir um "especialista sintético": um papel específico com competências e restrições claras que guiará o agente de IA durante todo o desenvolvimento.</p>
+
+				<h3>Prompt para o agente:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Lê o ficheiro `context/01-expert.md` para entenderes o teu papel no projeto.
+
+Não geres código até receberes requisitos específicos.</code></pre>
+
+				<h3>Exemplo de conteúdo para <code>context/01-expert.md</code>:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">
+# SUDO: Age como um Especialista Sénior em Desenvolvimento Frontend especializado em HTML5, CSS3/SCSS e JavaScript ES6+.
+
+## PAPEL
+Desenvolvedor Frontend Sénior (10+ anos) especialista em HTML5 semântico, CSS3/SCSS avançado com metodologias BEM e ITCSS, e JavaScript ES6+ moderno, com foco em arquitetura de componentes, desempenho e acessibilidade.
+
+## COMPETÊNCIAS_TÉCNICAS
+
+- HTML5 semântico e acessibilidade (ARIA, WCAG 2.1)
+- CSS3 avançado (Grid, Flexbox, animações, propriedades personalizadas)
+- SCSS/Sass com arquitetura ITCSS (Triângulo Invertido CSS)
+- Metodologia BEM estrita (Bloco__Elemento--Modificador)
+- JavaScript ES6+ (async/await, módulos, destructuring, classes)
+- Gestão de estado e arquitetura de componentes
+- Otimização de desempenho web (Core Web Vitals)
+- Testes unitários e de integração
+- Ferramentas de construção modernas (Vite, Webpack)
+
+## PRINCÍPIOS_DE_TRABALHO
+
+- Código limpo e mantível seguindo princípios SOLID
+- Documentação clara e concisa
+- Abordagem mobile-first e responsiva
+- Melhoria progressiva
+- Semântica antes da apresentação
+
+## RESTRIÇÕES
+
+- Evitar jQuery e bibliotecas legacy exceto requerimento específico
+- Manter compatibilidade com navegadores modernos (últimas 2 versões)
+- Priorizar soluções nativas sobre dependências externas
+- Não gerar código até receber requisitos específicos</code></pre>
+
+				<p>⚠️ <strong>Importante</strong>: A última restrição ("Não gerar código até receber requisitos específicos") é fundamental, os modelos são muito proativos 😅</p>
+
+				<h2>Passo 2: Análise do Código do Projeto</h2>
+
+				<p>Este passo só é necessário para projetos existentes. Se estás a começar um projeto do zero, podes omiti-lo.</p>
+
+				<p>Agora pedimos ao agente que analise o código do projeto e guarde a sua análise em <code>context/02-analysis.md</code></p>
+
+				<h3>Prompt para o agente:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Analisa em profundidade o código atual do projeto. Exclui a pasta `context/` da análise.
+
+Guarda o resultado da análise em `context/02-analysis.md` com a seguinte estrutura:
+- Resumo executivo
+- Arquitetura atual
+- Tecnologias utilizadas
+- Padrões identificados
+- Áreas de melhoria potencial
+- Dependências críticas
+
+Ao terminar, espera instruções adicionais sem realizar nenhuma ação.</code></pre>
+
+				<p>⚠️ <strong>Importante</strong>: Não duvides em iterar com o agente se não estiveres satisfeito com a sua primeira análise.</p>
+
+				<h2>Passo 3: Criação do Plano Mestre</h2>
+
+				<p>Uma vez analisado o código, explicamos ao agente o que queremos desenvolver e pedimos-lhe que defina um plano mestre que deve ser guardado em <code>context/03-plan.md</code></p>
+
+				<p>O plano mestre é o documento fundamental que guiará todo o desenvolvimento. Toma o tempo necessário para definir claramente os requisitos e objetivos.</p>
+
+				<h3>Prompt para o agente:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Baseando-te nos seguintes requisitos, cria um plano mestre detalhado para o desenvolvimento:
+
+[REQUISITOS DO PROJETO]
+
+Preciso criar um serviço REST que processe imagens em lotes. O serviço deve:
+
+- Receber múltiplas imagens numa única pedição
+- Redimensionar imagens segundo parâmetros configuráveis
+- Comprimir e otimizar para web
+- Devolver imagens processadas em formato WebP
+- Implementar cache para otimizar recursos
+- Fornecer endpoints para consultar estado de processamento
+
+Considerações técnicas:
+
+- Usar Bun pelo seu desempenho em operações intensivas
+- Avaliar compatibilidade com bibliotecas de processamento de imagens
+- Implementar processamento assíncrono para lotes grandes
+- Incluir validação robusta de entrada
+
+[FIM DE REQUISITOS]
+
+Cria um plano mestre estruturado e guarda-o em `context/03-plan.md`.
+
+Ao terminar, espera instruções adicionais.</code></pre>
+
+				<p>⚠️ <strong>Importante</strong>: Continua a dialogar com o agente se vires que ao plano falta ou sobra algo.</p>
+
+				<h2>Passo 4: Criação do Backlog Detalhado</h2>
+
+				<p>Neste ponto pedimos ao agente que transforme o plano mestre em tarefas executáveis, o mais pequenas e específicas possível. Tarefas mais granulares resultam em código de maior qualidade.</p>
+
+				<h3>Prompt para o agente:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Divide o plano mestre em tarefas atómicas seguindo estes critérios:
+
+- Descrição detalhada de requisitos técnicos
+- Dependências claramente identificadas
+
+Guarda a lista em `context/04-backlog.md` com esta estrutura:
+
+# Backlog de Tarefas - [Nome do Projeto]
+
+## Resumo do Projeto
+[Breve descrição e implementação do plano em `context/03-plan.md`]
+
+## Estado de Tarefas
+
+### FASE 1: [TÍTULO DE FASE]
+
+- **1.1** ⏳ [título de tarefa]
+  - **Descrição detalhada**:
+  - **Dependências**:
+  - **Data**: 
+  - **Trabalho realizado**: 
+
+- **1.2** ⏳ [título de tarefa]
+  - **Descrição detalhada**:
+  - **Dependências**:
+  - **Data**: 
+  - **Trabalho realizado**:
+
+### FASE 2: [TÍTULO DE FASE]
+[Continua com o mesmo formato...]
+
+## Legenda de Estados
+- ⏳ Pendente
+- 🔄 Em progresso
+- ✅ Completada
+- ⚠️ Bloqueada
+
+## Notas e Dependências
+[Informação adicional relevante]
+
+## Acompanhamento do Progresso
+- Tarefas totais: 0
+- Tarefas completadas: 0
+- Progresso: 0%
+
+Ao terminar, espera instruções adicionais</code></pre>
+
+				<p>⚠️ <strong>Importante</strong>: É necessário indicar ao LLM a estrutura de backlog que queremos, se não torna-se criativo 😬</p>
+
+				<h2>Passo 5: Execução de Tarefas</h2>
+
+				<p>Com o backlog definido, procedemos a executar tarefas de forma sistemática.</p>
+
+				<h3>Prompt para executar uma tarefa:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Executa a tarefa 1.1 do backlog (`context/04-backlog.md`) seguindo estritamente a sua descrição.
+
+Contexto adicional disponível em:
+- `context/02-analysis.md` (se existir)
+- `context/03-plan.md`
+
+Requisitos de execução:
+- Usar ferramentas do agente para criar ficheiros e pastas (não a terminal)
+- Seguir convenções estabelecidas no prompt inicial
+- Documentar código segundo padrões definidos
+- Não realizar ações fora do âmbito da tarefa
+
+Ao completar:
+1. Atualizar estado da tarefa em `context/04-backlog.md`:
+   - Mudar estado para ✅
+   - Adicionar data de finalização
+   - Descrever trabalho realizado
+   - Atualizar Acompanhamento do Progresso
+2. Esperar instruções adicionais sem executar mais tarefas</code></pre>
+
+				<p>⚠️ <strong>Importante</strong>: É necessário pedir ao LLM que não faça nada mais do que indicado na tarefa para evitar que se extralimite.</p>
+
+				<h2>Passo 6: Reinício da Janela de Contexto</h2>
+
+				<p>Para manter a qualidade e coerência, é necessário reiniciar periodicamente a janela de contexto.</p>
+
+				<p>É evidente que devemos reiniciar a janela de contexto quando notarmos que o agente começa a "perder o norte". Mas a abordagem ótima é não chegar nunca a este ponto e abrir um chat novo:</p>
+
+				<ul>
+					<li>Cada 4-6 tarefas completadas</li>
+					<li>Ao mudar de fase (o backlog do nosso exemplo está estruturado em fases que se dividem em tarefas).</li>
+				</ul>
+
+				<h3>Prompt para reiniciar:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Instruções iniciais:
+
+1. Lê `context/01-expert.md` para entenderes o teu papel neste projeto
+2. Lê `context/02-analysis.md` para conheceres o estado atual do código
+3. Lê `context/03-plan.md` para entenderes os objetivos
+4. Lê `context/04-backlog.md` para veres o progresso e tarefas pendentes
+
+Fornece um breve resumo de:
+
+- O teu papel e competências
+- Estado atual do projeto
+- Próximas tarefas a executar
+
+Ao terminar, espera instruções adicionais.</code></pre>
+
+				<h2>🔧 Automação com Atalhos</h2>
+
+				<p>Tanto o GitHub Copilot como o Cursor permitem criar atalhos personalizados para prompts frequentes:</p>
+
+				<h3>GitHub Copilot</h3>
+				<ul>
+					<li>Instructions</li>
+					<li>Prompts</li>
+				</ul>
+
+				<h3>Cursor</h3>
+				<ul>
+					<li>Rules</li>
+				</ul>
+
+				<h2>Benefícios do Sistema</h2>
+
+				<p>Esta estratégia de gestão de contexto transforma a limitação da janela de contexto de um obstáculo numa oportunidade para trabalhar de forma mais estruturada e eficiente. Os principais benefícios incluem:</p>
+
+				<ul>
+					<li><strong>Continuidade</strong>: Manter o progresso sem perder informação crítica</li>
+					<li><strong>Qualidade consistente</strong>: O agente mantém o mesmo nível de detalhe e precisão</li>
+					<li><strong>Rastreabilidade</strong>: Registo completo de decisões e evolução do projeto</li>
+					<li><strong>Melhor colaboração</strong>: Facilita o trabalho em equipa e a incorporação de novos membros</li>
+				</ul>
+
+				<h2>Conclusão</h2>
+
+				<p>Ao implementar este sistema, não só evitas as limitações técnicas dos LLM mas também estabeleces uma metodologia de desenvolvimento mais profissional e escalável para projetos assistidos por IA.</p>
+
+				<hr>
+
+				<p>Perguntas ou sugestões? Partilha a tua experiência implementando esta estratégia e ajuda a melhorar a guia para a comunidade.</p>
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Os meus repositórios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="O meu email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil de LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html> 
