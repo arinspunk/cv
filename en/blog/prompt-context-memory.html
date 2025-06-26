@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Prompt, Context and Memory - Xúlio Zé</title>
+	<meta property="og:title" content="Prompt, Context and Memory - Xúlio Zé">
+	<meta name="twitter:title" content="Prompt, Context and Memory - Xúlio Zé">
+	<meta itemprop="name" content="Prompt, Context and Memory - Xúlio Zé">       
+	<meta name="description" content="The three fundamental pillars of any interaction with AI language models">
+	<meta property="og:description" content="The three fundamental pillars of any interaction with AI language models">
+	<meta name="twitter:description" content="The three fundamental pillars of any interaction with AI language models">
+	<meta itemprop="description" content="The three fundamental pillars of any interaction with AI language models">
+	<link rel="canonical" href="https://xulioze.com/en/blog/prompt-context-memory.html">
+	<meta property="og:url" content="https://xulioze.com/en/blog/prompt-context-memory.html">
+	<meta name="twitter:url" content="https://xulioze.com/en/blog/prompt-context-memory.html">
+	<meta property="og:image" content="https://xulioze.com/img/prompt-contexto-memoria-og.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=630&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta name="twitter:image" content="https://xulioze.com/img/prompt-contexto-memoria-og.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=630&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="https://xulioze.com/img/prompt-contexto-memoria-og.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=630&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Prompt, Context and Memory - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="return to my CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../pt/blogue/prompt-contexto-memoria.html" title="Versão do post em português">
+								Pt
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/prompt-contexto-memoria.html" title="Versión del artículo en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../cv.html" title="my CV">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blog.html" title="here I talk about things">
+								Blog
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="I'm on LinkedIn :)" target="_blank" rel="noopener">
+								Let's talk?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Prompt, Context and Memory
+				</h1>
+				Published on <time datetime="2025-06-25 12:00:00">June 25, 2025</time>
+				<div class="c-messages">
+					<a href="../../pt/blogue/prompt-contexto-memoria.html" class="c-message">
+						🐙 Podes ler este post em <span>português</span>.
+					</a>
+					<a href="../../blog/prompt-contexto-memoria.html" class="c-message">
+						🦀 Puedes leer este post en <span>español</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<p>I started using AI in my work as a software developer a little over 2 years ago. <a href="https://xulioze.com/en/blog/build-pwa-with-chatgpt.html" title="My initial experience with ChatGPT to build a PWA">With ChatGPT and in a crude way</a>, like most people, I imagine 😅</p>
+
+				<p>Throughout this time <a href="https://xulioze.com/en/blog/how-talk-with-chatgpt.html" title="Guide on how to communicate effectively with ChatGPT">I refined my conversation with LLMs</a>, started using code assistants (GitHub Copilot) and then assistants with agents (Cursor) and even developed agent systems with frameworks like CrewAI. But it wasn't until now that I clearly understood that any interaction with language models, <a href="https://xulioze.com/en/blog/ai-for-developers.html" title="Reflections on software development with artificial intelligence">no matter what tool we use</a>, boils down to three fundamental points: prompt, context, and memory.</p>
+
+				<h2>Prompt</h2>
+
+				<p>Through the prompt, we create the expert we need for a specific task, we tell them what to do and also what not to do. It's the means we have to achieve the desired result.</p>
+
+				<p>To write the appropriate prompt for each task, we have <a href="https://www.promptingguide.ai/" title="Complete prompt engineering guide">prompt engineering</a>. Knowing its main techniques is important, but what really makes us improve is continuous practice with LLMs, our conversation with AI.</p>
+
+				<h2>Context</h2>
+
+				<p>Large language models have vast knowledge, but for certain tasks this is not enough. Providing additional context becomes an unavoidable necessity.</p>
+
+				<p>To provide context, we have different approaches, from simply including relevant information in the prompt, to adding reference documents, to <a href="https://www.anthropic.com/news/model-context-protocol" title="MCP explained by Anthropic">using MCPs</a> that allow LLMs to access content from multiple platforms (Jira, Drive, etc.) and tools (<a href="https://xulioze.com/en/blog/claude-talk-to-figma-mcp.html" title="How to make Claude communicate with Figma using MCP">Figma</a>, Draw.io, etc.).</p>
+
+				<h2>Memory</h2>
+
+				<p>LLMs have the ability to remember our conversations, but this memory has a limit (<a href="https://www.ibm.com/think/topics/context-window" title="Explanation about the context window limit in LLMs">context window limit</a>). The more complex the task to be developed, the more likely we are to exceed this limit and the more necessary it becomes to extend the LLM's memory.</p>
+
+				<p>There are different techniques to expand LLMs' memory, some quite sophisticated like using classical and <a href="https://xulioze.com/en/blog/vector-stores-introduction.html" title="Introduction to vector databases">vector databases</a>, but the simplest way to do it is by introducing <a href="https://xulioze.com/en/blog/extended-context.html" title="Strategies to extend LLMs' context and memory">extended context/memory strategies</a> into our routines.</p>
+
+                <img class="c-post__body-img" src="https://xulioze.com/img/prompt-contexto-memoria-og.jpg" alt="Frank and the robot talking" width="900" height="383" loading="lazy">
+
+				<h2>In perspective</h2>
+
+				<p>Prompt, context, and memory. That is, the correct instructions to achieve the desired objective, the necessary information to understand the project and its objective, and the record of completed work (when, how, where, and why).</p>
+
+				<p>If you think about it for a moment, it's not very different from what humans need to develop any complex task. Really, every time we delve deeper into the use of AI, we encounter situations where we see a clear parallel between how LLMs work and how we do. Not in vain are we entering an era where we no longer "talk" to machines through code, but rather talk to machines naturally. <a href="https://www.youtube.com/watch?v=YBPOguI-AFI&ab_channel=ChandanDatta" target="_blank" rel="noopener" title="Frank's conversation with his robot">Something that Frank already discovered more than 10 years ago</a> 😎🤖.</p>
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="My repositories">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="My email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="LinkedIn profile">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html> 

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Claude Talk to Figma, o meu primeiro servidor MCP - Xúlio Zé</title>
+	<meta property="og:title" content="Claude Talk to Figma, o meu primeiro servidor MCP - Xúlio Zé">
+	<meta name="twitter:title" content="Claude Talk to Figma, o meu primeiro servidor MCP - Xúlio Zé">
+	<meta itemprop="name" content="Claude Talk to Figma, o meu primeiro servidor MCP - Xúlio Zé">       
+	<meta name="description" content="A minha experiência a criar um servidor MCP que conecta Claude com Figma, permitindo que a IA interaja diretamente com designs UX/UI.">
+	<meta property="og:description" content="A minha experiência a criar um servidor MCP que conecta Claude com Figma, permitindo que a IA interaja diretamente com designs UX/UI.">
+	<meta name="twitter:description" content="A minha experiência a criar um servidor MCP que conecta Claude com Figma, permitindo que a IA interaja diretamente com designs UX/UI.">
+	<meta itemprop="description" content="A minha experiência a criar um servidor MCP que conecta Claude com Figma, permitindo que a IA interaja diretamente com designs UX/UI.">
+	<link rel="canonical" href="https://xulioze.com/pt/blogue/claude-talk-to-figma-mcp.html">
+	<meta property="og:url" content="https://xulioze.com/pt/blogue/claude-talk-to-figma-mcp.html">
+	<meta name="twitter:url" content="https://xulioze.com/pt/blogue/claude-talk-to-figma-mcp.html">
+	<meta property="og:image" content="https://xulioze.com/img/claude-talk-to-figma-metas.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="https://xulioze.com/img/claude-talk-to-figma-metas.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="https://xulioze.com/img/claude-talk-to-figma-metas.jpg=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Claude Talk to Figma, o meu primeiro servidor MCP - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="https://xulioze.com/img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://xulioze.com/img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://xulioze.com/img/icons/favicon-16x16.png">
+	<link rel="manifest" href="https://xulioze.com/img/icons/site.webmanifest">
+	<link rel="mask-icon" href="https://xulioze.com/img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="voltar ao meu CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/claude-talk-to-figma-mcp.html" title="Versión en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../en/blog/claude-talk-to-figma-mcp.html" title="English version">
+								En
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../cv.html" title="o meu curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blogue.html" title="aqui falo de coisas">
+								Blogue
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estou no LinkedIn :)" target="_blank" rel="noopener">
+								Falamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Claude Talk to Figma, o meu primeiro servidor MCP
+				</h1>
+				Publicado a <time datetime="2025-04-08 12:00:00">8 de abril de 2025</time>
+				<div class="c-messages">
+					<a href="../../blog/claude-talk-to-figma-mcp.html" class="c-message">
+						🦑 Podes ler este post em <span>espanhol</span>.
+					</a>
+					<a href="../../en/blog/claude-talk-to-figma-mcp.html" class="c-message">
+						🐙 You can read this post in <span>english</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/claude-talk-to-figma-metas.jpg" alt="Theodore a pensar" width="768" loading="lazy">
+
+				<p>Na semana passada o <a href="https://www.linkedin.com/in/marc-wabnitz-0135ba24/" target="_blank" rel="noopener" title="perfil do LinkedIn">Marc</a>, colega da incrível equipa UX/UI da <a href="https://www.makingscience.es/" target="_blank" rel="noopener" title="AI Powered Digital Acceleration">Making Science</a>, passou-nos um servidor MCP para conectar Cursor ao Figma e proporcionar aos seus agentes a capacidade não só de ver designs no Figma, mas também de os manipular 😳</p>
+
+				<p>O MCP era o <a href="https://github.com/sonnylazuardi/cursor-talk-to-figma-mcp" target="_blank" rel="noopener" title="repositório do projeto">Cursor Talk to Figma</a>, do <a href="https://sonnylab.framer.website/" target="_blank" rel="noopener" title="página pessoal">Sunny Lazuardi</a>. Se estás à procura da forma de conectar Cursor com Figma não procures mais, este é o teu MCP 👌🏻</p>
+    
+				<p>Como tenho uma licença do Cursor, disse-lhe que podia instalá-lo e fazer com eles uma prova. A prova correu bem, a verdade é que foi bastante surpreendente ver o agente do Cursor tomar o controlo do Figma e modificar um design, mas pouco depois entrou-me a dúvida se seria a forma correta da equipa de UX/UI introduzir no seu fluxo de trabalho a IA, fundamentalmente porque Cursor é uma ferramenta focada no desenvolvimento de código.</p>
+				
+				<p>Revisando o código do MCP vi que talvez se pudesse adaptar para usá-lo no Claude Desktop, já que os meus colegas de UX/UI têm licenças desta ferramenta. O certo é que o original já se podia conectar ao Claude, mas a forma de o fazer não era evidente e não estava descrita na documentação, por isso com ânimo de mexer um pouco e aprender como funciona um servidor MCP por dentro, pus-me a trabalhar:</p>
+				
+				<ol>
+					<li>Escrevi <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/blob/main/scripts/configure-claude.js" target="_blank" rel="noopener" title="código no GitHub">um script para configurar Claude de forma automática</a> lançando um comando via terminal: <code>bun run configure-claude</code>.</li>
+					<li><a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/commit/9de571d6bff9ea552b2a22cb2ca0b89f0108853c#diff-8d97fde957b1b60105e210d02f027f6a1babb3f5521e88d87d888171763bf08e" target="_blank" rel="noopener" title="commit das alterações">Ampliei as características do socket</a>:
+						<ol>
+							<li>Logging melhorado</li>
+							<li>Criação de endpoint de estado <code>/status</code></li>
+							<li>Sistema de canais para permitir que diferentes clientes se juntem a canais específicos</li>
+							<li>Inclusão de estatísticas de cada canal</li>
+						</ol>
+					</li>
+					<li><a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/blob/main/TESTING.md" target="_blank" rel="noopener" title="documentação dos testes no GitHub">Adicionei testes</a> para comprovar a correta integração do projeto.</li>
+					<li>Redigi um <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/blob/main/readme.md" target="_blank" rel="noopener" title="documentação do projeto">README.md</a> com a documentação já orientada para o seu uso no Claude.</li>
+					<li>Publiquei o servidor MCP como <a href="https://www.npmjs.com/package/claude-talk-to-figma-mcp" target="_blank" rel="noopener" title="página do pacote no NPM">pacote de npm</a>.</li>
+					<li>Publiquei o projeto no GitHub...</li>
+				</ol>
+				
+				<p>E voilá, o meu primeiro servidor MCP: <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp" target="_blank" rel="noopener" title="repositório do projeto">Claude Talk To Figma MCP</a> 🥳</p>
+
+				<h2>Atualização, 11 de abril</h2>
+				
+				<p>Depois de uns dias de testes, a equipa de UX/UI detetou que na coleção inicial de ferramentas para modificar designs faltavam algumas importantes como auto layout (layoutMode, paddingTop, paddingBottom, etc.), controlo tipográfico (fontName, fontSize, fontWeight, etc.) ou criação de formas (createEllipse, createPolygon, createStar, etc.), por isso atualmente estamos a adicioná-las pouco a pouco. Podes seguir o progresso no <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/blob/main/readme.md#-changelog" target="_blank" rel="noopener" title="changelog no readme.md do projeto">changelog do projeto</a>.</p>
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Os meus repositórios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="O meu email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil do LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html> 

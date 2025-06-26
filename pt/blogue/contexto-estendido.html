@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Contexto Estendido. Os agentes também precisam de tomar notas - Xúlio Zé</title>
+	<meta property="og:title" content="Contexto Estendido. Os agentes também precisam de tomar notas - Xúlio Zé">
+	<meta name="twitter:title" content="Contexto Estendido. Os agentes também precisam de tomar notas - Xúlio Zé">
+	<meta itemprop="name" content="Contexto Estendido. Os agentes também precisam de tomar notas - Xúlio Zé">       
+	<meta name="description" content="Descobre a estratégia de 'contexto estendido' para manter coerência em projetos complexos com agentes IA usando ficheiros markdown como memória externa para os teus LLMs.">
+	<meta property="og:description" content="Descobre a estratégia de 'contexto estendido' para manter coerência em projetos complexos com agentes IA usando ficheiros markdown como memória externa para os teus LLMs.">
+	<meta name="twitter:description" content="Descobre a estratégia de 'contexto estendido' para manter coerência em projetos complexos com agentes IA usando ficheiros markdown como memória externa para os teus LLMs.">
+	<meta itemprop="description" content="Descobre a estratégia de 'contexto estendido' para manter coerência em projetos complexos com agentes IA usando ficheiros markdown como memória externa para os teus LLMs.">
+	<link rel="canonical" href="https://xulioze.com/pt/blogue/contexto-estendido.html">
+	<meta property="og:url" content="https://xulioze.com/pt/blogue/contexto-estendido.html">
+	<meta name="twitter:url" content="https://xulioze.com/pt/blogue/contexto-estendido.html">
+	<meta property="og:image" content="https://xulioze.com/img/extended-context-og.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="https://xulioze.com/img/extended-context-og.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta itemprop="image" content="https://xulioze.com/img/extended-context-og.jpg?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=470&amp;q=100&amp;w=900">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Contexto Estendido. Os agentes também precisam de tomar notas - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../img/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="voltar ao meu CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/contexto-extendido.html" title="Versão em espanhol">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../en/blog/extended-context.html" title="English version">
+								En
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../cv.html" title="o meu curriculum">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blogue.html" title="aqui falo de cousas">
+								Blogue
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estou no LinkedIn :)" target="_blank" rel="noopener">
+								Falamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Contexto Estendido. Os agentes também precisam de tomar notas
+				</h1>
+				Publicado o <time datetime="2025-04-22 12:00:00">22 de abril de 2025</time>
+				<div class="c-messages">
+					<a href="../../en/blog/extended-context.html" class="c-message">
+						🦑 You can read this post in <span>english</span>.
+					</a>
+					<a href="../../blog/contexto-extendido.html" class="c-message">
+						🦀 Puedes leer este post en <span>español</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context-her.jpg" alt="ecrã com notas à mão" width="768" loading="lazy">
+
+				<p>O propósito deste post é descrever uma estratégia de ampliação de contexto no desenvolvimento de projetos complexos com agentes. Mas como não só os LLMs precisam de contexto para compreender ideias, começo com um pouco de contexto para humanos.</p>
+
+				<p><em>Se tens pressa e passas do contexto prévio, <a href="#contexto-estendido">avança</a> e não te preocupes, ninguém saberá que tiveste este mini ataque de preguiça </em> 😬</p>
+
+				<h2>Contexto para humanos</h2>
+
+				<p>A aparição dos agentes nos assistentes de código tem representado um salto enorme no desenvolvimento de software assistido por IA.</p>
+
+				<p>O primeiro que chama a atenção é a sua capacidade para iterar de forma automática sobre as suas próprias respostas, criar/modificar ficheiros e executar comandos na terminal. Mas creio que a habilidade que realmente marca a diferença é que são capazes de indexar e analisar o código de um projeto, incluídas as dependências entre ficheiros e as relações entre os seus componentes.</p>
+
+				<p>Se os assistentes nos permitiam trabalhar a nível ficheiro, com a aparição dos agentes passámos a trabalhar a nível arquitetura. Agora a IA não só nos ajuda na escrita/correção de partes do nosso código, como nos assiste na construção de projetos completos (a uma velocidade que às vezes dá vertigem).</p>
+
+				<p>Mas este aumento na complexidade das tarefas desenvolvidas provoca algo que antes era difícil de ver, levamos ao limite a janela de contexto dos próprios agentes. Desenvolver um projeto completo requer muitas tarefas, pelo que chegado a um ponto o agente começa a esquecer partes da conversa, tornando muito difícil (por não dizer impossível) manter a coerência do trabalho que estamos a realizar.</p>
+
+				<p>Quando isto acontece o mais normal é abrir um novo chat para reiniciar a janela de contexto, mas, como levamos o agente ao ponto em que estávamos? Como fazer-lhe recordar o que já tinha construído e o que lhe falta por desenvolver?</p>
+
+				<p>No meu caso estou a usar uma estratégia a que cheguei a partir das minhas interações com Cursor primeiro e GitHub Copilot Agent Mode depois e a que chamo Contexto Estendido. Vale, sei que não sou muito original, mas creio que exprime decentemente a ideia 🤓</p>
+
+				<h2 id="contexto-estendido">Contexto estendido (usando markdowns como memória)</h2>
+
+				<p>Esta estratégia baseia-se no armazenamento de ficheiros markdown com informação do projeto numa pasta chamada <code>context/</code></p>
+
+				<p>A ideia é criar uma memória a que o agente (ou nós) pode recorrer em todo o momento permitindo-lhe saber em que ponto está e o que lhe falta por fazer.</p>
+				
+				<p>Graças a esta memória podemos dividir o trabalho em tarefas pequenas e usar tantos chats quantos sejam necessários para evitar alcançar o limite da janela de contexto. Mantendo desta forma a coerência e qualidade do trabalho de princípio a fim.</p>
+
+				<h3>Esquema de trabalho</h3>
+
+				<p>Na seguinte imagem resume-se o esquema de trabalho.</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context.png" alt="Esquema de trabalho com 3 chats" width="840" loading="lazy">
+
+				<p>Chat 0</p>
+
+				<ol>
+					<li>Prompt para criar um perito sintético na tecnologia do projeto: papel, experiência, stack técnico, forma de raciocínio e formato de resposta. Finalizado com um "não escrevas código ainda".</li>
+					<li>Prompt onde pedimos que:
+						<ul>
+							<li>analise o código do projeto,</li>
+							<li>gere um relatório da sua análise,</li>
+							<li>e o guarde em formato <code>.md</code> dentro da pasta <code>context/</code> com um 00- à frente do nome do ficheiro.
+							Se o relatório não nos agradar de todo, podemos iterar sobre ele até ficarmos satisfeitos.</li>
+						</ul>
+					</li>
+					<li>Prompt onde:
+						<ul>
+							<li>indicamos o que queremos fazer (requisitos),</li>
+							<li>pedimos que gere um plano mestre,</li>
+							<li>e o guarde em formato <code>.md</code> dentro da pasta <code>context/</code> com um 01- à frente do nome do ficheiro.
+							Tal como com a análise, podemos iterar sobre ele até ficarmos satisfeitos.</li>
+						</ul>
+					</li>
+				</ol>
+
+				<p>Chat 1</p>
+
+				<ol>
+					<li>Mesmo prompt para criação de perito sintético.</li>
+					<li>Prompt pedindo que leia e interiorize a análise do projeto.</li>
+					<li>Prompt pedindo que leia e interiorize o plano mestre.</li>
+					<li>Prompt pedindo que execute o ponto 1 do plano mestre.</li>
+					<li>Iteração normal até terminar o ponto 1.</li>
+					<li>Prompt pedindo que documente o trabalho desenvolvido no ponto 1. num <code>.md</code> dentro de <code>context/</code> seguindo a numeração atual e que marque o ponto como resolvido no plano mestre.</li>
+				</ol>
+
+				<p>Chat n</p>
+
+				<ol>
+					<li>Mesmo prompt para criação de perito sintético</li>
+					<li>Prompt pedindo que leia e interiorize a análise do projeto</li>
+					<li>Prompt pedindo que leia e interiorize o plano mestre</li>
+					<li>Prompt pedindo que execute o ponto n do plano mestre</li>
+					<li>Iteração normal até terminar o ponto n.</li>
+					<li>Prompt pedindo que documente o trabalho desenvolvido no ponto n. dentro do <code>.md</code> de documentação criado anteriormente e que marque o ponto como resolvido no plano mestre.</li>
+				</ol>
+
+				<p>Evidentemente, este esquema trata-se de uma base de trabalho que pode ser modificada em função das necessidades de cada projeto e que espero melhorar com o tempo. Ainda assim, nesta primeira versão, já aporta algumas vantagens relativamente a não usar nenhuma estratégia.</p>
+
+				<h2>Vantagens do contexto estendido</h2>
+
+				<ol>
+					<li>Evitamos a perda de contexto: o agente pode consultar os ficheiros quando precisar de recordar de onde vem e para onde vai.</li>
+					<li>Continuidade: podemos fechar o computador e retomar o trabalho dias depois sem perder o fio.</li>
+					<li>Colaboração: outros membros da equipa podem entender facilmente o estado do projeto e continuá-lo (com os seus agentes).</li>
+					<li>Documentação automática: ao finalizar, temos já uma documentação estruturada.</li>
+					<li>Facilita a divisão de tarefas: orientando o trabalho para metodologias ágeis e sprints.</li>
+				</ol>
+
+				<h2>Terminando</h2>
+
+				<p>Resulta irónico que nesta imitação do pensamento humano que representam os modelos de linguagem, não só tenhamos copiado as suas capacidades, como também as suas limitações. E entre elas está uma muito humana: o esquecer. Assim que tal como os imperfeitos humanos, os imperfeitos LLMs também precisam de tomar notas. Isso sim, se são em markdown melhor, adoram o markdown!</p>
+
+				<p>Já agora, fazes tomar notas aos teus agentes ou tens alguma outra estratégia na altura de desenvolver projetos complexos? Se trabalhas de outra forma, adoraria conhecer a tua experiência 😊</p>
+
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Os meus repositórios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="O meu email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil no LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html> 
