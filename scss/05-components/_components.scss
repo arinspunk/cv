@@ -617,6 +617,12 @@
         @media screen and (min-width: $bp--medium) {
             margin: 45px auto 40px;
         }
+        &--figure {
+            padding: 0;
+            figcaption {
+                padding: 0;
+            }
+        }
     }
     &__body-iframe {
         margin: 5px auto 25px;
