@@ -576,13 +576,22 @@
         @include rotate(-45deg);
     }
 }
+.c-articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    @media screen and (min-width: $bp--medium) {
+        margin-top: 30px;
+    }
+}
 .c-article {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    @media screen and (min-width: $bp--medium) {
+        width: calc(50% - 20px);
+        margin-bottom: 20px;
+    }
     &:first-of-type {
         margin-top: 0;
-        @media screen and (min-width: $bp--medium) {
-            margin-top: 30px;
-        }
     }
     &__title {
         &:first-of-type {
