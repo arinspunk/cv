@@ -642,6 +642,9 @@
         background-color: transparent;
         padding: 0;
     }
+    &__table {
+        overflow-x: auto;
+    }
 }
 .c-messages {
     display: flex;

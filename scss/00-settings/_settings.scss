@@ -88,6 +88,10 @@ $h3-size-l-px: 32;
 $h3-size-m-px: 30;
 $h3-size-s-px: 21;
 
+$h4-size-l-px: 26;
+$h4-size-m-px: 24;
+$h4-size-s-px: 22;
+
 /* Font size rem values (needed for dynamic sizing) */
 $p-size-l-value: $p-size-l-px / $text-base-size;
 $p-size-m-value: $p-size-m-px / $text-base-size;
@@ -104,6 +108,10 @@ $h2-size-s-value: $h2-size-s-px / $text-base-size;
 $h3-size-l-value: $h3-size-l-px / $text-base-size;
 $h3-size-m-value: $h3-size-m-px / $text-base-size;
 $h3-size-s-value: $h3-size-s-px / $text-base-size;
+
+$h4-size-l-value: $h4-size-l-px / $text-base-size;
+$h4-size-m-value: $h4-size-m-px / $text-base-size;
+$h4-size-s-value: $h4-size-s-px / $text-base-size;
 
 /* Font sizes in rems */
 $p-size-l: $p-size-l-value * 1rem;
@@ -122,6 +130,10 @@ $h3-size-l: $h3-size-l-value * 1rem;
 $h3-size-m: $h3-size-m-value * 1rem;
 $h3-size-s: $h3-size-s-value * 1rem;
 
+$h4-size-l: $h4-size-l-value * 1rem;
+$h4-size-m: $h4-size-m-value * 1rem;
+$h4-size-s: $h4-size-s-value * 1rem;
+
 /* Line-height */
 $p-lh-l-value: 30;
 $p-lh-m-value: 25;
@@ -139,6 +151,10 @@ $h3-lh-l-value: 50;
 $h3-lh-m-value: 45;
 $h3-lh-s-value: 25;
 
+$h4-lh-l-value: 30;
+$h4-lh-m-value: 28;
+$h4-lh-s-value: 26;
+
 $p-lh-l: $p-lh-l-value / $p-size-l-px;
 $p-lh-m: $p-lh-m-value / $p-size-m-px;
 $p-lh-s: $p-lh-s-value / $p-size-s-px;
@@ -154,6 +170,10 @@ $h2-lh-s: $h2-lh-s-value / $h2-size-s-px;
 $h3-lh-l: $h3-lh-l-value / $h3-size-l-px;
 $h3-lh-m: $h3-lh-m-value / $h3-size-m-px;
 $h3-lh-s: $h3-lh-s-value / $h3-size-s-px;
+
+$h4-lh-l: $h4-lh-l-value / $h4-size-l-px;
+$h4-lh-m: $h4-lh-m-value / $h4-size-m-px;
+$h4-lh-s: $h4-lh-s-value / $h4-size-s-px;
 
 /* Custom props for modern browsers */
 :root {
@@ -172,6 +192,10 @@ $h3-lh-s: $h3-lh-s-value / $h3-size-s-px;
   --h3-size-l-value: #{$h3-size-l-value};
   --h3-size-m-value: #{$h3-size-m-value};
   --h3-size-s-value: #{$h3-size-s-value};
+  
+  --h4-size-l-value: #{$h4-size-l-value};
+  --h4-size-m-value: #{$h4-size-m-value};
+  --h4-size-s-value: #{$h4-size-s-value};
 
   --p-size-l: #{$p-size-l-value * 1rem};
   --p-size-m: #{$p-size-m-value * 1rem};
@@ -188,6 +212,10 @@ $h3-lh-s: $h3-lh-s-value / $h3-size-s-px;
   --h3-size-l: #{$h3-size-l-value * 1rem};
   --h3-size-m: #{$h3-size-m-value * 1rem};
   --h3-size-s: #{$h3-size-s-value * 1rem};
+  
+  --h4-size-l: #{$h4-size-l-value * 1rem};
+  --h4-size-m: #{$h4-size-m-value * 1rem};
+  --h4-size-s: #{$h4-size-s-value * 1rem};
 
   --p-lh-l: #{$p-lh-l};
   --p-lh-m: #{$p-lh-m};
@@ -204,6 +232,10 @@ $h3-lh-s: $h3-lh-s-value / $h3-size-s-px;
   --h3-lh-l: #{$h3-lh-l};
   --h3-lh-m: #{$h3-lh-m};
   --h3-lh-s: #{$h3-lh-s};
+  
+  --h4-lh-l: #{$h4-lh-l};
+  --h4-lh-m: #{$h4-lh-m};
+  --h4-lh-s: #{$h4-lh-s};
   
 }
 

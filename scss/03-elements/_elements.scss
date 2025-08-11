@@ -48,7 +48,7 @@ img {
     width: 100%;
 }
 
-h1, .h1, h2, .h2, h3, .h3 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     font-family: $fonts-sans-alt;
     font-family: var(--fonts-sans-alt);
     position: relative;
@@ -170,6 +170,28 @@ h3, .h3 {
     }  
 }
 
+h4, .h4 {
+    font-size: $h4-size-s;
+    font-size: var(--h4-size-s);
+    line-height: $h4-lh-s;
+    line-height: var(--h4-lh-s);
+    margin: 0 0 15px;
+    @media screen and (min-width: $bp--medium) {
+        font-size: $h4-size-m;
+        font-size: var(--h4-size-m);
+        line-height: $h4-lh-m;
+        line-height: var(--h4-lh-m);
+        margin: 0 0 20px;
+    }  
+    @media screen and (min-width: $bp--xlarge) {
+        font-size: $h4-size-l;
+        font-size: var(--h4-size-l);
+        line-height: $h4-lh-l;
+        line-height: var(--h4-lh-l);
+        margin: 0 0 25px;
+    }  
+}
+
 p, ul, ol, pre, code, .gist {
     font-size: $p-size-s;
     font-size: var(--p-size-s);
@@ -280,4 +302,29 @@ figcaption {
 
 cite {
     font-style: normal;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    @media screen and (min-width: $bp--xlarge) {
+        margin-bottom: 30px;
+    }  
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid $color-paper;
+    border-color: var(--color-paper);
+}
+
+th {
+   background-color: $color-link;
+   background-color: var(--color-link);
+}
+
+td {
+    vertical-align: top;
 }
