@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+	<!-- Initials metas -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Meta info -->
+	<title>Guia: integrar o Figma em fluxos de trabalho com IA - Xúlio Zé</title>
+	<meta property="og:title" content="Guia: integrar o Figma em fluxos de trabalho com IA - Xúlio Zé">
+	<meta name="twitter:title" content="Guia: integrar o Figma em fluxos de trabalho com IA - Xúlio Zé">
+	<meta itemprop="name" content="Guia: integrar o Figma em fluxos de trabalho com IA - Xúlio Zé">       
+	<meta name="description" content="Aprenda a integrar o Figma nos seus fluxos de trabalho de IA com a API do Figma, o Dev Mode MCP Server e o Claude Talk to Figma MCP. Um guia para equipas de desenvolvimento e design.">
+	<meta property="og:description" content="Aprenda a integrar o Figma nos seus fluxos de trabalho de IA com a API do Figma, o Dev Mode MCP Server e o Claude Talk to Figma MCP. Um guia para equipas de desenvolvimento e design.">
+	<meta name="twitter:description" content="Aprenda a integrar o Figma nos seus fluxos de trabalho de IA com a API do Figma, o Dev Mode MCP Server e o Claude Talk to Figma MCP. Um guia para equipas de desenvolvimento e design.">
+	<meta itemprop="description" content="Aprenda a integrar o Figma nos seus fluxos de trabalho de IA com a API do Figma, o Dev Mode MCP Server e o Claude Talk to Figma MCP. Um guia para equipas de desenvolvimento e design.">
+	<link rel="canonical" href="https://xulioze.com/pt/blogue/guia-integrar-figma-com-ia.html">
+	<meta property="og:url" content="https://xulioze.com/pt/blogue/guia-integrar-figma-com-ia.html">
+	<meta name="twitter:url" content="https://xulioze.com/pt/blogue/guia-integrar-figma-com-ia.html">
+	<meta property="og:image" content="https://xulioze.com/img/ex-machina-og.jpg">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="470">
+	<meta name="twitter:image" content="https://xulioze.com/img/ex-machina-og.jpg">
+	<meta itemprop="image" content="https://xulioze.com/img/ex-machina-og.jpg">
+	<meta name="copyright" content="(c) 2025 Xúlio Zé">
+    <link rel="author" href="../../humans.txt">
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Guia: integrar o Figma em fluxos de trabalho com IA - Xúlio Zé">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="https://xulioze.com/img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://xulioze.com/img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://xulioze.com/img/icons/favicon-16x16.png">
+	<link rel="manifest" href="https://xulioze.com/img/icons/site.webmanifest">
+	<link rel="mask-icon" href="https://xulioze.com/img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+
+</head>
+<body class="body blog">
+
+	<article class="c-post">
+
+		<!-- Header - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<header class="c-header c-header--blog">
+			<div class="o-wrap">
+				<div class="c-header__logo o-block">
+					<a class="c-header__logo-link" href="../cv.html" title="regressar ao meu CV">
+						XZ
+					</a>
+				</div>
+				<nav class="c-header__menu o-block">
+					<ul class="c-header__menu-list">
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../blog/guia-integrar-figma-con-ia.html" title="Versión en español">
+								Es
+							</a>
+						</li>
+						<li class="c-header__menu-item c-header__menu-item--language">
+							<a class="c-header__menu-link" href="../../en/blog/guide-integrate-figma-with-ai.html" title="English version">
+								En
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../cv.html" title="o meu currículo">
+								CV
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link" href="../blogue.html" title="aqui falo de coisas">
+								Blogue
+							</a>
+						</li>
+						<li class="c-header__menu-item">
+							<a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estou no LinkedIn :)" target="_blank" rel="noopener">
+								Falamos?
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					Guia: integrar o Figma em fluxos de trabalho com IA
+				</h1>
+				Publicado a <time datetime="2025-07-24 12:00:00">24 de julho de 2025</time>
+				<div class="c-messages">
+					<a href="../../en/blog/guide-integrate-figma-with-ai.html" class="c-message">
+						🦑 You can read this post in <span>english</span>.
+					</a>
+					<a href="../../blog/guia-integrar-figma-con-ia.html" class="c-message">
+						🦀 Puedes leer este post en <span>español</span>.
+					</a>
+				</div>
+			</header>
+			<div class="c-info__content o-block o-block--center">
+
+                <img class="c-post__body-img" src="https://xulioze.com/img/ex-machina.jpg" alt="Ava mostra o seu desenho" width="768" loading="lazy">
+
+                <h2>Propósito</h2>
+                <p>Permitir que os LLMs:</p>
+                <ul>
+                    <li>Analisem e modifiquem designs no Figma.</li>
+                    <li>Gerem código a partir deles.</li>
+                </ul>
+
+                <h2>A quem se destina</h2>
+                <p>Equipas de UX/UI que pretendem automatizar auditorias de acessibilidade, realizar testes de utilizador sintéticos e iterar designs com base em feedback automatizado.</p>
+                <p>Equipas de Frontend que precisam de acelerar a tradução de designs para código, especialmente quando trabalham com sistemas de componentes e frameworks modernos.</p>
+                <p>Equipas de Backend/DevOps que desenvolvem workflows automatizados e agentes de IA que requerem a integração da análise de designs no Figma e a geração de código a partir deles.</p>
+                <p>Equipas multidisciplinares que procuram reduzir o atrito na passagem de design para desenvolvimento, mantendo cada equipa nas suas ferramentas habituais.</p>
+
+                <h2>Ferramentas</h2>
+                
+				<table>
+					<thead>
+						<tr>
+							<th>Ferramenta</th>
+							<th>Funcionalidade</th>
+							<th>Uso recomendado</th>
+							<th>Equipa alvo</th>
+							<th>Ambiente de uso</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<a href="#api-figma" title="API do Figma">API do Figma</a>
+							</td>
+							<td>
+								Análise de designs + geração de código
+							</td>
+							<td>
+								Integração do Figma em fluxos de trabalho de agentes de IA
+							</td>
+							<td>
+								Equipas de backend que desenvolvem fluxos de trabalho de agentes de IA
+							</td>
+							<td>
+								ADK, Crew AI, LangGraph, etc.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="#dev-mode-mcp-server" title="Dev Mode MCP Server">Dev Mode MCP Server</a>
+							</td>
+							<td>
+								Análise de designs + geração de código
+							</td>
+							<td>
+								Geração de código a partir de designs no Figma
+							</td>
+							<td>
+								Equipas de frontend
+							</td>
+							<td>
+								Cursor, VS Code + Github Copilot, Windsurf, Claude Code, etc.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="#claude-talk-to-figma-mcp" title="Claude Talk to Figma MCP">Claude Talk to Figma MCP</a>
+							</td>
+							<td>
+								Análise e modificação de designs
+							</td>
+							<td>
+								Testes de utilizadores (sintéticos), auditorias de acessibilidade e SEO, e modificação de designs
+							</td>
+							<td>
+								Equipas de UX/UI
+							</td>
+							<td>
+								Claude
+							</td>
+						</tr>
+					</tbody>
+				</table>
+                
+                <h3 id="api-figma">API do Figma</h3>
+                <h4>Requisitos</h4>
+                <ul>
+                    <li>Conta do Figma</li>
+                    <li>Gerar um <a href="https://www.figma.com/developers/api#access-tokens" target="_blank" rel="noopener" title="'Access tokens' na documentação do Figma">token de acesso</a> ou usar <a href="https://www.figma.com/developers/api#oauth2" target="_blank" rel="noopener" title="'OAuth 2' na documentação do Figma">OAuth 2</a></li>
+                </ul>
+                <h4>Descrição</h4>
+                <p>É a forma mais simples para um LLM analisar um design.</p>
+                <p>A API do Figma permite construir endpoints para solicitar ficheiros, imagens, versões de ficheiros, utilizadores, comentários, projetos de equipa e ficheiros de projeto. Devolve um JSON que podemos passar ao LLM para que o interprete.</p>
+                <p>Ao contrário dos MCPs, não precisamos de ter o Figma Desktop aberto para que um agente analise um design. Isto torna-o no método ideal para integrar o Figma em fluxos de trabalho de agentes de IA.</p>
+                <h4>Instalação</h4>
+                <p>Por se tratar de uma API, e não de um MCP, não existe uma instalação como tal. Podemos ver como funciona com um teste simples com o Cursor ou o VS Code:</p>
+                <ol>
+                    <li><a href="https://www.figma.com/developers/api#access-tokens" target="_blank" rel="noopener" title="'Access tokens' na documentação do Figma">Crie um token</a>.</li>
+                    <li>Diga ao seu agente para analisar um design no Figma executando <a href="https://www.figma.com/developers/api#get-file-nodes-endpoint" target="_blank" rel="noopener" title="'GET file nodes' na documentação do Figma">um pedido curl a um endpoint</a>.</li>
+                </ol>
+                <p>Por exemplo, para o seguinte URL de um nó de um design:</p>
+                <p>https://www.figma.com/design/XG1EYHLnC7NdwGuYc7LmUf/MVC---WEB?node-id=6037-2235&t=AHpchSRAIyGCdoci-0</p>
+                <p>diga-lhe para usar:</p>
+<pre>
+<code>curl -H 'X-FIGMA-TOKEN: {o seu token de acesso pessoal}'
+'https://api.figma.com/v1/files/XG1EYHLnC7NdwGuYc7LmUf/nodes?ids=6037-2235'
+</code>
+</pre>
+                <p>Ao receber o prompt, o agente executará o pedido curl e obterá um JSON com os parâmetros do design. Depois, irá analisá-lo e gerar um texto com o conteúdo da sua análise.</p>
+                
+                <h3 id="dev-mode-mcp-server">Dev Mode MCP Server</h3>
+                <h4>Requisitos</h4>
+                <ul>
+                    <li><a href="https://help.figma.com/hc/en-us/articles/27468498501527-Updates-to-Figma-s-pricing-seats-and-billing-experience#h_01JCPBM8X2MBEXTABDM92HWZG4" target="_blank" rel="noopener" title="descrições dos 'seats' do Figma">Dev ou Full seat</a> nos <a href="https://help.figma.com/hc/en-us/articles/360040328273-Figma-plans-and-features" target="_blank" rel="noopener" title="Figma plans and features">planos Professional, Organization ou Enterprise</a>.</li>
+                    <li>Um editor de código ou aplicação que suporte MCP Servers (<a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank" rel="noopener" title="GitHub Copilot no VS Code">VS Code</a>, <a href="https://www.cursor.com/" target="_blank" rel="noopener" title="Página oficial do Cursor">Cursor</a>, <a href="https://windsurf.dev/" target="_blank" rel="noopener" title="Página oficial do Windsurf">Windsurf</a>, <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener" title="Página oficial do Claude Code">Claude Code</a>).</li>
+                    <li><a href="https://www.figma.com/downloads/" target="_blank" rel="noopener" title="Downloads do Figma">Figma Desktop App</a></li>
+                </ul>
+                <h4>Descrição</h4>
+                <p>Trata-se do servidor MCP oficial do Figma.</p>
+                <p>Habilita várias ferramentas de análise (5 à data de publicação deste post) que os agentes podem usar para gerar código a partir de um design.</p>
+                <p>As ferramentas que permitem "ver" um design são <code>get_code</code> e <code>get_image</code>. Ao contrário da API do Figma, <code>get_code</code> não devolve um JSON com os dados do design, mas sim uma tradução do design para React que o Dev Mode gera dinamicamente.</p>
+                <p>Isto facilita ao LLM a geração de código, mesmo que não seja React, já que a distância entre React e outro framework/linguagem é menor do que entre a informação do JSON e o nosso framework/linguagem.</p>
+                <p><code>get_image</code> cria uma captura de ecrã do design selecionado e serve de apoio ao agente na hora de gerar código.</p>
+                <h4>Instalação</h4>
+                <ol>
+                    <li><a href="https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server#h_01K25F7RBP00A3VH1733692QN2" target="_blank" rel="noopener" title="Step 1: Enable the MCP Server">Ativação no Figma Desktop App</a></li>
+                    <li><a href="https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server#h_01K25F7RBRZKCATVJHNXCS6KXW" target="_blank" rel="noopener" title="Step 2: Set up your MCP client">Instalação no nosso editor de código</a> (Cursor, VS Code, Windsurf, Claude Code, Outros)</li>
+                </ol>
+
+                <h3 id="claude-talk-to-figma-mcp">Claude Talk to Figma MCP</h3>
+                <h4>Requisitos</h4>
+                <ul>
+                    <li><a href="https://claude.ai/download" target="_blank" rel="noopener" title="Página de download do Claude Desktop">Claude Desktop</a></li>
+                    <li><a href="https://www.figma.com/downloads/" target="_blank" rel="noopener" title="Downloads do Figma">Figma Desktop</a></li>
+                    <li><a href="https://bun.sh/" target="_blank" rel="noopener" title="Página oficial do Bun">Bun</a> instalado</li>
+                </ul>
+                <h4>Descrição</h4>
+                <p>Servidor MCP de código aberto.</p>
+                <p>Habilita um conjunto amplo de ferramentas (43 à data de publicação deste post) que permite aos agentes analisar e também modificar designs no Figma.</p>
+                <p>As ferramentas que permitem "ver" um design devolvem um JSON com os seus dados. Isto permite aos LLMs analisá-lo através de "thinking aloud", avaliação crítica, teste de utilizador, auditoria de acessibilidade, auditoria de SEO, etc.</p>
+                <p>Com as ferramentas de modificação, o LLM pode depois aplicar as alterações propostas na análise.</p>
+                <h4>Instalação</h4>
+                <p>Siga as instruções da <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/tree/main?tab=readme-ov-file#-installation" target="_blank" rel="noopener" title="Instalação do Claude Talk to Figma MCP">documentação oficial</a>.</p>
+                
+                <h2>Partilhe a sua experiência</h2>
+                <p>Se já está a integrar o Figma no seu fluxo de trabalho com IA, seja com estas ou outras ferramentas, adoraria conhecer a sua experiência:</p>
+                <ul>
+                    <li>Como correu a instalação.</li>
+					<li>Experiências e descobertas.</li>
+                    <li>Casos de uso reais.</li>
+                    <li>Resultados obtidos.</li>
+                </ul>
+                <p>O ecossistema de IA + design/desenvolvimento está em constante evolução e as melhores práticas emergem da experiência coletiva de quem as implementa em projetos reais ✊</p>
+                <p>Se ainda não o fez, atreva-se com alguma das ferramentas deste post. Se algo emperrar, pode escrever-me no meu <a href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil do LinkedIn">perfil do LinkedIn</a> 😉</p>
+			</div>
+		</section>
+		
+		<!-- Footer - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<footer class="c-footer c-footer--blog">
+			<div class="o-wrap">
+				<nav class="c-footer__menu o-block">
+					<ul class="c-footer__menu-list">
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="Os meus repositórios">
+								GitHub
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="O meu email"> 
+								Email
+							</a>
+						</li>
+						<li class="c-footer__menu-item">
+							<a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="Perfil do LinkedIn">
+								LinkedIn
+							</a>
+						</li>
+					</ul>	
+				</nav>	
+				<p class="o-block c-footer__credits">
+					© <span class="c-footer__year"></span> Xúlio Zé 
+				</p>		
+			</div>
+		</footer>
+
+	</article>
+
+	<!-- JavaScript -->
+	<script src="../../js/application.min.js" defer></script>
+
+</body>
+</html>
