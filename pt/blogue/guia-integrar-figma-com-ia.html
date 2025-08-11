@@ -128,70 +128,72 @@
 
                 <h2>Ferramentas</h2>
                 
-				<table>
-					<thead>
-						<tr>
-							<th>Ferramenta</th>
-							<th>Funcionalidade</th>
-							<th>Uso recomendado</th>
-							<th>Equipa alvo</th>
-							<th>Ambiente de uso</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<a href="#api-figma" title="API do Figma">API do Figma</a>
-							</td>
-							<td>
-								Análise de designs + geração de código
-							</td>
-							<td>
-								Integração do Figma em fluxos de trabalho de agentes de IA
-							</td>
-							<td>
-								Equipas de backend que desenvolvem fluxos de trabalho de agentes de IA
-							</td>
-							<td>
-								ADK, Crew AI, LangGraph, etc.
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<a href="#dev-mode-mcp-server" title="Dev Mode MCP Server">Dev Mode MCP Server</a>
-							</td>
-							<td>
-								Análise de designs + geração de código
-							</td>
-							<td>
-								Geração de código a partir de designs no Figma
-							</td>
-							<td>
-								Equipas de frontend
-							</td>
-							<td>
-								Cursor, VS Code + Github Copilot, Windsurf, Claude Code, etc.
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<a href="#claude-talk-to-figma-mcp" title="Claude Talk to Figma MCP">Claude Talk to Figma MCP</a>
-							</td>
-							<td>
-								Análise e modificação de designs
-							</td>
-							<td>
-								Testes de utilizadores (sintéticos), auditorias de acessibilidade e SEO, e modificação de designs
-							</td>
-							<td>
-								Equipas de UX/UI
-							</td>
-							<td>
-								Claude
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="c-post__table">
+					<table>
+						<thead>
+							<tr>
+								<th>Ferramenta</th>
+								<th>Funcionalidade</th>
+								<th>Uso recomendado</th>
+								<th>Equipa alvo</th>
+								<th>Ambiente de uso</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<a href="#api-figma" title="API do Figma">API do Figma</a>
+								</td>
+								<td>
+									Análise de designs + geração de código
+								</td>
+								<td>
+									Integração do Figma em fluxos de trabalho de agentes de IA
+								</td>
+								<td>
+									Equipas de backend que desenvolvem fluxos de trabalho de agentes de IA
+								</td>
+								<td>
+									ADK, Crew AI, LangGraph, etc.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="#dev-mode-mcp-server" title="Dev Mode MCP Server">Dev Mode MCP Server</a>
+								</td>
+								<td>
+									Análise de designs + geração de código
+								</td>
+								<td>
+									Geração de código a partir de designs no Figma
+								</td>
+								<td>
+									Equipas de frontend
+								</td>
+								<td>
+									Cursor, VS Code + Github Copilot, Windsurf, Claude Code, etc.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="#claude-talk-to-figma-mcp" title="Claude Talk to Figma MCP">Claude Talk to Figma MCP</a>
+								</td>
+								<td>
+									Análise e modificação de designs
+								</td>
+								<td>
+									Testes de utilizadores (sintéticos), auditorias de acessibilidade e SEO, e modificação de designs
+								</td>
+								<td>
+									Equipas de UX/UI
+								</td>
+								<td>
+									Claude
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
                 
                 <h3 id="api-figma">API do Figma</h3>
                 <h4>Requisitos</h4>
@@ -210,13 +212,10 @@
                     <li>Diga ao seu agente para analisar um design no Figma executando <a href="https://www.figma.com/developers/api#get-file-nodes-endpoint" target="_blank" rel="noopener" title="'GET file nodes' na documentação do Figma">um pedido curl a um endpoint</a>.</li>
                 </ol>
                 <p>Por exemplo, para o seguinte URL de um nó de um design:</p>
-                <p>https://www.figma.com/design/XG1EYHLnC7NdwGuYc7LmUf/MVC---WEB?node-id=6037-2235&t=AHpchSRAIyGCdoci-0</p>
+<pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">https://www.figma.com/design/XG1EYHLnC7NdwGuYc7LmUf/MVC---WEB?node-id=6037-2235&t=AHpchSRAIyGCdoci-0</code></pre>
                 <p>diga-lhe para usar:</p>
-<pre>
-<code>curl -H 'X-FIGMA-TOKEN: {o seu token de acesso pessoal}'
-'https://api.figma.com/v1/files/XG1EYHLnC7NdwGuYc7LmUf/nodes?ids=6037-2235'
-</code>
-</pre>
+<pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">curl -H 'X-FIGMA-TOKEN: {o seu token de acesso pessoal}'
+'https://api.figma.com/v1/files/XG1EYHLnC7NdwGuYc7LmUf/nodes?ids=6037-2235'</code></pre>
                 <p>Ao receber o prompt, o agente executará o pedido curl e obterá um JSON com os parâmetros do design. Depois, irá analisá-lo e gerar um texto com o conteúdo da sua análise.</p>
                 
                 <h3 id="dev-mode-mcp-server">Dev Mode MCP Server</h3>

@@ -314,15 +314,23 @@ table {
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px;
     text-align: left;
     border: 1px solid $color-paper;
-    border-color: var(--color-paper);
+    border: 1px solid var(--color-paper);
+    font-weight: 400;
+    @media screen and (min-width: $bp--xlarge) {
+        padding: 15px;
+    }  
 }
 
 th {
-   background-color: $color-link;
-   background-color: var(--color-link);
+   background-color: $color-paper;
+   background-color: var(--color-paper);
+   color: $color-deep;
+   color: var(--color-deep);
+   border-color: $color-deep;
+   border-color: var(--color-deep);
 }
 
 td {

@@ -128,70 +128,72 @@
 
                 <h2>Tools</h2>
                 
-				<table>
-					<thead>
-						<tr>
-							<th>Tool</th>
-							<th>Functionality</th>
-							<th>Recommended Use</th>
-							<th>Target Team</th>
-							<th>Usage Environment</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<a href="#figma-api" title="Figma API">Figma API</a>
-							</td>
-							<td>
-								Design analysis + code generation
-							</td>
-							<td>
-								Integration of Figma in AI agent workflows
-							</td>
-							<td>
-								Backend teams developing AI agent workflows
-							</td>
-							<td>
-								ADK, Crew AI, LangGraph, etc.
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<a href="#dev-mode-mcp-server" title="Dev Mode MCP Server">Dev Mode MCP Server</a>
-							</td>
-							<td>
-								Design analysis + code generation
-							</td>
-							<td>
-								Code generation from Figma designs
-							</td>
-							<td>
-								Frontend teams
-							</td>
-							<td>
-								Cursor, VS Code + Github Copilot, Windsurf, Claude Code, etc.
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<a href="#claude-talk-to-figma-mcp" title="Claude Talk to Figma MCP">Claude Talk to Figma MCP</a>
-							</td>
-							<td>
-								Design analysis and modification
-							</td>
-							<td>
-								User tests (synthetic), accessibility and SEO audits, and design modification
-							</td>
-							<td>
-								UX/UI teams
-							</td>
-							<td>
-								Claude
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="c-post__table">
+					<table>
+						<thead>
+							<tr>
+								<th>Tool</th>
+								<th>Functionality</th>
+								<th>Recommended Use</th>
+								<th>Target Team</th>
+								<th>Usage Environment</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<a href="#figma-api" title="Figma API">Figma API</a>
+								</td>
+								<td>
+									Design analysis + code generation
+								</td>
+								<td>
+									Integration of Figma in AI agent workflows
+								</td>
+								<td>
+									Backend teams developing AI agent workflows
+								</td>
+								<td>
+									ADK, Crew AI, LangGraph, etc.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="#dev-mode-mcp-server" title="Dev Mode MCP Server">Dev Mode MCP Server</a>
+								</td>
+								<td>
+									Design analysis + code generation
+								</td>
+								<td>
+									Code generation from Figma designs
+								</td>
+								<td>
+									Frontend teams
+								</td>
+								<td>
+									Cursor, VS Code + Github Copilot, Windsurf, Claude Code, etc.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="#claude-talk-to-figma-mcp" title="Claude Talk to Figma MCP">Claude Talk to Figma MCP</a>
+								</td>
+								<td>
+									Design analysis and modification
+								</td>
+								<td>
+									User tests (synthetic), accessibility and SEO audits, and design modification
+								</td>
+								<td>
+									UX/UI teams
+								</td>
+								<td>
+									Claude
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
                 
                 <h3 id="figma-api">Figma API</h3>
                 <h4>Requirements</h4>
@@ -210,13 +212,10 @@
                     <li>Tell your agent to analyze a design in Figma by running <a href="https://www.figma.com/developers/api#get-file-nodes-endpoint" target="_blank" rel="noopener" title="'GET file nodes' in Figma documentation">a curl request to an endpoint</a>.</li>
                 </ol>
                 <p>For example, for the following URL of a design node:</p>
-                <p>https://www.figma.com/design/XG1EYHLnC7NdwGuYc7LmUf/MVC---WEB?node-id=6037-2235&t=AHpchSRAIyGCdoci-0</p>
+<pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">https://www.figma.com/design/XG1EYHLnC7NdwGuYc7LmUf/MVC---WEB?node-id=6037-2235&t=AHpchSRAIyGCdoci-0</code></pre>
                 <p>tell it to use:</p>
-<pre>
-<code>curl -H 'X-FIGMA-TOKEN: {your personal access token}'
-'https://api.figma.com/v1/files/XG1EYHLnC7NdwGuYc7LmUf/nodes?ids=6037-2235'
-</code>
-</pre>
+<pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">curl -H 'X-FIGMA-TOKEN: {your personal access token}'
+'https://api.figma.com/v1/files/XG1EYHLnC7NdwGuYc7LmUf/nodes?ids=6037-2235'</code></pre>
                 <p>Upon receiving the prompt, the agent will execute the curl request and get a JSON with the design parameters. Then it will analyze it and generate a text with the content of its analysis.</p>
                 
                 <h3 id="dev-mode-mcp-server">Dev Mode MCP Server</h3>

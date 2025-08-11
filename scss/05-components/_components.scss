@@ -637,6 +637,12 @@
         background-color: $color-terminal;
         border-radius: 5px;
         padding: 20px 20px 20px;
+        &--scroll {
+            overflow-x: auto;
+            white-space: pre;
+            word-wrap: initial;
+            overflow-wrap: initial;
+        }
     }
     &__prompt-code {
         background-color: transparent;
