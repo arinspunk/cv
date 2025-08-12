@@ -650,6 +650,10 @@
     }
     &__table {
         overflow-x: auto;
+        margin-bottom: 40px;
+        @media screen and (min-width: $bp--xlarge) {
+            margin-bottom: 30px;
+        }  
     }
 }
 .c-messages {
