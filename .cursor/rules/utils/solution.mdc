@@ -1,0 +1,10 @@
+---
+alwaysApply: false
+---
+# Solution Protocol (KISS Principle)
+Analyze requirement → propose simplest viable solution → .cursor/memory/ as `YYYYMMDD-VV-solution-description.md`
+- VV = daily sequence (01, 02...)
+- Prioritize: simplicity, maintainability, minimal dependencies
+- Include: problem summary, proposed approach, implementation steps, trade-offs
+- KISS first: avoid over-engineering, choose proven patterns
+- Auto-save after proposal completion

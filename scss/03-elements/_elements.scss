@@ -141,7 +141,7 @@ h3, .h3 {
     font-size: var(--h3-size-s);
     line-height: $h3-lh-s;
     line-height: var(--h3-lh-s);
-    margin: -2px 0 2px;
+    margin: -2px 0 8px;
     &:first-of-type {
         margin-top: 14px;
     }
@@ -153,7 +153,7 @@ h3, .h3 {
         font-size: var(--h3-size-m);
         line-height: $h3-lh-m;
         line-height: var(--h3-lh-m);
-        margin: 61px 0 19px;
+        margin: 61px 0 13px;
         &:first-of-type {
             margin-top: 13px;
         }
@@ -163,7 +163,7 @@ h3, .h3 {
         font-size: var(--h3-size-l);
         line-height: $h3-lh-l;
         line-height: var(--h3-lh-l);
-        margin: 76px 0 24px;
+        margin: 76px 0 16px;
         &:first-of-type {
             margin-top: 16px;
         }

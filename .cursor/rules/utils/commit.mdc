@@ -1,0 +1,66 @@
+---
+alwaysApply: false
+---
+# Commit Protocol
+Generate commit message from staged changes → user approves → execute commit → update backlog
+
+## Input Formats
+- `commit [JIRA-123]` → With ticket prefix
+- `commit` → Without ticket
+- `commit wip` → Work in progress
+- `commit amend` → For amending last commit
+
+## Message Rules
+**Structure:**
+```
+[JIRA-XXX] type(scope): subject
+
+- Detailed change 1
+- Detailed change 2
+```
+
+**Types:** feat, fix, refactor, docs, style, test, chore, perf  
+**Language:** Always English  
+**Subject:** Imperative mood, max 72 chars, no period  
+**Scope:** Lowercase module/feature name (auth, api, ui, core)
+
+## Process
+1. Analyze staged files to understand changes made
+2. Generate conventional commit message from file changes
+3. Present message and wait for user approval
+4. On approval: execute `git commit -m "..."`
+5. Get commit hash: `git log -1 --format=%h`
+6. Update related backlog tasks with commit reference
+7. Confirm completion
+
+## Backlog Update Format
+Add commit reference to related completed tasks (✅):
+```markdown
+**[X.Y]** ✅ Task Title
+> **What to do:** [description]
+> **Date completed:** YYYY-MM-DD
+> **Work done:** [actions taken]
+> **Commit:** `hash` [JIRA-XXX] type(scope): subject
+```
+
+## Output Format
+```
+📝 Proposed Commit Message:
+────────────────────────────────
+[message here]
+────────────────────────────────
+
+Approve: "yes" / "ok" / "commit"
+Adjust: "change [feedback]"
+Cancel: "cancel"
+```
+
+## After Approval
+```
+✅ Committed `abc1234`
+📝 Backlog updated with commit reference
+
+Related tasks:
+- [1.1] Implement JWT authentication
+- [1.2] Add authentication tests
+```

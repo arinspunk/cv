@@ -1,5 +1,9 @@
 const footerYear = document.querySelector('.c-footer__year');
 footerYear.textContent += ` ${new Date().getFullYear()}`;
+const currentYear = document.querySelectorAll('.c-history__current-year');
+currentYear.forEach(element => {
+	element.textContent += `${new Date().getFullYear().toString().slice(-2)}`;
+});
 
 const inViewport = (element) => {
 	const { top, bottom } = element.getBoundingClientRect();
@@ -7,8 +11,8 @@ const inViewport = (element) => {
 	return !(top > viewportHeight || bottom < 0);
 }
 
+let scrollPos = 0;
 const handleHeaderScroll = () => {
-	let scrollPos = 0;
 	const header = document.querySelector('header');
 	const currentScrollPos = window.pageYOffset;
 	const isScrollingUp = currentScrollPos < scrollPos;

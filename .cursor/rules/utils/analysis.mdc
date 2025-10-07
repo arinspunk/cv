@@ -1,0 +1,8 @@
+---
+alwaysApply: false
+---
+# Analysis Protocol
+Analyze @file, @folder, or code selection → save to .cursor/memory/ as `YYYYMMDD-VV-description.md`
+- VV = daily sequence (01, 02...)
+- Include: architecture, patterns, dependencies, issues, recommendations
+- Auto-save after analysis completion
