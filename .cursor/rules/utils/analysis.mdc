@@ -6,3 +6,6 @@ Analyze @file, @folder, or code selection → save to .cursor/memory/ as `YYYYMM
 - VV = daily sequence (01, 02...)
 - Include: architecture, patterns, dependencies, issues, recommendations
 - Auto-save after analysis completion
+
+## Critical rule
+⚠️ **NEVER skip memory save** - even for "quick looks" or simple requests. The protocol exists to maintain project knowledge consistency.
