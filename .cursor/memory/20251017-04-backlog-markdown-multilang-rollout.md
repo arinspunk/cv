@@ -9,20 +9,21 @@
 
 ## Progress Summary
 - **Total Tasks:** 3
-- **Completed:** 0
+- **Completed:** 3
 - **In Progress:** 0
-- **Pending:** 3
+- **Pending:** 0
 - **Blocked:** 0
-- **Progress:** 0%
+- **Progress:** 100%
 
 ---
 
 ## Phase 3: Multi-language Rollout
 
-### [3.1] ⏳ Apply to Spanish Posts
+### [3.1] ✅ Apply to Spanish Posts
 > **What to do:** Add download button to 13 remaining Spanish posts in `/blog/` (excluding `bases-datos-vectoriales-introduccion.html` already done). Button text: "📄 Descargar como Markdown". Script paths: `../js/markdown-converter.js` and `../js/application.min.js`. Insert button after `.c-messages` div, before closing `</header>`.
-> **Date completed:** -
-> **Work done:** -
+> **Date completed:** 2025-10-17
+> **Work done:** Added inline download link with emoji to all 13 Spanish posts. Changed from button to inline text format: "🤖 Si quieres que tu IA lea este post, <span class="c-link" id="downloadMarkdown">descárgaselo como markdown</span>."
+> **Commit:** `fe314d6` feat(blog): add markdown download link to all blog posts
 > **Files (13):**
 > - blog/oneshot-vs-dialogo.html
 > - blog/claude-talk-to-figma-mcp.html
@@ -38,10 +39,11 @@
 > - blog/como-hablar-con-chatgpt.html
 > - blog/frontity-custom-page-templates.html
 
-### [3.2] ⏳ Apply to English Posts
+### [3.2] ✅ Apply to English Posts
 > **What to do:** Add download button to 14 English posts in `/en/blog/`. Button text: "📄 Download as Markdown". Script paths: `../../js/markdown-converter.js` and `../../js/application.min.js`. Insert button after `.c-messages` div, before closing `</header>`.
-> **Date completed:** -
-> **Work done:** -
+> **Date completed:** 2025-10-17
+> **Work done:** Added inline download link with emoji to all 14 English posts. Changed from button to inline text format: "🤖 If you want your AI to read this post, <span class="c-link" id="downloadMarkdown">download it as markdown</span>."
+> **Commit:** `fe314d6` feat(blog): add markdown download link to all blog posts
 > **Files (14):**
 > - en/blog/oneshot-vs-dialogue.html
 > - en/blog/use-tools-unexpected-ways-ai.html
@@ -58,10 +60,11 @@
 > - en/blog/3d-printers-death-symmetry.html
 > - en/blog/frontity-custom-page-templates.html
 
-### [3.3] ⏳ Apply to Portuguese Posts
+### [3.3] ✅ Apply to Portuguese Posts
 > **What to do:** Add download button to 14 Portuguese posts in `/pt/blogue/`. Button text: "📄 Descarregar como Markdown". Script paths: `../../js/markdown-converter.js` and `../../js/application.min.js`. Insert button after `.c-messages` div, before closing `</header>`.
-> **Date completed:** -
-> **Work done:** -
+> **Date completed:** 2025-10-17
+> **Work done:** Added inline download link with emoji to all 14 Portuguese posts. Changed from button to inline text format: "🤖 Se queres que a tua IA leia este post, <span class="c-link" id="downloadMarkdown">descarrega-o como markdown</span>."
+> **Commit:** `fe314d6` feat(blog): add markdown download link to all blog posts
 > **Files (14):**
 > - pt/blogue/oneshot-vs-dialogo.html
 > - pt/blogue/claude-talk-to-figma-mcp.html
@@ -136,11 +139,11 @@ Insert: Button HTML
 Before: `</header>`
 
 ### Completion Criteria
-- [ ] All 42 posts have download button
-- [ ] Button text correctly translated per language
-- [ ] Script paths correct per directory structure
-- [ ] No console errors on any post
-- [ ] Download works on sample posts from each language
+- [x] All 41 posts have download link (13 ES + 14 EN + 14 PT)
+- [x] Link text correctly translated per language
+- [x] Script paths correct per directory structure
+- [x] No console errors on any post
+- [x] Download works on sample posts from each language
 
 ---
 
