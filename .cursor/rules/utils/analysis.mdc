@@ -2,10 +2,15 @@
 alwaysApply: false
 ---
 # Analysis Protocol
-Analyze @file, @folder, or code selection → save to .cursor/memory/ as `YYYYMMDD-VV-description.md`
-- VV = daily sequence (01, 02...)
-- Include: architecture, patterns, dependencies, issues, recommendations
-- Auto-save after analysis completion
 
-## Critical rule
-⚠️ **NEVER skip memory save** - even for "quick looks" or simple requests. The protocol exists to maintain project knowledge consistency.
+**Trigger:** @file/@folder without instructions, or "analyze/review/audit/document"
+
+**Process:**
+1. Acknowledge: "Analyzing [name] → saving to `.cursor/memory/`"
+2. Analyze: purpose, architecture, dependencies, issues, recommendations
+3. **MUST save** to `.cursor/memory/YYYYMMDD-VV-description.md` (VV = daily 01,02...)
+4. Confirm: "Analysis saved to `.cursor/memory/[filename]`"
+
+**File content:** Natural markdown with findings - no strict template, focus on what matters for future reference.
+
+**Rules:** NEVER skip save. ASK if scope unclear.
