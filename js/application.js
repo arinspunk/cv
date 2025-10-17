@@ -64,3 +64,15 @@ document.addEventListener('scroll', () => {
 	}
 	scrollTimeout = window.requestAnimationFrame(handleScroll);
 });
+
+// Markdown download button
+const downloadButton = document.getElementById('downloadMarkdown');
+if (downloadButton) {
+	downloadButton.addEventListener('click', () => {
+		if (typeof MarkdownConverter !== 'undefined') {
+			MarkdownConverter.convert();
+		} else {
+			console.error('MarkdownConverter not loaded');
+		}
+	});
+}
