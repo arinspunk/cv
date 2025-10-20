@@ -43,6 +43,7 @@
 > **Work done:** Implemented `generateFilename()` function that extracts title from `.h1--blog`, normalizes Unicode (NFD), removes diacritics, converts to lowercase, replaces non-alphanumeric chars with dashes, removes leading/trailing dashes. Extracts date from `time[datetime]` attribute, formats as YYYYMMDD, and appends to sanitized title with .md extension.
 > **Commit:** `fe314d6` feat(blog): add markdown download link to all blog posts
 > **Update 2025-10-20:** Simplified to extract filename from URL path instead of parsing title/date. New logic: `window.location.pathname.split('/').pop() + '.md'` (e.g., `claude-talk-to-figma-mcp.html.md`). Reduced from ~25 lines to 4 lines following KISS principle.
+> **Commit:** `285d758` refactor(blog): simplify markdown filename from URL path
 
 ---
 
