@@ -145,34 +145,13 @@ const MarkdownConverter = (() => {
 	};
 	
 	/**
-	 * Generate filename from post title and date
-	 * @returns {string} Sanitized filename with .md extension
+	 * Generate filename from current URL path
+	 * @returns {string} HTML filename with .md extension
 	 */
 	const generateFilename = () => {
-		const titleElement = document.querySelector('.h1--blog');
-		const timeElement = document.querySelector('time');
-		
-		if (!titleElement) return 'post.md';
-		
-		// Sanitize title
-		let filename = titleElement.textContent
-			.trim()
-			.toLowerCase()
-			.normalize('NFD')
-			.replace(/[\u0300-\u036f]/g, '') // Remove diacritics
-			.replace(/[^a-z0-9]+/g, '-')      // Replace non-alphanumeric with dash
-			.replace(/^-+|-+$/g, '');          // Remove leading/trailing dashes
-		
-		// Add date if available
-		if (timeElement) {
-			const date = timeElement.getAttribute('datetime');
-			if (date) {
-				const dateStr = date.split(' ')[0].replace(/-/g, '');
-				filename += `-${dateStr}`;
-			}
-		}
-		
-		return `${filename}.md`;
+		const pathname = window.location.pathname;
+		const filename = pathname.split('/').pop();
+		return filename ? `${filename}.md` : 'post.html.md';
 	};
 	
 	/**

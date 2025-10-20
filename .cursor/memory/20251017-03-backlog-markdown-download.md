@@ -42,6 +42,7 @@
 > **Date completed:** 2025-10-17
 > **Work done:** Implemented `generateFilename()` function that extracts title from `.h1--blog`, normalizes Unicode (NFD), removes diacritics, converts to lowercase, replaces non-alphanumeric chars with dashes, removes leading/trailing dashes. Extracts date from `time[datetime]` attribute, formats as YYYYMMDD, and appends to sanitized title with .md extension.
 > **Commit:** `fe314d6` feat(blog): add markdown download link to all blog posts
+> **Update 2025-10-20:** Simplified to extract filename from URL path instead of parsing title/date. New logic: `window.location.pathname.split('/').pop() + '.md'` (e.g., `claude-talk-to-figma-mcp.html.md`). Reduced from ~25 lines to 4 lines following KISS principle.
 
 ---
 
@@ -101,7 +102,7 @@
 1. **Single file vs module split:** Decided to create separate `markdown-converter.js` for better code organization
 2. **Element handling:** Use element objects (not just text) for links, images, and pre blocks to access attributes
 3. **Code block detection:** Special handling for `.c-post__prompt` class to preserve formatting
-4. **Filename pattern:** `{title}-{date}.md` format for clarity and consistency
+4. **Filename pattern:** `{title}-{date}.md` format for clarity and consistency → **Updated 2025-10-20:** Changed to `{html-filename}.md` extracted from URL path (simpler, matches URL structure)
 
 ### Completion Criteria
 - [x] Button appears in all blog post pages (ES/EN/PT)
@@ -119,3 +120,4 @@
 - Respect existing BEM naming conventions
 - Test with multilingual content (ES/EN/PT)
 - **Final Format Change:** Button was replaced with inline text link format per user request: "🤖 If you want your AI to read this post, <span class="c-link" id="downloadMarkdown">download it as markdown</span>." across all languages
+- **Filename Logic Update (2025-10-20):** Simplified filename generation to use URL path instead of title+date parsing. Reference: `.cursor/memory/20251020-01-solution-filename-from-url.md`
