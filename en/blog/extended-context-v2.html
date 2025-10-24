@@ -198,7 +198,7 @@ Rule: If you can't explain it in 2-3 sentences, it's too complex.</code></pre>
 
         <p><strong>Utils</strong> - Invokable protocols:</p>
 
-        <p><code>rules/utils/analysis.mdc</code> <em>→ Analyzes code/folders and saves to memory</em></p>
+        <p><code>rules/utils/analysis.mdc</code> → Analyzes code/folders and saves to memory</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
@@ -206,7 +206,7 @@ alwaysApply: false
 Trigger: @file/@folder or "analyze"
 1. Acknowledge → 2. Analyze → 3. Save to .cursor/memory/YYYYMMDD-VV-*.md → 4. Confirm</code></pre>
 
-        <p><code>rules/utils/solution.mdc</code> <em>→ Proposes solution and saves to memory</em></p>
+        <p><code>rules/utils/solution.mdc</code> → Proposes solution and saves to memory</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
@@ -215,7 +215,7 @@ Trigger: User requests solution
 1. Acknowledge → 2. Propose simplest solution → 3. Save to memory → 4. Confirm
 Principles: Simplicity > complexity, proven patterns > novel</code></pre>
 
-        <p><code>rules/utils/backlog.mdc</code> <em>→ Converts solution into atomic trackable tasks</em></p>
+        <p><code>rules/utils/backlog.mdc</code> → Converts solution into atomic trackable tasks</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
@@ -227,7 +227,7 @@ Format: [Phase.Task#] ⏳/🔄/✅/⚠️ Title
 
 Rules: 2-4h max, sequential, testable</code></pre>
 
-        <p><code>rules/utils/execute.mdc</code> <em>→ Executes backlog tasks and updates state</em></p>
+        <p><code>rules/utils/execute.mdc</code> → Executes backlog tasks and updates state</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
@@ -235,7 +235,7 @@ alwaysApply: false
 Load backlog → parse scope → execute → update status → stop at boundary
 Input: [1.1], [2.3,2.4], Phase 2, continue</code></pre>
 
-        <p><code>rules/utils/commit.mdc</code> <em>→ Generates conventional commits and updates backlog</em></p>
+        <p><code>rules/utils/commit.mdc</code> → Generates conventional commits and updates backlog</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
