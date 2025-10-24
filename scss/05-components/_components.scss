@@ -727,10 +727,12 @@
         }
         
         svg {
+            display: block;
             width: 16px;
             height: 16px;
-            fill: $color-paper;
+            fill: $color-paper !important;
             transition: fill 0.2s;
+            flex-shrink: 0;
         }
     }
     &__table {
