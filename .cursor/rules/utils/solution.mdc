@@ -8,7 +8,7 @@ alwaysApply: false
 **Process:**
 1. Acknowledge: "Proposing solution → saving to `.cursor/memory/`"
 2. Analyze requirement, propose **simplest viable solution**
-3. **MUST save** to `.cursor/memory/YYYYMMDD-VV-solution-description.md` (VV = daily 01,02...)
+3. **MUST save** to `.cursor/memory/YYYYMMDD-VV-solution-description.md` (VV = daily 01,02...). VV increments sequentially per day (never reuse VV values)
 4. Confirm: "Solution saved to `.cursor/memory/[filename]`"
 
 **Content:** Natural markdown covering: problem summary, proposed approach (KISS first), implementation steps, trade-offs
@@ -19,4 +19,4 @@ alwaysApply: false
 - Minimal dependencies
 - Avoid over-engineering
 
-**Rules:** NEVER skip save. If multiple valid approaches, present simplest first. ASK if requirements unclear.
+**Rules:** NEVER skip save. If multiple valid approaches, present simplest first. ASK if requirements unclear. DO NOT WRITE CODE YET, wait for further instructions

@@ -4,7 +4,7 @@ alwaysApply: false
 # Backlog Protocol (Context Recovery)
 From approved solution → break into atomic tasks → create persistent backlog
 - Save to @memory as `YYYYMMDD-VV-backlog-description.md`
-- VV = daily sequence (01, 02...)
+- VV = daily sequence (01, 02...). VV increments sequentially per day (never reuse VV values)
 - Purpose: Resume work across chat sessions by tracking completed/pending work
 
 ## Template Structure
