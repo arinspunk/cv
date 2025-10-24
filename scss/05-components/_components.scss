@@ -669,16 +669,21 @@
             }
         }
     }
+    &__prompt-code {
+        background-color: transparent;
+        padding: 0;
+    }
     &__copy-btn {
         position: sticky;
         left: calc(100% - 30px);
         margin-bottom: -30px;
+        transform: translate(10px, -10px);
         display: flex;
         align-items: center;
         justify-content: center;
         height: 30px;
         width: 30px;
-        background: $color-link;
+        background: $color-terminal;
         border: 1px solid $color-link;
         border-radius: 4px;
         cursor: pointer;
@@ -692,10 +697,11 @@
             right: 100%;
             top: 50%;
             transform: translateY(-50%);
-            margin-right: 8px;
-            padding: 4px 4px 2px;
+            margin-right: 6px;
+            padding: 4px;
             background: $color-terminal;
             color: $color-paper;
+            font-family: $font-mono;
             font-size: 12px;
             white-space: nowrap;
             border-radius: 4px;
@@ -709,7 +715,7 @@
         }
         
         &:hover {
-            background: $color-terminal;
+            background: $color-link;
             
             svg {
                 fill: $color-paper;
@@ -726,10 +732,6 @@
             fill: $color-paper;
             transition: fill 0.2s;
         }
-    }
-    &__prompt-code {
-        background-color: transparent;
-        padding: 0;
     }
     &__table {
         overflow-x: auto;
