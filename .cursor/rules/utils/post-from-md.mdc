@@ -1,0 +1,205 @@
+---
+alwaysApply: false
+---
+# @blog-post: Trilingual Blog Generator
+
+Transform markdown input into 3 HTML blog posts (ES/EN/PT) with automatic index updates.
+
+## Auto-Trigger
+Activate this protocol when:
+- User provides markdown file (*.md) with @ reference in blog workspace
+- User explicitly invokes "@blog-post"
+- User requests "generate blog post", "publish post", or similar intent
+- Context indicates blog publishing workflow
+
+## Input/Output
+- **IN:** Plain markdown (no frontmatter)
+- **OUT:** 3 HTML files + 3 updated indexes
+
+## Execution Flow
+
+### 1. Extract & Generate Metadata
+```yaml
+title: [from first H1]
+date: YYYY-MM-DD HH:MM:SS
+slug_es: [SEO kebab-case from ES title]
+slug_en: [translate slug_es → EN]
+slug_pt: [translate slug_es → PT]
+```
+
+**Slug Rules:**
+- Lowercase, strip accents/special chars
+- Hyphen-separated, max 60 chars
+- Example: "Cómo usar IA" → `como-usar-ia` (ES) → `how-to-use-ai` (EN) → `como-usar-ia` (PT)
+
+### 2. Generate ES Primary (`blog/{slug_es}.html`)
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title} - Xúlio Zé</title>
+  <meta name="description" content="{auto-extract first paragraph, max 155 chars}">
+  <meta property="og:title" content="{title} - Xúlio Zé">
+  <meta property="og:description" content="{same as description}">
+  <meta property="og:url" content="https://xulioze.com/blog/{slug_es}.html">
+  <link rel="canonical" href="https://xulioze.com/blog/{slug_es}.html">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/icons/favicon-32x32.png">
+  <link rel="manifest" href="../img/icons/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body class="body blog">
+  <article class="c-post">
+    <header class="c-header c-header--blog">
+      <div class="o-wrap">
+        <div class="c-header__logo o-block">
+          <a class="c-header__logo-link" href="../index.html" title="volver a mi CV">XZ</a>
+        </div>
+        <nav class="c-header__menu o-block">
+          <ul class="c-header__menu-list">
+            <li class="c-header__menu-item c-header__menu-item--language">
+              <a class="c-header__menu-link" href="../pt/blogue/{slug_pt}.html" title="Versão do post em português">Pt</a>
+            </li>
+            <li class="c-header__menu-item c-header__menu-item--language">
+              <a class="c-header__menu-link" href="../en/blog/{slug_en}.html" title="Post's version in english">En</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link" href="../index.html" title="mi CV">CV</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link" href="../blog.html" title="Más posts">Blog</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estoy en LinkedIn :)" target="_blank" rel="noopener">¿Hablamos?</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <section class="o-wrap o-wrap--center c-post__body">
+      <header class="c-info c-info--blog o-block o-block--center">
+        <h1 class="h1--blog">{title}</h1>
+        Publicado el <time datetime="{YYYY-MM-DD}">{D de MONTH de YYYY}</time>
+        <div class="c-messages">
+          <a href="../pt/blogue/{slug_pt}.html" class="c-message">🐙 Podes ler este post em <span>português</span>.</a>
+          <a href="../en/blog/{slug_en}.html" class="c-message">🦑 You can read this post in <span>english</span>.</a>
+        </div>
+        🤖 Si quieres que tu IA lea este post, <span class="c-link" id="downloadMarkdown">descárgaselo como markdown</span>.
+      </header>
+      <div class="c-info__content o-block o-block--center">
+        {convert markdown to semantic HTML5}
+      </div>
+    </section>
+    
+    <footer class="c-footer c-footer--blog">
+      <div class="o-wrap">
+        <nav class="c-footer__menu o-block">
+          <ul class="c-footer__menu-list">
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="My repository">GitHub</a>
+            </li>
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="write me">Email</a>
+            </li>
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="My profile on LinkedIn">LinkedIn</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="o-block c-footer__credits">© <span class="c-footer__year">2025</span> Xúlio Zé</p>
+      </div>
+    </footer>
+  </article>
+  <script src="../js/markdown-converter.js" defer></script>
+  <script src="../js/application.min.js" defer></script>
+</body>
+</html>
+```
+
+### 3. Generate EN Full Translation (`en/blog/{slug_en}.html`)
+**Translation Protocol:**
+1. Translate full markdown content → English (preserve formatting, code blocks, links)
+2. Convert translated markdown → HTML
+3. Apply template modifications:
+   - `lang="en"`
+   - Translate title + description → English
+   - All URLs use `slug_en`
+   - Nav order: `Es/Pt` (use `slug_es`, `slug_pt`)
+   - Nav titles: "Versión del post en español" (Es), "Versão do post em português" (Pt)
+   - Logo title: "back to my CV"
+   - CV link title: "my CV"
+   - Blog link title: "More posts"
+   - LinkedIn title: "I'm on LinkedIn :)"
+   - Messages: 🦀 (ES) + 🐙 (PT) emojis
+   - Date format: `{MONTH D, YYYY}`
+
+### 4. Generate PT Full Translation (`pt/blogue/{slug_pt}.html`)
+**Translation Protocol:**
+1. Translate full markdown content → Portuguese (preserve formatting, code blocks, links)
+2. Convert translated markdown → HTML
+3. Apply template modifications:
+   - `lang="pt"`
+   - Translate title + description → Portuguese
+   - All URLs use `slug_pt`
+   - Nav order: `Es/En` (use `slug_es`, `slug_en`)
+   - Nav titles: "Versión del post en español" (Es), "Post's version in english" (En)
+   - Logo title: "voltar ao meu CV"
+   - CV link title: "meu CV"
+   - Blog link title: "Mais posts"
+   - LinkedIn title: "Estou no LinkedIn :)"
+   - Messages: 🦀 (ES) + 🦑 (EN) emojis
+   - Date format: `{D de MONTH de YYYY}`
+
+### 5-7. Update Indexes (TOP of article list)
+
+**blog.html (ES):**
+```html
+<article class="c-article">
+  <time datetime="{YYYY-MM-DD}">{D de MONTH de YYYY}</time>
+  <h2 class="h3 c-article__title">
+    <a href="blog/{slug_es}.html">{title}</a>
+  </h2>
+</article>
+```
+
+**en/blog.html:** Date format `{MONTH D, YYYY}`, English title, `slug_en`
+
+**pt/blogue.html:** Date format `{D de MONTH de YYYY}`, Portuguese title, `slug_pt`
+
+### 8. Confirm Output
+```
+✅ Created:
+- blog/{slug_es}.html (ES full)
+- en/blog/{slug_en}.html (EN full - auto-translated)
+- pt/blogue/{slug_pt}.html (PT full - auto-translated)
+- Updated: blog.html, en/blog.html, pt/blogue.html
+
+Slugs: {slug_es} | {slug_en} | {slug_pt}
+
+All content translated and ready to publish.
+```
+
+## HTML Conversion Standards
+
+**ALWAYS:**
+- Auto-extract description from first paragraph (≤155 chars)
+- Images: `<img src="../img/{name}" alt="{alt}" width="{w}" loading="lazy">`
+- External links: `target="_blank" rel="noopener"`
+- BEM naming, semantic HTML5 (h2/h3/strong/em/code/pre/ul/ol/figure)
+- Paths: `../` (ES), `../../` (EN/PT)
+- Generate distinct slugs per language (translate, don't duplicate)
+- **Translate full content** for EN/PT versions (preserve code blocks, technical terms, formatting)
+- **Code formatting:**
+  - Inline: `<code>text</code>`
+  - Blocks: `<pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">text</code></pre>`
+
+**NEVER:**
+- Use h1 in content body
+- Omit `loading="lazy"` on images
+- Use identical slugs across languages
+- Skip content translation (EN/PT must be complete)
+- Use plain `<pre><code>` for code blocks (requires BEM classes)
