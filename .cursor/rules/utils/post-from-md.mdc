@@ -110,7 +110,7 @@ slug_pt: [translate slug_es → PT]
             </li>
           </ul>
         </nav>
-        <p class="o-block c-footer__credits">© <span class="c-footer__year">2025</span> Xúlio Zé</p>
+        <p class="o-block c-footer__credits">© <span class="c-footer__year"></span> Xúlio Zé</p>
       </div>
     </footer>
   </article>
@@ -161,7 +161,7 @@ slug_pt: [translate slug_es → PT]
 <article class="c-article">
   <time datetime="{YYYY-MM-DD}">{D de MONTH de YYYY}</time>
   <h2 class="h3 c-article__title">
-    <a href="blog/{slug_es}.html">{title}</a>
+    <a href="blog/{slug_es}.html" class="c-article__link" title="">{title}</a>
   </h2>
 </article>
 ```

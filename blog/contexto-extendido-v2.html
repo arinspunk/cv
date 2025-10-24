@@ -63,21 +63,21 @@
           <figcaption>Observando la ciudad</figcaption>
         </figure>
 
-        <p>Esta guía es una versión mejorada de la que propuse en "<a href="https://xulioze.com/blog/contexto-extendido.html" target="_blank" rel="noopener">Contexto extendido. Los agentes también necesitan tomar notas</a>" y <a href="https://xulioze.com/blog/guia-desarrollar-software-agentes.html" target="_blank" rel="noopener">Guía: desarrollar software de calidad asistido por agentes de IA</a>.</p>
+        <p>Esta guía es una versión mejorada de la que propuse en "<a href="https://xulioze.com/blog/contexto-extendido.html" target="_blank" rel="noopener" title="Contexto extendido. Los agentes también necesitan tomar notas">Contexto extendido. Los agentes también necesitan tomar notas</a>" y <a href="https://xulioze.com/blog/guia-desarrollar-software-agentes.html" target="_blank" rel="noopener" title="Guía: desarrollar software de calidad asistido por agentes de IA">Guía: desarrollar software de calidad asistido por agentes de IA</a>.</p>
 
-        <p>Cuando llegaron los editores con agentes de IA autónomos (Cursor, GitHub Copilot, Claude Code), muchos compramos la promesa: "<a href="https://xulioze.com/blog/oneshot-vs-dialogo.html" target="_blank" rel="noopener">escribe el prompt perfecto</a> y el agente te genera la feature completa de una tirada". La realidad fue otra: sin estructura ni constraints, acabábamos dedicando más tiempo a corregir bugs que a escribir código.</p>
+        <p>Cuando llegaron los editores con agentes de IA autónomos (Cursor, GitHub Copilot, Claude Code), muchos compramos la promesa: "<a href="https://xulioze.com/blog/oneshot-vs-dialogo.html" target="_blank" rel="noopener" title="One-shot vs diálogo: cómo elegir el modo correcto para tu agente de IA">escribe el prompt perfecto</a> y el agente te genera la feature completa de una tirada". La realidad fue otra: sin estructura ni constraints, acabábamos dedicando más tiempo a corregir bugs que a escribir código.</p>
 
-        <p>El "vibe-coding" —eso de confiar en que el agente "pille la vibe" de tu proyecto— funciona bien para prototipos rápidos, pero en proyectos reales y complejos genera más problemas que soluciones:</p>
+        <p>El "vibe-coding", eso de confiar en que el agente "pille la vibe" de tu proyecto, funciona bien para prototipos rápidos, pero en proyectos reales y complejos genera más problemas que soluciones:</p>
         <ul>
-          <li><strong>Decisiones perdidas</strong>: ¿Por qué elegimos esta arquitectura hace dos semanas?</li>
-          <li><strong>Alucinaciones constantes</strong>: La IA inventa APIs, mezcla frameworks, ignora constraints</li>
-          <li><strong>Trabajo monolítico</strong>: Imposible dividir features en tareas rastreables</li>
-          <li><strong>Improvisación continua</strong>: Cada sesión comienza desde cero</li>
+          <li>Decisiones perdidas: ¿Por qué elegimos esta arquitectura hace dos semanas?</li>
+          <li>Alucinaciones constantes: La IA inventa APIs, mezcla frameworks, ignora constraints</li>
+          <li>Trabajo monolítico: Imposible dividir features en tareas rastreables</li>
+          <li>Improvisación continua: Cada sesión comienza desde cero</li>
         </ul>
 
-        <p>Hace unos meses documenté <a href="https://xulioze.com/blog/guia-desarrollar-software-agentes.html" target="_blank" rel="noopener">una solución</a> (v1): un workflow estructurado (análisis → solución → backlog → ejecución → progreso guardado) con cuatro archivos de contexto que convertía el vibe-coding en ingeniería rastreable. Funcionó, pero había fricción: repetir manualmente los mismos prompts en cada sesión era un dolor.</p>
+        <p>Hace unos meses documenté <a href="https://xulioze.com/blog/guia-desarrollar-software-agentes.html" target="_blank" rel="noopener" title="Guía: desarrollar software de calidad asistido por agentes de IA">una solución</a> (v1): un workflow estructurado (análisis → solución → backlog → ejecución → progreso guardado) con cuatro archivos de contexto que convertía el vibe-coding en ingeniería rastreable. Funcionó, pero había fricción: repetir manualmente los mismos prompts en cada sesión era un dolor.</p>
 
-        <p>Esta guía presenta la evolución de ese sistema (v2). Aprovecha el sistema de rules de Cursor para automatizar prompts y convierte el workflow en protocolos reutilizables. Pero al diseñarla emergió un <strong>patrón universal</strong>: separar conocimiento reutilizable (rules) de memoria temporal (memory). Esto va más allá de ahorrarte escribir los mismos prompts: puedes reutilizar el conocimiento en diferentes proyectos y llevar un registro ordenado de todo lo que haces. Y el patrón funciona con cualquier herramienta de IA, no solo con Cursor.</p>
+        <p>Esta guía presenta la evolución de ese sistema (v2). Aprovecha el sistema de rules de Cursor para automatizar prompts y convierte el workflow en protocolos reutilizables. Pero al diseñarla emergió un patrón universal: separar conocimiento reutilizable (rules) de memoria temporal (memory). Esto va más allá de ahorrarte escribir los mismos prompts: puedes reutilizar el conocimiento en diferentes proyectos y llevar un registro ordenado de todo lo que haces. Y el patrón funciona con cualquier herramienta de IA, no solo con Cursor.</p>
 
         <p>Vamos a ver cómo construir esa arquitectura.</p>
 
@@ -93,11 +93,11 @@
 
         <h3>Limitaciones en proyectos reales</h3>
 
-        <p><strong>Conocimiento mezclado</strong>: <code>01-expert.md</code> combina principios generales (KISS, DRY) con constraints específicos del proyecto (stack, versiones, dependencias críticas). Imposible reutilizar principios entre proyectos sin arrastrar configuración irrelevante.</p>
+        <p>Conocimiento mezclado: <code>01-expert.md</code> combina principios generales (KISS, DRY) con constraints específicos del proyecto (stack, versiones, dependencias críticas). Imposible reutilizar principios entre proyectos sin arrastrar configuración irrelevante.</p>
 
-        <p><strong>Duplicación entre proyectos</strong>: Cada proyecto replica conocimiento común. Si trabajas en 3 proyectos WordPress, tienes "security: sanitize_*, nonces" copiado tres veces. Actualizas una best practice, debes sincronizar manualmente.</p>
+        <p>Duplicación entre proyectos: Cada proyecto replica conocimiento común. Si trabajas en 3 proyectos WordPress, tienes <code>security: sanitize_*, nonces</code> copiado tres veces. Actualizas una best practice, debes sincronizar manualmente.</p>
 
-        <p><strong>Sin gestión de histórico</strong>: v1 te da tres opciones, todas malas:</p>
+        <p>Sin gestión de histórico: v1 te da tres opciones, todas malas:</p>
         <ul>
           <li>Sobrescribir <code>02-analysis.md</code> → pierdes decisiones previas</li>
           <li>Acumular análisis en el mismo archivo → crece descontroladamente, imposible rastrear cuándo se tomó cada decisión</li>
@@ -106,7 +106,7 @@
 
         <p>En todos los casos: ¿Por qué rechazaste la arquitectura X hace dos semanas? No hay forma sistemática de recuperarlo.</p>
 
-        <p><strong>Sin modularidad</strong>: Cambiar de WordPress a React requiere reescribir <code>01-expert.md</code> completo. No puedes mantener módulos comunes (principios, patrones) y solo intercambiar el experto técnico.</p>
+        <p>Sin modularidad: Cambiar de WordPress a React requiere reescribir <code>01-expert.md</code> completo. No puedes mantener módulos comunes (principios, patrones) y solo intercambiar el experto técnico.</p>
 
         <p>v1 tenía dos problemas fundamentales: (1) conocimiento mezclado en un solo archivo (<code>01-expert.md</code>), (2) ejecución manual - cada acción requería escribir el prompt completo ("analiza este archivo y guarda en <code>02-analysis.md</code>", "lee <code>04-backlog.md</code>, ejecuta tareas 1-3, actualiza estado"). v2 resuelve ambos: separa conocimiento en <code>rules/</code> modulares y automatiza ejecución mediante protocolos invocables en <code>rules/utils/</code> (<code>@analysis</code>, <code>@execute</code>).</p>
 
@@ -117,8 +117,8 @@
         <p>v2 implementa esta arquitectura dual:</p>
 
         <ol>
-          <li><strong>Separación conocimiento/memoria</strong>: Rules reutilizables vs memory temporal</li>
-          <li><strong>Modularización del conocimiento</strong>: Expertos, guidelines y protocolos ejecutables</li>
+          <li>Separación conocimiento/memoria: Rules reutilizables vs memory temporal</li>
+          <li>Modularización del conocimiento: Expertos, guidelines y protocolos ejecutables</li>
         </ol>
 
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">.cursor/
@@ -136,13 +136,13 @@
         <p>El flag <code>alwaysApply</code> resuelve esto:</p>
 
         <ul>
-          <li><strong><code>alwaysApply: true</code></strong> → Cursor las carga automáticamente en cada conversación
+          <li><code>alwaysApply: true</code> → Cursor las carga automáticamente en cada conversación
             <ul>
               <li>Usa para: Expertos base, guidelines críticas del proyecto</li>
               <li>Ejemplo: <code>wordpress-classic-themes.mdc</code>, <code>constraints-balneario.mdc</code></li>
             </ul>
           </li>
-          <li><strong><code>alwaysApply: false</code></strong> → Usuario las invoca con <code>@</code> según necesidad
+          <li><code>alwaysApply: false</code> → Usuario las invoca con <code>@</code> según necesidad
             <ul>
               <li>Usa para: Protocolos bajo demanda, herramientas específicas</li>
               <li>Ejemplo: <code>@analysis</code>, <code>@backlog</code></li>
@@ -152,7 +152,7 @@
 
         <h3>Rules: Conocimiento Reutilizable</h3>
 
-        <p><strong>Experts</strong> - Perfiles de expertos técnicos/dominio:</p>
+        <p>Experts - Perfiles de expertos técnicos/dominio:</p>
 
         <p><code>rules/experts/wordpress-classic-themes.mdc</code></p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
@@ -169,7 +169,7 @@ Backend: PHP 7.4+, WP Core APIs | Frontend: Vanilla JS, HTML5, CSS3
 - Performance: transients (12h), conditional enqueue
 - Translation: __(), _e() with text domain</code></pre>
 
-        <p><strong>Guidelines</strong> - Principios de código y restricciones de proyecto:</p>
+        <p>Guidelines - Principios de código y restricciones de proyecto:</p>
 
         <p><code>rules/guidelines/constraints-balneario.mdc</code></p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
@@ -194,9 +194,9 @@ alwaysApply: true
 
 Rule: If you can't explain it in 2-3 sentences, it's too complex.</code></pre>
 
-        <p>El principio KISS es especialmente importante en desarrollo asistido por IA: es más fácil pedir al agente que añada complejidad a una solución simple, que perder tiempo analizando qué sobra en su propuesta (<a href="https://arxiv.org/html/2411.09916v1" target="_blank" rel="noopener">los LLMs tienden a generar código más complejo de lo necesario</a>).</p>
+        <p>El principio KISS es especialmente importante en desarrollo asistido por IA: es más fácil pedir al agente que añada complejidad a una solución simple, que perder tiempo analizando qué sobra en su propuesta (<a href="https://arxiv.org/html/2411.09916v1" target="_blank" rel="noopener" title="Research paper: LLMs tend to generate more complex code than necessary">los LLMs tienden a generar código más complejo de lo necesario</a>).</p>
 
-        <p><strong>Utils</strong> - Protocolos invocables:</p>
+        <p>Utils - Protocolos invocables:</p>
 
         <p><code>rules/utils/analysis.mdc</code> → Analiza código/carpetas y guarda en memory</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
@@ -245,7 +245,7 @@ Format: [JIRA-XXX] type(scope): subject (English, imperative, max 72 chars)</cod
 
         <h3>Memory: Registro Histórico</h3>
 
-        <p>Los protocolos utils generan automáticamente archivos en memory/ siguiendo la nomenclatura <code>YYYYMMDD-VV-descripcion.md</code> (VV = secuencia diaria: 01, 02, 03...):</p>
+        <p>Los protocolos utils generan automáticamente archivos en <code>memory/</code> siguiendo la nomenclatura <code>YYYYMMDD-VV-descripcion.md</code> (VV = secuencia diaria: 01, 02, 03...):</p>
 
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">memory/
 ├── 20250919-01-analisis-pdf-generator.md
@@ -261,40 +261,40 @@ Format: [JIRA-XXX] type(scope): subject (English, imperative, max 72 chars)</cod
         <h2>Workflow en Cursor</h2>
 
         <blockquote>
-          <p><strong>Nota</strong>: Los comandos con <code>@</code> invocan reglas específicas. Por ejemplo, <code>@analysis</code> carga <code>rules/utils/analysis.mdc</code> sin necesidad de escribir la ruta completa. Esto es parte de la sintaxis nativa de Cursor.</p>
+          <p>Nota: Los comandos con <code>@</code> invocan reglas específicas. Por ejemplo, <code>@analysis</code> carga <code>rules/utils/analysis.mdc</code> sin necesidad de escribir la ruta completa. Esto es parte de la sintaxis nativa de Cursor.</p>
         </blockquote>
 
-        <p>Esta sección describe el <strong>workflow general para desarrollo asistido por IA</strong>: separar conocimiento reutilizable de memoria temporal, siguiendo el ciclo análisis → solución → backlog → ejecución → commit → continuar. Usamos Cursor y su sistema de rules como ejemplo de implementación, pero el workflow es aplicable a cualquier herramienta de IA con capacidad de inyectar contexto.</p>
+        <p>Esta sección describe el workflow general para desarrollo asistido por IA: separar conocimiento reutilizable de memoria temporal, siguiendo el ciclo análisis → solución → backlog → ejecución → commit → continuar. Usamos Cursor y su sistema de rules como ejemplo de implementación, pero el workflow es aplicable a cualquier herramienta de IA con capacidad de inyectar contexto.</p>
 
-        <p>A continuación verás cómo funciona el workflow en la práctica. Si después quieres implementarlo en tus proyectos con Cursor, consulta la guía de <strong>Implementación y Configuración</strong> más abajo.</p>
+        <p>A continuación verás cómo funciona el workflow en la práctica. Si después quieres implementarlo en tus proyectos con Cursor, consulta la guía de Implementación y Configuración más abajo.</p>
 
         <h3>Desarrollo de feature: facturación automática</h3>
 
-        <p><strong>1. Análisis</strong></p>
+        <p>1. Análisis</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@analysis checkout.php</code></pre>
         <p>→ Genera: <code>20251015-01-analisis-checkout.md</code></p>
 
-        <p><strong>2. Solución</strong></p>
+        <p>2. Solución</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@solution
 Implementa facturación automática WooCommerce</code></pre>
         <p>→ Genera: <code>20251015-02-solucion-facturacion.md</code></p>
 
-        <p><strong>3. Backlog</strong></p>
+        <p>3. Backlog</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@memory/20251015-02-solucion-facturacion
 @backlog</code></pre>
         <p>→ Genera: <code>20251015-03-backlog-facturacion.md</code></p>
 
-        <p><strong>4. Ejecución</strong></p>
+        <p>4. Ejecución</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
 @execute [1.1]</code></pre>
         <p>→ Actualiza: <code>[1.1] ⏳ → ✅</code></p>
 
-        <p><strong>5. Commit</strong></p>
+        <p>5. Commit</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
 @commit</code></pre>
         <p>→ Crea commit + actualiza backlog</p>
 
-        <p><strong>6. Continuar trabajo (nueva sesión)</strong></p>
+        <p>6. Continuar trabajo (nueva sesión)</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
 Resume trabajo</code></pre>
         <p>→ Carga contexto + muestra próximas tareas</p>
@@ -303,32 +303,32 @@ Resume trabajo</code></pre>
 
         <h3>1. Instalar el sistema (5 min)</h3>
 
-        <p>Este sistema está disponible en <a href="https://github.com/arinspunk/extended-context" target="_blank" rel="noopener">github.com/arinspunk/extended-context</a>.</p>
+        <p>Este sistema está disponible en <a href="https://github.com/arinspunk/extended-context" target="_blank" rel="noopener" title="Extended Context - Knowledge architecture for AI agents">github.com/arinspunk/extended-context</a>.</p>
 
-        <p><strong>Dos formas de configurar:</strong></p>
+        <p>Dos formas de configurar:</p>
 
-        <p><strong>Opción A - Contribuir al repo compartido (recomendado si quieres participar en el mantenimiento):</strong></p>
+        <p>Opción A - Contribuir al repo compartido (recomendado si quieres participar en el mantenimiento):</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">cd tu-proyecto
 git clone https://github.com/arinspunk/extended-context.git .cursor</code></pre>
         <p>Mantiene conexión con el repo para recibir actualizaciones y contribuir mejoras. Actualiza cuando quieras: <code>cd .cursor && git pull</code></p>
 
-        <p><strong>Opción B - Snapshot para tu proyecto (recomendado para trabajo diario):</strong></p>
+        <p>Opción B - Snapshot para tu proyecto (recomendado para trabajo diario):</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">git clone https://github.com/arinspunk/extended-context.git temp
 cp -r temp/rules temp/memory tu-proyecto/.cursor/
 rm -rf temp</code></pre>
         <p>Copia independiente que personalizas libremente sin afectar el repo original, ideal para versionar junto con el código de tu proyecto.</p>
 
-        <p><strong>Migración desde v1:</strong> Usa Opción B para integrar con tu estructura existente.</p>
+        <p>Migración desde v1: Usa Opción B para integrar con tu estructura existente.</p>
 
         <h3>2. Configuración inicial (15 min)</h3>
 
-        <p><strong>Pre-requisitos:</strong></p>
+        <p>Pre-requisitos:</p>
         <ul>
           <li>Cursor instalado y proyecto abierto</li>
           <li>Sistema rules/memory clonado en <code>.cursor/</code> (paso anterior completado)</li>
         </ul>
 
-        <p><strong>Paso 1: Identifica tu stack (2 min)</strong></p>
+        <p>Paso 1: Identifica tu stack (2 min)</p>
         <p>Revisa <code>rules/experts/</code> y activa el experto que coincida con tu proyecto:</p>
         <ul>
           <li>WordPress → <code>wordpress-classic-themes.mdc</code></li>
@@ -337,7 +337,7 @@ rm -rf temp</code></pre>
         </ul>
         <p>Si tu stack no existe: copia el experto más cercano y adáptalo.</p>
 
-        <p><strong>Paso 2: Activa constraints del proyecto (3 min)</strong></p>
+        <p>Paso 2: Activa constraints del proyecto (3 min)</p>
         <ol>
           <li>Copia <code>rules/guidelines/constraints-template.mdc</code> a <code>constraints-{proyecto}.mdc</code></li>
           <li>Completa:
@@ -350,23 +350,21 @@ rm -rf temp</code></pre>
           <li>Cambia <code>alwaysApply: false</code> → <code>true</code></li>
         </ol>
 
-        <p><strong>Paso 3: Activa principios base (1 min)</strong></p>
+        <p>Paso 3: Activa principios base (1 min)</p>
         <p>Activa <code>kiss.mdc</code> cambiando <code>alwaysApply: false</code> → <code>true</code></p>
 
-        <p><strong>Paso 4: Verifica carga (1 min)</strong></p>
+        <p>Paso 4: Verifica carga (1 min)</p>
         <p>Abre chat de Cursor (Cmd+L) y escribe:</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">¿Qué experto y guidelines tienes activas?</code></pre>
         <p>Cursor debe listar los archivos con <code>alwaysApply: true</code>.</p>
 
-        <p><strong>Paso 5: Primera ejecución (8 min)</strong></p>
+        <p>Paso 5: Primera ejecución (8 min)</p>
         <p>Prueba el workflow completo con un archivo real:</p>
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@analysis src/components/Header.tsx</code></pre>
         <p>Si genera correctamente <code>memory/YYYYMMDD-01-*.md</code>, el sistema está operativo.</p>
 
-        <hr>
-
         <blockquote>
-          <p><strong>Nota para otras herramientas</strong>: Este sistema es agnóstico a Cursor. La separación conceptual rules/memory puede implementarse en cualquier herramienta capaz de inyectar contexto (GitHub Copilot, Claude Code, etc.).</p>
+          <p>Nota para otras herramientas: Este sistema es agnóstico a Cursor. La separación conceptual rules/memory puede implementarse en cualquier herramienta capaz de inyectar contexto (GitHub Copilot, Claude Code, etc.).</p>
         </blockquote>
 
         <p>Una vez configurado el sistema, el verdadero trabajo comienza: alimentar rules con conocimiento específico del proyecto y prácticas habituales del equipo, mientras memory registra el trabajo realizado con la IA (análisis, propuestas de solución, tareas y progreso). En la práctica, esto transforma cómo la IA genera código: soluciones coherentes con la arquitectura del proyecto y escalables. Además, documenta decisiones que facilitan debug posteriores y transferencia de conocimiento entre desarrolladores.</p>
@@ -375,17 +373,17 @@ rm -rf temp</code></pre>
 
         <p>El vibe-coding funciona para prototipos, pero genera más problemas que soluciones en proyectos reales: decisiones perdidas, alucinaciones constantes, trabajo imposible de rastrear. v1 resolvió esto con workflow estructurado, pero requería repetir prompts manualmente en cada sesión.</p>
 
-        <p>v2 elimina esa fricción automatizando los protocolos y, al hacerlo, descubre un patrón universal: <strong>separar conocimiento reutilizable (rules) de memoria temporal (memory)</strong>. Esta separación—la misma que hace tu cerebro entre habilidades y experiencias—convierte cualquier herramienta de IA en un sistema donde el conocimiento persiste, evoluciona y se reutiliza sistemáticamente.</p>
+        <p>v2 elimina esa fricción automatizando los protocolos y, al hacerlo, descubre un patrón universal: separar conocimiento reutilizable (rules) de memoria temporal (memory). Esta separación, la misma que hace tu cerebro entre habilidades y experiencias, convierte cualquier herramienta de IA en un sistema donde el conocimiento persiste, evoluciona y se reutiliza sistemáticamente.</p>
 
         <p>No elimina las limitaciones de ventana de contexto, pero las transforma en un framework estructurado para construir software de forma rastreable y escalable.</p>
 
         <h3>Próximos Pasos</h3>
 
         <ol>
-          <li><strong>Si usas Cursor</strong>: <a href="https://github.com/arinspunk/extended-context" target="_blank" rel="noopener">Clona el repo</a> y configura tu primer proyecto</li>
-          <li><strong>Si usas otra herramienta</strong>: Adapta la separación rules/memory a tu sistema</li>
-          <li><strong>Comparte tu implementación</strong>: ¿Creaste expertos para tu stack? Contribuye al repo</li>
-          <li><strong>Comparte resultados</strong>: ¿Mejoraste el workflow? Documenta tus hallazgos para refinar colectivamente el sistema</li>
+          <li>Si usas Cursor: <a href="https://github.com/arinspunk/extended-context" target="_blank" rel="noopener" title="Extended Context - Knowledge architecture for AI agents">Clona el repo</a> y configura tu primer proyecto</li>
+          <li>Si usas otra herramienta: Adapta la separación rules/memory a tu sistema</li>
+          <li>Comparte tu implementación: ¿Creaste expertos para tu stack? Contribuye al repo</li>
+          <li>Comparte resultados: ¿Mejoraste el workflow? Documenta tus hallazgos para refinar colectivamente el sistema</li>
         </ol>
       </div>
     </section>
@@ -405,7 +403,7 @@ rm -rf temp</code></pre>
             </li>
           </ul>
         </nav>
-        <p class="o-block c-footer__credits">© <span class="c-footer__year">2025</span> Xúlio Zé</p>
+        <p class="o-block c-footer__credits">© <span class="c-footer__year"></span> Xúlio Zé</p>
       </div>
     </footer>
   </article>
