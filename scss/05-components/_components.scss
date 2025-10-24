@@ -585,7 +585,7 @@
     }
 }
 .c-article {
-    margin-bottom: 30px;
+    margin-bottom: 0;
     @media screen and (min-width: $bp--medium) {
         width: calc(50% - 20px);
         margin-bottom: 20px;
@@ -606,6 +606,7 @@
     }
     &__link {
         text-decoration: none;
+        line-height: 1.3;
         &:hover {
             text-decoration: underline;
         }

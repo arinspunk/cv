@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contexto Estendido 2.0: Os agentes precisam de arquitetura, não apenas de tomar notas - Xúlio Zé</title>
+  <meta name="description" content="Guia melhorado para estruturar desenvolvimento assistido por IA: separar conhecimento reutilizável (rules) de memória temporária (memory) elimina o vibe-coding.">
+  <meta property="og:title" content="Contexto Estendido 2.0: Os agentes precisam de arquitetura, não apenas de tomar notas - Xúlio Zé">
+  <meta property="og:description" content="Guia melhorado para estruturar desenvolvimento assistido por IA: separar conhecimento reutilizável (rules) de memória temporária (memory) elimina o vibe-coding.">
+  <meta property="og:url" content="https://xulioze.com/pt/blogue/contexto-estendido-v2.html">
+  <meta property="og:image" content="https://xulioze.com/img/blade-runner-2049-k-in-rooftop-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="canonical" href="https://xulioze.com/pt/blogue/contexto-estendido-v2.html">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+  <link rel="manifest" href="../../img/icons/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="../../css/styles.css" rel="stylesheet">
+</head>
+<body class="body blog">
+  <article class="c-post">
+    <header class="c-header c-header--blog">
+      <div class="o-wrap">
+        <div class="c-header__logo o-block">
+          <a class="c-header__logo-link" href="../../pt/cv.html" title="voltar ao meu CV">XZ</a>
+        </div>
+        <nav class="c-header__menu o-block">
+          <ul class="c-header__menu-list">
+            <li class="c-header__menu-item c-header__menu-item--language">
+              <a class="c-header__menu-link" href="../../blog/contexto-extendido-v2.html" title="Versión del post en español">Es</a>
+            </li>
+            <li class="c-header__menu-item c-header__menu-item--language">
+              <a class="c-header__menu-link" href="../../en/blog/extended-context-v2.html" title="Post's version in english">En</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link" href="../../pt/cv.html" title="meu CV">CV</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link" href="../../pt/blogue.html" title="Mais posts">Blogue</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="Estou no LinkedIn :)" target="_blank" rel="noopener">Falamos?</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <section class="o-wrap o-wrap--center c-post__body">
+      <header class="c-info c-info--blog o-block o-block--center">
+        <h1 class="h1--blog">Contexto Estendido 2.0: Os agentes precisam de arquitetura, não apenas de tomar notas</h1>
+        Publicado em <time datetime="2025-10-24">24 de outubro de 2025</time>
+        <div class="c-messages">
+          <a href="../../blog/contexto-extendido-v2.html" class="c-message">🦀 Puedes leer este post en <span>español</span>.</a>
+          <a href="../../en/blog/extended-context-v2.html" class="c-message">🦑 You can read this post in <span>english</span>.</a>
+        </div>
+        🤖 Se queres que a tua IA leia este post, <span class="c-link" id="downloadMarkdown">descarrega-o como markdown</span>.
+      </header>
+      <div class="c-info__content o-block o-block--center">
+        <figure class="c-post__body-img c-post__body-img--figure">
+          <img src="../../img/blade-runner-2049-k-in-rooftop.jpg" alt="Silhueta de K em Blade Runner 2049 a olhar a cidade de um telhado, simbolizando a arquitetura de conhecimento para agentes de IA" width="1200" loading="lazy">
+          <figcaption>Observando a cidade</figcaption>
+        </figure>
+
+        <p>Este guia é uma versão melhorada da que propus em "<a href="https://xulioze.com/pt/blogue/contexto-estendido.html" target="_blank" rel="noopener">Contexto Estendido. Os agentes também precisam de tomar notas</a>" e <a href="https://xulioze.com/pt/blogue/guia-desenvolver-software-agentes.html" target="_blank" rel="noopener">Guia: desenvolver software de qualidade assistido por agentes de IA</a>.</p>
+
+        <p>Quando chegaram os editores com agentes de IA autónomos (Cursor, GitHub Copilot, Claude Code), muitos compramos a promessa: "<a href="https://xulioze.com/pt/blogue/oneshot-vs-dialogo.html" target="_blank" rel="noopener">escreve o prompt perfeito</a> e o agente gera a feature completa de uma vez". A realidade foi outra: sem estrutura nem constraints, acabávamos a dedicar mais tempo a corrigir bugs que a escrever código.</p>
+
+        <p>O "vibe-coding"—confiar em que o agente "apanhe a vibe" do teu projeto—funciona bem para protótipos rápidos, mas em projetos reais e complexos gera mais problemas que soluções:</p>
+        <ul>
+          <li><strong>Decisões perdidas</strong>: Porque escolhemos esta arquitetura há duas semanas?</li>
+          <li><strong>Alucinações constantes</strong>: A IA inventa APIs, mistura frameworks, ignora constraints</li>
+          <li><strong>Trabalho monolítico</strong>: Impossível dividir features em tarefas rastreáveis</li>
+          <li><strong>Improvisação contínua</strong>: Cada sessão começa do zero</li>
+        </ul>
+
+        <p>Há uns meses documentei <a href="https://xulioze.com/pt/blogue/guia-desenvolver-software-agentes.html" target="_blank" rel="noopener">uma solução</a> (v1): um workflow estruturado (análise → solução → backlog → execução → progresso guardado) com quatro arquivos de contexto que convertia o vibe-coding em engenharia rastreável. Funcionou, mas havia fricção: repetir manualmente os mesmos prompts em cada sessão era doloroso.</p>
+
+        <p>Este guia apresenta a evolução desse sistema (v2). Aproveita o sistema de rules do Cursor para automatizar prompts e converte o workflow em protocolos reutilizáveis. Mas ao desenhá-lo emergiu um <strong>padrão universal</strong>: separar conhecimento reutilizável (rules) de memória temporária (memory). Isto vai além de poupar-te escrever os mesmos prompts: podes reutilizar o conhecimento em diferentes projetos e levar um registo ordenado de tudo o que fazes. E o padrão funciona com qualquer ferramenta de IA, não só com Cursor.</p>
+
+        <p>Vamos ver como construir essa arquitetura.</p>
+
+        <h2>Problema de v1</h2>
+
+        <p>Sistema de quatro arquivos em <code>context/</code>:</p>
+        <ul>
+          <li><code>01-expert.md</code> - Perfil do especialista</li>
+          <li><code>02-analysis.md</code> - Análise do código</li>
+          <li><code>03-plan.md</code> - Plano de implementação</li>
+          <li><code>04-backlog.md</code> - Tarefas pendentes</li>
+        </ul>
+
+        <h3>Limitações em Projetos Reais</h3>
+
+        <p><strong>Conhecimento misturado</strong>: <code>01-expert.md</code> combina princípios gerais (KISS, DRY) com constraints específicos do projeto (stack, versões, dependências críticas). Impossível reutilizar princípios entre projetos sem arrastar configuração irrelevante.</p>
+
+        <p><strong>Duplicação entre projetos</strong>: Cada projeto replica conhecimento comum. Se trabalhas em 3 projetos WordPress, tens "security: sanitize_*, nonces" copiado três vezes. Atualizas uma best practice, deves sincronizar manualmente.</p>
+
+        <p><strong>Sem gestão de histórico</strong>: v1 dá-te três opções, todas más:</p>
+        <ul>
+          <li>Sobrescrever 02-analysis.md → perdes decisões prévias</li>
+          <li>Acumular análises no mesmo arquivo → cresce descontroladamente, impossível rastrear quando se tomou cada decisão</li>
+          <li>Criar múltiplos arquivos (02-analysis-feature-X.md) → desordem, sem nomenclatura consistente</li>
+        </ul>
+
+        <p>Em todos os casos: Porque rejeitaste a arquitetura X há duas semanas? Não há forma sistemática de recuperá-lo.</p>
+
+        <p><strong>Sem modularidade</strong>: Mudar de WordPress a React requer reescrever <code>01-expert.md</code> completo. Não podes manter módulos comuns (princípios, padrões) e só intercambiar o especialista técnico.</p>
+
+        <p>v1 tinha dois problemas fundamentais: (1) conhecimento misturado num só arquivo (01-expert.md), (2) execução manual - cada ação requeria escrever o prompt completo ("analisa este arquivo e guarda em 02-analysis.md", "lê 04-backlog.md, executa tarefas 1-3, atualiza estado"). v2 resolve ambos: separa conhecimento em rules/ modulares e automatiza execução mediante protocolos invocáveis em rules/utils/ (@analysis, @execute).</p>
+
+        <h2>Solução: Separação Rules/Memory</h2>
+
+        <p>A solução replica como funciona o nosso cérebro: separamos conhecimento permanente (idioma, matemáticas, habilidades) de memória episódica (o que fizemos ontem, decisões da semana passada). Mas além disso, o nosso conhecimento não é monolítico: temos módulos especializados (JavaScript, WordPress, princípios KISS) que ativamos segundo o contexto.</p>
+
+        <p>v2 implementa esta arquitetura dual:</p>
+
+        <ol>
+          <li><strong>Separação conhecimento/memória</strong>: Rules reutilizáveis vs memory temporária</li>
+          <li><strong>Modularização do conhecimento</strong>: Especialistas, guidelines e protocolos executáveis</li>
+        </ol>
+
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">.cursor/
+├── rules/          # Conhecimento reutilizável e modular
+│   ├── experts/    # Papéis técnicos (WordPress, React, Python...)
+│   ├── guidelines/ # Princípios e constraints (KISS, projeto-específicos)
+│   └── utils/      # Protocolos executáveis (analysis, backlog, commit)
+└── memory/         # Experiências temporárias
+    └── YYYYMMDD-VV-descricao.md</code></pre>
+
+        <h3>Conceito Chave: alwaysApply</h3>
+
+        <p>O sistema rules/memory necessita de um mecanismo de ativação: que conhecimento carrega o Cursor automaticamente vs. o que invocas sob demanda? Sem isto, terias 100 regras a competir por contexto limitado.</p>
+
+        <p>O flag <code>alwaysApply</code> resolve isto:</p>
+
+        <ul>
+          <li><strong><code>alwaysApply: true</code></strong> → Cursor carrega-as automaticamente em cada conversação
+            <ul>
+              <li>Usa para: Especialistas base, guidelines críticas do projeto</li>
+              <li>Exemplo: <code>wordpress-classic-themes.mdc</code>, <code>constraints-balneario.mdc</code></li>
+            </ul>
+          </li>
+          <li><strong><code>alwaysApply: false</code></strong> → Utilizador invoca-as com <code>@</code> segundo necessidade
+            <ul>
+              <li>Usa para: Protocolos sob demanda, ferramentas específicas</li>
+              <li>Exemplo: <code>@analysis</code>, <code>@backlog</code></li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Rules: Conhecimento Reutilizável</h3>
+
+        <p><strong>Experts</strong> - Perfis de especialistas técnicos/domínio:</p>
+
+        <p><code>rules/experts/wordpress-classic-themes.mdc</code></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+alwaysApply: true
+---
+# WordPress Classic Expert
+PHP + vanilla JS specialist. WordPress core APIs, theme dev.
+
+## Stack
+Backend: PHP 7.4+, WP Core APIs | Frontend: Vanilla JS, HTML5, CSS3
+
+## Core Patterns
+- Security: sanitize_*, esc_*, nonces
+- Performance: transients (12h), conditional enqueue
+- Translation: __(), _e() with text domain</code></pre>
+
+        <p><strong>Guidelines</strong> - Princípios de código e restrições de projeto:</p>
+
+        <p><code>rules/guidelines/constraints-balneario.mdc</code></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+alwaysApply: true
+---
+# Balneario Theme
+Text domain: themefront v0.1.2
+Stack: Node | SASS 1.67.0 | PHP 7.4+ | jQuery 3.x
+Build: npm run watch:sass (never edit compiled CSS)
+
+Critical: ACF PRO (18 groups), WooCommerce, WPML
+Core Systems: PDF Generator (pdf-generator.php), WooCommerce integration</code></pre>
+
+        <p><code>rules/guidelines/kiss.mdc</code></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+alwaysApply: true
+---
+# KISS Principle
+- Direct solutions, avoid over-engineering
+- Simple patterns, minimal dependencies
+- Single responsibility per function
+
+Rule: If you can't explain it in 2-3 sentences, it's too complex.</code></pre>
+
+        <p>O princípio KISS é especialmente importante em desenvolvimento assistido por IA: é mais fácil pedir ao agente que adicione complexidade a uma solução simples, que perder tempo a analisar o que sobra na sua proposta (<a href="https://arxiv.org/html/2411.09916v1" target="_blank" rel="noopener">os LLMs tendem a gerar código mais complexo do que o necessário</a>).</p>
+
+        <p><strong>Utils</strong> - Protocolos invocáveis:</p>
+
+        <p><code>rules/utils/analysis.mdc</code> <em>→ Analisa código/pastas e guarda em memory</em></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+alwaysApply: false
+---
+# Analysis Protocol
+Trigger: @file/@folder or "analyze"
+1. Acknowledge → 2. Analyze → 3. Save to .cursor/memory/YYYYMMDD-VV-*.md → 4. Confirm</code></pre>
+
+        <p><code>rules/utils/solution.mdc</code> <em>→ Propõe solução e guarda em memory</em></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+alwaysApply: false
+---
+# Solution Protocol (KISS)
+Trigger: User requests solution
+1. Acknowledge → 2. Propose simplest solution → 3. Save to memory → 4. Confirm
+Principles: Simplicity > complexity, proven patterns > novel</code></pre>
+
+        <p><code>rules/utils/backlog.mdc</code> <em>→ Converte solução em tarefas atómicas rastreáveis</em></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+alwaysApply: false
+---
+# Backlog Protocol
+Solution → atomic tasks → persistent backlog (YYYYMMDD-VV-backlog-*.md)
+
+Format: [Phase.Task#] ⏳/🔄/✅/⚠️ Title
+> What to do | Date completed | Work done
+
+Rules: 2-4h max, sequential, testable</code></pre>
+
+        <p><code>rules/utils/execute.mdc</code> <em>→ Executa tarefas do backlog e atualiza estado</em></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+alwaysApply: false
+---
+# Task Execution Protocol
+Load backlog → parse scope → execute → update status → stop at boundary
+Input: [1.1], [2.3,2.4], Phase 2, continue</code></pre>
+
+        <p><code>rules/utils/commit.mdc</code> <em>→ Gera commits convencionais e atualiza backlog</em></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+alwaysApply: false
+---
+# Commit Protocol
+Analyze staged → generate conventional commit → approve → execute → update backlog
+Format: [JIRA-XXX] type(scope): subject (English, imperative, max 72 chars)</code></pre>
+
+        <h3>Memory: Registo Histórico</h3>
+
+        <p>Os protocolos utils geram automaticamente arquivos em memory/ seguindo a nomenclatura <code>YYYYMMDD-VV-descricao.md</code> (VV = sequência diária: 01, 02, 03...):</p>
+
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">memory/
+├── 20250919-01-analisis-pdf-generator.md
+├── 20250919-02-sistema-pdfs-emails-finalizado.md
+├── 20251015-01-analisis-completo-balneario-theme.md
+├── 20251015-02-solucion-facturacion-automatica-399.md
+└── 20251015-03-backlog-facturacion-automatica-399.md</code></pre>
+
+        <p>Vantagens: ordenação cronológica, múltiplas entradas/dia, rastreabilidade, relações visíveis.</p>
+
+        <p>Isto resolve o problema das três opções más de v1: a nomenclatura cronológica (YYYYMMDD-VV) acumula histórico sem descontrolo, mantém ordem sem desorganização, e preserva decisões sem sobrescrita.</p>
+
+        <h2>Workflow no Cursor</h2>
+
+        <blockquote>
+          <p><strong>Nota</strong>: Os comandos com <code>@</code> invocam regras específicas. Por exemplo, <code>@analysis</code> carrega <code>rules/utils/analysis.mdc</code> sem necessidade de escrever o caminho completo. Isto é parte da sintaxe nativa do Cursor.</p>
+        </blockquote>
+
+        <p>Esta secção descreve o <strong>workflow geral para desenvolvimento assistido por IA</strong>: separar conhecimento reutilizável de memória temporária, seguindo o ciclo análise → solução → backlog → execução → commit → continuar. Usamos Cursor e o seu sistema de rules como exemplo de implementação, mas o workflow é aplicável a qualquer ferramenta de IA com capacidade de injetar contexto.</p>
+
+        <p>A seguir verás como funciona o workflow na prática. Se depois quiseres implementá-lo nos teus projetos com Cursor, consulta o guia de <strong>Implementação e Configuração</strong> mais abaixo.</p>
+
+        <h3>Desenvolvimento de Feature: Faturação Automática</h3>
+
+        <p><strong>1. Análise</strong></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@analysis checkout.php</code></pre>
+        <p>→ Gera: <code>20251015-01-analisis-checkout.md</code></p>
+
+        <p><strong>2. Solução</strong></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@solution
+Implementa faturação automática WooCommerce</code></pre>
+        <p>→ Gera: <code>20251015-02-solucion-facturacion.md</code></p>
+
+        <p><strong>3. Backlog</strong></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@memory/20251015-02-solucion-facturacion
+@backlog</code></pre>
+        <p>→ Gera: <code>20251015-03-backlog-facturacion.md</code></p>
+
+        <p><strong>4. Execução</strong></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
+@execute [1.1]</code></pre>
+        <p>→ Atualiza: <code>[1.1] ⏳ → ✅</code></p>
+
+        <p><strong>5. Commit</strong></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
+@commit</code></pre>
+        <p>→ Cria commit + atualiza backlog</p>
+
+        <p><strong>6. Continuar trabalho (nova sessão)</strong></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
+Resume trabalho</code></pre>
+        <p>→ Carrega contexto + mostra próximas tarefas</p>
+
+        <h2>Implementação e Configuração</h2>
+
+        <h3>1. Instalar o Sistema (5 min)</h3>
+
+        <p>Este sistema está disponível em <a href="https://github.com/arinspunk/extended-context" target="_blank" rel="noopener">github.com/arinspunk/extended-context</a>.</p>
+
+        <p><strong>Duas formas de configurar:</strong></p>
+
+        <p><strong>Opção A - Contribuir ao repo partilhado (recomendado se quiseres participar na manutenção):</strong></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">cd teu-projeto
+git clone https://github.com/arinspunk/extended-context.git .cursor</code></pre>
+        <p>Mantém conexão com o repo para receber atualizações e contribuir melhorias. Atualiza quando quiseres: <code>cd .cursor && git pull</code></p>
+
+        <p><strong>Opção B - Snapshot para o teu projeto (recomendado para trabalho diário):</strong></p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">git clone https://github.com/arinspunk/extended-context.git temp
+cp -r temp/rules temp/memory teu-projeto/.cursor/
+rm -rf temp</code></pre>
+        <p>Cópia independente que personalizas livremente sem afetar o repo original, ideal para versionar junto com o código do teu projeto.</p>
+
+        <p><strong>Migração desde v1:</strong> Usa Opção B para integrar com a tua estrutura existente.</p>
+
+        <h3>2. Configuração Inicial (15 min)</h3>
+
+        <p><strong>Pré-requisitos:</strong></p>
+        <ul>
+          <li>Cursor instalado e projeto aberto</li>
+          <li>Sistema rules/memory clonado em <code>.cursor/</code> (passo anterior completado)</li>
+        </ul>
+
+        <p><strong>Passo 1: Identifica o teu stack (2 min)</strong></p>
+        <p>Revisa <code>rules/experts/</code> e ativa o especialista que coincida com o teu projeto:</p>
+        <ul>
+          <li>WordPress → <code>wordpress-classic-themes.mdc</code></li>
+          <li>React → <code>react-typescript.mdc</code> (se existir)</li>
+          <li>Backend Python → <code>python-fastapi.mdc</code> (se existir)</li>
+        </ul>
+        <p>Se o teu stack não existir: copia o especialista mais próximo e adapta-o.</p>
+
+        <p><strong>Passo 2: Ativa constraints do projeto (3 min)</strong></p>
+        <ol>
+          <li>Copia <code>rules/guidelines/constraints-template.mdc</code> a <code>constraints-{projeto}.mdc</code></li>
+          <li>Completa:
+            <ul>
+              <li>Stack técnico (versões específicas)</li>
+              <li>Dependências críticas (bibliotecas que NÃO se podem mudar)</li>
+              <li>Sistemas legacy que deves respeitar</li>
+            </ul>
+          </li>
+          <li>Muda <code>alwaysApply: false</code> → <code>true</code></li>
+        </ol>
+
+        <p><strong>Passo 3: Ativa princípios base (1 min)</strong></p>
+        <p>Ativa <code>kiss.mdc</code> mudando <code>alwaysApply: false</code> → <code>true</code></p>
+
+        <p><strong>Passo 4: Verifica carga (1 min)</strong></p>
+        <p>Abre chat do Cursor (Cmd+L) e escreve:</p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">Que especialista e guidelines tens ativas?</code></pre>
+        <p>Cursor deve listar os arquivos com <code>alwaysApply: true</code>.</p>
+
+        <p><strong>Passo 5: Primeira execução (8 min)</strong></p>
+        <p>Prova o workflow completo com um arquivo real:</p>
+        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@analysis src/components/Header.tsx</code></pre>
+        <p>Se gerar corretamente <code>memory/YYYYMMDD-01-*.md</code>, o sistema está operativo.</p>
+
+        <hr>
+
+        <blockquote>
+          <p><strong>Nota para outras ferramentas</strong>: Este sistema é agnóstico ao Cursor. A separação conceptual rules/memory pode implementar-se em qualquer ferramenta capaz de injetar contexto (GitHub Copilot, Claude Code, etc.).</p>
+        </blockquote>
+
+        <p>Uma vez configurado o sistema, o verdadeiro trabalho começa: alimentar rules com conhecimento específico do projeto e práticas habituais da equipa, enquanto memory regista o trabalho realizado com a IA (análises, propostas de solução, tarefas e progresso). Na prática, isto transforma como a IA gera código: soluções coerentes com a arquitetura do projeto e escaláveis. Além disso, documenta decisões que facilitam debug posteriores e transferência de conhecimento entre programadores.</p>
+
+        <h2>Conclusão</h2>
+
+        <p>O vibe-coding funciona para protótipos, mas gera mais problemas que soluções em projetos reais: decisões perdidas, alucinações constantes, trabalho impossível de rastrear. v1 resolveu isto com workflow estruturado, mas requeria repetir prompts manualmente em cada sessão.</p>
+
+        <p>v2 elimina essa fricção automatizando os protocolos e, ao fazê-lo, descobre um padrão universal: <strong>separar conhecimento reutilizável (rules) de memória temporária (memory)</strong>. Esta separação—a mesma que faz o teu cérebro entre habilidades e experiências—converte qualquer ferramenta de IA num sistema onde o conhecimento persiste, evolui e se reutiliza sistematicamente.</p>
+
+        <p>Não elimina as limitações de janela de contexto, mas transforma-as num framework estruturado para construir software de forma rastreável e escalável.</p>
+
+        <h3>Próximos Passos</h3>
+
+        <ol>
+          <li><strong>Se usas Cursor</strong>: <a href="https://github.com/arinspunk/extended-context" target="_blank" rel="noopener">Clona o repo</a> e configura o teu primeiro projeto</li>
+          <li><strong>Se usas outra ferramenta</strong>: Adapta a separação rules/memory ao teu sistema</li>
+          <li><strong>Partilha a tua implementação</strong>: Criaste especialistas para o teu stack? Contribui ao repo</li>
+          <li><strong>Partilha resultados</strong>: Melhoraste o workflow? Documenta os teus achados para refinar coletivamente o sistema</li>
+        </ol>
+      </div>
+    </section>
+    
+    <footer class="c-footer c-footer--blog">
+      <div class="o-wrap">
+        <nav class="c-footer__menu o-block">
+          <ul class="c-footer__menu-list">
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="My repository">GitHub</a>
+            </li>
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="write me">Email</a>
+            </li>
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="My profile on LinkedIn">LinkedIn</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="o-block c-footer__credits">© <span class="c-footer__year">2025</span> Xúlio Zé</p>
+      </div>
+    </footer>
+  </article>
+  <script src="../../js/markdown-converter.js" defer></script>
+  <script src="../../js/application.min.js" defer></script>
+</body>
+</html>
