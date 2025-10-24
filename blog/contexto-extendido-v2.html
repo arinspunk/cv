@@ -99,16 +99,16 @@
 
         <p><strong>Sin gestión de histórico</strong>: v1 te da tres opciones, todas malas:</p>
         <ul>
-          <li>Sobrescribir 02-analysis.md → pierdes decisiones previas</li>
+          <li>Sobrescribir <code>02-analysis.md</code> → pierdes decisiones previas</li>
           <li>Acumular análisis en el mismo archivo → crece descontroladamente, imposible rastrear cuándo se tomó cada decisión</li>
-          <li>Crear múltiples archivos (02-analysis-feature-X.md) → desorden, sin nomenclatura consistente</li>
+          <li>Crear múltiples archivos (<code>02-analysis-feature-X.md</code>) → desorden, sin nomenclatura consistente</li>
         </ul>
 
         <p>En todos los casos: ¿Por qué rechazaste la arquitectura X hace dos semanas? No hay forma sistemática de recuperarlo.</p>
 
         <p><strong>Sin modularidad</strong>: Cambiar de WordPress a React requiere reescribir <code>01-expert.md</code> completo. No puedes mantener módulos comunes (principios, patrones) y solo intercambiar el experto técnico.</p>
 
-        <p>v1 tenía dos problemas fundamentales: (1) conocimiento mezclado en un solo archivo (01-expert.md), (2) ejecución manual - cada acción requería escribir el prompt completo ("analiza este archivo y guarda en 02-analysis.md", "lee 04-backlog.md, ejecuta tareas 1-3, actualiza estado"). v2 resuelve ambos: separa conocimiento en rules/ modulares y automatiza ejecución mediante protocolos invocables en rules/utils/ (@analysis, @execute).</p>
+        <p>v1 tenía dos problemas fundamentales: (1) conocimiento mezclado en un solo archivo (<code>01-expert.md</code>), (2) ejecución manual - cada acción requería escribir el prompt completo ("analiza este archivo y guarda en <code>02-analysis.md</code>", "lee <code>04-backlog.md</code>, ejecuta tareas 1-3, actualiza estado"). v2 resuelve ambos: separa conocimiento en <code>rules/</code> modulares y automatiza ejecución mediante protocolos invocables en <code>rules/utils/</code> (<code>@analysis</code>, <code>@execute</code>).</p>
 
         <h2>Solución: Separación Rules/Memory</h2>
 
@@ -121,7 +121,7 @@
           <li><strong>Modularización del conocimiento</strong>: Expertos, guidelines y protocolos ejecutables</li>
         </ol>
 
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">.cursor/
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">.cursor/
 ├── rules/          # Conocimiento reutilizable y modular
 │   ├── experts/    # Roles técnicos (WordPress, React, Python...)
 │   ├── guidelines/ # Principios y constraints (KISS, proyecto-específicos)
@@ -155,7 +155,7 @@
         <p><strong>Experts</strong> - Perfiles de expertos técnicos/dominio:</p>
 
         <p><code>rules/experts/wordpress-classic-themes.mdc</code></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: true
 ---
 # WordPress Classic Expert
@@ -172,7 +172,7 @@ Backend: PHP 7.4+, WP Core APIs | Frontend: Vanilla JS, HTML5, CSS3
         <p><strong>Guidelines</strong> - Principios de código y restricciones de proyecto:</p>
 
         <p><code>rules/guidelines/constraints-balneario.mdc</code></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: true
 ---
 # Balneario Theme
@@ -184,7 +184,7 @@ Critical: ACF PRO (18 groups), WooCommerce, WPML
 Core Systems: PDF Generator (pdf-generator.php), WooCommerce integration</code></pre>
 
         <p><code>rules/guidelines/kiss.mdc</code></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: true
 ---
 # KISS Principle

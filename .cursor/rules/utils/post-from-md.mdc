@@ -195,7 +195,16 @@ All content translated and ready to publish.
 - **Translate full content** for EN/PT versions (preserve code blocks, technical terms, formatting)
 - **Code formatting:**
   - Inline: `<code>text</code>`
-  - Blocks: `<pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">text</code></pre>`
+  - Blocks: 
+  ```html
+  <pre class="c-post__prompt c-post__prompt--scroll">
+    <button class="c-post__copy-btn" aria-label="Copiar código">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg>
+    </button>
+    <code class="c-post__prompt-code">code content</code>
+  </pre>
+  ```
+  Note: Use `aria-label="Copy code"` for EN posts, `aria-label="Copiar código"` for ES/PT posts
 
 **NEVER:**
 - Use h1 in content body

@@ -99,16 +99,16 @@
 
         <p><strong>Sem gestão de histórico</strong>: v1 dá-te três opções, todas más:</p>
         <ul>
-          <li>Sobrescrever 02-analysis.md → perdes decisões prévias</li>
+          <li>Sobrescrever <code>02-analysis.md</code> → perdes decisões prévias</li>
           <li>Acumular análises no mesmo arquivo → cresce descontroladamente, impossível rastrear quando se tomou cada decisão</li>
-          <li>Criar múltiplos arquivos (02-analysis-feature-X.md) → desordem, sem nomenclatura consistente</li>
+          <li>Criar múltiplos arquivos (<code>02-analysis-feature-X.md</code>) → desordem, sem nomenclatura consistente</li>
         </ul>
 
         <p>Em todos os casos: Porque rejeitaste a arquitetura X há duas semanas? Não há forma sistemática de recuperá-lo.</p>
 
         <p><strong>Sem modularidade</strong>: Mudar de WordPress a React requer reescrever <code>01-expert.md</code> completo. Não podes manter módulos comuns (princípios, padrões) e só intercambiar o especialista técnico.</p>
 
-        <p>v1 tinha dois problemas fundamentais: (1) conhecimento misturado num só arquivo (01-expert.md), (2) execução manual - cada ação requeria escrever o prompt completo ("analisa este arquivo e guarda em 02-analysis.md", "lê 04-backlog.md, executa tarefas 1-3, atualiza estado"). v2 resolve ambos: separa conhecimento em rules/ modulares e automatiza execução mediante protocolos invocáveis em rules/utils/ (@analysis, @execute).</p>
+        <p>v1 tinha dois problemas fundamentais: (1) conhecimento misturado num só arquivo (<code>01-expert.md</code>), (2) execução manual - cada ação requeria escrever o prompt completo ("analisa este arquivo e guarda em <code>02-analysis.md</code>", "lê <code>04-backlog.md</code>, executa tarefas 1-3, atualiza estado"). v2 resolve ambos: separa conhecimento em <code>rules/</code> modulares e automatiza execução mediante protocolos invocáveis em <code>rules/utils/</code> (<code>@analysis</code>, <code>@execute</code>).</p>
 
         <h2>Solução: Separação Rules/Memory</h2>
 
@@ -121,7 +121,7 @@
           <li><strong>Modularização do conhecimento</strong>: Especialistas, guidelines e protocolos executáveis</li>
         </ol>
 
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">.cursor/
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">.cursor/
 ├── rules/          # Conhecimento reutilizável e modular
 │   ├── experts/    # Papéis técnicos (WordPress, React, Python...)
 │   ├── guidelines/ # Princípios e constraints (KISS, projeto-específicos)
@@ -155,7 +155,7 @@
         <p><strong>Experts</strong> - Perfis de especialistas técnicos/domínio:</p>
 
         <p><code>rules/experts/wordpress-classic-themes.mdc</code></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: true
 ---
 # WordPress Classic Expert
@@ -172,7 +172,7 @@ Backend: PHP 7.4+, WP Core APIs | Frontend: Vanilla JS, HTML5, CSS3
         <p><strong>Guidelines</strong> - Princípios de código e restrições de projeto:</p>
 
         <p><code>rules/guidelines/constraints-balneario.mdc</code></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: true
 ---
 # Balneario Theme
@@ -184,7 +184,7 @@ Critical: ACF PRO (18 groups), WooCommerce, WPML
 Core Systems: PDF Generator (pdf-generator.php), WooCommerce integration</code></pre>
 
         <p><code>rules/guidelines/kiss.mdc</code></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: true
 ---
 # KISS Principle
@@ -199,7 +199,7 @@ Rule: If you can't explain it in 2-3 sentences, it's too complex.</code></pre>
         <p><strong>Utils</strong> - Protocolos invocáveis:</p>
 
         <p><code>rules/utils/analysis.mdc</code> <em>→ Analisa código/pastas e guarda em memory</em></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
 # Analysis Protocol
@@ -207,7 +207,7 @@ Trigger: @file/@folder or "analyze"
 1. Acknowledge → 2. Analyze → 3. Save to .cursor/memory/YYYYMMDD-VV-*.md → 4. Confirm</code></pre>
 
         <p><code>rules/utils/solution.mdc</code> <em>→ Propõe solução e guarda em memory</em></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
 # Solution Protocol (KISS)
@@ -216,7 +216,7 @@ Trigger: User requests solution
 Principles: Simplicity > complexity, proven patterns > novel</code></pre>
 
         <p><code>rules/utils/backlog.mdc</code> <em>→ Converte solução em tarefas atómicas rastreáveis</em></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
 # Backlog Protocol
@@ -228,7 +228,7 @@ Format: [Phase.Task#] ⏳/🔄/✅/⚠️ Title
 Rules: 2-4h max, sequential, testable</code></pre>
 
         <p><code>rules/utils/execute.mdc</code> <em>→ Executa tarefas do backlog e atualiza estado</em></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
 # Task Execution Protocol
@@ -236,7 +236,7 @@ Load backlog → parse scope → execute → update status → stop at boundary
 Input: [1.1], [2.3,2.4], Phase 2, continue</code></pre>
 
         <p><code>rules/utils/commit.mdc</code> <em>→ Gera commits convencionais e atualiza backlog</em></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">---
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">---
 alwaysApply: false
 ---
 # Commit Protocol
@@ -247,7 +247,7 @@ Format: [JIRA-XXX] type(scope): subject (English, imperative, max 72 chars)</cod
 
         <p>Os protocolos utils geram automaticamente arquivos em memory/ seguindo a nomenclatura <code>YYYYMMDD-VV-descricao.md</code> (VV = sequência diária: 01, 02, 03...):</p>
 
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">memory/
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">memory/
 ├── 20250919-01-analisis-pdf-generator.md
 ├── 20250919-02-sistema-pdfs-emails-finalizado.md
 ├── 20251015-01-analisis-completo-balneario-theme.md
@@ -271,31 +271,31 @@ Format: [JIRA-XXX] type(scope): subject (English, imperative, max 72 chars)</cod
         <h3>Desenvolvimento de Feature: Faturação Automática</h3>
 
         <p><strong>1. Análise</strong></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@analysis checkout.php</code></pre>
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@analysis checkout.php</code></pre>
         <p>→ Gera: <code>20251015-01-analisis-checkout.md</code></p>
 
         <p><strong>2. Solução</strong></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@solution
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@solution
 Implementa faturação automática WooCommerce</code></pre>
         <p>→ Gera: <code>20251015-02-solucion-facturacion.md</code></p>
 
         <p><strong>3. Backlog</strong></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@memory/20251015-02-solucion-facturacion
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@memory/20251015-02-solucion-facturacion
 @backlog</code></pre>
         <p>→ Gera: <code>20251015-03-backlog-facturacion.md</code></p>
 
         <p><strong>4. Execução</strong></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
 @execute [1.1]</code></pre>
         <p>→ Atualiza: <code>[1.1] ⏳ → ✅</code></p>
 
         <p><strong>5. Commit</strong></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
 @commit</code></pre>
         <p>→ Cria commit + atualiza backlog</p>
 
         <p><strong>6. Continuar trabalho (nova sessão)</strong></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@memory/20251015-03-backlog-facturacion
 Resume trabalho</code></pre>
         <p>→ Carrega contexto + mostra próximas tarefas</p>
 
@@ -308,12 +308,12 @@ Resume trabalho</code></pre>
         <p><strong>Duas formas de configurar:</strong></p>
 
         <p><strong>Opção A - Contribuir ao repo partilhado (recomendado se quiseres participar na manutenção):</strong></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">cd teu-projeto
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">cd teu-projeto
 git clone https://github.com/arinspunk/extended-context.git .cursor</code></pre>
         <p>Mantém conexão com o repo para receber atualizações e contribuir melhorias. Atualiza quando quiseres: <code>cd .cursor && git pull</code></p>
 
         <p><strong>Opção B - Snapshot para o teu projeto (recomendado para trabalho diário):</strong></p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">git clone https://github.com/arinspunk/extended-context.git temp
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">git clone https://github.com/arinspunk/extended-context.git temp
 cp -r temp/rules temp/memory teu-projeto/.cursor/
 rm -rf temp</code></pre>
         <p>Cópia independente que personalizas livremente sem afetar o repo original, ideal para versionar junto com o código do teu projeto.</p>
@@ -355,12 +355,12 @@ rm -rf temp</code></pre>
 
         <p><strong>Passo 4: Verifica carga (1 min)</strong></p>
         <p>Abre chat do Cursor (Cmd+L) e escreve:</p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">Que especialista e guidelines tens ativas?</code></pre>
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">Que especialista e guidelines tens ativas?</code></pre>
         <p>Cursor deve listar os arquivos com <code>alwaysApply: true</code>.</p>
 
         <p><strong>Passo 5: Primeira execução (8 min)</strong></p>
         <p>Prova o workflow completo com um arquivo real:</p>
-        <pre class="c-post__prompt c-post__prompt--scroll"><code class="c-post__prompt-code">@analysis src/components/Header.tsx</code></pre>
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">@analysis src/components/Header.tsx</code></pre>
         <p>Se gerar corretamente <code>memory/YYYYMMDD-01-*.md</code>, o sistema está operativo.</p>
 
         <hr>
