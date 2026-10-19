@@ -43,4 +43,4 @@ El build SHALL generar un feed RSS por idioma con los posts de ese idioma, orden
 
 #### Scenario: URL del sitemap
 - **WHEN** un rastreador lee `robots.txt`
-- **THEN** encuentra `Sitemap: https://xulioze.com/sitemap.xml` (sin el punto final que tiene hoy)
+- **THEN** encuentra `Sitemap: https://xulioze.com/sitemap.xml`

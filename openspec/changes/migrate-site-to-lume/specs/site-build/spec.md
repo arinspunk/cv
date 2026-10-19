@@ -41,12 +41,13 @@ Los recursos estáticos públicos SHALL copiarse a la salida en sus rutas actual
 - **THEN** la salida no contiene `openspec/`, `scss/`, `.cursor/`, `.claude/`, `README.md`, `tokens.json` ni ficheros `.psd`
 
 ### Requirement: Estilos compilados en el build
-La hoja de estilos SHALL compilarse desde `scss/styles.scss` durante el build y publicarse en `css/styles.css`.
+La hoja de estilos SHALL compilarse desde las fuentes SCSS de `src/` durante el build y publicarse en `css/styles.css`.
 
 #### Scenario: CSS generado
 - **WHEN** se genera el sitio
 - **THEN** existe `css/styles.css` compilado a partir de las fuentes SCSS actuales
 - **AND** las páginas lo enlazan en esa ruta
+- **AND** la salida no contiene ningún otro `.css` generado a partir de los parciales
 
 ### Requirement: Despliegue en Netlify
 Netlify SHALL construir el sitio con el comando de build y publicar únicamente la carpeta de salida, tanto en producción como en las deploy previews.

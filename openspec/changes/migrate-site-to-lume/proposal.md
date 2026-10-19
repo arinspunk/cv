@@ -7,13 +7,15 @@ Publicar un post nuevo exige convertir a mano el borrador Markdown en tres HTML 
 ## What Changes
 
 - Se introduce Lume como generador estático de **todo el sitio** (CV y blog, en los tres idiomas). El build publica en `_site/` y Netlify despliega esa carpeta en lugar de la raíz del repo.
-- Los posts nuevos se escriben en Markdown estándar dentro de `posts/<id>/{es,en,pt}.md`, con un front matter mínimo (`id`, `lang`, `url`, `title`, `description`, `image`, `date`).
+- Los posts nuevos se escriben en Markdown estándar dentro de `src/posts/<id>/{es,en,pt}.md`, con un front matter mínimo (`id`, `lang`, `url`, `title`, `description`, `image`, `date`).
 - Un layout base único para `<head>`, metas, favicons y scripts, y un header/footer común con una variante de color para el CV y otra para el blog.
 - El build genera automáticamente: metas OG/Twitter/itemprop/canonical, el selector de idioma, los avisos "puedes leer este post en…" (`c-messages`), la cabecera del post (título y fecha), el enlace "descárgaselo como markdown", los índices del blog por idioma, `sitemap.xml` y un feed RSS por idioma.
 - Un procesador del HTML generado aplica el marcado BEM a los elementos estándar: bloques de código (siempre `--scroll` y botón de copiar), imágenes, enlaces externos, tablas e ids de encabezados.
 - Los 45 posts existentes y las 3 páginas del CV se migran a front matter + cuerpo HTML, sin reescribirlos, y se verifican con un diff contra el sitio actual.
+- Se corrigen las fechas inconsistentes de 3 posts (el `datetime`, el texto visible o el índice no coinciden entre sí ni con las traducciones).
+- El build valida el front matter obligatorio y falla indicando el fichero.
 - Todas las URLs públicas actuales se mantienen (`.html`, slugs por idioma, `/pt/blogue/`).
-- Comportamiento que cambia de forma visible: los 8 bloques de código que hoy no tienen botón de copiar lo ganan; `sitemap.xml` pasa a listar todas las páginas; aparecen los feeds RSS; se corrige la URL del sitemap en `robots.txt`.
+- Comportamiento que cambia de forma visible: los 27 bloques de código que hoy no tienen botón de copiar (9 por idioma) lo ganan; los enlaces externos de los posts que aún no lo hacían se abren en pestaña nueva; los encabezados de sección de los posts reciben `id`; las 3 tablas sin clase reciben `c-post__table`; `sitemap.xml` pasa a listar todas las páginas; aparecen los feeds RSS; las fechas de 3 posts se corrigen.
 - La compilación SCSS pasa a formar parte del build; `css/styles.css` deja de versionarse.
 
 ## Capabilities
@@ -29,8 +31,9 @@ Publicar un post nuevo exige convertir a mano el borrador Markdown en tres HTML 
 
 ## Impact
 
-- **Contenido**: los 51 HTML actuales (`index.html`, `en/cv.html`, `pt/cv.html`, 3 índices de blog y 45 posts) se sustituyen por fuentes en `posts/`, `cv/` y plantillas en `_includes/`.
-- **Nuevas dependencias**: Deno (runtime de build) y Lume con sus plugins oficiales (markdown, multilanguage, sitemap, feed, sass, metas). No hay `package.json`, así que no se sustituye ninguna dependencia de Node.
-- **Despliegue**: nuevo `netlify.toml` (comando de build y `publish = "_site"`). Mientras la configuración de Netlify no se actualice, el sitio seguiría publicando la raíz del repo.
+- **Contenido**: los 51 HTML actuales (`index.html`, `en/cv.html`, `pt/cv.html`, 3 índices de blog y 45 posts) se sustituyen por fuentes en `src/posts/`, `src/cv/`, `src/blog-index/` y plantillas en `src/_includes/`.
+- **Nuevas dependencias**: Deno (runtime de build) y Lume con sus plugins oficiales (markdown, multilanguage, sitemap, feed, sass). Los metas se generan con un partial propio, sin el plugin `metas` (ver D6). No hay `package.json`, así que no se sustituye ninguna dependencia de Node.
+- **Despliegue**: nuevo `netlify.toml` (comando de build y `publish = "_site"`). `netlify.toml` tiene prioridad sobre la configuración de la UI, así que el cambio de directorio de publicación entra con el merge y se revierte con un `git revert`.
+- **Recursos**: `img/claude-talk-to-figma-metas.psd` sale de `img/` (a `design/`) para que no se publique.
 - **JS**: `js/application.js`, `js/application.min.js` y `js/markdown-converter.js` no cambian; el marcado generado debe seguir siendo compatible con ellos.
 - **Fuera de alcance**: el comando de traducción en Claude Code (siguiente fase), convertir a Markdown los posts antiguos y rediseñar estilos.

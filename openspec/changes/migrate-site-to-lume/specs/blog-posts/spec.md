@@ -10,11 +10,11 @@ Permitir escribir posts del blog en Markdown estándar con un front matter míni
 Un post SHALL poder escribirse como un fichero Markdown con front matter que declara `id`, `lang`, `url`, `title`, `description`, `image` y `date`; el build publica una página completa en `url`.
 
 #### Scenario: Publicar un post nuevo
-- **WHEN** se añade `posts/<id>/es.md` con front matter válido y cuerpo Markdown
+- **WHEN** se añade `src/posts/<id>/es.md` con front matter válido y cuerpo Markdown
 - **THEN** el build genera la página en la `url` declarada, con layout, header, footer y scripts del blog
 
 #### Scenario: Campo obligatorio ausente
-- **WHEN** un post no declara `title`, `url` o `lang`
+- **WHEN** un post no declara `id`, `lang`, `url`, `title` o `date`, o `lang` no es `es`, `en` ni `pt`
 - **THEN** el build falla e indica el fichero afectado
 
 ### Requirement: Cabecera del post generada
@@ -58,6 +58,10 @@ Las imágenes Markdown del cuerpo SHALL renderizarse con la clase `c-post__body-
 - **WHEN** un post contiene `![Theodore pensando](/img/x.jpg)`
 - **THEN** se genera un `img` con clase `c-post__body-img`, `loading="lazy"` y `alt="Theodore pensando"`
 
+#### Scenario: Imagen dentro de una figura del sitio
+- **WHEN** un `img` está dentro de un `figure.c-post__body-img`
+- **THEN** el `img` no recibe la clase `c-post__body-img` (ya la tiene el `figure`)
+
 ### Requirement: Enlaces externos
 Los enlaces del cuerpo a otros dominios SHALL abrirse en una pestaña nueva con `rel="noopener"`; los enlaces internos no cambian. El título opcional del enlace se conserva.
 
@@ -66,7 +70,7 @@ Los enlaces del cuerpo a otros dominios SHALL abrirse en una pestaña nueva con 
 - **THEN** el enlace tiene `target="_blank"`, `rel="noopener"` y `title="Página oficial de Cursor"`
 
 #### Scenario: Enlace interno
-- **WHEN** un post enlaza a `https://xulioze.com/blog/...` o a una ruta relativa
+- **WHEN** un post enlaza a `https://xulioze.com/blog/...`, a una ruta relativa, a un ancla `#` o a un `mailto:`
 - **THEN** el enlace no recibe `target="_blank"`
 
 ### Requirement: Tablas y encabezados
@@ -92,8 +96,13 @@ Cada idioma SHALL tener su índice del blog con todos los posts de ese idioma, o
 - **AND** no aparece en los índices de los otros idiomas
 
 ### Requirement: Posts antiguos migrados
-Los 45 posts existentes SHALL conservar su contenido y presentación tras la migración; los bloques de código que no tenían botón de copiar lo ganan.
+Los 45 posts existentes SHALL conservar su contenido y presentación tras la migración. Los elementos estándar cuyo marcado estaba incompleto (bloques de código sin botón, encabezados sin `id`, enlaces externos sin `target`, tablas sin clase) lo completan, y las fechas inconsistentes se corrigen.
 
 #### Scenario: Post antiguo
 - **WHEN** se genera un post migrado
 - **THEN** su cuerpo es equivalente al publicado antes de la migración, salvo las diferencias esperadas
+
+#### Scenario: Fecha común a las traducciones
+- **WHEN** se migra un post con tres traducciones
+- **THEN** las tres tienen el mismo `date`
+- **AND** el post de impresoras 3D tiene `date: 2024-02-12`, el de la PWA `2023-04-14` y el de bases de datos vectoriales `2025-03-05`

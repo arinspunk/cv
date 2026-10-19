@@ -10,7 +10,7 @@ Relacionar las versiones en español, inglés y portugués de cada página (post
 Las páginas que comparten el mismo `id` en su front matter SHALL tratarse como traducciones de un mismo contenido, cada una con su `lang` (`es`, `en` o `pt`) y su propia `url`.
 
 #### Scenario: Post con tres traducciones
-- **WHEN** `posts/oneshot/es.md`, `en.md` y `pt.md` declaran `id: oneshot` con `lang` distintos
+- **WHEN** `src/posts/oneshot-vs-dialogo/es.md`, `en.md` y `pt.md` declaran `id: oneshot-vs-dialogo` con `lang` distintos
 - **THEN** el build trata las tres páginas como traducciones entre sí
 
 #### Scenario: Slugs distintos por idioma
@@ -26,7 +26,11 @@ El header de cada página SHALL mostrar enlaces a las traducciones disponibles e
 
 #### Scenario: Selector en el CV
 - **WHEN** se abre `en/cv.html`
-- **THEN** el header enlaza a `index.html` (es) y a `pt/cv.html`
+- **THEN** el header enlaza a la portada (es) y a `pt/cv.html`
+
+#### Scenario: Selector en un índice del blog
+- **WHEN** se abre `en/blog.html`
+- **THEN** el header enlaza a `blog.html` (es) y a `pt/blogue.html`
 
 ### Requirement: Avisos de otras versiones del post
 Cada post SHALL mostrar, bajo la cabecera, un aviso por cada traducción disponible ("You can read this post in english", etc.) con el texto en el idioma de destino.
