@@ -1,6 +1,6 @@
 Hi,
 
-my name is Xulio, I live in Sevilla (Spain) and this is my personal website.
+my name is Xulio, I live in Vitoria-Gasteiz (Basque Country) and this is my personal website.
 
 
 This site is made with:
@@ -35,8 +35,8 @@ It's under GNU GPLv3 license, except the font, that is under its own license (ht
 
 If you want to chat you can write me at:
 
-- hello@xulioze.com
-- @naia_ze (Twitter)
+- arinspunk@gmail.com
+- @xulioze.eurosky.social (Bluesky, Mu, Deer)
 
 
 Thanks so much to all these people that share their knowledgement at internet!
