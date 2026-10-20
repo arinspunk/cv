@@ -56,7 +56,7 @@
 
 ## 10. Verificación de integración
 
-- [ ] 10.1 Build limpio desde un clon nuevo + `deno task compare` completo: 0 URLs ausentes y solo diferencias esperadas; `grep -r cdn.jsdelivr.net _site/` sin resultados
+- [x] 10.1 Build limpio desde un clon nuevo + `deno task compare` completo: 0 URLs ausentes y solo diferencias esperadas; `grep -r cdn.jsdelivr.net _site/` sin resultados
 - [ ] 10.2 Revisar la deploy preview: CV y blog en los 3 idiomas, selector de idioma, avisos, botón de copiar (incluidos los 27 bloques nuevos), enlaces externos en pestaña nueva, tablas de la guía de Figma, fechas de los 3 posts de D14, comentarios de `atproto-comments` en los 3 idiomas (sin peticiones a jsDelivr en la pestaña de red), descarga en Markdown, `sitemap.xml`, feeds y `robots.txt`; tras el merge, comprobar lo mismo en xulioze.com
 
 ## Workflow follow-up
