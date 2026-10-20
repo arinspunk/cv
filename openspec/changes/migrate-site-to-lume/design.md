@@ -17,6 +17,8 @@
   - `en/blog/frontity-custom-page-templates.html` contiene un enlace `mailto:`.
 - Hay 3 posts con fechas inconsistentes entre el `datetime`, el texto visible, las traducciones y los índices (ver D14).
 - `robots.txt` ya declara `Sitemap: https://xulioze.com/sitemap.xml` correctamente.
+- Los 3 posts `atproto-comments` usan el web component `<atproto-comments>` (dentro de `.c-post__body`, con `thread-uri`, `strings` y `style` propios de cada idioma) y lo cargan desde jsDelivr (versión 1.1.0): un `<link>` al CSS en el `<head>` y un `<script type="module">` al final del `body`, fuera del cuerpo del post.
+- El componente se publica también en JSR (`@arinspunk/atproto-comments`). La 1.1.0 de JSR no incluye el CSS; la 1.1.1 lo incluirá en `src/atproto-comments.css`. Este change se ejecuta después de publicar la 1.1.1.
 - Deno 2.x ya está instalado en local.
 
 Requisitos: ver `specs/site-build`, `specs/blog-posts`, `specs/site-i18n` y `specs/site-metadata`.
@@ -37,12 +39,12 @@ Requisitos: ver `specs/site-build`, `specs/blog-posts`, `specs/site-i18n` y `spe
 ## Decisions
 
 ### D1. Lume sobre Deno, versión fijada
-Se usa Lume con un `deno.json` que fija la versión exacta de Lume y de sus plugins (la última estable al implementar), con las tareas `build`, `serve` y `compare`. La versión mayor (Lume 2 o 3) se anota en este documento al empezar la tarea 1.2 y todas las pruebas de comportamiento (D3, D7) se hacen sobre ella. `_config.ts` declara `location: new URL("https://xulioze.com")` y `prettyUrls: false` para mantener las URLs `.html`.
+Se usa Lume con un `deno.json` que fija la versión exacta de Lume y de sus plugins (la última estable al implementar), con las tareas `build`, `serve` y `compare`, y la dependencia `jsr:@arinspunk/atproto-comments@1.1.1` (ver D16). La versión mayor (Lume 2 o 3) se anota en este documento al empezar la tarea 1.2 y todas las pruebas de comportamiento (D3, D7) se hacen sobre ella. `_config.ts` declara `location: new URL("https://xulioze.com")` y `prettyUrls: false` para mantener las URLs `.html`.
 *Alternativa:* Eleventy, equivalente en capacidades. Se elige Lume por preferencia del autor y porque no hay ninguna dependencia de Node que conservar.
 
 ### D2. Fuentes en `src/`, separadas del resto del repo
 ```
-deno.json  _config.ts  netlify.toml  scripts/  drafts/  design/
+deno.json  deno.lock  _config.ts  netlify.toml  scripts/  drafts/  design/
 src/
   _data/            site.yml (autor, imagen por defecto), i18n.yml (textos por idioma)
   _includes/
@@ -53,6 +55,7 @@ src/
   cv/               es.html, en.html, pt.html     (id: cv)
   blog-index/       es.vto, en.vto, pt.vto        (id: blog-index)
   css/styles.scss   punto de entrada de Sass (ver D11)
+  vendor/           atproto-comments.ts (entrada de esbuild; el CSS llega con remoteFile, ver D16)
   img/ fonts/ js/ scss/ favicon.ico humans.txt robots.txt
 ```
 `img/`, `fonts/`, `js/` y los ficheros raíz se mueven con `git mv` y se copian a la salida con `site.copy`. `openspec/`, `.cursor/`, `.claude/`, `README.md` y `tokens.json` quedan fuera de `src/` y, por tanto, del sitio, sin necesidad de ignores. El `.psd` de `img/` se mueve a `design/`, fuera de `src/`.
@@ -84,6 +87,7 @@ Un único `site.process([".html"])` actúa solo sobre las páginas con `type: po
 - `img`: añade `c-post__body-img` y `loading="lazy"` si faltan, **salvo** si está dentro de un `figure.c-post__body-img` (la clase ya está en el `figure`; duplicarla aplicaría los estilos dos veces).
 - `a` con `href` `http:`/`https:` y host distinto de `xulioze.com`: añade `target="_blank"` y `rel="noopener"` si faltan. No se tocan `mailto:`, `tel:`, anclas `#` ni rutas relativas.
 - `table`: añade `c-post__table`. `h2`–`h4` sin `id`: añade un id slugificado.
+- `atproto-comments`: si el post contiene el elemento, añade una vez `<link rel="stylesheet" href="/vendor/atproto-comments.css">` al final del `<head>` y `<script type="module" src="/vendor/atproto-comments.js">` al final del `body`, tras los scripts del sitio (ver D16). El elemento y sus atributos no se tocan.
 
 Todas las transformaciones son **idempotentes** ("añade si falta"). Por eso se aplican igual a los posts nuevos (`.md`) y a los antiguos (`.html`) sin alterar lo que ya es correcto. En los antiguos sí completan el marcado donde hoy falta, y se aceptan como mejoras: 27 bloques ganan botón, 40 posts ganan ids en los encabezados, 6 posts ganan `target`/`rel` en enlaces externos y 3 tablas ganan su clase (diferencias esperadas 1, 7, 8 y 9 de D13). Las 3 tablas se revisan visualmente.
 *Alternativa:* sobrescribir los renderers de markdown-it. Solo funcionaría con `.md` y obligaría a mantener dos caminos para el mismo componente.
@@ -127,6 +131,7 @@ También comprueba que no falta ninguna URL. Lista de diferencias esperadas (se 
 10. `frontity-custom-page-templates` en es y pt pasa a la estructura común del post (`article.c-post` > `section.c-post__body`).
 11. Fechas corregidas según D14 (atributo, texto visible y posición en los índices).
 12. Los 6 posts con el `<head>` reducido (`contexto-extendido-v2` y `atproto-comments`, en los 3 idiomas) ganan los metas Twitter, itemprop, `apple-mobile-web-app-title` y copyright; `atproto-comments`, que no tiene `og:image`, gana la imagen social por defecto.
+13. Los 3 posts `atproto-comments` cargan el CSS y el JS del componente desde `/vendor/atproto-comments.{css,js}` (versión 1.1.1, servida desde xulioze.com) en lugar de jsDelivr 1.1.0.
 
 El normalizador también ordena los tokens de `class`, porque el procesador añade clases al final.
 Antes de comparar se clasifica cada diferencia en una de estas categorías y el informe las agrupa; cualquier diferencia que no encaje en una categoría hace fallar la comparación.
@@ -143,7 +148,18 @@ La fecha de referencia de cada post es la misma en sus tres idiomas. Se corrigen
 El script de migración toma el `datetime`, aplica esta tabla y falla si, después, las tres traducciones de un post no tienen el mismo `date`.
 
 ### D15. Validación del front matter
-Un `site.preprocess([".html", ".md"])` comprueba en las páginas con `type: post` que existen `id`, `lang` (`es`|`en`|`pt`), `url`, `title` y `date`, y lanza un error con la ruta del fichero si falta alguno. Para el CV y los índices comprueba `id`, `lang` y `url`.
+Un `site.preprocess([".html", ".md"])` comprueba en las páginas con `type: post` que existen `id`, `lang` (`es`|`en`|`pt`), `url`, `title` y `date`, y lanza un error con la ruta del fichero si falta alguno. `image` y `description` no son obligatorios (sin `image` se usa la imagen por defecto). Para el CV y los índices comprueba `id`, `lang` y `url`.
+
+### D16. Web component `atproto-comments` desde JSR
+El componente se empaqueta en el build y se sirve desde el propio dominio, sin CDN de terceros:
+- **JS:** `src/vendor/atproto-comments.ts` contiene solo `import "jsr:@arinspunk/atproto-comments@1.1.1";`. El plugin `esbuild` (con `extensions: [".ts"]`, para no tocar `src/js/`, que se copia tal cual) lo empaqueta en `/vendor/atproto-comments.js`. Al importarse, el módulo registra `<atproto-comments>`.
+- **CSS:** `site.remoteFile("vendor/atproto-comments.css", "https://jsr.io/@arinspunk/atproto-comments/1.1.1/src/atproto-comments.css")` + `site.copy("vendor/atproto-comments.css")`. Se descarga en el build desde la misma versión que el JS.
+- **Inyección:** la hace el procesador de D8 solo en los posts que contienen el elemento. Los posts no declaran nada en el front matter: en un post nuevo en Markdown basta con pegar el elemento (HTML en línea).
+- **Versión:** se fija en un único sitio. La URL del CSS repite la versión del import; ambas se actualizan juntas (una constante en `_config.ts` y el import, o una tarea que compruebe que coinciden).
+
+El script de migración no copia los `<link>`/`<script>` de jsDelivr: el `<link>` está en el `<head>` (que se regenera) y el `<script>` fuera de `.c-post__body`.
+*Alternativa:* seguir con jsDelivr con un campo `styles`/`scripts` en el front matter. Funciona, pero mantiene una dependencia de un CDN externo en tiempo de ejecución y obliga a declarar los recursos en cada post.
+*Alternativa:* un campo `comments: <at-uri>` que pinte el componente desde `post.vto`, con los textos en `i18n.yml`. Queda para una fase posterior; D16 es compatible con ella.
 
 ## Risks / Trade-offs
 
@@ -152,6 +168,8 @@ Un `site.preprocess([".html", ".md"])` comprueba en las páginas con `type: post
 - [El merge cambia el directorio de publicación y algo falla en producción] → Revisar antes la deploy preview de la rama. Rollback: `git revert` del merge o, de forma inmediata, *Publish deploy* de un deploy anterior en la UI de Netlify.
 - [El CSS compilado por otra versión de Sass difiere en bytes] → No se compara byte a byte. Se revisa visualmente el CV y dos posts en la deploy preview.
 - [`multilanguage` o `sitemap` añaden marcado que no estaba previsto] → La prueba de la tarea 1.5 lo detecta pronto; lo que generen se revisa y se añade a las diferencias esperadas o se desactiva.
+- [La 1.1.1 de `atproto-comments` no está publicada o no incluye el CSS] → El change no empieza hasta que la 1.1.1 esté en JSR con `src/atproto-comments.css` (comprobación en la tarea 1.2). Si `remoteFile` falla en el build, el build falla (no se publica un post sin estilos).
+- [El build depende de jsr.io] → Ya depende de JSR/deno.land para Lume; `deno.lock` fija las versiones. El CSS se descarga en cada build; si jsr.io no responde, el build falla y Netlify mantiene el deploy anterior.
 - [La imagen de build de Netlify no trae Deno] → Se instala en el comando de build con la versión fijada; se valida en la primera deploy preview.
 - [Trade-off] Los posts antiguos seguirán en HTML: para editar su contenido hay que tocar HTML. Se pueden convertir a Markdown uno a uno cuando haga falta, sin cambiar nada más.
 
@@ -160,7 +178,8 @@ Un `site.preprocess([".html", ".md"])` comprueba en las páginas con `type: post
 1. Etiquetar el estado actual como `pre-lume` y trabajar en una rama.
 2. Montar Lume, layouts, procesador e índices. Migrar las páginas con el script de extracción.
 3. `deno task build` y `compare.ts` en local hasta que solo queden las diferencias esperadas.
-4. Enlazar el repo en Netlify con el auto-publish desactivado (D12).
-5. Abrir la PR y revisar la deploy preview de Netlify (CV, índices, varios posts en los tres idiomas, botón de copiar, descarga en Markdown, feeds, sitemap).
-6. Hacer merge a `main` y reactivar el auto-publish; Netlify pasa a publicar `_site`.
-7. Rollback: *Publish deploy* del último deploy manual en la UI de Netlify, o `git revert` del merge.
+4. Comprobar que los comentarios cargan en un post de cada idioma.
+5. Enlazar el repo en Netlify con el auto-publish desactivado (D12).
+6. Abrir la PR y revisar la deploy preview de Netlify (CV, índices, varios posts en los tres idiomas, botón de copiar, descarga en Markdown, feeds, sitemap).
+7. Hacer merge a `main` y reactivar el auto-publish; Netlify pasa a publicar `_site`.
+8. Rollback: *Publish deploy* del último deploy manual en la UI de Netlify, o `git revert` del merge.

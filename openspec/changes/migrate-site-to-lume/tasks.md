@@ -2,7 +2,8 @@
 
 ## 1. Preparación y esqueleto de Lume
 
-- [ ] 1.1 Crear la etiqueta `pre-lume` sobre `main` y una rama de trabajo; verificar con `git tag -l pre-lume`
+- [ ] 1.0 Prerrequisito: comprobar que `atproto-comments` 1.1.1 está publicado en JSR y que `https://jsr.io/@arinspunk/atproto-comments/1.1.1/src/atproto-comments.css` responde 200; si no, no empezar
+- [ ] 1.1 Comprobar que `main` contiene todo lo publicado en producción (en particular los 3 posts `atproto-comments`) y no hacer más deploys manuales; crear la etiqueta `pre-lume` sobre `main` y una rama de trabajo; verificar con `git tag -l pre-lume`
 - [ ] 1.2 Elegir la versión mayor de Lume y anotarla en D1; añadir `deno.json` con Lume y sus plugins en versiones exactas y las tareas `build` y `serve`, y `_config.ts` con `src: "./src"`, `location: new URL("https://xulioze.com")` y `prettyUrls: false` (D1, D2); verificar que `deno task build` termina sin errores con un `src/` vacío
 - [ ] 1.3 Mover `img/claude-talk-to-figma-metas.psd` a `design/`; mover con `git mv` `img/`, `fonts/`, `js/`, `scss/`, `favicon.ico`, `humans.txt` y `robots.txt` a `src/`, declarar las copias estáticas en `_config.ts` y añadir `_site/` a `.gitignore`; verificar que `_site/` contiene esos recursos en sus rutas actuales y no contiene `openspec/`, `.cursor/`, `.claude/`, `README.md`, `tokens.json` ni `.psd`
 - [ ] 1.4 Mover los borradores `blog/extended-context-v2.md` y `en/blog/post-agents-context` a `drafts/` (fuera de `src/`); verificar que no aparecen en `_site/`
@@ -10,7 +11,7 @@
 
 ## 2. Herramienta de verificación
 
-- [ ] 2.1 Escribir `scripts/compare.ts` (D13): snapshot de `pre-lume` en un worktree temporal, normalización (espacios, comentarios, orden de atributos, orden de los tokens de `class`, URLs internas a absolutas), informe de URLs ausentes y diferencias por página, y clasificación en las 11 categorías de diferencias esperadas (cualquier otra hace fallar); añadir la tarea `deno task compare`; verificar ejecutándolo contra el propio snapshot (0 diferencias) y contra una copia con una modificación conocida (la detecta)
+- [ ] 2.1 Escribir `scripts/compare.ts` (D13): snapshot de `pre-lume` en un worktree temporal, normalización (espacios, comentarios, orden de atributos, orden de los tokens de `class`, URLs internas a absolutas), informe de URLs ausentes y diferencias por página, y clasificación en las 13 categorías de diferencias esperadas (cualquier otra hace fallar); añadir la tarea `deno task compare`; verificar ejecutándolo contra el propio snapshot (0 diferencias) y contra una copia con una modificación conocida (la detecta)
 
 ## 3. Layout base, header/footer y CV
 
@@ -23,14 +24,15 @@
 
 - [ ] 4.1 Crear `post.vto` (D9) con la cabecera `c-info` (título y línea de fecha con prefijo por idioma), los avisos `c-message` generados a partir de las traducciones, el enlace `#downloadMarkdown` y el contenedor `.c-post__body`, y `src/posts/_data.yml` con `layout`, `type: post` y `templateEngine: md`
 - [ ] 4.2 Escribir `scripts/migrate-posts.ts`, que extrae de cada post actual `title`, `description`, `image`, `url`, `lang`, `date` (del atributo `datetime` de su `<time>`, con las correcciones de D14) y el cuerpo (sin `h1`, línea de fecha, avisos ni enlace de descarga), y escribe `src/posts/<id>/<lang>.html` con `id` = slug en español (D4). Debe contemplar la estructura distinta de `frontity-custom-page-templates` en es y pt (sin `section.c-post__body`) y fallar si las traducciones de un post no comparten `date`; verificar que genera 48 ficheros en 16 carpetas, que ninguno tiene campos vacíos salvo `image` en los posts sin `og:image` (usarán la imagen por defecto de `site-metadata`) y que los 3 posts de D14 tienen las fechas corregidas
-- [ ] 4.3 Ejecutar la migración y borrar `blog/`, `en/blog/` y `pt/blogue/` originales; verificar con `deno task compare` que los 48 posts existen en sus URLs y que las únicas diferencias son la 2, la 10, la 11 y las del `<head>` esperadas (incluida la 12)
+- [ ] 4.3 Ejecutar la migración y borrar `blog/`, `en/blog/` y `pt/blogue/` originales; verificar con `deno task compare` que los 48 posts existen en sus URLs y que las únicas diferencias son la 2, la 10, la 11 y las del `<head>` esperadas (incluida la 12), y que ningún fichero de `src/posts/` contiene `cdn.jsdelivr.net`
 - [ ] 4.4 Comprobar en `deno task serve` que, en un post de cada idioma, funcionan los avisos de idioma, la descarga en Markdown y el año del footer
 - [ ] 4.5 Añadir en `_config.ts` la validación del front matter de D15; verificar que quitar `title` a un post hace fallar `deno task build` con código distinto de cero y un mensaje con la ruta del fichero, y que un `lang: fr` también falla
 
 ## 5. Componentes del cuerpo
 
 - [ ] 5.1 Implementar en `_config.ts` el procesador DOM de D8 (bloques de código con botón desde `partials/copy-button.svg`, imágenes, enlaces externos, tablas, ids de encabezados), idempotente y limitado a `type: post` dentro de `.c-post__body`, con las excepciones de D8 (`img` dentro de `figure.c-post__body-img`, enlaces que no son `http(s)`); verificar con `deno task compare` que en los posts migrados solo aparecen las diferencias esperadas 1 (27 bloques), 7, 8 y 9, que ningún `img` dentro de un `figure` gana clase y que el `mailto:` de frontity en no cambia; revisar visualmente las 3 tablas de la guía de Figma
-- [ ] 5.2 Crear un post de prueba en `src/posts/fixture/es.md` con `draft: true` (no en `_fixture/`: Lume ignora las carpetas que empiezan por `_`) que tenga un bloque cercado con `{{ }}`, una imagen, un enlace externo con título, uno interno, una tabla, un `###`, un `{.clase}`, un `mailto:` y un iframe en línea; construir con `LUME_DRAFTS=true` y verificar en el HTML generado cada escenario de `specs/blog-posts`, y que sin esa variable no aparece en `_site/` y que el botón de copiar funciona en el navegador
+- [ ] 5.2 Implementar D16: `src/vendor/atproto-comments.ts`, plugin `esbuild` con `extensions: [".ts"]`, `remoteFile` + `copy` del CSS con la versión 1.1.1 y la regla de inyección del procesador de D8; verificar que `_site/vendor/atproto-comments.{js,css}` existen, que el CSS es idéntico al de JSR, que no existe `_site/vendor/atproto-comments.ts`, que solo los 3 posts `atproto-comments` cargan los recursos (una vez cada uno) y que en `deno task serve` los comentarios cargan en los tres idiomas con sus textos; verificar con `deno task compare` que en esos posts solo aparece, además, la diferencia esperada 13
+- [ ] 5.3 Crear un post de prueba en `src/posts/fixture/es.md` con `draft: true` (no en `_fixture/`: Lume ignora las carpetas que empiezan por `_`) que tenga un bloque cercado con `{{ }}`, una imagen, un enlace externo con título, uno interno, una tabla, un `###`, un `{.clase}`, un `mailto:`, un iframe en línea y un `<atproto-comments>`; construir con `LUME_DRAFTS=true` y verificar en el HTML generado cada escenario de `specs/blog-posts`, que sin esa variable no aparece en `_site/`, que el botón de copiar funciona en el navegador y que el componente se inyecta y carga
 
 ## 6. Índices, sitemap, feeds y robots
 
@@ -54,8 +56,8 @@
 
 ## 10. Verificación de integración
 
-- [ ] 10.1 Build limpio desde un clon nuevo + `deno task compare` completo: 0 URLs ausentes y solo diferencias esperadas
-- [ ] 10.2 Revisar la deploy preview: CV y blog en los 3 idiomas, selector de idioma, avisos, botón de copiar (incluidos los 27 bloques nuevos), enlaces externos en pestaña nueva, tablas de la guía de Figma, fechas de los 3 posts de D14, descarga en Markdown, `sitemap.xml`, feeds y `robots.txt`; tras el merge, comprobar lo mismo en xulioze.com
+- [ ] 10.1 Build limpio desde un clon nuevo + `deno task compare` completo: 0 URLs ausentes y solo diferencias esperadas; `grep -r cdn.jsdelivr.net _site/` sin resultados
+- [ ] 10.2 Revisar la deploy preview: CV y blog en los 3 idiomas, selector de idioma, avisos, botón de copiar (incluidos los 27 bloques nuevos), enlaces externos en pestaña nueva, tablas de la guía de Figma, fechas de los 3 posts de D14, comentarios de `atproto-comments` en los 3 idiomas (sin peticiones a jsDelivr en la pestaña de red), descarga en Markdown, `sitemap.xml`, feeds y `robots.txt`; tras el merge, comprobar lo mismo en xulioze.com
 
 ## Workflow follow-up
 

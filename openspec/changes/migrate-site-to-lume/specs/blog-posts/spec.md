@@ -7,7 +7,7 @@ Permitir escribir posts del blog en Markdown estándar con un front matter míni
 ## ADDED Requirements
 
 ### Requirement: Post en Markdown con front matter
-Un post SHALL poder escribirse como un fichero Markdown con front matter que declara `id`, `lang`, `url`, `title`, `description`, `image` y `date`; el build publica una página completa en `url`.
+Un post SHALL poder escribirse como un fichero Markdown con front matter que declara `id`, `lang`, `url`, `title` y `date`, y opcionalmente `description` e `image` (si falta `image`, se usa la imagen por defecto; ver `site-metadata`); el build publica una página completa en `url`.
 
 #### Scenario: Publicar un post nuevo
 - **WHEN** se añade `src/posts/<id>/es.md` con front matter válido y cuerpo Markdown
@@ -86,6 +86,22 @@ Un post SHALL poder incluir HTML en línea (p. ej. embeds de CodePen o `figure` 
 #### Scenario: Embed en línea
 - **WHEN** un post contiene un `iframe` con clase `c-post__body-iframe`
 - **THEN** la página publicada contiene ese iframe sin alterar
+
+### Requirement: Comentarios del AT Protocol
+Un post SHALL poder mostrar comentarios del AT Protocol incluyendo en su cuerpo el elemento `<atproto-comments>`, sin declarar nada más. El build SHALL añadir el CSS y el JS del componente, servidos desde el propio sitio, solo a los posts que contienen el elemento.
+
+#### Scenario: Post con comentarios
+- **WHEN** un post contiene `<atproto-comments thread-uri="at://…">`
+- **THEN** la página enlaza `/vendor/atproto-comments.css` en el `<head>` y carga `/vendor/atproto-comments.js` como módulo al final del `body`, una sola vez
+- **AND** los comentarios del hilo se muestran en el navegador
+
+#### Scenario: Post sin comentarios
+- **WHEN** un post no contiene el elemento
+- **THEN** la página no carga el CSS ni el JS del componente
+
+#### Scenario: Sin CDN externo
+- **WHEN** se genera cualquier página
+- **THEN** no hay referencias a `cdn.jsdelivr.net`
 
 ### Requirement: Índices del blog generados
 Cada idioma SHALL tener su índice del blog con todos los posts de ese idioma, ordenados por fecha descendente, con fecha y título enlazado.

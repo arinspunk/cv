@@ -40,6 +40,11 @@ Los recursos estáticos públicos SHALL copiarse a la salida en sus rutas actual
 - **WHEN** se genera el sitio
 - **THEN** la salida no contiene `openspec/`, `scss/`, `.cursor/`, `.claude/`, `README.md`, `tokens.json` ni ficheros `.psd`
 
+#### Scenario: Recursos del web component
+- **WHEN** se genera el sitio
+- **THEN** existen `vendor/atproto-comments.js` (empaquetado desde `jsr:@arinspunk/atproto-comments` en la versión fijada) y `vendor/atproto-comments.css` (idéntico a `src/atproto-comments.css` de esa versión en JSR)
+- **AND** la salida no contiene `vendor/atproto-comments.ts`
+
 ### Requirement: Estilos compilados en el build
 La hoja de estilos SHALL compilarse desde las fuentes SCSS de `src/` durante el build y publicarse en `css/styles.css`.
 
