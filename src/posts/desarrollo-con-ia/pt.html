@@ -1,0 +1,116 @@
+---
+id: desarrollo-con-ia
+lang: pt
+url: /pt/blogue/desenvolvimento-com-ia.html
+title: "IA para developers. Apaixonamo-nos?"
+description: "As cinco vias que existem atualmente para escrever código assistido por Inteligência Artificial e para desenvolver ferramentas com IA integrada."
+image: /img/ia-developing-her.jpg
+date: 2025-03-26
+---
+				<img class="c-post__body-img" src="https://xulioze.com/img/ia-developing-status-her.jpg" alt="Theodore a pensar" width="768" loading="lazy">
+
+				<p>Se começou a ler este post atraído pelo seu título, talvez fique desapontado. Não encontrará aqui uma história de amor entre humanos e IAs, nem sequer uma narração habitual. São simplesmente algumas notas, com certa estruturação, sobre a minha visão do estado atual do desenvolvimento de software com e para inteligência artificial.</p>
+
+				<p>Com "com" refiro-me a escrever código com a ajuda da IA. E com "para", a desenvolver software específico com IA integrada.</p>
+
+				<h2>Vias para desenvolver com/para IA</h2>
+
+				<p>Atualmente existem 5:</p>
+
+				<ol>
+					<li>Não usar IA</li>
+					<li>Chats</li>
+					<li>Assistentes de código</li>
+					<li>Assistentes de código com agentes IA</li>
+					<li>Desenvolvimento de agentes próprios</li>
+				</ol>
+
+				<h3>Não usar IA</h3>
+
+				<p>Compreendo esta postura, sobretudo se és Sénior e além disso estás um pouco farto/a de toda a conversa que se está a dar sobre o tema. Reconheço que <a href="https://www.wheresyoured.at/longcon/" title="Artigo sobre o hype da IA" target="_blank" rel="noopener">na IA há muito de hype</a> (dá uma oportunidade ao artigo, é sempre bom ter algum vento entre tanto fumo 😉), mas vale a pena usá-la, nem que seja para evitares dar duzentas voltas pelo <a href="https://stackoverflow.com/" title="Comunidade de perguntas e respostas para programadores" target="_blank" rel="noopener">Stack Overflow</a> para solucionar um erro que te está a bloquear ou evitar ter de ler toda a documentação de uma nova API para desenvolver algo simples.</p>
+
+				<h3>Chats</h3>
+
+				<p><a href="https://chat.openai.com/" title="ChatGPT da OpenAI" target="_blank" rel="noopener">ChatGPT</a>, <a href="https://www.deepseek.com/" title="Plataforma de IA DeepSeek" target="_blank" rel="noopener">DeepSeek</a>, <a href="https://gemini.google.com/" title="Modelo de IA da Google Gemini" target="_blank" rel="noopener">Gemini</a>, <a href="https://claude.ai/" title="Assistente de IA da Anthropic" target="_blank" rel="noopener">Claude</a>, etc.</p>
+
+				<p>São o tipo de ferramenta mais utilizado. Tanto por antiguidade como por acessibilidade, já que todos os modelos têm versões gratuitas através do navegador ou App.</p>
+
+				<p>O tipo de interação com a IA é conversacional: fazemos perguntas e obtemos respostas. Mas a desconexão do chat com os nossos ficheiros locais obriga-nos a andar a mover o código de um lado para o outro.</p>
+
+				<p>Nos chats, proporcionar o contexto adequado é fundamental. Dado que o seu conhecimento é vastíssimo, para obter respostas precisas sobre uma linguagem de programação específica, é necessário delimitar e definir claramente o âmbito da consulta. Para isto usamos prompts com:</p>
+
+				<ul>
+					<li>Papel</li>
+					<li>Experiência</li>
+					<li>Staff técnico</li>
+					<li>Técnicas de prompting como:
+						<ul>
+							<li>Chain-of-Thought</li>
+							<li>Knowledge Generation</li>
+						</ul>
+					</li>
+				</ul>
+
+				<p>Além disso, os chats evoluíram, incorporando a possibilidade de adicionar contexto extra através do carregamento de ficheiros a partir do teu local ou até diretamente de repositórios do GitHub, como no caso do Claude.</p>
+
+				<h3>Assistentes de código</h3>
+
+				<p><a href="https://github.com/features/copilot" title="GitHub Copilot" target="_blank" rel="noopener">GitHub Copilot</a>, <a href="https://developers.google.com/gemini-code-assist" title="Assistente de código da Google Gemini" target="_blank" rel="noopener">Gemini Code Assist</a>, <a href="https://v0.dev/" title="Plataforma de geração de código V0" target="_blank" rel="noopener">V0</a>, etc.</p>
+
+				<p>O seu uso não está tão generalizado. Por serem mais recentes que os chats e porque as suas versões gratuitas só duram alguns dias de teste. Embora esta situação pareça estar a mudar, por exemplo, a Google oferece de forma gratuita o seu <a href="https://developers.google.com/gemini-code-assist/docs/overview#supported-features-gca" title="Características do Gemini Code Assist" target="_blank" rel="noopener">Gemini Code Assist</a> para uso individual.</p>
+
+				<p>Além de poder conversar com a IA, os assistentes oferecem sugestões de código sobre o ficheiro que estamos a editar. Ao contrário dos Chats, aqui não temos de andar a copiar e colar código.</p>
+
+				<p>Dar-lhe contexto não é tão importante. O seu conhecimento está limitado ao desenvolvimento de código e lê o ficheiro que temos aberto, o que lhe permite conhecer a linguagem que estamos a usar.</p>
+
+				<p>Na altura de realizar consultas podem-se adicionar ficheiros ou linhas específicas dentro de um ficheiro, mas os assistentes não têm o contexto de todos os ficheiros de um projeto.</p>
+
+				<h3>Assistentes de código com agentes IA</h3>
+
+				<p><a href="https://www.cursor.com/" title="Cursor: Assistente de código com IA" target="_blank" rel="noopener">Cursor</a>, <a href="https://pythagora.ai/" title="Pythagora.ai: Plataforma de desenvolvimento com IA" target="_blank" rel="noopener">Pythagora.ai</a>, <a href="https://codegpt.com/" title="CodeGPT: Assistente de código com inteligência artificial" target="_blank" rel="noopener">CodeGPT</a>, e proximamente <a href="https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/" title="Próximo modo agente do GitHub Copilot" target="_blank" rel="noopener">GitHub Copilot Agent Mode</a> (se tens uma licença do GitHub Copilot e queres experimentá-lo, inscreve-te na <a href="https://github.com/github-copilot/workspace_waitlist_signup/" title="Lista de espera para o GitHub Copilot" target="_blank" rel="noopener">lista de espera</a>, talvez tenha sido sorte, mas a mim deram-me acesso em menos de 24h).</p>
+
+				<p>Além da conversação e das sugestões de código, este tipo de assistentes inclui Agentes IA.</p>
+
+				<p>Enquanto que para os assistentes de código tradicionais o contexto não era tão importante, com o uso de agentes volta a ser imprescindível, sobretudo se vamos construir software de raiz. Por isso, nada de deixar de lado a <a href="https://www.promptingguide.ai/es" title="Guia de engenharia de prompt" target="_blank" rel="noopener">engenharia de prompt</a>, e ainda bem porque considero que é uma das partes mais divertidas do trabalho com IAs!</p>
+
+				<p>Ao contrário dos assistentes "tradicionais", os agentes têm o contexto de todos os ficheiros de um projeto, incluindo as suas relações (como imports de funções). Além disso, são capazes de:</p>
+
+				<ul>
+					<li>Criar e modificar ficheiros. Sempre pendente da tua aprovação final</li>
+					<li>Fazer uso do terminal. Vê-lo nas primeiras vezes causa alguma impressão 😅</li>
+					<li>Criar ramos e fazer commits. As fusões ficam a cargo de um mamífero bípede.</li>
+					<li>Trabalhar em paralelo contigo. Sim, podes rever o código da conexão a uma API enquanto ele desenvolve os 5 novos componentes que lhe pediste 😳</li>
+				</ul>
+
+				<h3>Desenvolvimento de agentes próprios</h3>
+
+				<p>Esta via é a mais diferente, já que a sua verdadeira função não é ajudar-nos a desenvolver código, mas criar software com IA integrada.</p>
+
+				<p>Existem várias frameworks (principalmente de Python) que facilitam o desenvolvimento do código, a criação de agentes e a integração de LLMs. Entre as mais usadas estão <a href="https://docs.llamaindex.ai/en/stable/" title="Documentação do LlamaIndex" target="_blank" rel="noopener">LlamaIndex</a> e <a href="https://docs.crewai.com/introduction" title="Documentação do Crew AI" target="_blank" rel="noopener">Crew AI</a>.</p>
+
+				<p>Em teoria, poderíamos desenvolver ferramentas próprias para a criação de código. No entanto, a minha opinião é que, a menos que procures uma solução muito específica, construir um agente de assistência não compensa o esforço. A razão é simples: requer desenvolver múltiplos componentes de raiz que no caso dos Assistentes como Cursor ou Pythagora já vêm incluídos:</p>
+
+				<ul>
+					<li>Ferramentas para ler o código de um repositório</li>
+					<li>RAG (Retrieval-Augmented Generation) para dar contexto ao LLM:
+						<ul>
+							<li>Base de dados vetorial com o código do repositório</li>
+							<li>Retrievers para fazer consultas à base de dados e devolver resultados ao LLM</li>
+						</ul>
+					</li>
+					<li>Agentes e tarefas</li>
+					<li>Ferramentas para escrever código</li>
+					<li>Outros componentes técnicos</li>
+				</ul>
+
+				<p>No entanto, creio que a potência desta via está em que podemos incorporar IA de forma relativamente simples no nosso software e desenvolver ferramentas IA próprias sem depender das oferecidas (e cobradas) por terceiros. Embora por agora não possamos livrar-nos completamente de pagar pelas consultas às APIs dos modelos que usemos nos nossos desenvolvimentos. Uma alternativa às APIs, sobretudo se não precisas de grande profundidade de raciocínio, é usar <a href="https://ollama.com/search" title="Modelos de IA locais com Ollama" target="_blank" rel="noopener">modelos em local</a>, mas essa é uma história para abordar noutro post 😊</p>
+
+				<h2>Algumas reflexões finais</h2>
+
+				<p>Acredito que o uso dos chats não vai desaparecer. Ficar insatisfeito com a proposta do assistente, preferir contrastar a resposta com outros modelos, ou aprender sobre uma nova linguagem enquanto vais no comboio, são situações em que recorrer a estas ferramentas continuará a ser uma boa opção. Por isso, se vires uma pessoa a fazer perguntas ao seu telemóvel sobre Redux enquanto pega num pacote de leite no supermercado, dá-lhe uma oportunidade, talvez não esteja completamente louca e simplesmente pretenda esclarecer essa dúvida que trouxe do trabalho usando a interface de voz do ChatGPT.</p>
+
+				<p>Creio que todos os assistentes de código vão acabar por incluir agentes e que se tornarão o padrão de trabalho para programadores num futuro próximo. Também acredito que a forma de trabalhar vai mudar radicalmente com eles, embora não tenha ideia de como será a nossa profissão depois da transformação.</p>
+
+				<p>Acredito que vale a pena aventurar-se na criação de software com IA integrada. Começar é acessível, com uma curva de aprendizagem suave. Uma parte importante da nossa profissão vai orientar-se para aí. E fundamentalmente porque está tudo por fazer, o que supõe muita diversão!</p>
+
+				<p>Então, deixamo-nos arrastar pela loucura generalizada e apaixonamo-nos? Bem, se algo aprendemos com Theodore é que apaixonar-se por uma IA não é um bom negócio, por isso é melhor explorarmos estas novas ferramentas com calma, aprendermos a usá-las (e a desfrutá-las) e vermos o que resta quando se dissipar toda esta aparente paixão. Porque o que é certo é que durante muito tempo, por detrás de cada linha de código continuará a estar o critério humano.</p>

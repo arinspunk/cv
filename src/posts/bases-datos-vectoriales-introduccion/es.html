@@ -1,0 +1,70 @@
+---
+id: bases-datos-vectoriales-introduccion
+lang: es
+url: /blog/bases-datos-vectoriales-introduccion.html
+title: "Introducción a las bases de datos vectoriales: ¡datos, más datos!"
+description: "Descubre qué son las bases de datos vectoriales, cómo almacenan embeddings y por qué son clave en el desarrollo de software con IA."
+image: /img/vectorstore-embeddings.png
+date: 2025-03-05
+---
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-johnny-5-input.webp" alt="Johnny nº5 leyendo un libro" width="768" loading="lazy">
+
+				<p>Llevo ya unos días desarrollando con mi colega Olivier un proyecto de IA. Nuestra idea es crear una herramienta que permita automatizar tareas de documentación, refactorización y escritura de tests para el código de un repositorio. A día de hoy, no tenemos claro si desde el punto de vista operativo merece la pena el esfuerzo, principalmente porque estamos viendo que existen servicios desarrollados específicamente para esto, como <a href="https://www.cursor.com/" target="_blank" rel="noopener" title="Web oficial">Cursor</a> o <a href="https://www.pythagora.ai/" target="_blank" rel="noopener" title="Web oficial">Pythagora</a>. Sin embargo, lo que sí es seguro es que estamos aprendiendo mucho, además de perder algunas horas de sueño… 😴</p>
+
+				<p>Cuando nos acercamos por primera vez a una tecnología, lo habitual es sentirnos arrastrados por un torrente de nuevos conceptos y herramientas. En el caso del desarrollo de software con IA, la inundación inicial nos trae términos como LLMs, bases de datos vectoriales, retrievers, RAGs, agentes de IA, sentence transformers, etc.</p>
+
+				<p>En este post voy a centrarme en las bases de datos vectoriales (el título no engaña). Por ser una de las piezas fundamentales en en este ámbito y también por eso de que la mejor manera de comprender un concepto es ser capaz de explicarlo de manera sencilla. Si a ti también te ayuda, significará que no las he entendido mal del todo. 😊</p>
+
+				<h2>Vectores</h2>
+
+				<p>Para entender qué son y cómo funcionan las bases de datos vectoriales, primero debemos saber qué es un vector.</p>
+
+				<p>En el ámbito del aprendizaje automático, un vector es una lista ordenada de números que representa datos de cualquier tipo, incluso no estructurados, como documentos de texto, imágenes, audios o vídeos.</p>
+
+				<p>La cantidad de números que componen un vector se conoce como dimensión, y las bases de datos vectoriales manejan vectores de varios cientos de dimensiones. Por ejemplo, el modelo <a href="https://platform.openai.com/docs/guides/embeddings#how-to-get-embeddings" target="_blank" rel="noopener" title="How to get embeddings, por Open AI"><code>text-embedding-3-small</code></a> de OpenAI genera vectores de 1536 dimensiones.</p>
+
+				<p>1536 dimensiones conforman una lista de números muy grande. Si colocáramos uno aquí, lo más seguro es que abandonaras el post aburrido de hacer scroll. Así que, para un ejemplo más manejable, podemos mostrar la representación vectorial en 3 dimensiones de la palabra “amor”:</p>
+
+				<pre><code>[ 0.1234, -0.2567, 0.5432 ]</code></pre>
+
+				<h2>Embeddings</h2>
+
+				<p>Ahora que tenemos más claro lo que son los vectores, toca conocer cómo se almacenan en una base de datos vectorial. La forma de hacerlo es incrustándolos como puntos en un espacio multidimensional.</p>
+
+				<p>El número de dimensiones del espacio viene dado por la dimensionalidad de los vectores guardados. A mí, imaginar puntos distribuidos en 768, 1536 o 3072 dimensiones me resulta un poco complicado. Aunque quizás tú hayas visto <em>Interstellar</em> n veces y te sientas capaz de hacerlo. 😅</p>
+
+				<p>Si no es el caso, volvamos a nuestro ejemplo anterior. Como hemos representado “amor” con un vector de solo 3 dimensiones, este se dispondrá junto al resto de embeddings como un punto en un eje de coordenadas XYZ. Así es más fácil de visualizar, ¿verdad?</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-embeddings.png" alt="embeddings en un espacio multidimensional" width="768" loading="lazy">
+
+				<h2>Consultas</h2>
+
+				<p>Ahora que sabemos cómo se almacenan los datos en una base de datos vectorial, veamos cómo se realizan las consultas.</p>
+
+				<p>En primer lugar, la consulta se convierte en un embedding que puede ser comparado con el resto de vectores de la base de datos.</p>
+
+				<p>Dado que los embeddings son representaciones numéricas, es posible medir la distancia entre ellos utilizando distintas métricas matemáticas, entre las más comunes:</p>
+
+				<ul>
+					<li>Distancia euclidiana ( √Σ(xᵢ - yᵢ)² ): mide la distancia geométrica en un espacio multidimensional.</li>
+					<li>Similitud del coseno ( cosθ ): mide el ángulo entre dos vectores, indicando cuán similares son en dirección.</li>
+					<li>Distancia de Manhattan ( Σ |xᵢ - yᵢ| ): calcula la suma de las diferencias absolutas entre cada coordenada.</li>
+				</ul>
+
+				<p>Las bases de datos vectoriales emplean algoritmos como <code>k-NN</code> (k-Nearest Neighbors) y <code>ANN</code> (Approximate Nearest Neighbors) que utilizan esta métricas para devolver los vectores más cercanos al de la consulta.</p>
+
+				<p>Esta forma de trabajar permite realizar búsquedas eficientes en grandes volúmenes de datos, ya que no es necesario analizar el contenido interno de cada vector, basta simplemente con comparar sus posiciones dentro del espacio multidimensional.</p>
+
+				<p>Aunque la eficiencia en las consultas es muy importante, la característica fundamental de las bases de datos vectoriales es su capacidad para encontrar los vectores más cercanos a la consulta, proceso conocido como búsqueda por similitud.</p>
+
+				<h2>Importancia de la búsqueda por similitud</h2>
+
+				<p>Pero, ¿por qué es tan importante la búsqueda por similitud? Para entenderlo bien, tenemos que volver al punto inicial: la transformación de los datos en vectores, también conocida como embedding.</p>
+
+				<p>Quien se encarga de generar los embeddings no es la propia base de datos, sino un modelo de lenguaje especializado, llamado modelo de embedding. Estos modelos no hacen una simple traducción numérica de los datos, sino que encapsulan su semántica y contexto.</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/vectorstores-semantic-similarity.png" alt="embeddings próximos semánticamente" width="768" loading="lazy">
+
+				<p>Y aquí es donde encontramos la clave para comprender la importancia de este tipo de búsqueda. Las búsquedas por similitud no solo identifican elementos cercanos en términos numéricos, sino que capturan similitudes semánticas, permitiendo a los LLMs reconocer relaciones profundas dentro de los datos almacenados.</p>
+
+				<p>En definitiva, las bases de datos vectoriales no solo facilitan el acceso a la información, sino que amplían la capacidad de los LLMs para interpretar y aprovechar el conocimiento disponible. ¡<a href="https://www.youtube.com/watch?v=WnTKllDbu5o" target="_blank" rel="noopener" title="input, more input!">Lo que hubiese dado Stephanie por tener una en 1986</a>!</p>

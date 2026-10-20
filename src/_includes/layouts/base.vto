@@ -1,0 +1,48 @@
+{{- set t = i18n[lang] -}}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+
+{{ include "partials/head-metas.vto" }}
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+	<link rel="manifest" href="/img/icons/site.webmanifest">
+	<link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#0000ff">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#00000B">
+
+	<!-- CSS -->
+	{{- if type === "post" }}
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+	{{- /if }}
+	<link href="/css/styles.css" rel="stylesheet">
+	{{- if it.feed }}
+	<link rel="alternate" type="application/rss+xml" title="{{ fullTitle ?? `${title} - ${site.author}` }}" href="{{ feed }}">
+	{{- /if }}
+
+</head>
+<body class="body{{ if variant === 'blog' }} blog{{ /if }}">
+
+	<article{{ if type === "post" }} class="c-post"{{ /if }}>
+
+{{ include "partials/header.vto" }}
+
+{{ content }}
+
+{{ include "partials/footer.vto" }}
+
+	</article>
+
+	<!-- JavaScript -->
+	{{- if type === "post" }}
+	<script src="/js/markdown-converter.js"></script>
+	{{- /if }}
+	<script src="/js/application.min.js" defer></script>
+
+</body>
+</html>

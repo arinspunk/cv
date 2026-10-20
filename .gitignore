@@ -4,3 +4,4 @@ package-lock.json
 package.json
 cv-pdf/
 *.psd
+_site/

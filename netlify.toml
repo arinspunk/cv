@@ -1,0 +1,9 @@
+# Build del sitio con Lume (D12). Tiene prioridad sobre la configuración de la UI
+# de Netlify, tanto en producción como en las deploy previews.
+[build]
+  command = "curl -fsSL https://deno.land/install.sh | sh -s -- -y --no-modify-path v$DENO_VERSION && $DENO_INSTALL/bin/deno task build"
+  publish = "_site"
+
+[build.environment]
+  DENO_VERSION = "2.9.5"
+  DENO_INSTALL = "/opt/buildhome/.deno"

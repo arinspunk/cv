@@ -1,0 +1,160 @@
+---
+id: guia-integrar-figma-con-ia
+lang: en
+url: /en/blog/guide-integrate-figma-with-ai.html
+title: "Guide: integrating Figma into AI workflows"
+description: "Learn how to integrate Figma into your AI workflows with the Figma API, Dev Mode MCP Server, and Claude Talk to Figma MCP. A guide for development and design teams."
+image: /img/ex-machina-og.jpg
+date: 2025-07-24
+---
+                <img class="c-post__body-img" src="https://xulioze.com/img/ex-machina.jpg" alt="Ava shows her drawing" width="768" loading="lazy">
+
+                <h2>Purpose</h2>
+                <p>Allow LLMs to:</p>
+                <ul>
+                    <li>Analyze and modify designs in Figma.</li>
+                    <li>Generate code from them.</li>
+                </ul>
+
+                <h2>Who is it for</h2>
+                <p>UX/UI teams who want to automate accessibility audits, perform synthetic user tests, and iterate on designs based on automated feedback.</p>
+                <p>Frontend teams who need to speed up the translation of designs into code, especially when working with component systems and modern frameworks.</p>
+                <p>Backend/DevOps teams developing automated workflows and AI agents that require integrating Figma design analysis and code generation from them.</p>
+                <p>Multidisciplinary teams looking to reduce friction in the design-to-development handoff, keeping each team in their usual tools.</p>
+
+                <h2>Tools</h2>
+                
+				<div class="c-post__table">
+					<table>
+						<thead>
+							<tr>
+								<th>Tool</th>
+								<th>Functionality</th>
+								<th>Recommended Use</th>
+								<th>Target Team</th>
+								<th>Usage Environment</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<a href="#figma-api" title="Figma API">Figma API</a>
+								</td>
+								<td>
+									Design analysis + code generation
+								</td>
+								<td>
+									Integration of Figma in AI agent workflows
+								</td>
+								<td>
+									Backend teams developing AI agent workflows
+								</td>
+								<td>
+									ADK, Crew AI, LangGraph, etc.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="#dev-mode-mcp-server" title="Dev Mode MCP Server">Dev Mode MCP Server</a>
+								</td>
+								<td>
+									Design analysis + code generation
+								</td>
+								<td>
+									Code generation from Figma designs
+								</td>
+								<td>
+									Frontend teams
+								</td>
+								<td>
+									Cursor, VS Code + Github Copilot, Windsurf, Claude Code, etc.
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="#claude-talk-to-figma-mcp" title="Claude Talk to Figma MCP">Claude Talk to Figma MCP</a>
+								</td>
+								<td>
+									Design analysis and modification
+								</td>
+								<td>
+									User tests (synthetic), accessibility and SEO audits, and design modification
+								</td>
+								<td>
+									UX/UI teams
+								</td>
+								<td>
+									Claude
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                
+                <h3 id="figma-api">Figma API</h3>
+                <h4>Requirements</h4>
+                <ul>
+                    <li>Figma account</li>
+                    <li>Generate an <a href="https://www.figma.com/developers/api#access-tokens" target="_blank" rel="noopener" title="'Access tokens' in Figma documentation">access token</a> or use <a href="https://www.figma.com/developers/api#oauth2" target="_blank" rel="noopener" title="'OAuth 2' in Figma documentation">OAuth 2</a></li>
+                </ul>
+                <h4>Description</h4>
+                <p>It is the simplest way for an LLM to analyze a design.</p>
+                <p>The Figma API allows building endpoints to request files, images, file versions, users, comments, team projects, and project files. It returns a JSON that we can pass to the LLM for interpretation.</p>
+                <p>Unlike MCPs, we do not need to have Figma Desktop open for an agent to analyze a design. This makes it the ideal method for integrating Figma into AI agent workflows.</p>
+                <h4>Installation</h4>
+                <p>As it is an API, not an MCP, there is no installation as such. We can see how it works with a simple test with Cursor or VS Code:</p>
+                <ol>
+                    <li><a href="https://www.figma.com/developers/api#access-tokens" target="_blank" rel="noopener" title="'Access tokens' in Figma documentation">Create a token</a>.</li>
+                    <li>Tell your agent to analyze a design in Figma by running <a href="https://www.figma.com/developers/api#get-file-nodes-endpoint" target="_blank" rel="noopener" title="'GET file nodes' in Figma documentation">a curl request to an endpoint</a>.</li>
+                </ol>
+                <p>For example, for the following URL of a design node:</p>
+<pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">https://www.figma.com/design/XG1EYHLnC7NdwGuYc7LmUf/MVC---WEB?node-id=6037-2235&t=AHpchSRAIyGCdoci-0</code></pre>
+                <p>tell it to use:</p>
+<pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">curl -H 'X-FIGMA-TOKEN: {your personal access token}'
+'https://api.figma.com/v1/files/XG1EYHLnC7NdwGuYc7LmUf/nodes?ids=6037-2235'</code></pre>
+                <p>Upon receiving the prompt, the agent will execute the curl request and get a JSON with the design parameters. Then it will analyze it and generate a text with the content of its analysis.</p>
+                
+                <h3 id="dev-mode-mcp-server">Dev Mode MCP Server</h3>
+                <h4>Requirements</h4>
+                <ul>
+                    <li><a href="https://help.figma.com/hc/en-us/articles/27468498501527-Updates-to-Figma-s-pricing-seats-and-billing-experience#h_01JCPBM8X2MBEXTABDM92HWZG4" target="_blank" rel="noopener" title="descriptions of Figma 'seats'">Dev or Full seat</a> on the <a href="https://help.figma.com/hc/en-us/articles/360040328273-Figma-plans-and-features" target="_blank" rel="noopener" title="Figma plans and features">Professional, Organization, or Enterprise plans</a>.</li>
+                    <li>A code editor or application that supports MCP Servers (<a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank" rel="noopener" title="GitHub Copilot in VS Code">VS Code</a>, <a href="https://www.cursor.com/" target="_blank" rel="noopener" title="Cursor official page">Cursor</a>, <a href="https://windsurf.dev/" target="_blank" rel="noopener" title="Windsurf official page">Windsurf</a>, <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener" title="Claude Code official page">Claude Code</a>).</li>
+                    <li><a href="https://www.figma.com/downloads/" target="_blank" rel="noopener" title="Figma Downloads">Figma Desktop App</a></li>
+                </ul>
+                <h4>Description</h4>
+                <p>This is the official Figma MCP server.</p>
+                <p>It enables several analysis tools (5 at the time of this post's publication) that agents can use to generate code from a design.</p>
+                <p>The tools that allow "viewing" a design are <code>get_code</code> and <code>get_image</code>. Unlike the Figma API, <code>get_code</code> does not return a JSON with the design data, but a translation of the design to React that Dev Mode generates on the fly.</p>
+                <p>This makes it easier for the LLM to generate code even if it's not React, as the distance between React and another framework/language is smaller than between the JSON information and our framework/language.</p>
+                <p><code>get_image</code> creates a screenshot of the selected design and supports the agent when generating code.</p>
+                <h4>Installation</h4>
+                <ol>
+                    <li><a href="https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server#h_01K25F7RBP00A3VH1733692QN2" target="_blank" rel="noopener" title="Step 1: Enable the MCP Server">Activation in Figma Desktop App</a></li>
+                    <li><a href="https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server#h_01K25F7RBRZKCATVJHNXCS6KXW" target="_blank" rel="noopener" title="Step 2: Set up your MCP client">Installation in our code editor</a> (Cursor, VS Code, Windsurf, Claude Code, Others)</li>
+                </ol>
+
+                <h3 id="claude-talk-to-figma-mcp">Claude Talk to Figma MCP</h3>
+                <h4>Requirements</h4>
+                <ul>
+                    <li><a href="https://claude.ai/download" target="_blank" rel="noopener" title="Claude Desktop download page">Claude Desktop</a></li>
+                    <li><a href="https://www.figma.com/downloads/" target="_blank" rel="noopener" title="Figma Downloads">Figma Desktop</a></li>
+                    <li><a href="https://bun.sh/" target="_blank" rel="noopener" title="Bun official page">Bun</a> installed</li>
+                </ul>
+                <h4>Description</h4>
+                <p>Open source MCP server.</p>
+                <p>It enables a wide set of tools (43 at the time of this post's publication) that allow agents to analyze and also modify designs in Figma.</p>
+                <p>The tools that allow "viewing" a design return a JSON with its data. This allows LLMs to analyze it through "thinking aloud", critical evaluation, user testing, accessibility audit, SEO audit, etc.</p>
+                <p>With the modification tools, the LLM can then apply the changes proposed in the analysis.</p>
+                <h4>Installation</h4>
+                <p>Follow the instructions in the <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/tree/main?tab=readme-ov-file#-installation" target="_blank" rel="noopener" title="Claude Talk to Figma MCP Installation">official documentation</a>.</p>
+                
+                <h2>Share your experience</h2>
+                <p>If you are already integrating Figma into your AI workflow, either with these or other tools, I would love to hear about your experience:</p>
+                <ul>
+                    <li>How the installation went.</li>
+					<li>Experiments and discoveries.</li>
+                    <li>Real use cases.</li>
+                    <li>Results obtained.</li>
+                </ul>
+                <p>The AI + design/development ecosystem is constantly evolving and best practices emerge from the collective experience of those who implement them in real projects ✊</p>
+                <p>If you haven't done it yet, dare to try one of the tools in this post. If you get stuck, you can write to me on my <a href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="LinkedIn Profile">LinkedIn profile</a> 😉</p>

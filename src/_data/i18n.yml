@@ -1,0 +1,70 @@
+# Textos por idioma del header, el footer, los avisos y la cabecera del post (D5).
+# `langTitle`, `langLabel` y `message` se usan en los enlaces que apuntan a ese
+# idioma, así que están escritos en él.
+
+# Orden de los enlaces de idioma en el header y de los avisos del post
+headerLanguages: [pt, es, en]
+messageLanguages: [es, en, pt]
+
+es:
+  langTitle: Versión en español
+  langLabel: Es
+  message: 🦀 Puedes leer este post en <span>español</span>.
+  cvUrl: /
+  blogUrl: /blog.html
+  logoTitle: volver a mi CV
+  cvTitle: mi currículum
+  blogTitle: aquí hablo de cosas
+  blogLabel: Blog
+  linkedinTitle: Escríbeme en LinkedIn
+  linkedinLabel: ¿Hablamos?
+  githubFooterTitle: Mis repositorios
+  emailFooterTitle: Mi email
+  linkedinFooterTitle: Perfil de LinkedIn
+  downloadText: 🤖 Si quieres que tu IA lea este post,
+  downloadLink: descárgaselo como markdown
+  datePrefix: Publicado el
+  copyLabel: Copiar código
+  readPost: leer el artículo
+
+en:
+  langTitle: English version
+  langLabel: En
+  message: 🦑 You can read this post in <span>english</span>.
+  cvUrl: /en/cv.html
+  blogUrl: /en/blog.html
+  logoTitle: return to my CV
+  cvTitle: my CV
+  blogTitle: here I talk about things
+  blogLabel: Blog
+  linkedinTitle: I'm in LinkedIn :)
+  linkedinLabel: Let's talk?
+  githubFooterTitle: My repository
+  emailFooterTitle: write me
+  linkedinFooterTitle: My profile on LinkedIn
+  downloadText: 🤖 If you want your AI to read this post,
+  downloadLink: download it as markdown
+  datePrefix: Published on
+  copyLabel: Copy code
+  readPost: read the post
+
+pt:
+  langTitle: Versão em português
+  langLabel: Pt
+  message: 🐙 Podes ler este post em <span>português</span>.
+  cvUrl: /pt/cv.html
+  blogUrl: /pt/blogue.html
+  logoTitle: voltar ao meu CV
+  cvTitle: o meu curriculum
+  blogTitle: aqui falo de cousas
+  blogLabel: Blogue
+  linkedinTitle: Estou no LinkedIn :)
+  linkedinLabel: Falamos?
+  githubFooterTitle: Os meus repositórios
+  emailFooterTitle: O meu email
+  linkedinFooterTitle: Perfil de LinkedIn
+  downloadText: 🤖 Se queres que a tua IA leia este post,
+  downloadLink: descarrega-o como markdown
+  datePrefix: Publicado a
+  copyLabel: Copiar código
+  readPost: lêr o artigo
