@@ -14,6 +14,7 @@
   <link rel="manifest" href="../../img/icons/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
   <link href="../../css/styles.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/atproto-comments@1.1.0/dist/atproto-comments.css" rel="stylesheet">
 </head>
 <body class="body blog">
   <article class="c-post">
@@ -67,8 +68,6 @@
 
         <p>E pronto: as respostas a esse post aparecem como comentários no teu artigo. Além disso, se um visitante com conta numa app do AT Protocol quiser comentar, escolhe a sua app e é redirecionado para o post.</p>
 
-        <p>{web component aqui}</p>
-
         <p>O objetivo é duplo. Por um lado, oferecer um sistema de comentários fácil de integrar, sem base de dados própria e sem depender de plataformas como o Disqus. Por outro, trazer para o teu site as conversas que hoje ficam fechadas dentro das redes sociais.</p>
 
         <p>Se não conheces o AT Protocol, continua a ler. Vou-che contar o caminho que segui até o conhecer e entender, porque tenho a intuição de que vai ser mais útil do que uma definição de manual.</p>
@@ -97,6 +96,11 @@
         </ul>
 
         <p>No fundo, é a mesma ideia daquela época dourada dos blogues: os dados são teus e podes lê-los, publicá-los e levá-los para onde quiseres. O atproto-comments é só uma pequena peça mais nesse puzzle. Experimenta-o e, se o usares no teu site, conta-mo respondendo ao post deste artigo: o teu comentário vai aparecer aqui em baixo.</p>
+
+        <atproto-comments
+          thread-uri="at://did:plc:ooensn4mr5mhznzypvxelfa3/app.bsky.feed.post/3mnyoeuenq225"
+          style="color-scheme: dark; --atproto-font-family: inherit; --atproto-font-size: 1rem; --atproto-color-muted: oklch(70% 0 0); --atproto-color-border: oklch(40% 0 0); --atproto-color-surface: #1c1c3d;"
+        ></atproto-comments>
       </div>
     </section>
     
@@ -121,5 +125,6 @@
   </article>
   <script src="../../js/markdown-converter.js" defer></script>
   <script src="../../js/application.min.js" defer></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/atproto-comments@1.1.0/dist/index.js"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@
   <link rel="manifest" href="../img/icons/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
   <link href="../css/styles.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/atproto-comments@1.1.0/dist/atproto-comments.css" rel="stylesheet">
 </head>
 <body class="body blog">
   <article class="c-post">
@@ -67,8 +68,6 @@
 
         <p>Y listo: las respuestas a ese post aparecen como comentarios en tu artículo. Además, si un visitante con cuenta en una app del AT Protocol quiere comentar, elige su app y se le redirige al post.</p>
 
-        <p>{web component aquí}</p>
-
         <p>El objetivo es doble. Por un lado, ofrecer un sistema de comentarios fácil de integrar, sin base de datos propia y sin depender de plataformas como Disqus. Por otro, traer a tu web las conversaciones que hoy se quedan encerradas dentro de las redes sociales.</p>
 
         <p>Si no conoces el AT Protocol, sigue leyendo. Te voy a contar el camino que seguí hasta conocerlo y entenderlo, porque tengo la intuición de que te será más útil que una definición de manual.</p>
@@ -97,6 +96,12 @@
         </ul>
 
         <p>En el fondo, es la misma idea de aquella época dorada de los blogs: los datos son tuyos y puedes leerlos, publicarlos y llevártelos adonde quieras. atproto-comments es solo una pequeña pieza más de ese puzle. Pruébalo y, si lo usas en tu web, cuéntamelo respondiendo al post de este artículo: tu comentario aparecerá aquí abajo.</p>
+
+        <atproto-comments
+          thread-uri="at://did:plc:ooensn4mr5mhznzypvxelfa3/app.bsky.feed.post/3mnyoeuenq225"
+          strings='{"comment":"Comentar","reply":"Responder","replyTo":"Responder a {name}","otherApp":"Otra app","invalidDomain":"Dominio no válido","error":"No se han podido cargar los comentarios.","viewMore":"Ver más en Bluesky","now":"ahora","months":"mes"}'
+          style="color-scheme: dark; --atproto-font-family: inherit; --atproto-font-size: 1rem; --atproto-color-muted: oklch(70% 0 0); --atproto-color-border: oklch(40% 0 0); --atproto-color-surface: #1c1c3d;"
+        ></atproto-comments>
       </div>
     </section>
     
@@ -121,5 +126,6 @@
   </article>
   <script src="../js/markdown-converter.js" defer></script>
   <script src="../js/application.min.js" defer></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/atproto-comments@1.1.0/dist/index.js"></script>
 </body>
 </html>

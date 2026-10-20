@@ -14,6 +14,7 @@
   <link rel="manifest" href="../../img/icons/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
   <link href="../../css/styles.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/atproto-comments@1.1.0/dist/atproto-comments.css" rel="stylesheet">
 </head>
 <body class="body blog">
   <article class="c-post">
@@ -67,8 +68,6 @@
 
         <p>And that's it: the replies to that post show up as comments on your article. What's more, if a visitor with an account on an AT Protocol app wants to comment, they pick their app and get redirected to the post.</p>
 
-        <p>{web component here}</p>
-
         <p>The goal is twofold. On the one hand, to offer a comment system that's easy to integrate, with no database of your own and no reliance on platforms like Disqus. On the other, to bring to your website the conversations that today stay locked inside social networks.</p>
 
         <p>If you don't know the AT Protocol, keep reading. I'm going to tell you the path I followed until I got to know it and understand it, because I have a hunch it'll be more useful than a textbook definition.</p>
@@ -97,6 +96,11 @@
         </ul>
 
         <p>At heart, it's the same idea as that golden age of blogs: the data is yours, and you can read it, publish it and take it wherever you want. atproto-comments is just one more small piece of that puzzle. Give it a try and, if you use it on your website, let me know by replying to this article's post: your comment will show up right down here.</p>
+
+        <atproto-comments
+          thread-uri="at://did:plc:ooensn4mr5mhznzypvxelfa3/app.bsky.feed.post/3mnyoeuenq225"
+          style="color-scheme: dark; --atproto-font-family: inherit; --atproto-font-size: 1rem; --atproto-color-muted: oklch(70% 0 0); --atproto-color-border: oklch(40% 0 0); --atproto-color-surface: #1c1c3d;"
+        ></atproto-comments>
       </div>
     </section>
     
@@ -121,5 +125,6 @@
   </article>
   <script src="../../js/markdown-converter.js" defer></script>
   <script src="../../js/application.min.js" defer></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/atproto-comments@1.1.0/dist/index.js"></script>
 </body>
 </html>
