@@ -1,16 +1,17 @@
 # :bowtie: A simple personal site #
 
-Hi, this is the code of [my personal site](https://xulioze.com/). Really It's quite simple and it was made with HTML, CSS (SCSS) and some JavaScript, but inside it there are some features that maybe could interest you:
+Hi, this is the code of [my personal site](https://xulioze.com/): my CV and my blog, in Spanish, English and Portuguese. It's quite simple, made with HTML, CSS (SCSS) and some JavaScript, and generated with [Lume](https://lume.land/), but inside it there are some features that maybe could interest you:
 
 *  I've used [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (and its fallbacks).
 *  For the classes names I've followed [BEM methodology](http://getbem.com/).
 *  The CSS has been compiled under [ITCSS architecture](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/).
+*  New posts are plain Markdown files: the build turns them into pages with metas, language selector, copy buttons, RSS feeds and sitemap.
 
 So if you want to see the code, try it or reuse for another project, feel free to do it :wink:
 
 ## :tractor: How to run this ##
 
-The site is built with [Lume](https://lume.land/), a static site generator for [Deno](https://deno.com/). Templates, metas, the language selector, the blog indices, `sitemap.xml` and the RSS feeds are generated; the SCSS is compiled in the same build.
+It's not so old school anymore :grimacing: The site is built with [Lume](https://lume.land/), a static site generator for [Deno](https://deno.com/). Templates, metas, the language selector, the blog indices, `sitemap.xml` and the RSS feeds are generated; the SCSS is compiled in the same build.
 
 1.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) (2.x):
 
@@ -28,19 +29,20 @@ The site is built with [Lume](https://lume.land/), a static site generator for [
 
     The site is served at `http://localhost:3000` and rebuilt on every change.
 
-### Tasks ###
+### :gear: Tasks ###
 
 | Command | What it does |
 |---|---|
 | `deno task serve` | Development server with live reload. |
 | `deno task build` | Builds the site into `_site/` (the folder Netlify publishes). Fails, naming the file, if a post has an invalid front matter. |
 | `LUME_DRAFTS=true deno task build` | Same, including the posts with `draft: true`. |
-| `deno task compare` | Compares `_site/` with the site before the migration (git tag `pre-lume`) and fails on any unexpected difference. Run it after `deno task build`, not while `serve` is running (`serve` rewrites `_site/` with `localhost` URLs). |
+| `deno task compare` | Checks the migration to Lume: compares `_site/` with the hand-written site (git tag `pre-lume`) and fails on any unexpected difference. Only useful when touching the layouts or the old posts. Run it after `deno task build`, not while `serve` is running (`serve` rewrites `_site/` with `localhost` URLs). |
 
-### Structure ###
+### :file_folder: Structure ###
 
 ```
 _config.ts            Lume configuration: plugins, post components, front matter validation
+netlify.toml          Netlify build: pinned Deno version, `deno task build`, publishes _site/
 src/
   _data/
     site.yml          author and default social image
@@ -55,8 +57,9 @@ src/
   scss/               Sass partials (ITCSS)
   vendor/             atproto-comments web component, bundled from JSR
   img/ fonts/ js/ favicon.ico humans.txt robots.txt
-scripts/              compare.ts and migrate-posts.ts
+scripts/              compare.ts and migrate-posts.ts (tools used for the migration to Lume)
 drafts/               drafts that are not published
+design/               design source files (.psd), not published
 ```
 
 ## :pencil2: How to write a post ##
@@ -96,7 +99,7 @@ What the build does for you:
 *  To show AT Protocol comments, paste the element in the post: `<atproto-comments thread-uri="at://…"></atproto-comments>`. Its JS and CSS are added only to that post.
 *  The post appears in the blog index, the RSS feed and `sitemap.xml` of its language.
 
-### Translating a post with Claude Desktop ###
+### :speech_balloon: Translating a post with Claude Desktop ###
 
 Write the Spanish version and ask for each translation with this prompt (change the language and the URL prefix):
 
@@ -118,21 +121,17 @@ Answer only with the complete Markdown file, front matter included.
 
 For Portuguese: `lang: pt` and `url: /pt/blogue/<slug>.html`. Save the results as `en.md` and `pt.md` next to `es.md`.
 
+## :rocket: How it's deployed ##
+
+[Netlify](https://www.netlify.com/) builds and publishes the site on every push to `main`, following `netlify.toml`: it installs Deno, runs `deno task build` and publishes `_site/`. Every pull request gets a deploy preview with the same build. If a build fails (an invalid front matter, for example), nothing is published.
+
 ## :mage: How to minify the JS ##
 
-https://www.npmjs.com/package/uglify-js
+The JavaScript in `src/js/` is copied as it is, so after changing `application.js` its minified version has to be regenerated with [UglifyJS](https://www.npmjs.com/package/uglify-js). Deno runs it straight from npm, nothing to install:
 
-1.  Install uglifyjs
-
-    ```
-    npm install uglify-js -g
-    ```
-
-2.  Command line usage
-
-    ```
-    uglifyjs --compress --mangle -- js/application.js
-    ```
+```sh
+deno run -A npm:uglify-js@3.19.3 src/js/application.js --compress --mangle -o src/js/application.min.js
+```
 
 ## :copyright: Licenses ##
 
