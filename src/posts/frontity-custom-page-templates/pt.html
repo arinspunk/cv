@@ -1,0 +1,90 @@
+---
+id: frontity-custom-page-templates
+lang: pt
+url: /pt/blogue/frontity-custom-page-templates.html
+title: "Custom Page Templates em Frontity? Vigentes e muito simples"
+description: "Como criar Custom Page Templates no Wordpress e desenvolver os seus layouts em Frontity"
+image: /img/xulio-ze-frontity.png
+date: 2022-02-03
+---
+				<p>
+					As <a href="https://developer.wordpress.org/themes/template-files-section/page-template-files/#creating-custom-page-templates-for-global-use" title="documentación oficial de Wordpress" target="_blank" rel="noopener">Custom Page Templates</a> são o mecanismo do que dispomos em Wordpress para criarmos templates globais com designs específicos que podem se aplicar a uma ou mais páginas.
+				</p>
+				<p>
+					Por exemplo, se num site precisamos de dous tipos de página: uma a uma coluna e outra com duas (conteúdo principal y coluna lateral), uma boa opção é usarmos a página por defeito, <code>page.php</code>, para a primeira e criarmos um template, <code>sidebar-page.php</code>, para a segunda. Deste jeito, para cada nova página, podemos eleger um ou outro layout desde o editor.
+				</p>
+				<p>
+					E em <a href="https://frontity.org/" title="Site del framework" target="_blank" rel="noopener">Frontity</a>, onde o frontend não se gera com os templates em php do theme de Wordpress senão desde uma app em React? Pois as Custom Page Templates continuam a ser a melhor opção para trabalharmos com múltiples designs de página porque permitem:
+				</p>
+				<ul>
+					<li>
+						selecionar o design desejado desde o editor duma página,
+					</li>
+					<li>
+						atribuir-lhes grupos de campos <a href="https://www.advancedcustomfields.com/" title="página oficial del plugin" target="_blank" rel="noopener">ACF</a>, extendendo as posibilidades de edição,
+					</li>
+					<li>
+						que na REST API (e no <a href="https://gitbook-docs.frontity.org/learning-frontity/state" title="Descripción en la documentación de Frontity" target="_blank" rel="noopener">state</a> de Frontity) apareça o nome do arqivo do template atribuido a uma página, facilitando a Frontity servir o layout correcto em cada caso.
+					</li>
+				</ul>
+				<p>
+					Vejamos agora o processo completo com um exemplo singelo.
+				</p>
+				<h2>
+					Wordpress
+				</h2>
+				<p>
+					Criamos um arquivo php, <code>custom-page-template.php</code> por exemplo, com um comentário ao início como o seguinte:
+				</p>
+				<script src="https://gist.github.com/arinspunk/c1c7b8d374b0608a64a4f4e63cbb4448.js"></script>
+				<p>
+					“Template name:” é quem lhe indica ao Wordpress que esse ficheiro é uma page template e “My Custom Page Template Name” o nome do nosso novo template, que aparecerá no seletor de templates do editor de cada página.
+				</p>
+				<p>
+					¿Algo mais a fazer? não, isso é tudo na parte do Wordpress 😎
+				</p>
+				<p>
+					Bom, para evitarmos erros (e alguma dor de cabeça) devemos ter en conta que:
+				</p>
+				<ul>
+					<li>
+						As templates personalizadas só funcionan se temos um <code>index.php</code> (pode estar vazio) na raiz do nosso theme de Wordpress,
+					</li>
+					<li>
+						nunca devemos usar <code>page-</code> como prefixo no nome do arquivo, pois o WordPress irá interpretá-lo como uma template especializada destinada a ser aplicada apenas a uma página do site.
+					</li>
+				</ul>
+				<h2>
+					Frontity
+				</h2>
+				<p>
+					Criamos três componentes:
+				</p>
+				<ol>
+					<li>
+						<code>
+							Page
+						</code>
+					</li>
+					<li>
+						<code>
+							PageDefault
+						</code>
+					</li>
+					<li>
+						<code>
+							PageTemplate
+						</code>
+					</li>
+				</ol>
+				<p>
+					No primeiro incluímos um <code>Switch</code> que chama o segundo, <code>PageDefault</code>, ou o terceiro, <code>PageTemplate</code>, em função do valor da propiedade <code>template</code> que aparece nos dados da página do state do Frontity. Se a página publicada em Wordpress utilizar a template da página padrão, este valor chegará vazio e se utilizar uma custom, virá com o nome do ficheiro da template, <code>custom-page-template.php</code> no nosso caso.
+				</p>
+				<script src="https://gist.github.com/arinspunk/dbe49b71f4ab06ad1b872beb0b02d53d.js"></script>
+				<p>
+					E finalmente, na segunda e terceira, incluímos os layouts de ambos os tipos de página.
+				</p>
+				<p>
+					Simples, não é? 
+				</p>
+				<p>Se tiverdes alguma pergunta, achais que há margem para melhorias ou quererdes apenas dizer olá, podeis escrever-me para <a href="mailto:hola@xulioze.com" title="mi email">hola@xulioze.com</a> 😋</p>

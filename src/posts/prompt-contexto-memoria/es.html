@@ -1,0 +1,38 @@
+---
+id: prompt-contexto-memoria
+lang: es
+url: /blog/prompt-contexto-memoria.html
+title: "Prompt, Contexto y memoria"
+description: "Los tres pilares fundamentales de cualquier interacción con modelos de lenguaje IA."
+image: /img/prompt-contexto-memoria-og.jpg
+date: 2025-06-25
+---
+				<p>Empecé a usar IA en mi trabajo como desarrollador de software hace algo más de 2 años. <a href="https://xulioze.com/blog/construir-pwa-con-chatgpt.html" title="Mi experiencia inicial con ChatGPT para construir una PWA">Con ChatGPT y de manera tosca</a>, igual que la mayoría, imagino 😅</p>
+
+				<p>A lo largo de este tiempo <a href="https://xulioze.com/blog/como-hablar-con-chatgpt.html" title="Guía sobre cómo comunicarse efectivamente con ChatGPT">refiné mi conversación con LLMs</a>, comencé a usar asistentes de código (GitHub Copilot) y después asistentes con agentes (Cursor) e incluso desarrollé sistemas de agentes con frameworks como CrewAI. Pero no ha sido hasta ahora que he entendido de forma clara que cualquier interacción con modelos de lenguaje, <a href="https://xulioze.com/blog/desarrollo-con-ia.html" title="Reflexiones sobre el desarrollo de software con inteligencia artificial">no importa que herramienta usemos</a>, se resume en tres puntos fundamentales: prompt, contexto y memoria.</p>
+
+				<h2>Prompt</h2>
+
+				<p>A través del prompt creamos el experto que necesitamos para una determinada tarea, le indicamos qué hay que hacer y también qué no hay que hacer. Es el medio del que disponemos para alcanzar el resultado deseado.</p>
+
+				<p>Para escribir el prompt adecuado para cada tarea, tenemos la <a href="https://www.promptingguide.ai/es" title="Guía completa de ingeniería de prompts">ingeniería de prompts</a>. Conocer sus principales técnicas es importante, pero lo que de verdad hace que mejoremos, es la práctica continua con los LLMs, nuestra conversación con la IA.</p>
+
+				<h2>Contexto</h2>
+
+				<p>Los grandes modelos de lenguaje disponen de un vasto conocimiento, pero para determinadas tareas este no es suficiente. Proporcionarle contexto adicional se convierte en una necesidad ineludible.</p>
+
+				<p>Para dar contexto disponemos de diferentes vías, desde la simple inclusión de información relevante en el prompt, pasando por añadir documentos de referencia hasta <a href="https://www.anthropic.com/news/model-context-protocol" title="MCP explicado por Anthropic">el uso de MCPs</a> que permiten a los LLMs acceder al contenido de múltiples plataformas (Jira, Drive, etc.) y herramientas (<a href="https://xulioze.com/blog/claude-talk-to-figma-mcp.html" title="Cómo hacer que Claude se comunique con Figma usando MCP">Figma</a>, Draw.io, etc.).</p>
+
+				<h2>Memoria</h2>
+
+				<p>Los LLMs tienen la capacidad de recordar nuestras conversaciones, pero esta memoria tiene un límite (<a href="https://www.ibm.com/es-es/think/topics/context-window" title="Explicación sobre el límite de la ventana de contexto en LLMs">límite de la ventana de contexto</a>). Cuanto más compleja es la tarea a desarrollar, con mayor probabilidad superamos este límite y más necesario se hace extender la memoria del LLM.</p>
+
+				<p>Existen diferenetes técnicas para ampliar la memoria de los LLMs, algunas bastante sofisticadas como el uso de bases de datos clásicas y <a href="https://xulioze.com/blog/bases-datos-vectoriales-introduccion.html" title="Introducción a las bases de datos vectoriales">vectoriales</a>, pero la forma más sencilla de hacerlo es introduciendo en nuestras rutinas estrategias de <a href="https://xulioze.com/blog/contexto-extendido.html" title="Estrategias para extender el contexto y memoria de los LLMs">contexto/memoria extendida</a>.</p>
+
+				<img class="c-post__body-img" src="https://xulioze.com/img/prompt-contexto-memoria.jpg" alt="Frank y el robot hablando" width="900" height="383" loading="lazy">
+
+				<h2>En perspectiva</h2>
+
+				<p>Prompt, contexto y memoria. Es decir, las instrucciones correctas para lograr el objetivo deseado, la información necesaria para entender el proyecto y su objetivo, y el registro del trabajo completado (cuándo, cómo, dónde y por qué).</p>
+
+				<p>Si lo piensas por un momento, no es muy diferente de lo que los humanos necesitamos para desarrollar cualquier tarea compleja. Realmente cada vez que profundizamos en el uso de la IA nos encontramos con situaciones en las que vemos un paralelismo claro entre la forma en que los LLMs trabajan y la nuestra. No en vano estamos entrando en una era donde ya no "hablamos" con las máquinas a través de código, sino que hablamos con las máquinas de forma natural. <a href="https://www.youtube.com/watch?v=YBPOguI-AFI&ab_channel=ChandanDatta" target="_blank" rel="noopener" title="Conversación de Frank con su robot">Algo que Frank ya descubrió hace más de 10 años</a> 😎🤖.</p>

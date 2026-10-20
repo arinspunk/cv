@@ -1,0 +1,35 @@
+{
+  "imports": {
+    "lume/": "https://deno.land/x/lume@v3.2.5/"
+  },
+  "tasks": {
+    "lume": "deno run -A lume/cli.ts",
+    "build": "deno task lume",
+    "serve": "deno task lume -s",
+    "compare": "deno run --allow-read --allow-write --allow-run=git --allow-env --allow-net scripts/compare.ts"
+  },
+  "compilerOptions": {
+    "types": [
+      "lume/types.ts"
+    ]
+  },
+  "unstable": [
+    "fmt-component"
+  ],
+  "allowScripts": {
+    "deny": [
+      "npm:sharp",
+      "npm:@parcel/watcher"
+    ]
+  },
+  "lint": {
+    "plugins": [
+      "https://deno.land/x/lume@v3.2.5/lint.ts"
+    ],
+    "rules": {
+      "exclude": [
+        "no-import-prefix"
+      ]
+    }
+  }
+}

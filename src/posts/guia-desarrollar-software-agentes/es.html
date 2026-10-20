@@ -1,0 +1,287 @@
+---
+id: guia-desarrollar-software-agentes
+lang: es
+url: /blog/guia-desarrollar-software-agentes.html
+title: "Guía: desarrollar software de calidad asistido por agentes de IA"
+description: "Una guía completa para implementar estrategias de contexto extendido que permiten desarrollar proyectos complejos con agentes IA manteniendo coherencia y calidad."
+image: /img/extended-context-og.jpg
+date: 2025-05-25
+---
+				<img class="c-post__body-img" src="https://xulioze.com/img/extended-context-guide.jpg" alt="pantalla con notas"  width="900" height="383" loading="lazy">
+
+				<p>Esta guía es una versión mejorada de la que propuse inicialmente en "<a href="contexto-extendido.html" title="Contexto extendido. Los agentes también necesitan tomar notas">Contexto extendido. Los agentes también necesitan tomar notas</a>".</p>
+
+				<p>Su propósito es implementar una estrategia que nos permite desarrollar proyectos complejos asistidos por agentes sin perder la coherencia y calidad del código generado.</p>
+
+				<p>Su redacción está orientada para su uso con herramientas como Cursor o GitHub Copilot, pero se puede adaptar de forma simple a muchas otras.</p>
+
+				<h2>Estructura del Sistema de Contexto</h2>
+
+				<p>Para implementar esta estrategia, creamos una carpeta <code>context/</code> en la raíz del proyecto con la siguiente estructura:</p>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">context/
+├── 01-expert.md      # Definición de experto sintético
+├── 02-analysis.md    # Análisis del código existente (vacío)
+├── 03-plan.md        # Plan maestro de desarrollo (vacío)
+└── 04-backlog.md     # Tareas desglosadas y su estado (vacío)</code></pre>
+
+				<h2>Paso 1: Definición del Experto Sintético</h2>
+
+				<p>El primer paso consiste en definir un "experto sintético": un rol específico con competencias y restricciones claras que guiará al agente de IA durante todo el desarrollo.</p>
+
+				<h3>Prompt para el agente:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Lee el archivo `context/01-expert.md` para entender tu rol en el proyecto.
+
+No generes código hasta recibir requisitos específicos.</code></pre>				
+
+				<h3>Ejemplo de contenido para <code>context/01-expert.md</code>:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code"># SUDO: Actúa como un Experto Senior en Desarrollo Frontend especializado en HTML5, CSS3/SCSS y JavaScript ES6+.
+
+## ROL
+Desarrollador Frontend Senior (10+ años) experto en HTML5 semántico, CSS3/SCSS avanzado con metodologías BEM e ITCSS, y JavaScript ES6+ moderno, con enfoque en arquitectura de componentes, rendimiento y accesibilidad.
+
+## COMPETENCIAS_TÉCNICAS
+
+- HTML5 semántico y accesibilidad (ARIA, WCAG 2.1)
+- CSS3 avanzado (Grid, Flexbox, animaciones, propiedades personalizadas)
+- SCSS/Sass con arquitectura ITCSS (Triángulo Invertido CSS)
+- Metodología BEM estricta (Bloque__Elemento--Modificador)
+- JavaScript ES6+ (async/await, módulos, destructuring, clases)
+- Gestión de estado y arquitectura de componentes
+- Optimización de rendimiento web (Core Web Vitals)
+- Testing unitario y de integración
+- Herramientas de construcción modernas (Vite, Webpack)
+
+## PRINCIPIOS_DE_TRABAJO
+
+- Código limpio y mantenible siguiendo principios SOLID
+- Documentación clara y concisa
+- Enfoque mobile-first y responsive
+- Mejora progresiva
+- Semántica antes que presentación
+
+## RESTRICCIONES
+
+- Evitar jQuery y librerías legacy salvo requerimiento específico
+- Mantener compatibilidad con navegadores modernos (últimas 2 versiones)
+- Priorizar soluciones nativas sobre dependencias externas
+- No generar código hasta recibir requisitos específicos</code></pre>
+
+				<p>⚠️ Importante: La última restricción ("No generar código hasta recibir requisitos específicos") es fundamental, los modelos son muy proactivos 😅</p>
+
+				<h2>Paso 2: Análisis del Código del Proyecto</h2>
+
+				<p>Este paso solo es necesario para proyectos existentes. Si estás empezando un proyecto desde cero, puedes omitirlo.</p>
+
+				<p>Ahora pedimos al agente que analice el código del proyecto y guarde su análisis en <code>context/02-analysis.md</code></p>
+
+				<h3>Prompt para el agente:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Analiza en profundidad el código actual del proyecto. Excluye la carpeta `context/` del análisis.
+
+Guarda el resultado del análisis en `context/02-analysis.md` con la siguiente estructura:
+- Resumen ejecutivo
+- Arquitectura actual
+- Tecnologías utilizadas
+- Patrones identificados
+- Áreas de mejora potencial
+- Dependencias críticas
+
+Al terminar, espera instrucciones adicionales sin realizar ninguna acción.</code></pre>
+
+				<p>⚠️ Importante: No dudes en iterar con el agente si no estás satisfecho con su primer análisis.</p>
+
+				<h2>Paso 3: Creación del Plan Maestro</h2>
+
+				<p>Una vez analizado el código, explicamos al agente qué queremos desarrollar y le pedimos que defina un plan maestro que debe guardarse en <code>context/03-plan.md</code></p>
+
+				<p>El plan maestro es el documento fundamental que guiará todo el desarrollo. Tómate el tiempo necesario para definir claramente los requisitos y objetivos.</p>
+
+				<h3>Prompt para el agente:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Basándote en los siguientes requisitos, crea un plan maestro detallado para el desarrollo:
+
+[REQUISITOS DEL PROYECTO]
+
+Necesito crear un servicio REST que procese imágenes por lotes. El servicio debe:
+
+- Recibir múltiples imágenes en una sola petición
+- Redimensionar imágenes según parámetros configurables
+- Comprimir y optimizar para web
+- Devolver imágenes procesadas en formato WebP
+- Implementar caché para optimizar recursos
+- Proporcionar endpoints para consultar estado de procesamiento
+
+Consideraciones técnicas:
+
+- Usar Bun por su rendimiento en operaciones intensivas
+- Evaluar compatibilidad con librerías de procesamiento de imágenes
+- Implementar procesamiento asíncrono para lotes grandes
+- Incluir validación robusta de entrada
+
+[FIN DE REQUISITOS]
+
+Crea un plan maestro estructurado y guárdalo en `context/03-plan.md`.
+
+Al terminar, espera instrucciones adicionales.</code></pre>
+
+				<p>⚠️ Importante: Continúa dialogando con el agente si ves que al plan le falta o le sobra algo.</p>
+
+				<h2>Paso 4: Creación del Backlog Detallado</h2>
+
+				<p>En este punto pedimos al agente que transforme el plan maestro en tareas ejecutables, lo más pequeñas y específicas posible. Tareas más granulares resultan en código de mayor calidad.</p>
+
+				<h3>Prompt para el agente:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Divide el plan maestro en tareas atómicas siguiendo estos criterios:
+
+- Descripción detallada de requisitos técnicos
+- Dependencias claramente identificadas
+
+Guarda la lista en `context/04-backlog.md` con esta estructura:
+
+# Backlog de Tareas - [Nombre del Proyecto]
+
+## Resumen del Proyecto
+[Breve descripción e implementación del plan en `context/03-plan.md`]
+
+## Estado de Tareas
+
+### FASE 1: [TÍTULO DE FASE]
+
+- **1.1** ⏳ [título de tarea]
+	- **Descripción detallada**:
+	- **Dependencias**:
+	- **Fecha**: 
+	- **Trabajo realizado**: 
+
+- **1.2** ⏳ [título de tarea]
+	- **Descripción detallada**:
+	- **Dependencias**:
+	- **Fecha**: 
+	- **Trabajo realizado**:
+
+### FASE 2: [TÍTULO DE FASE]
+[Continúa con el mismo formato...]
+
+## Leyenda de Estados
+- ⏳ Pendiente
+- 🔄 En progreso
+- ✅ Completada
+- ⚠️ Bloqueada
+
+## Notas y Dependencias
+[Información adicional relevante]
+
+## Seguimiento del Progreso
+- Tareas totales: 0
+- Tareas completadas: 0
+- Progreso: 0%
+
+Al terminar, espera instrucciones adicionales</code></pre>
+
+				<p>⚠️ Importante: Es necesario indicar al LLM la estructura de backlog que queremos, si no se vuelve creativo 😬</p>
+
+				<h2>Paso 5: Ejecución de Tareas</h2>
+
+				<p>Con el backlog definido, procedemos a ejecutar tareas de manera sistemática.</p>
+
+				<h3>Prompt para ejecutar una tarea:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Ejecuta la tarea 1.1 del backlog (`context/04-backlog.md`) siguiendo estrictamente su descripción.
+
+Contexto adicional disponible en:
+- `context/02-analysis.md` (si existe)
+- `context/03-plan.md`
+
+Requisitos de ejecución:
+- Usar herramientas del agente para crear archivos y carpetas (no la terminal)
+- Seguir convenciones establecidas en el prompt inicial
+- Documentar código según estándares definidos
+- No realizar acciones fuera del ámbito de la tarea
+
+Al completar:
+1. Actualizar estado de la tarea en `context/04-backlog.md`:
+	- Cambiar estado a ✅
+	- Añadir fecha de finalización
+	- Describir trabajo realizado
+	- Actualizar Seguimiento del Progreso
+2. Esperar instrucciones adicionales sin ejecutar más tareas</code></pre>
+
+				<p>⚠️ Importante: Es necesario pedir al LLM que no haga nada más de lo indicado en la tarea para evitar que se extralimite.</p>
+
+				<h2>Paso 6: Reinicio de Ventana de Contexto</h2>
+
+				<p>Para mantener la calidad y coherencia, es necesario reiniciar periódicamente la ventana de contexto.</p>
+
+				<p>Es evidente que debemos reiniciar la ventana de contexto cuando notemos que el agente empieza a "perder el norte". Pero el enfoque óptimo es no llegar nunca a este punto y abrir un chat nuevo:</p>
+
+				<ul>
+					<li>Cada 4-6 tareas completadas</li>
+					<li>Al cambiar de fase (el backlog de nuestro ejemplo está estructurado en fases que se dividen en tareas).</li>
+				</ul>
+
+				<h3>Prompt para reiniciar:</h3>
+
+				<pre class="c-post__prompt"><code class="c-post__prompt-code">Instrucciones iniciales:
+
+1. Lee `context/01-expert.md` para entender tu rol en este proyecto
+2. Lee `context/02-analysis.md` para conocer el estado actual del código
+3. Lee `context/03-plan.md` para entender los objetivos
+4. Lee `context/04-backlog.md` para ver el progreso y tareas pendientes
+
+Proporciona un breve resumen de:
+
+- Tu rol y competencias
+- Estado actual del proyecto
+- Próximas tareas a ejecutar
+
+Al terminar, espera instrucciones adicionales.</code></pre>
+
+				<h2>Automatización con Atajos</h2>
+
+				<p>Tanto GitHub Copilot como Cursor permiten crear atajos personalizados para prompts frecuentes:</p>
+
+				<h3>GitHub Copilot</h3>
+				<ul>
+					<li>
+						<a href="https://code.visualstudio.com/docs/copilot/copilot-customization#_instruction-files" target="_blank" rel="noopener" title="Custom instructions (VSCode)">
+							Instructions
+						</a>
+					</li>
+					<li>
+						<a href="https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental" target="_blank" rel="noopener" title="Custom prompts (VSCode)">
+							Prompts
+						</a>
+					</li>
+				</ul>
+
+				<h3>Cursor</h3>
+				<ul>
+					<li>
+						<a href="https://docs.cursor.com/context/rules" target="_blank" rel="noopener" title="Custom rules (Cursor)">
+							Rules
+						</a>
+					</li>
+				</ul>
+
+				<h2>Beneficios del Sistema</h2>
+
+				<p>Esta estrategia de gestión de contexto transforma la limitación de la ventana de contexto de un obstáculo en una oportunidad para trabajar de manera más estructurada y eficiente. Los principales beneficios incluyen:</p>
+
+				<ul>
+					<li>Continuidad: Mantener el progreso sin perder información crítica</li>
+					<li>Calidad consistente: El agente mantiene el mismo nivel de detalle y precisión</li>
+					<li>Trazabilidad: Registro completo de decisiones y evolución del proyecto</li>
+					<li>Mejor colaboración: Facilita el trabajo en equipo y la incorporación de nuevos miembros</li>
+				</ul>
+
+				<h2>Conclusión</h2>
+
+				<p>Al implementar este sistema, no solo evitas las limitaciones técnicas de los LLM sino que estableces una metodología de desarrollo más profesional y escalable para proyectos asistidos por IA.</p>
+
+				<hr>
+
+				<p>¿Preguntas o sugerencias? Comparte tu experiencia implementando esta estrategia y ayuda a mejorar la guía para la comunidad.</p>

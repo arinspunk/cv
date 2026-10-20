@@ -1,0 +1,90 @@
+---
+id: frontity-custom-page-templates
+lang: es
+url: /blog/frontity-custom-page-templates.html
+title: "¿Custom Page Templates en Frontity? Vigentes y muy sencillas"
+description: "Cómo crear Custom Page Templates en Wordpress y desarrollar sus layouts en Frontity"
+image: /img/xulio-ze-frontity.png
+date: 2022-02-03
+---
+				<p>
+					Las <a href="https://developer.wordpress.org/themes/template-files-section/page-template-files/#creating-custom-page-templates-for-global-use" title="documentación oficial de Wordpress" target="_blank" rel="noopener">Custom Page Templates</a> son el mecanismo del que disponemos en Wordpress para crear plantillas globales con diseños específicos que se pueden aplicar a una o varias páginas.
+				</p>
+				<p>
+					Por ejemplo, si en un site necesitamos dos tipos de página: una a una columna y otra con dos (contenido principal y barra lateral), una buena opción es usar la página por defecto, <code>page.php</code>, para la primera y crear un template, <code>sidebar-page.php</code>, para la segunda. De esta forma, para cada nueva página, podemos elegir uno u otro diseño desde el editor.
+				</p>
+				<p>
+					¿Y en <a href="https://frontity.org/" title="Site del framework" target="_blank" rel="noopener">Frontity</a>, donde el front no se genera a partir de los templates en php del theme de Wordpress si no desde una app en React? Pues las Custom Page Templates continuan siendo la mejor opción para trabajar con múltiples diseños de página porque permiten:
+				</p>
+				<ul>
+					<li>
+						seleccionar el diseño deseado desde el editor de una página,
+					</li>
+					<li>
+						asignarles grupos de campos <a href="https://www.advancedcustomfields.com/" title="página oficial del plugin" target="_blank" rel="noopener">ACF</a>, extendiendo las posibilidades de edición,
+					</li>
+					<li>
+						que en la REST API (y en el <a href="https://gitbook-docs.frontity.org/learning-frontity/state" title="Descripción en la documentación de Frontity" target="_blank" rel="noopener">state</a> de Frontity) se muestre el nombre del archivo del template asignado a una página, lo que facilita a Frontity servir el layout correcto en cada caso.
+					</li>
+				</ul>
+				<p>
+					Veamos a hora el proceso completo con un ejemplo sencillo.
+				</p>
+				<h2>
+					Wordpress
+				</h2>
+				<p>
+					Creamos un archivo php, <code>custom-page-template.php</code> por ejemplo, con un comentario al inicio como el siguiente:
+				</p>
+				<script src="https://gist.github.com/arinspunk/c1c7b8d374b0608a64a4f4e63cbb4448.js"></script>
+				<p>
+					Donde “Template name:” es la marca que indica a Wordpress que ese archivo es un page template y “My Custom Page Template Name” el nombre de nuestro nuevo template, que aparecerá en selector de templates del editor de cada página.
+				</p>
+				<p>
+					¿Algo más por hacer? no, eso es todo en la parte del Wordpress 😎
+				</p>
+				<p>
+					Eso sí, para evitar errores (y algún dolor de cabeza) debemos tener en cuenta que:
+				</p>
+				<ul>
+					<li>
+						las plantillas personalizadas solo funcionan si tenemos un <code>index.php</code> (puede estar vacío) en la raíz de nuestro theme de Wordpress,
+					</li>
+					<li>
+						no debemos usar nunca <code>page-</code> como prefijo en el nombre del archivo, ya que WordPress lo interpretará como una plantilla especializada destinada a aplicarse solo a una página del sitio.
+					</li>
+				</ul>
+				<h2>
+					Frontity
+				</h2>
+				<p>
+					Creamos tres componentes:
+				</p>
+				<ol>
+					<li>
+						<code>
+							Page
+						</code>
+					</li>
+					<li>
+						<code>
+							PageDefault
+						</code>
+					</li>
+					<li>
+						<code>
+							PageTemplate
+						</code>
+					</li>
+				</ol>
+				<p>
+					En el primero incluimos un <code>Switch</code> que sirve el segundo, <code>PageDefault</code>, o el tercero, <code>PageTemplate</code>, en función del valor de la propiedad <code>template</code> que aparece en los datos de la página del state de Frontity. Si la página publicada en Wordpress usa la plantilla de página por defecto, este valor llegará vacío y si usa una custom, vendrá con el nombre del archivo de la plantilla, <code>custom-page-template.php</code> en nuestro caso.
+				</p>
+				<script src="https://gist.github.com/arinspunk/dbe49b71f4ab06ad1b872beb0b02d53d.js"></script>
+				<p>
+					Y ya por último, en el segundo y tercero incluimos los layouts propiamente dichos de ambos tipos de página.
+				</p>
+				<p>
+					Sencillo, ¿no? 
+				</p>
+				<p>Si tenéis alguna duda, consideráis que se puede mejorar algo o simplemente queréis saludar, podéis escribirme a <a href="mailto:hola@xulioze.com" title="mi email">hola@xulioze.com</a> 😋</p>

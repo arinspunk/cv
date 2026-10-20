@@ -1,0 +1,28 @@
+---
+layout: layouts/base.vto
+variant: blog
+---
+{{- set t = i18n[lang] }}
+		<!-- Content - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<section class="o-wrap o-wrap--center c-post__body">
+			<header class="c-info c-info--blog o-block o-block--center">
+				<h1 class="h1--blog">
+					{{ title }}
+				</h1>
+				{{ t.datePrefix }} <time datetime="{{ date |> isoDate }}">{{ date |> longDate(lang) }}</time>
+				{{- set translations = i18n.messageLanguages.map((l) => l !== lang && alternates?.find((a) => a.lang === l)).filter(Boolean) }}
+				{{- if translations.length }}
+				<div class="c-messages">
+					{{- for alternate of translations }}
+					<a href="{{ alternate.url }}" class="c-message">
+						{{ i18n[alternate.lang].message }}
+					</a>
+					{{- /for }}
+				</div>
+				{{- /if }}
+				{{ t.downloadText }} <span class="c-link" id="downloadMarkdown">{{ t.downloadLink }}</span>.
+			</header>
+			<div class="c-info__content o-block o-block--center">
+{{ content }}
+			</div>
+		</section>

@@ -1,0 +1,50 @@
+---
+id: oneshot-vs-dialogo
+lang: es
+url: /blog/oneshot-vs-dialogo.html
+title: "¿One-shot prompting? Prefiero conversar con mi IA"
+description: "El valor real de la IA no está en la generación inicial, sino en las iteraciones posteriores. La iteración no es desarrollo, es trabajo de diseño."
+image: /img/bicentennial-man-og.jpg
+date: 2025-10-13
+---
+				<figure class="c-post__body-img c-post__body-img--figure">
+					<img src="../img/bicentennial-man.jpg" alt="Escena de la película Bicentennial Man: un hombre trabaja en un portátil mientras dos robots humanoides dorados observan atentamente por encima de sus hombros" width="768" loading="lazy">
+					<figcaption>Andrew, Galatea y Rupert Burns trabajando juntos</figcaption>
+				</figure>
+
+				<p>Hace unos días, en una conversación con compañeros, surgió el debate sobre la utilidad del one-shot prompting a la hora de generar código con IA. Yo defendía que no lo es, y el argumento que usé creo que merece ser compartido.</p>
+
+				<h2>El problema del one-shot como objetivo</h2>
+
+				<p>Cuando asumimos que el one-shot puede darnos los resultados esperados, estamos cargando toda la responsabilidad de la calidad del output en la parte humana: si el LLM no produce una buena respuesta, el problema es que no escribimos el prompt correcto.</p>
+
+				<p>Pero esta idea choca frontalmente con la naturaleza de la IA generativa, que es no-determinista. Para un mismo prompt y modelo, obtenemos respuestas diferentes en cada ejecución. Por tanto, resulta imposible —sobre todo con tareas complejas— obtener la respuesta óptima en una sola interacción. La iteración se vuelve ineludible.</p>
+
+				<p>En ese debate, con pequeños matices, todos coincidíamos en que el one-shot no es válido como fin en sí mismo, sino como ejercicio para mejorar nuestros prompts. Es imposible alcanzar el 100% de calidad, pero con esta práctica aprendemos a pasar, por decir algo, del 60% al 70%.</p>
+
+				<h2>De Figma al código: otra perspectiva</h2>
+
+				<p>Este fin de semana leí <a href="https://www.uxtools.co/blog/the-only-ai-workflow-i-use-in-production" title="The only AI workflow I use in production" target="_blank" rel="noopener">The only AI workflow I use in production</a>, de Tommy Geoco. El artículo describe el flujo que Tommy utiliza para desarrollar su trabajo de diseño asistido por IA (Figma → Claude Code), afirmando que supera en términos absolutos al uso de otras herramientas como Lovable, Replit o Bolt. Si eres diseñador UX/UI interesado en la integración de IA en tu trabajo, te recomiendo leerlo porque contiene ideas realmente interesantes.</p>
+
+				<p>Entre esas ideas hay una que me ha hecho reflexionar de nuevo sobre la inconveniencia del one-shot. Según el autor, debemos desmitificarlo porque no captura el valor real. La verdadera potencia no está en la generación inicial, sino en las iteraciones posteriores.</p>
+
+				<p>Su flujo de trabajo es el siguiente:</p>
+
+				<ol>
+					<li>Diseñar el "happy path" (flujo óptimo) en Figma</li>
+					<li>Alimentar el diseño a Claude Code vía <a href="https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server" title="Figma MCP server guide" target="_blank" rel="noopener">Figma MCP</a></li>
+					<li>Obtener una base sólida en 15 minutos (vs. 50 horas de codificación manual)</li>
+					<li>Iterar y refinar durante 50 horas</li>
+				</ol>
+
+				<p>El último punto es clave para él: la iteración no es desarrollo, es trabajo de diseño. No se trata de refinar el código para representar un diseño cerrado, sino con él tomar decisiones sobre jerarquía visual, patrones de interacción, casos extremos, estados de error, etc.</p>
+
+				<h2>¿Y si el valor está en la iteración?</h2>
+
+				<p>De aquí saco dos conclusiones igualmente importantes. La primera: el autor está trasladando gran parte del ejercicio de diseño de Figma al código, algo novedoso que desdibuja la frontera UX/UI-Desarrollo. No voy a desarrollarla aquí para no desviarme del tema, pero merece un post propio.</p>
+
+				<p>La segunda, relacionada con el debate sobre one-shot: el autor no usa la IA para que diseñe por él en base a unas instrucciones iniciales, sino que se apoya en ella para iterar más rápido, reflexionar sobre el diseño de manera más profunda y conseguir un mejor resultado. Creo que no solo porque la IA le ahorra tiempo de trabajo repetitivo sin valor y lo gana para pensar, sino porque el diálogo generado puede llevarlo a lugares, pensamientos y decisiones a los que solo no habría llegado.</p>
+
+				<p>Queda por ver si este esquema se traslada igual al desarrollo de software, pero si funciona de manera similar, entonces la inconveniencia del one-shot no se debe únicamente a las limitaciones que nos impone la naturaleza no-determinista de los LLMs. Hay algo más importante: la iteración —ese diálogo continuado entre humano e IA— nos proporciona valor real, obtenemos mejores resultados.</p>
+
+				<p>Esta idea de la iteración como diálogo me ha hecho recordar los <a href="https://intralation-culture-theory-posthuman-pedagogy.ghost.io/attuning-orienting-and-navigating-the-co-emergence-of-meaning-in-ai-dialogue-13-propositions-for-a-critical-ai-pedagogy/" title="Attuning, Orienting, and Navigating the Co-Emergence of Meaning in AI Dialogue: 13 Propositions for a Critical AI Pedagogy" target="_blank" rel="noopener">planteamientos sobre cocreación humano–IA de Owen Matson</a>. Y tengo que reconocer que ha sido escribiendo este post —en diálogo con una IA— cuando creo que finalmente he entendido lo que Owen plantea. Queda pendiente profundizar en esta vía 🙂</p>

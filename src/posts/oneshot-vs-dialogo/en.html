@@ -1,0 +1,50 @@
+---
+id: oneshot-vs-dialogo
+lang: en
+url: /en/blog/oneshot-vs-dialogue.html
+title: "One-shot prompting? I prefer conversing with my AI"
+description: "The real value of AI is not in the initial generation, but in the subsequent iterations. Iteration is not development, it's design work."
+image: /img/bicentennial-man-og.jpg
+date: 2025-10-13
+---
+				<figure class="c-post__body-img c-post__body-img--figure">
+					<img src="../../img/bicentennial-man.jpg" alt="Scene from Bicentennial Man: a man works on a laptop while two golden humanoid robots watch intently over his shoulders" width="768" loading="lazy">
+					<figcaption>Andrew, Galatea, and Rupert Burns working together</figcaption>
+				</figure>
+
+				<p>A few days ago, in a conversation with colleagues, a debate arose about the usefulness of one-shot prompting when generating code with AI. I argued that it isn't useful, and I think the argument I used is worth sharing.</p>
+
+				<h2>The problem with one-shot as an objective</h2>
+
+				<p>When we assume that one-shot can give us the expected results, we're placing all the responsibility for output quality on the human side: if the LLM doesn't produce a good response, the problem is that we didn't write the correct prompt.</p>
+
+				<p>But this idea clashes head-on with the nature of generative AI, which is non-deterministic. For the same prompt and model, we get different responses in each execution. Therefore, it becomes impossible—especially with complex tasks—to obtain the optimal response in a single interaction. Iteration becomes inevitable.</p>
+
+				<p>In that debate, with minor nuances, we all agreed that one-shot is not valid as an end in itself, but as an exercise to improve our prompts. It's impossible to reach 100% quality, but with this practice we learn to move, let's say, from 60% to 70%.</p>
+
+				<h2>From Figma to code: another perspective</h2>
+
+				<p>This weekend I read <a href="https://www.uxtools.co/blog/the-only-ai-workflow-i-use-in-production" title="The only AI workflow I use in production" target="_blank" rel="noopener">The only AI workflow I use in production</a>, by Tommy Geoco. The article describes the workflow Tommy uses to develop his AI-assisted design work (Figma → Claude Code), claiming it surpasses the use of other tools like Lovable, Replit or Bolt in absolute terms. If you're a UX/UI designer interested in integrating AI into your work, I recommend reading it because it contains truly interesting ideas.</p>
+
+				<p>Among those ideas is one that has made me reflect again on the inconvenience of one-shot. According to the author, we should demystify it because it doesn't capture the real value. The true power is not in the initial generation, but in the subsequent iterations.</p>
+
+				<p>His workflow is as follows:</p>
+
+				<ol>
+					<li>Design the "happy path" (optimal flow) in Figma</li>
+					<li>Feed the design to Claude Code via <a href="https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server" title="Figma MCP server guide" target="_blank" rel="noopener">Figma MCP</a></li>
+					<li>Get a solid foundation in 15 minutes (vs. 50 hours of manual coding)</li>
+					<li>Iterate and refine for 50 hours</li>
+				</ol>
+
+				<p>The last point is key for him: iteration is not development, it's design work. It's not about refining code to represent a closed design, but using it to make decisions about visual hierarchy, interaction patterns, edge cases, error states, etc.</p>
+
+				<h2>What if the value lies in iteration?</h2>
+
+				<p>From this I draw two equally important conclusions. The first: the author is transferring a large part of the design exercise from Figma to code, something novel that blurs the UX/UI-Development boundary. I won't develop it here to avoid straying from the topic, but it deserves its own post.</p>
+
+				<p>The second, related to the debate about one-shot: the author doesn't use AI to design for him based on initial instructions, but relies on it to iterate faster, reflect on design more deeply and achieve a better result. I think not only because AI saves him time on repetitive work without value and gains it for thinking, but because the generated dialogue can take him to places, thoughts and decisions he wouldn't have reached alone.</p>
+
+				<p>It remains to be seen whether this scheme translates equally to software development, but if it works similarly, then the inconvenience of one-shot is not due solely to the limitations imposed by the non-deterministic nature of LLMs. There's something more important: iteration—that continuous dialogue between human and AI—provides us with real value, we get better results.</p>
+
+				<p>This idea of iteration as dialogue has reminded me of <a href="https://intralation-culture-theory-posthuman-pedagogy.ghost.io/attuning-orienting-and-navigating-the-co-emergence-of-meaning-in-ai-dialogue-13-propositions-for-a-critical-ai-pedagogy/" title="Attuning, Orienting, and Navigating the Co-Emergence of Meaning in AI Dialogue: 13 Propositions for a Critical AI Pedagogy" target="_blank" rel="noopener">Owen Matson's approaches to human-AI co-creation</a>. And I have to admit that it's been while writing this post—in dialogue with an AI—when I think I've finally understood what Owen proposes. It remains pending to delve deeper into this path 🙂</p>

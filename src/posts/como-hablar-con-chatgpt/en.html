@@ -1,0 +1,77 @@
+---
+id: como-hablar-con-chatgpt
+lang: en
+url: /en/blog/how-talk-with-chatgpt.html
+title: "The art of conversing with ChatGPT (and other LLMs)"
+description: "How to write suitable prompts when developing code."
+image: /img/xulio-ze-chatgpt-rachael.png
+date: 2023-06-30
+---
+				<img class="c-post__body-img" src="../../img/chatgpt-rachael.jpg" alt="Rachael e o Voight-Kampff test" width="655" loading="lazy">
+				<p>
+					In an email exchange about ChatGPT, a colleague asked me what would be the best way to write prompts when developing code. Well, the answer is not simple, as it involves conversing with a neural network, and often it is already challenging to do so with other people, let alone a machine. However, being a polite person who always likes to help when possible, I pondered and responded to the best of my ability.
+				</p>
+				<p>
+					The internet is full of <a href="https://github.com/readme/guides/coding-generative-ai" title="Harness the power of generative AI for software development - ReadME Project" target="_blank" rel="noopener">tips</a> on improving our prompts, and I have incorporated many of them. But when analyzing them individually, I don't know to what extent they have brought improvement. There are even some where I'm not sure if they had a significant impact. It's normal, as the experience I've accumulated is still not enough for statistical analysis. However, what I can affirm is that collectively, and compared to my rough initial tests, their incorporation has resulted in an undeniable improvement in the obtained results.
+				</p>
+				<p>
+					A different case is strategies focused on solving more complex tasks. Unlike simple tasks where we can obtain a valid and even very similar answer, whether or not using a particular tip, the adoption of these techniques brings immediate and evident improvement. <a href="https://xulioze.com/en/blog/build-pwa-with-chatgpt.html" title="How to build a PWA with ChatGPT before it sends us to unemployment" target="_blank" rel="noopener">Without a defined strategy</a>, the LLM tended to wander and make mistakes, forcing me to correct it and guide it with new questions or instructions. However, when I included <a href="https://www.promptingguide.ai/techniques/cot" title="description on Prompt Engineering Guide" target="_blank" rel="noopener">Chain-of-Thought</a> and <a href="https://www.promptingguide.ai/techniques/knowledge" title="description on Prompt Engineering Guide" target="_blank" rel="noopener">Generated Knowledge</a>, these problems were resolved. (I have a pending article recounting how I developed a React blog with the help of ChatGPT).
+				</p>
+				<figure>
+					<blockquote cite="https://www.promptingguide.ai/models">
+						<p>Understanding these capabilities are important to understand the limitations of these models and how to use them effectively.</p>
+					</blockquote>
+					<figcaption><cite>Prompt Engineering Guide</cite></figcaption>
+				</figure>
+				<p>
+					So, how do we evaluate the small tips we find on the internet? An initial (and obvious) approach is to follow the guidance from reliable sources. I really like <a href="https://learnprompting.org/" title="Your Guide to Communicating with Artificial Intelligence" target="_blank" rel="noopener">learnprompting.org</a> and <a href="https://www.promptingguide.ai/" title="Prompt Engineering Guide" target="_blank" rel="noopener">promptingguide.ai</a>, but <a href="https://github.com/openai/openai-cookbook#prompting-guides" title="Prompting guides - OpenAI (En) " target="_blank" rel="noopener">there are many more</a>. Another complementary approach is to determine if the purpose of a tip makes sense in the functioning of LLMs. It is evident that following this approach involves an extra time investment, as we need to:
+				</p>
+				<ol>
+					<li>
+						Determine the purpose of the tip, even though they all tend to seek:
+						<ul>
+							<li>
+								Reducing the <a href="https://platform.openai.com/tokenizer" title="tokens counter - OpenAI" target="_blank" rel="noopener">number of tokens</a> used in questions and answers.
+							</li>
+							<li>
+								Optimizing the LLM's work in processing questions and generating answers.
+							</li>
+							<li>
+								Obtaining the best possible answer for our task.
+							</li>
+						</ul>
+					</li>
+					<li>
+						And it obliges us to delve into <a href="https://www.promptingguide.ai/models" title="Main LLMs" target="_blank" rel="noopener">understanding and knowledge of these tools</a>.
+					</li>
+				</ol>
+				<p>
+					However, this is always a good investment as it helps improve our daily work and allows us to enjoy the pleasure of learning something new.
+				</p>
+				<p>
+					Finally, my colleague, who is also very polite, thanked me for the response. But being pragmatic and direct, he wanted to know if I had identified any best practices. In summary, he was looking for a list of tips 😬
+				</p>
+				<h2>My tips</h2>
+				<p>
+					Here are the practices I always include in my prompts focused on simple task development. To learn how to write complex code with ChatGPT, I recommend starting with the article "<a href="https://martinfowler.com/articles/2023-chatgpt-xu-hao.html" title="How Xu Hao uses chain of thought and general knowledge prompting with ChatGPT" target="_blank" rel="noopener">An example of LLM prompting for programming</a>".
+				</p>
+				<ul>
+					<li>
+						I avoid formality. No "Good morning," "could you please," "thank you very much," etc. Don't worry, the LLM is not a conscious being, and it's always good to save some tokens.
+					</li>
+					<li>
+						I always start with "As a [role name]." This aims to format the model's response in a more specific way.
+					</li>
+					<li>
+						I include details with specialized terminology. The idea is to provide enough context to prevent the model from having to guess what I mean.
+					</li>
+					<li>
+						I strive to be as concise as possible, in balance with the previous point. The more concise and direct our prompt is, the more concise the response will be, while also saving some tokens.
+					</li>
+					<li>
+						I clean up my example code. Anything that is not necessary for completing the task only adds noise and wastes tokens.
+					</li>
+				</ul>
+				<p>
+					What was intended to be a draft for a method to learn to converse with machines has turned into another article with tips for using ChatGPT. Do you think the purpose of each tip makes sense in the functioning of LLMs?
+				</p>

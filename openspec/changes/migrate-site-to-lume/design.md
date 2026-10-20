@@ -9,7 +9,7 @@
 - `img/` contiene un fuente de diseño, `img/claude-talk-to-figma-metas.psd`, que no debe publicarse.
 - El marcado de los posts no es uniforme. En los 48 posts actuales:
   - 27 `pre` sin botón de copiar (9 por idioma: 8 en la guía de agentes y 1 en la introducción a bases de datos vectoriales);
-  - 40 posts con `h2`–`h4` sin `id`;
+  - 42 posts con `h2`–`h4` sin `id`;
   - 6 posts con enlaces externos sin `target="_blank"` (resarcimiento y prompt-contexto-memoria, en los 3 idiomas);
   - 3 tablas sin `c-post__table` (guía de Figma, en los 3 idiomas);
   - 9 posts con `img` sin clase, siempre dentro de un `figure.c-post__body-img` que ya la lleva;
@@ -40,6 +40,7 @@ Requisitos: ver `specs/site-build`, `specs/blog-posts`, `specs/site-i18n` y `spe
 
 ### D1. Lume sobre Deno, versión fijada
 Se usa Lume con un `deno.json` que fija la versión exacta de Lume y de sus plugins (la última estable al implementar), con las tareas `build`, `serve` y `compare`, y la dependencia `jsr:@arinspunk/atproto-comments@1.1.1` (ver D16). La versión mayor (Lume 2 o 3) se anota en este documento al empezar la tarea 1.2 y todas las pruebas de comportamiento (D3, D7) se hacen sobre ella. `_config.ts` declara `location: new URL("https://xulioze.com")` y `prettyUrls: false` para mantener las URLs `.html`.
+**Versión elegida:** Lume 3 (`v3.2.5`, importado desde `https://deno.land/x/lume@v3.2.5/`). En Lume 3 los plugins oficiales vienen dentro del propio paquete, así que quedan fijados con él.
 *Alternativa:* Eleventy, equivalente en capacidades. Se elige Lume por preferencia del autor y porque no hay ninguna dependencia de Node que conservar.
 
 ### D2. Fuentes en `src/`, separadas del resto del repo
@@ -65,13 +66,31 @@ src/
 Los cuerpos existentes se cargan como páginas `.html` (front matter + HTML tal cual) registradas con `site.loadPages([".html"])`, sin pasar por Vento ni por Markdown.
 *Por qué no `.vto`:* Vento interpretaría cualquier `{{ }}` del contenido, y los prompts de los posts pueden contenerlo.
 *Por qué no `.md` con HTML dentro:* markdown-it trata como código el HTML indentado que sigue a una línea en blanco, y los cuerpos actuales están indentados con tabuladores.
-Para los posts nuevos en `.md`, el `_data.yml` de `posts/` fija `templateEngine: md`, así que Vento tampoco procesa los `{{ }}` de los bloques de código.
+Los posts nuevos en `.md` tampoco pasan por Vento: en Lume 3 los `.md` solo se procesan con markdown-it, así que los `{{ }}` de los bloques de código se publican tal cual (comprobado al implementar la tarea 4.1). No se fija `templateEngine: md` en `posts/_data.yml`: se aplicaría también a los `.html` migrados y los renderizaría como Markdown.
 
 ### D4. Id de los posts antiguos
 El `id` de cada post antiguo es el slug de su versión en español (`oneshot-vs-dialogo`), que también da nombre a su carpeta `posts/<id>/`. Las URLs de cada idioma se declaran en el front matter (`url`) con los slugs actuales.
 
 ### D5. Un layout base y un único header/footer con variante
 `base.vto` contiene `<html lang>`, el head completo (metas, favicons, fuentes, CSS) y los scripts. `header.vto` y `footer.vto` son únicos y reciben `variant` (`cv` | `blog`), que añade los modificadores `c-header--blog` y `c-footer--blog` y la clase del body. Los textos que cambian por idioma (títulos de los enlaces, "¿Hablamos?", etc.) salen de `i18n.yml`. Todos los enlaces internos generados son absolutos desde la raíz (`/en/blog/...`).
+
+Hoy esos textos no son uniformes: hay entre 2 y 5 variantes por idioma en los `title` del header y del footer, el orden y el texto de los avisos cambian entre posts (con emojis o idiomas cruzados), 10 posts es ponen "Hablamos?" sin "¿" y un post pt pone "Vamos conversar?". Se unifican en un único juego de textos por idioma, tomado de las páginas del CV (diferencia esperada 14):
+
+| Clave | es | en | pt |
+|---|---|---|---|
+| `title` del logo (solo variante blog) | volver a mi CV | return to my CV | voltar ao meu CV |
+| `title` del enlace a la versión en ese idioma (en el idioma de destino) | Versión en español | English version | Versão em português |
+| Texto del enlace de idioma | Es | En | Pt |
+| `title` / texto del enlace al CV | mi currículum / CV | my CV / CV | o meu curriculum / CV |
+| `title` / texto del enlace al blog | aquí hablo de cosas / Blog | here I talk about things / Blog | aqui falo de cousas / Blogue |
+| `title` / texto del botón de LinkedIn | Escríbeme en LinkedIn / ¿Hablamos? | I'm in LinkedIn :) / Let's talk? | Estou no LinkedIn :) / Falamos? |
+| `title` de GitHub / Email / LinkedIn en el footer | Mis repositorios / Mi email / Perfil de LinkedIn | My repository / write me / My profile on LinkedIn | Os meus repositórios / O meu email / Perfil de LinkedIn |
+| Aviso hacia ese idioma (en el idioma de destino) | 🦀 Puedes leer este post en `<span>`español`</span>`. | 🦑 You can read this post in `<span>`english`</span>`. | 🐙 Podes ler este post em `<span>`português`</span>`. |
+| Enlace de descarga | 🤖 Si quieres que tu IA lea este post, … descárgaselo como markdown. | 🤖 If you want your AI to read this post, … download it as markdown. | 🤖 Se queres que a tua IA leia este post, … descarrega-o como markdown. |
+| Prefijo de la fecha | Publicado el | Published on | Publicado a |
+| `aria-label` del botón de copiar | Copiar código | Copy code | Copiar código |
+
+Orden: en el selector del header, `pt`, `es`, `en` (el orden que ya tienen todas las páginas menos dos); en los avisos, `es`, `en`, `pt` (el orden de `multilanguage`), omitiendo el idioma de la página. El footer de los índices usa siempre la variante `blog` (hoy `en/blog.html` no la lleva).
 
 ### D6. Metas en un partial propio, no con el plugin `metas`
 `head-metas.vto` genera exactamente las etiquetas actuales y en el mismo orden (`title`, `og:*`, `twitter:*`, `itemprop`, `apple-mobile-web-app-title`, `og:image:width/height`, canonical, copyright). Las URLs absolutas se forman con `location` + `url`/`image`.
@@ -89,7 +108,7 @@ Un único `site.process([".html"])` actúa solo sobre las páginas con `type: po
 - `table`: añade `c-post__table`. `h2`–`h4` sin `id`: añade un id slugificado.
 - `atproto-comments`: si el post contiene el elemento, añade una vez `<link rel="stylesheet" href="/vendor/atproto-comments.css">` al final del `<head>` y `<script type="module" src="/vendor/atproto-comments.js">` al final del `body`, tras los scripts del sitio (ver D16). El elemento y sus atributos no se tocan.
 
-Todas las transformaciones son **idempotentes** ("añade si falta"). Por eso se aplican igual a los posts nuevos (`.md`) y a los antiguos (`.html`) sin alterar lo que ya es correcto. En los antiguos sí completan el marcado donde hoy falta, y se aceptan como mejoras: 27 bloques ganan botón, 40 posts ganan ids en los encabezados, 6 posts ganan `target`/`rel` en enlaces externos y 3 tablas ganan su clase (diferencias esperadas 1, 7, 8 y 9 de D13). Las 3 tablas se revisan visualmente.
+Todas las transformaciones son **idempotentes** ("añade si falta"). Por eso se aplican igual a los posts nuevos (`.md`) y a los antiguos (`.html`) sin alterar lo que ya es correcto. En los antiguos sí completan el marcado donde hoy falta, y se aceptan como mejoras: 27 bloques ganan botón, 42 posts ganan ids en los encabezados, 6 posts ganan `target`/`rel` en enlaces externos y 3 tablas ganan su clase (diferencias esperadas 1, 7, 8 y 9 de D13). Las 3 tablas se revisan visualmente.
 *Alternativa:* sobrescribir los renderers de markdown-it. Solo funcionaría con `.md` y obligaría a mantener dos caminos para el mismo componente.
 `markdown-it-attrs` (incluido por defecto en el plugin markdown de Lume) cubre las clases puntuales `{.clase}`.
 
@@ -98,7 +117,7 @@ Todas las transformaciones son **idempotentes** ("añade si falta"). Por eso se 
 
 ### D10. Índices, sitemap y feeds
 - `blog-index/<lang>.vto` publica `blog.html`, `en/blog.html` y `pt/blogue.html` con la intro actual (copiada al template) y una búsqueda `type=post lang=<lang>` ordenada por `date` descendente. La fecha se formatea igual que en D9 y sale del `date` del post, así que índice y post no pueden discrepar.
-- Plugin `sitemap`: genera `sitemap.xml` con todas las páginas y sustituye al fichero actual.
+- Plugin `sitemap`: genera `sitemap.xml` con todas las páginas y sustituye al fichero actual. También añade siempre `Sitemap: https://xulioze.com/sitemap.xml` a `robots.txt` (no es configurable), así que esa línea sale de `src/robots.txt`.
 - Plugin `feed`: un feed por idioma en `/blog/feed.xml`, `/en/blog/feed.xml` y `/pt/blogue/feed.xml`, enlazado con `<link rel="alternate" type="application/rss+xml">` en el índice correspondiente.
 
 ### D11. SCSS dentro del build
@@ -106,7 +125,7 @@ El plugin `sass` publica cada `.scss` sin `_` en su misma ruta con extensión `.
 - `scss/styles.scss` se renombra a `src/scss/_index.scss` (contenido intacto);
 - se crea `src/css/styles.scss` con una única línea que importa `../scss/index`.
 
-Así `src/scss/` solo contiene parciales y no genera salida. `css/` sale del control de versiones y se añade `_site/` a `.gitignore`.
+Así `src/scss/` solo contiene parciales y no genera salida. El plugin `source_maps` publica también `css/styles.css.map`, que el CSS anterior ya referenciaba. Con el Sass actual, las declaraciones escritas después de una regla anidada (`animation` en 5 selectores) salen en un bloque aparte tras las media queries; ninguna media query redefine esas propiedades, así que el resultado visual no cambia (comprobado con capturas píxel a píxel del CV y de varios posts). `css/` sale del control de versiones y se añade `_site/` a `.gitignore`.
 
 ### D12. Netlify
 `netlify.toml` define el comando de build (instalar Deno con una versión fijada y ejecutar `deno task build`) y `publish = "_site"`. `netlify.toml` tiene prioridad sobre la UI, así que la configuración vive en el repo y las deploy previews de las ramas usan el mismo build.
@@ -120,18 +139,20 @@ Antes del primer build hay que enlazar `arinspunk/cv` en la UI de Netlify (rama 
 
 También comprueba que no falta ninguna URL. Lista de diferencias esperadas (se informan aparte y no hacen fallar la comparación):
 1. Los 27 `pre.c-post__prompt` sin botón ganan `--scroll` y el botón.
-2. Línea de fecha de los posts unificada: el prefijo pasa a ser uno por idioma (cambian `impresoras-3d-muerte-simetria` en es, que tenía "Publicado o", y los 12 posts pt con "Publicado o"/"Publicado em"); `datetime` pasa a ser solo la fecha (`YYYY-MM-DD`); `frontity-custom-page-templates` pierde el envoltorio `div.c-info__time`.
-3. Metas del CV: canonical `http://xulioze.com` → `https://xulioze.com/` y `og:image` relativo con query → URL absoluta.
+2. Línea de fecha de los posts unificada (y `datetime` de los índices, que pasa también a `YYYY-MM-DD`): el prefijo pasa a ser uno por idioma (cambian `impresoras-3d-muerte-simetria` en es, que tenía "Publicado o", y los 12 posts pt con "Publicado o"/"Publicado em"); `datetime` pasa a ser solo la fecha (`YYYY-MM-DD`); `frontity-custom-page-templates` pierde el envoltorio `div.c-info__time`.
+3. URLs y dimensiones de los metas, en todas las páginas: canonical, `og:url` y `twitter:url` pasan a `https://` (el CV y los índices usaban `http://xulioze.com`) y a la URL de la propia página (en `blog/resarcimiento.html` apuntaban a `resarcimento.html`, que no existe); `og:image`, `twitter:image` e `itemprop=image` pasan a URL absoluta sin la query `?crop=…` sobrante (el CV, los índices y 11 posts la tenían relativa; en `en/cv.html` y `pt/cv.html` resolvía a `/en/img/…` y `/pt/img/…`, que no existen; en `blog/guia-integrar-figma-con-ia.html` el `og:image` estaba roto, `https://xulioze.com/img/ v`, y pasa a ser la imagen de su `twitter:image`); `og:image:width`/`height` pasan a ser las dimensiones reales del fichero (varias imágenes de 1200×630 se declaraban como 900×470); `<link rel="author">` apunta siempre a `/humans.txt` (en `en/cv.html` y `pt/cv.html` apuntaba a `/en/humans.txt` y `/pt/humans.txt`, que no existen).
 4. `copyright` unificado al año del build.
-5. `<link rel="alternate">` de los feeds en los índices y, si `multilanguage` los genera, `<link rel="alternate" hreflang>` en todas las páginas.
+5. `<link rel="alternate">` de los feeds en los índices y, en todas las páginas con `id` (CV, índices y posts), los `<link rel="alternate" hreflang="<lang>" href="https://xulioze.com/...">` que `multilanguage` (Lume 3.2.5) añade al final del `<head>`: uno por traducción, incluida la propia página, sin `x-default` (comprobado en la tarea 1.5).
 6. Ya no se publican los dos borradores (`blog/extended-context-v2.md`, `en/blog/post-agents-context`); pasan a `drafts/`, fuera de `src/`. Tampoco se publica el `.psd` de `img/`.
-7. `id` en los `h2`–`h4` que no lo tenían (40 posts).
+7. `id` en los `h2`–`h4` que no lo tenían (42 posts).
 8. `target="_blank"` y `rel="noopener"` en los enlaces externos que no los tenían (6 posts).
 9. `c-post__table` en las 3 tablas de la guía de Figma.
 10. `frontity-custom-page-templates` en es y pt pasa a la estructura común del post (`article.c-post` > `section.c-post__body`).
 11. Fechas corregidas según D14 (atributo, texto visible y posición en los índices).
-12. Los 6 posts con el `<head>` reducido (`contexto-extendido-v2` y `atproto-comments`, en los 3 idiomas) ganan los metas Twitter, itemprop, `apple-mobile-web-app-title` y copyright; `atproto-comments`, que no tiene `og:image`, gana la imagen social por defecto.
+12. `<head>` completo y uniforme: todas las páginas tienen las mismas etiquetas y en el mismo orden. Los 6 posts con el `<head>` reducido (`contexto-extendido-v2` y `atproto-comments`, en los 3 idiomas) ganan los metas Twitter, itemprop, robots, `apple-mobile-web-app-title`, copyright, etc.; `atproto-comments`, que no tiene `og:image`, gana la imagen social por defecto. Los colores de `mask-icon`, `msapplication-TileColor` y `theme-color` se unifican con los de 43 de las 54 páginas (`#0000ff`, `#da532c`, `#00000B`).
 13. Los 3 posts `atproto-comments` cargan el CSS y el JS del componente desde `/vendor/atproto-comments.{css,js}` (versión 1.1.1, servida desde xulioze.com) en lugar de jsDelivr 1.1.0.
+14. Cabecera, pie y avisos unificados con los textos de D5: `title` de los enlaces del header y del footer, texto del botón de LinkedIn ("Hablamos?" → "¿Hablamos?", "Vamos conversar?" → "Falamos?"), orden, texto y emoji de los avisos `c-message`, idioma del enlace de descarga, modificador `c-footer--blog` en `en/blog.html`, sin las clases `c-footer__menu-link--blog` y `c-footer__credits--blog` del footer de `blog.html` y `pt/blogue.html` (no tienen estilos), los enlaces del footer de `guia-desarrollar-software-agentes` en es y pt usan `c-footer__menu-link` (tenían `c-header__menu-link`), los enlaces de idioma salen siempre en el mismo orden (en `extended-context-v2` y `atproto-comments` en inglés estaban al revés) desaparece la entrada de relleno del final de `en/blog.html` y `pt/blogue.html` ("I promise there will be more!", que en `blog.html` ya estaba comentada), y el logo y el enlace "CV" llevan siempre al CV del idioma de la página (en la guía de agentes en/pt, "CV" llevaba al CV en español) (en `en/blog.html` apuntaba a `/cv.html`, que no existe). También se corrigen de paso: `<html lang="pt">` → `lang="en"` en 6 posts en inglés (extended-context, 3d-printers-death-symmetry, vector-stores-introduction, how-talk-with-chatgpt, ai-for-developers, reimbursement), el texto suelto "1200" antes del `<!DOCTYPE>` de `pt/blogue/prompt-contexto-memoria.html` y el `defer` de `markdown-converter.js` en los dos posts que lo tenían.
+15. Títulos unificados con el `h1` (y metas de título con el título de otro post, como el `apple-mobile-web-app-title` "Resarcimiento" de `impresoras-3d-muerte-simetria`): el `<title>` y los metas de título (`og:title`, `twitter:title`, `itemprop=name`, `apple-mobile-web-app-title`) de los 6 posts que usaban un título corto distinto del `h1` (`construir-pwa-con-chatgpt` y `frontity-custom-page-templates`, en los 3 idiomas; `en/blog/build-pwa-with-chatgpt.html` lo tenía además en portugués) pasan a ser el `title` del post (su `h1`), y las 3 entradas de los índices cuyo texto no coincidía con el `h1` (es: PWA; pt: PWA y `como-falar-com-chatgpt`) pasan a mostrarlo. También el `<title>` del CV en español ("Xúlio Zé, AI & Software Developer" → "Xúlio Zé - AI & Software Developer", como en sus metas) y el `og:title` de `pt/blogue.html` ("Blog - Xúlio Zé" → "Blogue - Xúlio Zé", como su `<title>`). El CV declara su título completo con `fullTitle` en el front matter, porque no sigue el patrón "<título> - Xúlio Zé".
 
 El normalizador también ordena los tokens de `class`, porque el procesador añade clases al final.
 Antes de comparar se clasifica cada diferencia en una de estas categorías y el informe las agrupa; cualquier diferencia que no encaje en una categoría hace fallar la comparación.
@@ -152,10 +173,10 @@ Un `site.preprocess([".html", ".md"])` comprueba en las páginas con `type: post
 
 ### D16. Web component `atproto-comments` desde JSR
 El componente se empaqueta en el build y se sirve desde el propio dominio, sin CDN de terceros:
-- **JS:** `src/vendor/atproto-comments.ts` contiene solo `import "jsr:@arinspunk/atproto-comments@1.1.1";`. El plugin `esbuild` (con `extensions: [".ts"]`, para no tocar `src/js/`, que se copia tal cual) lo empaqueta en `/vendor/atproto-comments.js`. Al importarse, el módulo registra `<atproto-comments>`.
+- **JS:** `src/vendor/atproto-comments.ts` contiene solo `import "https://jsr.io/@arinspunk/atproto-comments/1.1.1/src/index.ts";` (la URL `https:` de JSR de esa versión: el cargador de esbuild de Lume 3.2.5 no resuelve los especificadores `jsr:`). El plugin `esbuild` (con `extensions: [".ts"]`, para no tocar `src/js/`, que se copia tal cual) lo empaqueta en `/vendor/atproto-comments.js`. Al importarse, el módulo registra `<atproto-comments>`.
 - **CSS:** `site.remoteFile("vendor/atproto-comments.css", "https://jsr.io/@arinspunk/atproto-comments/1.1.1/src/atproto-comments.css")` + `site.copy("vendor/atproto-comments.css")`. Se descarga en el build desde la misma versión que el JS.
 - **Inyección:** la hace el procesador de D8 solo en los posts que contienen el elemento. Los posts no declaran nada en el front matter: en un post nuevo en Markdown basta con pegar el elemento (HTML en línea).
-- **Versión:** se fija en un único sitio. La URL del CSS repite la versión del import; ambas se actualizan juntas (una constante en `_config.ts` y el import, o una tarea que compruebe que coinciden).
+- **Versión:** la constante `ATPROTO_COMMENTS_VERSION` de `_config.ts` forma la URL del CSS, y el build falla si el import de `src/vendor/atproto-comments.ts` no usa la misma versión.
 
 El script de migración no copia los `<link>`/`<script>` de jsDelivr: el `<link>` está en el `<head>` (que se regenera) y el `<script>` fuera de `.c-post__body`.
 *Alternativa:* seguir con jsDelivr con un campo `styles`/`scripts` en el front matter. Funciona, pero mantiene una dependencia de un CDN externo en tiempo de ejecución y obliga a declarar los recursos en cada post.

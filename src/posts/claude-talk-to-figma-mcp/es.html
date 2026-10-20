@@ -1,0 +1,40 @@
+---
+id: claude-talk-to-figma-mcp
+lang: es
+url: /blog/claude-talk-to-figma-mcp.html
+title: "Claude Talk to Figma, mi primer servidor MCP"
+description: "Mi experiencia creando un servidor MCP que conecta Claude con Figma, permitiendo que la IA interactúe directamente con diseños UX/UI."
+image: /img/claude-talk-to-figma-metas.jpg
+date: 2025-04-08
+---
+				<img class="c-post__body-img" src="https://xulioze.com/img/claude-talk-to-figma-metas.jpg" alt="Theodore pensando" width="768" loading="lazy">
+
+				<p>La semana pasada <a href="https://www.linkedin.com/in/marc-wabnitz-0135ba24/" target="_blank" rel="noopener" title="perfil de LinkedIn">Marc</a>, compañero del increíble equipo UX/UI de <a href="https://www.makingscience.es/" target="_blank" rel="noopener" title="AI Powered Digital Acceleration">Making Science</a>, nos pasó un servidor MCP para conectar Cursor a Figma y proporcionarle a sus agentes la capacidad no sólo de ver diseños en Figma, sino también de manipularlos 😳</p>
+
+				<p>El MCP era <a href="ht""tps://github.com/sonnylazuardi/cursor-talk-to-figma-mcp"  target="_blank" rel="noopener" title="repositorio del proyecto">Cursor Talk to Figma</a>, de <a href="https://sonnylab.framer.website/" target="_blank" rel="noopener" title="página personal">Sunny Lazuardi</a>. Si estás buscando la forma de conectar Cursor con Figma no sigas, este es tu MCP 👌🏻</p>
+    
+				<p>Como tengo una licencia de Cursor, le dije que podía instalarlo y hacer con ellos una prueba. La prueba salió bien, la verdad que fue bastante sorprendente ver al agente de Cursor tomar el control de Figma y modificar un diseño, pero poco después me entró la duda de si era la forma correcta de que el equipo de UX/UI introdujese en su flujo de trabajo la IA, fundamentalmente porque Cursor es una herramienta enfocada al desarrollo de código.</p>
+				
+				<p>Revisando el código del MCP vi que quizás se podría adaptar para usarlo en Claude Desktop, ya que mis compañeros de UX/UI tienen licencias de esta herramienta. Lo cierto es que el original se podía conectar ya a Claude, pero la forma de hacerlo no era evidente y no estaba descrita en la documentación, así que con ánimo de trastear un poco y aprender cómo funciona un MCP server por dentro, me puse manos a la obra:</p>
+				
+				<ol>
+					<li>Escribí <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/blob/main/scripts/configure-claude.js" target="_blank" rel="noopener" title="código en GitHub">un script para configurar Claude de forma automática</a> lanzando un comando vía terminal: <code>bun run configure-claude</code>.</li>
+					<li><a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/commit/9de571d6bff9ea552b2a22cb2ca0b89f0108853c#diff-8d97fde957b1b60105e210d02f027f6a1babb3f5521e88d87d888171763bf08e" target="_blank" rel="noopener" title="commit de los cambios">Amplié las características del socket</a>:
+						<ol>
+							<li>Logging mejorado</li>
+							<li>Creación de endpoint de estado <code>/status</code></li>
+							<li>Sistema de canales para permitir que diferentes clientes se unan a canales específicos</li>
+							<li>Inclusión de estadísticas de cada canal</li>
+						</ol>
+					</li>
+					<li><a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/blob/main/TESTING.md" target="_blank" rel="noopener" title="documentación de los test en GitHub">Añadí tests</a> para comprobar la correcta integración del proyecto.</li>
+					<li>Redacté un <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/blob/main/readme.md" target="_blank" rel="noopener" title="documentación del proyecto">README.md</a> con la documentación ya orientada a su uso en Claude.</li>
+					<li>Publiqué el MCP server como <a href="https://www.npmjs.com/package/claude-talk-to-figma-mcp" target="_blank" rel="noopener" title="página del paquete en NPM">paquete de npm</a>.</li>
+					<li>Publiqué el proyecto en GitHub...</li>
+				</ol>
+				
+				<p>Y voilá, mi primer MCP server: <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp" target="_blank" rel="noopener" title="repositorio del proyecto">Claude Talk To Figma MCP</a> 🥳</p>
+
+				<h2>Actualización, 11 de abril</h2>
+				
+				<p>Después de unos días de pruebas, el equipo de UX/UI detectó que en la colección inicial de herramientas para modificar diseños faltaban algunas importantes como auto layout (layoutMode, paddingTop, paddingBottom, etc.), control tipográfico (fontName, fontSize, fontWeight, etc.) o creación de formas (createEllipse, createPolygon, createStar, etc.), por lo que actualmente estamos añadiéndolas poco a poco. Puedes seguir el progreso en <a href="https://github.com/arinspunk/claude-talk-to-figma-mcp/blob/main/CHANGELOG.md" target="_blank" rel="noopener" title="visita el changelog en GitHub">el changelog del proyecto</a>.</p>
