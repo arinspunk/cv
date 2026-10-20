@@ -26,7 +26,7 @@
 - [x] 4.2 Escribir `scripts/migrate-posts.ts`, que extrae de cada post actual `title`, `description`, `image`, `url`, `lang`, `date` (del atributo `datetime` de su `<time>`, con las correcciones de D14) y el cuerpo (sin `h1`, línea de fecha, avisos ni enlace de descarga), y escribe `src/posts/<id>/<lang>.html` con `id` = slug en español (D4). Debe contemplar la estructura distinta de `frontity-custom-page-templates` en es y pt (sin `section.c-post__body`) y fallar si las traducciones de un post no comparten `date`; verificar que genera 48 ficheros en 16 carpetas, que ninguno tiene campos vacíos salvo `image` en los posts sin `og:image` (usarán la imagen por defecto de `site-metadata`) y que los 3 posts de D14 tienen las fechas corregidas
 - [x] 4.3 Ejecutar la migración y borrar `blog/`, `en/blog/` y `pt/blogue/` originales; verificar con `deno task compare` que los 48 posts existen en sus URLs y que las únicas diferencias son la 2, la 10, la 11, la 13, la 14, la 15 y las del `<head>` esperadas (incluida la 12), y que ningún fichero de `src/posts/` contiene `cdn.jsdelivr.net`
 - [x] 4.4 Comprobar en `deno task serve` que, en un post de cada idioma, funcionan los avisos de idioma, la descarga en Markdown y el año del footer
-- [ ] 4.5 Añadir en `_config.ts` la validación del front matter de D15; verificar que quitar `title` a un post hace fallar `deno task build` con código distinto de cero y un mensaje con la ruta del fichero, y que un `lang: fr` también falla
+- [x] 4.5 Añadir en `_config.ts` la validación del front matter de D15; verificar que quitar `title` a un post hace fallar `deno task build` con código distinto de cero y un mensaje con la ruta del fichero, y que un `lang: fr` también falla
 
 ## 5. Componentes del cuerpo
 
