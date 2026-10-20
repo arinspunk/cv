@@ -96,7 +96,7 @@ Cada idioma SHALL tener su índice del blog con todos los posts de ese idioma, o
 - **AND** no aparece en los índices de los otros idiomas
 
 ### Requirement: Posts antiguos migrados
-Los 45 posts existentes SHALL conservar su contenido y presentación tras la migración. Los elementos estándar cuyo marcado estaba incompleto (bloques de código sin botón, encabezados sin `id`, enlaces externos sin `target`, tablas sin clase) lo completan, y las fechas inconsistentes se corrigen.
+Los 48 posts existentes SHALL conservar su contenido y presentación tras la migración. Los elementos estándar cuyo marcado estaba incompleto (bloques de código sin botón, encabezados sin `id`, enlaces externos sin `target`, tablas sin clase) lo completan, y las fechas inconsistentes se corrigen.
 
 #### Scenario: Post antiguo
 - **WHEN** se genera un post migrado

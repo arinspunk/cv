@@ -23,7 +23,7 @@ Toda URL de página publicada antes de la migración SHALL seguir existiendo en 
 
 #### Scenario: URLs de posts conservadas
 - **WHEN** se genera el sitio
-- **THEN** existen `blog/<slug>.html`, `en/blog/<slug>.html` y `pt/blogue/<slug>.html` para los 45 posts actuales con sus slugs actuales
+- **THEN** existen `blog/<slug>.html`, `en/blog/<slug>.html` y `pt/blogue/<slug>.html` para los 48 posts actuales con sus slugs actuales
 
 #### Scenario: URLs de CV e índices conservadas
 - **WHEN** se genera el sitio

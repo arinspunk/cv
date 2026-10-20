@@ -22,8 +22,8 @@
 ## 4. Posts migrados
 
 - [ ] 4.1 Crear `post.vto` (D9) con la cabecera `c-info` (título y línea de fecha con prefijo por idioma), los avisos `c-message` generados a partir de las traducciones, el enlace `#downloadMarkdown` y el contenedor `.c-post__body`, y `src/posts/_data.yml` con `layout`, `type: post` y `templateEngine: md`
-- [ ] 4.2 Escribir `scripts/migrate-posts.ts`, que extrae de cada post actual `title`, `description`, `image`, `url`, `lang`, `date` (del atributo `datetime` de su `<time>`, con las correcciones de D14) y el cuerpo (sin `h1`, línea de fecha, avisos ni enlace de descarga), y escribe `src/posts/<id>/<lang>.html` con `id` = slug en español (D4). Debe contemplar la estructura distinta de `frontity-custom-page-templates` en es y pt (sin `section.c-post__body`) y fallar si las traducciones de un post no comparten `date`; verificar que genera 45 ficheros en 15 carpetas, que ninguno tiene campos vacíos y que los 3 posts de D14 tienen las fechas corregidas
-- [ ] 4.3 Ejecutar la migración y borrar `blog/`, `en/blog/` y `pt/blogue/` originales; verificar con `deno task compare` que los 45 posts existen en sus URLs y que las únicas diferencias son la 2, la 10, la 11 y las del `<head>` esperadas
+- [ ] 4.2 Escribir `scripts/migrate-posts.ts`, que extrae de cada post actual `title`, `description`, `image`, `url`, `lang`, `date` (del atributo `datetime` de su `<time>`, con las correcciones de D14) y el cuerpo (sin `h1`, línea de fecha, avisos ni enlace de descarga), y escribe `src/posts/<id>/<lang>.html` con `id` = slug en español (D4). Debe contemplar la estructura distinta de `frontity-custom-page-templates` en es y pt (sin `section.c-post__body`) y fallar si las traducciones de un post no comparten `date`; verificar que genera 48 ficheros en 16 carpetas, que ninguno tiene campos vacíos salvo `image` en los posts sin `og:image` (usarán la imagen por defecto de `site-metadata`) y que los 3 posts de D14 tienen las fechas corregidas
+- [ ] 4.3 Ejecutar la migración y borrar `blog/`, `en/blog/` y `pt/blogue/` originales; verificar con `deno task compare` que los 48 posts existen en sus URLs y que las únicas diferencias son la 2, la 10, la 11 y las del `<head>` esperadas (incluida la 12)
 - [ ] 4.4 Comprobar en `deno task serve` que, en un post de cada idioma, funcionan los avisos de idioma, la descarga en Markdown y el año del footer
 - [ ] 4.5 Añadir en `_config.ts` la validación del front matter de D15; verificar que quitar `title` a un post hace fallar `deno task build` con código distinto de cero y un mensaje con la ruta del fichero, y que un `lang: fr` también falla
 
@@ -35,8 +35,8 @@
 ## 6. Índices, sitemap, feeds y robots
 
 - [ ] 6.1 Crear `blog-index/{es,en,pt}.vto` (D10) con `id: blog-index`, la intro actual y la lista generada, ordenada por fecha con formato `Intl`, y borrar `blog.html`, `en/blog.html` y `pt/blogue.html`; verificar con `deno task compare` que los tres índices no tienen diferencias inesperadas (fechas y orden incluidos, con las correcciones de D14) y que el selector de idioma enlaza entre los tres
-- [ ] 6.2 Configurar el plugin `sitemap` y borrar `sitemap.xml`; verificar que el generado contiene las 51 URLs absolutas
-- [ ] 6.3 Configurar el plugin `feed` con un feed por idioma y añadir los `<link rel="alternate">` en los índices; verificar que cada feed es RSS válido y contiene solo los 15 posts de su idioma, del más reciente al más antiguo
+- [ ] 6.2 Configurar el plugin `sitemap` y borrar `sitemap.xml`; verificar que el generado contiene las 54 URLs absolutas
+- [ ] 6.3 Configurar el plugin `feed` con un feed por idioma y añadir los `<link rel="alternate">` en los índices; verificar que cada feed es RSS válido y contiene solo los 16 posts de su idioma, del más reciente al más antiguo
 - [ ] 6.4 Verificar que `_site/robots.txt` contiene `Sitemap: https://xulioze.com/sitemap.xml` (ya es correcto en el repo; añadir solo el salto de línea final)
 
 ## 7. Estilos
@@ -45,11 +45,12 @@
 
 ## 8. Flujo de escritura y documentación
 
-- [ ] 8.1 Actualizar `README.md` con cómo instalar Deno, `deno task serve`/`build`/`compare`, la estructura de `src/` y una plantilla de front matter para un post nuevo en tres idiomas (incluido el prompt para que Claude Desktop conserve y traduzca el front matter); verificar siguiendo el README para crear el post de prueba en `en` y `pt` y comprobar que aparece en los índices, los feeds, el sitemap y los selectores de idioma; después, devolverlo a `draft: true` (o borrar `en` y `pt`) y comprobar que el sitemap vuelve a tener 51 URLs
+- [ ] 8.1 Actualizar `README.md` con cómo instalar Deno, `deno task serve`/`build`/`compare`, la estructura de `src/` y una plantilla de front matter para un post nuevo en tres idiomas (incluido el prompt para que Claude Desktop conserve y traduzca el front matter); verificar siguiendo el README para crear el post de prueba en `en` y `pt` y comprobar que aparece en los índices, los feeds, el sitemap y los selectores de idioma; después, devolverlo a `draft: true` (o borrar `en` y `pt`) y comprobar que el sitemap vuelve a tener 54 URLs
 
 ## 9. Despliegue en Netlify
 
-- [ ] 9.1 Añadir `netlify.toml` con la instalación de Deno en versión fijada, `deno task build` y `publish = "_site"` (D12); verificar que la deploy preview de la PR se construye correctamente
+- [ ] 9.0 Enlazar `arinspunk/cv` en Netlify con el auto-publish desactivado (D12); verificar que un push a la rama de la PR genera una deploy preview y que producción sigue en el último deploy manual
+- [ ] 9.1 Añadir `netlify.toml` con la instalación de Deno en versión fijada, `deno task build` y `publish = "_site"` (D12); verificar que la deploy preview de la PR se construye correctamente; tras el merge, reactivar el auto-publish
 
 ## 10. Verificación de integración
 
