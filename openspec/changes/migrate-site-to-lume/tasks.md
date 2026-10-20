@@ -52,12 +52,12 @@
 ## 9. Despliegue en Netlify
 
 - [x] 9.0 Enlazar `arinspunk/cv` en Netlify con el auto-publish desactivado (D12); verificar que un push a la rama de la PR genera una deploy preview y que producción sigue en el último deploy manual
-- [ ] 9.1 Añadir `netlify.toml` con la instalación de Deno en versión fijada, `deno task build` y `publish = "_site"` (D12); verificar que la deploy preview de la PR se construye correctamente; tras el merge, reactivar el auto-publish
+- [x] 9.1 Añadir `netlify.toml` con la instalación de Deno en versión fijada, `deno task build` y `publish = "_site"` (D12); verificar que la deploy preview de la PR se construye correctamente; tras el merge, reactivar el auto-publish
 
 ## 10. Verificación de integración
 
 - [x] 10.1 Build limpio desde un clon nuevo + `deno task compare` completo: 0 URLs ausentes y solo diferencias esperadas; `grep -r cdn.jsdelivr.net _site/` sin resultados
-- [ ] 10.2 Revisar la deploy preview: CV y blog en los 3 idiomas, selector de idioma, avisos, botón de copiar (incluidos los 27 bloques nuevos), enlaces externos en pestaña nueva, tablas de la guía de Figma, fechas de los 3 posts de D14, comentarios de `atproto-comments` en los 3 idiomas (sin peticiones a jsDelivr en la pestaña de red), descarga en Markdown, `sitemap.xml`, feeds y `robots.txt`; tras el merge, comprobar lo mismo en xulioze.com
+- [x] 10.2 Revisar la deploy preview: CV y blog en los 3 idiomas, selector de idioma, avisos, botón de copiar (incluidos los 27 bloques nuevos), enlaces externos en pestaña nueva, tablas de la guía de Figma, fechas de los 3 posts de D14, comentarios de `atproto-comments` en los 3 idiomas (sin peticiones a jsDelivr en la pestaña de red), descarga en Markdown, `sitemap.xml`, feeds y `robots.txt`; tras el merge, comprobar lo mismo en xulioze.com
 
 ## Workflow follow-up
 
