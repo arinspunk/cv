@@ -51,7 +51,7 @@
 
 ## 9. Despliegue en Netlify
 
-- [ ] 9.0 Enlazar `arinspunk/cv` en Netlify con el auto-publish desactivado (D12); verificar que un push a la rama de la PR genera una deploy preview y que producción sigue en el último deploy manual
+- [x] 9.0 Enlazar `arinspunk/cv` en Netlify con el auto-publish desactivado (D12); verificar que un push a la rama de la PR genera una deploy preview y que producción sigue en el último deploy manual
 - [ ] 9.1 Añadir `netlify.toml` con la instalación de Deno en versión fijada, `deno task build` y `publish = "_site"` (D12); verificar que la deploy preview de la PR se construye correctamente; tras el merge, reactivar el auto-publish
 
 ## 10. Verificación de integración
