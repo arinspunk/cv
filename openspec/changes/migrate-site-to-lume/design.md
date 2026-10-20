@@ -39,7 +39,7 @@ Requisitos: ver `specs/site-build`, `specs/blog-posts`, `specs/site-i18n` y `spe
 ## Decisions
 
 ### D1. Lume sobre Deno, versión fijada
-Se usa Lume con un `deno.json` que fija la versión exacta de Lume y de sus plugins (la última estable al implementar), con las tareas `build`, `serve` y `compare`, y la dependencia `jsr:@arinspunk/atproto-comments@1.1.1` (ver D16). La versión mayor (Lume 2 o 3) se anota en este documento al empezar la tarea 1.2 y todas las pruebas de comportamiento (D3, D7) se hacen sobre ella. `_config.ts` declara `location: new URL("https://xulioze.com")` y `prettyUrls: false` para mantener las URLs `.html`.
+Se usa Lume con un `deno.json` que fija la versión exacta de Lume y de sus plugins (la última estable al implementar), con las tareas `build`, `serve` y `compare`. La versión de `@arinspunk/atproto-comments` (1.1.1) no va en `deno.json`: se fija en `src/vendor/atproto-comments.ts` y en una constante de `_config.ts` (ver D16). La tarea `lume` se ejecuta con `deno run -A` en lugar del perfil de permisos `-P=lume` que propone el init de Lume, porque el cargador de esbuild escribe en la caché de Deno, que está fuera del proyecto y cambia según el sistema. La versión mayor (Lume 2 o 3) se anota en este documento al empezar la tarea 1.2 y todas las pruebas de comportamiento (D3, D7) se hacen sobre ella. `_config.ts` declara `location: new URL("https://xulioze.com")` y `prettyUrls: false` para mantener las URLs `.html`.
 **Versión elegida:** Lume 3 (`v3.2.5`, importado desde `https://deno.land/x/lume@v3.2.5/`). En Lume 3 los plugins oficiales vienen dentro del propio paquete, así que quedan fijados con él.
 *Alternativa:* Eleventy, equivalente en capacidades. Se elige Lume por preferencia del autor y porque no hay ninguna dependencia de Node que conservar.
 
@@ -93,7 +93,7 @@ Hoy esos textos no son uniformes: hay entre 2 y 5 variantes por idioma en los `t
 Orden: en el selector del header, `pt`, `es`, `en` (el orden que ya tienen todas las páginas menos dos); en los avisos, `es`, `en`, `pt` (el orden de `multilanguage`), omitiendo el idioma de la página. El footer de los índices usa siempre la variante `blog` (hoy `en/blog.html` no la lleva).
 
 ### D6. Metas en un partial propio, no con el plugin `metas`
-`head-metas.vto` genera exactamente las etiquetas actuales y en el mismo orden (`title`, `og:*`, `twitter:*`, `itemprop`, `apple-mobile-web-app-title`, `og:image:width/height`, canonical, copyright). Las URLs absolutas se forman con `location` + `url`/`image`.
+`head-metas.vto` genera exactamente las etiquetas actuales y en el mismo orden (`title`, `og:*`, `twitter:*`, `itemprop`, `apple-mobile-web-app-title`, `og:image:width/height`, canonical, copyright). Las URLs absolutas se forman con `location` + `url`/`image`. El título de los metas es `"<title> - Xúlio Zé"`; las páginas que no siguen ese patrón (el CV, "Xúlio Zé - AI & Software Developer") declaran el título completo con el campo opcional `fullTitle`, que no se usa en los posts.
 *Alternativa:* el plugin `metas`. No genera `itemprop` ni `apple-mobile-web-app-title`, y su orden de salida haría ruidoso el diff de verificación. Un partial de unas 25 líneas es más fácil de controlar.
 
 ### D7. Traducciones con el plugin `multilanguage`

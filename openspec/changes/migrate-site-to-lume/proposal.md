@@ -33,7 +33,7 @@ Publicar un post nuevo exige convertir a mano el borrador Markdown en tres HTML 
 ## Impact
 
 - **Contenido**: los 54 HTML actuales (`index.html`, `en/cv.html`, `pt/cv.html`, 3 índices de blog y 48 posts) se sustituyen por fuentes en `src/posts/`, `src/cv/`, `src/blog-index/` y plantillas en `src/_includes/`.
-- **Nuevas dependencias**: Deno (runtime de build) y Lume con sus plugins oficiales (markdown, multilanguage, sitemap, feed, sass, esbuild) y `jsr:@arinspunk/atproto-comments@1.1.1`. Los metas se generan con un partial propio, sin el plugin `metas` (ver D6). No hay `package.json`, así que no se sustituye ninguna dependencia de Node.
+- **Nuevas dependencias**: Deno (runtime de build) y Lume con sus plugins oficiales (markdown, multilanguage, sitemap, feed, sass, source_maps, esbuild) y `@arinspunk/atproto-comments` 1.1.1 desde JSR (ver D16). Los metas se generan con un partial propio, sin el plugin `metas` (ver D6). No hay `package.json`, así que no se sustituye ninguna dependencia de Node.
 - **Despliegue**: nuevo `netlify.toml` (comando de build y `publish = "_site"`). `netlify.toml` tiene prioridad sobre la configuración de la UI, así que el cambio de directorio de publicación entra con el merge y se revierte con un `git revert`. Requiere enlazar el repo en Netlify, que hoy se despliega a mano.
 - **Prerrequisito**: `atproto-comments` 1.1.1 publicado en JSR con `src/atproto-comments.css` incluido (la 1.1.0 no lo incluye).
 - **Recursos**: `img/claude-talk-to-figma-metas.psd` sale de `img/` (a `design/`) para que no se publique.
