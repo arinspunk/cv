@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>atproto-comments - Xúlio Zé</title>
+  <meta name="description" content="atproto-comments is a web component that brings AT Protocol comments (Bluesky, Mu, Deer…) to any website, with no database and no authentication.">
+  <meta property="og:title" content="atproto-comments - Xúlio Zé">
+  <meta property="og:description" content="atproto-comments is a web component that brings AT Protocol comments (Bluesky, Mu, Deer…) to any website, with no database and no authentication.">
+  <meta property="og:url" content="https://xulioze.com/en/blog/atproto-comments.html">
+  <link rel="canonical" href="https://xulioze.com/en/blog/atproto-comments.html">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../img/icons/favicon-32x32.png">
+  <link rel="manifest" href="../../img/icons/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="../../css/styles.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/atproto-comments@1.1.0/dist/atproto-comments.css" rel="stylesheet">
+</head>
+<body class="body blog">
+  <article class="c-post">
+    <header class="c-header c-header--blog">
+      <div class="o-wrap">
+        <div class="c-header__logo o-block">
+          <a class="c-header__logo-link" href="../../index.html" title="back to my CV">XZ</a>
+        </div>
+        <nav class="c-header__menu o-block">
+          <ul class="c-header__menu-list">
+            <li class="c-header__menu-item c-header__menu-item--language">
+              <a class="c-header__menu-link" href="../../blog/atproto-comments.html" title="Versión del post en español">Es</a>
+            </li>
+            <li class="c-header__menu-item c-header__menu-item--language">
+              <a class="c-header__menu-link" href="../../pt/blogue/atproto-comments.html" title="Versão do post em português">Pt</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link" href="../../en/cv.html" title="my CV">CV</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link" href="../../en/blog.html" title="More posts">Blog</a>
+            </li>
+            <li class="c-header__menu-item">
+              <a class="c-header__menu-link c-header__menu-link--btn" href="https://www.linkedin.com/in/xulioze/" title="I'm on LinkedIn :)" target="_blank" rel="noopener">Let's talk?</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <section class="o-wrap o-wrap--center c-post__body">
+      <header class="c-info c-info--blog o-block o-block--center">
+        <h1 class="h1--blog">atproto-comments</h1>
+        Published on <time datetime="2026-10-19">October 19, 2026</time>
+        <div class="c-messages">
+          <a href="../../blog/atproto-comments.html" class="c-message">🦀 Puedes leer este post en <span>español</span>.</a>
+          <a href="../../pt/blogue/atproto-comments.html" class="c-message">🐙 Podes ler este post em <span>português</span>.</a>
+        </div>
+        🤖 If you want your AI to read this post, <span class="c-link" id="downloadMarkdown">download it as markdown</span>.
+      </header>
+      <div class="c-info__content o-block o-block--center">
+        <p>I've just published atproto-comments (on npm and JSR), a web component that brings AT Protocol comments to any website, simply and with no authentication required.</p>
+
+        <ol>
+          <li>You publish an article on your website.</li>
+          <li>You publish a post on an AT Protocol app (Bluesky, Mu, Deer, etc.) with a link to that article.</li>
+          <li>You add the component to your HTML, pointing to the post through its AT URI:</li>
+        </ol>
+
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">&lt;atproto-comments thread-uri="at://did:plc:xxxx/app.bsky.feed.post/yyyy"&gt;&lt;/atproto-comments&gt;</code></pre>
+
+        <p>And that's it: the replies to that post show up as comments on your article. What's more, if a visitor with an account on an AT Protocol app wants to comment, they pick their app and get redirected to the post.</p>
+
+        <p>The goal is twofold. On the one hand, to offer a comment system that's easy to integrate, with no database of your own and no reliance on platforms like Disqus. On the other, to bring to your website the conversations that today stay locked inside social networks.</p>
+
+        <p>If you don't know the AT Protocol, keep reading. I'm going to tell you the path I followed until I got to know it and understand it, because I have a hunch it'll be more useful than a textbook definition.</p>
+
+        <p>A year and a half ago, fed up with the dumpster fire X has become, I went looking for alternatives. I came across Bluesky, which promised to be an open network and had an interface with old-Twitter vibes. I liked it: almost no noise, no nazis, no bots. But I didn't get why it was "open".</p>
+
+        <p>In March I saw a post from Eurosky, an independent European initiative working to build an open social web. They were inviting people to move their Bluesky accounts, hosted on servers in the US, to their servers in Europe, and keep talking on Bluesky. How? That was already a bit stranger. But it was true: I moved my account to Eurosky and kept talking on Bluesky.</p>
+
+        <p>In June, another post from Eurosky. This time they were announcing <a href="http://mu.social" target="_blank" rel="noopener" title="mu.social">mu.social</a>, a new microblogging app. I tried logging in with my Bluesky credentials and my jaw dropped. There was my profile, with my posts, the people I follow and my followers. Everything. Then I came across Deer and the same thing happened.</p>
+
+        <p>Wait, this reminded me of something I'd lived through before. I've got it: RSS, Google Reader, Feedly, the golden age of blogs! Back when the internet was decentralized and what we read and published wasn't warped by the algorithms of private companies.</p>
+
+        <p>I did some research and put the pieces together. This was possible because Bluesky is built on the AT Protocol, an open protocol for decentralized social networks. In it, your data lives on a personal data server (PDS) and is cryptographically signed. That's why we can switch providers without losing our account or our followers (the data is ours!), and even run our own server (<a href="URL" target="_blank" rel="noopener" title="link to the GitHub repository">link to the GitHub repository</a>). We can consume our data, and that of the people we follow, from different apps. And we can build tools like atproto-comments, which I've just published, without depending on whatever a company decides at any given moment.</p>
+
+        <h2>How it works under the hood</h2>
+
+        <p>If you want to see the pieces of the puzzle, these are the ones that come into play when atproto-comments loads the comments:</p>
+
+        <ul>
+          <li>Identity (DID and handle): every account has a permanent identifier (<code>did:plc:...</code>) and a human-readable name (<code>@xulio.eurosky.social</code>). The DID is what lets you switch servers without losing anything.</li>
+          <li>PDS (Personal Data Server): the server where your data lives, in a signed repository. It can be Bluesky's, Eurosky's or your own.</li>
+          <li>Lexicons and records: every data type has a public schema. A post is a record in the <code>app.bsky.feed.post</code> collection; that's why the AT URI points to <code>at://&lt;did&gt;/app.bsky.feed.post/&lt;id&gt;</code>.</li>
+          <li>Relay: collects the changes from every PDS and emits them in a single stream (the <em>firehose</em>).</li>
+          <li>AppView: consumes that stream, indexes it and serves ready-made views, such as the reply thread of a post. atproto-comments requests that thread from the Bluesky AppView's public API (<code>app.bsky.feed.getPostThread</code>), but you can point it to another AppView with the <code>appview</code> attribute.</li>
+          <li>Client apps: Bluesky, Mu, Deer… are just different interfaces on top of the same data, and each one can decide how to display it: which algorithm it uses, how it sorts the feed, what moderation it applies. If one day I don't like how Bluesky serves me the feed, I switch to another app that does it more to my liking, without losing anything.</li>
+        </ul>
+
+        <p>At heart, it's the same idea as that golden age of blogs: the data is yours, and you can read it, publish it and take it wherever you want. atproto-comments is just one more small piece of that puzzle. Give it a try and, if you use it on your website, let me know by replying to this article's post: your comment will show up right down here.</p>
+
+        <atproto-comments
+          thread-uri="at://did:plc:ooensn4mr5mhznzypvxelfa3/app.bsky.feed.post/3mnyoeuenq225"
+          style="color-scheme: dark; --atproto-font-family: inherit; --atproto-font-size: 1rem; --atproto-color-muted: oklch(70% 0 0); --atproto-color-border: oklch(40% 0 0); --atproto-color-surface: #1c1c3d;"
+        ></atproto-comments>
+      </div>
+    </section>
+    
+    <footer class="c-footer c-footer--blog">
+      <div class="o-wrap">
+        <nav class="c-footer__menu o-block">
+          <ul class="c-footer__menu-list">
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="https://github.com/arinspunk" target="_blank" rel="noopener" title="My repository">GitHub</a>
+            </li>
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="mailto:hola@xulioze.com" title="write me">Email</a>
+            </li>
+            <li class="c-footer__menu-item">
+              <a class="c-footer__menu-link" href="https://www.linkedin.com/in/xulioze/" target="_blank" rel="noopener" title="My profile on LinkedIn">LinkedIn</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="o-block c-footer__credits">© <span class="c-footer__year"></span> Xúlio Zé</p>
+      </div>
+    </footer>
+  </article>
+  <script src="../../js/markdown-converter.js" defer></script>
+  <script src="../../js/application.min.js" defer></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/atproto-comments@1.1.0/dist/index.js"></script>
+</body>
+</html>
