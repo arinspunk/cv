@@ -4,9 +4,16 @@ lang: pt
 url: /pt/blogue/atproto-comments.html
 title: "atproto-comments"
 description: "atproto-comments é um web component que leva os comentários do AT Protocol (Bluesky, Mu, Deer…) a qualquer site, sem base de dados nem autenticação."
+image: /img/leiras-og.jpg
 date: 2026-10-19
 ---
-        <p>Acabei de publicar o atproto-comments (no npm e no JSR), um web component que leva os comentários do AT Protocol a qualquer site, de forma simples e sem necessidade de autenticação.</p>
+
+        <figure class="c-post__body-img c-post__body-img--figure">
+          <img src="../../img/leiras.jpg" alt="Nuvens, muinhos e leiras fotografados desde o ceu" width="1200" loading="lazy">
+          <figcaption>Atmosfera, muinhos e leiras (Thomas Richter)</figcaption>
+        </figure>
+
+        <p>Acabei de publicar o atproto-comments (no <a href="https://www.npmjs.com/package/atproto-comments" target="_blank" rel="noopener" title="atproto-comments no npm">npm</a> e no <a href="https://jsr.io/@arinspunk/atproto-comments" target="_blank" rel="noopener" title="atproto-comments no JSR">JSR</a>), um web component que leva os comentários do AT Protocol a qualquer site, de forma simples e sem necessidade de autenticação.</p>
 
         <ol>
           <li>Publicas um artigo no teu site.</li>
@@ -16,7 +23,7 @@ date: 2026-10-19
 
         <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copiar código"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">&lt;atproto-comments thread-uri="at://did:plc:xxxx/app.bsky.feed.post/yyyy"&gt;&lt;/atproto-comments&gt;</code></pre>
 
-        <p>E pronto: as respostas a esse post aparecem como comentários no teu artigo. Além disso, se um visitante com conta numa app do AT Protocol quiser comentar, escolhe a sua app e é redirecionado para o post.</p>
+        <p>E pronto: as respostas a esse post aparecem como comentários no teu artigo. Além disso, se um visitante com conta no AT Protocol quiser comentar, escolhe a sua app e é redirecionado para o post.</p>
 
         <p>O objetivo é duplo. Por um lado, oferecer um sistema de comentários fácil de integrar, sem base de dados própria e sem depender de plataformas como o Disqus. Por outro, trazer para o teu site as conversas que hoje ficam fechadas dentro das redes sociais.</p>
 
@@ -24,28 +31,48 @@ date: 2026-10-19
 
         <p>Há um ano e meio, farto da esterqueira em que se converteu o X, procurei alternativas. Dei com o Bluesky, que prometia ser uma rede aberta e tinha uma interface com vibes do velho Twitter. Gostei: case sem ruído, nazis e bots. Mas não entendi o porquê do "aberta".</p>
 
-        <p>Em março vi um chio da Eurosky, uma iniciativa europeia independente que trabalha para construir uma web social aberta. Convidavam a mudar as nossas contas do Bluesky, alojadas em servidores nos EUA, para os seus servidores na Europa, e a continuar a conversar no Bluesky. Como? Isto já era um chisco mais estranho. Mas era verdade: mudei a minha conta para a Eurosky e continuei a conversar no Bluesky.</p>
+        <p>Em março vi um chio da Eurosky, uma iniciativa europeia independente que trabalha para construir uma web social aberta. <a href="https://eurosky.tech/accounts/migrate/" target="_blank" rel="noopener" title="How to move your account to Eurosky">Convidavam a mudar as nossas contas do Bluesky, alojadas em servidores nos EUA, para os seus servidores na Europa</a>, e a continuar a conversar no Bluesky. Como? Isto já era um chisco mais estranho. Mas era verdade: mudei a minha conta para a Eurosky e continuei a conversar no Bluesky.</p>
 
-        <p>Em junho, outro chio da Eurosky. Desta vez anunciavam o <a href="http://mu.social" target="_blank" rel="noopener" title="mu.social">mu.social</a>, uma nova app de microblogging. Experimentei entrar com as minhas credenciais do Bluesky e fiquei co cu torto. Ali estava o meu perfil, com os meus posts, a gente que sigo e os meus seguidores. Tudo. Depois dei com o Deer e passou a mesma cousa.</p>
+        <p>Em junho, <a href="https://bsky.app/profile/eurosky.social/post/3mnyoeuenq225" target="_blank" rel="noopener" title="Muve to the beat">outro chio da Eurosky</a>. Desta vez anunciavam o <a href="http://mu.social" target="_blank" rel="noopener" title="mu.social">mu.social</a>, uma nova app de microblogging. Experimentei entrar com as minhas credenciais do Bluesky e fiquei co cu torto. Ali estava o meu perfil, com os meus posts, a gente que sigo e os meus seguidores. Tudo. Depois dei com o Deer e passou a mesma cousa.</p>
 
-        <p>Espera, isto lembrava-me algo que já tinha vivido. Já sei: o RSS, o Google Reader, o Feedly, a época dourada dos blogues! Quando a internet era descentralizada e o que líamos e publicávamos não estava deformado polos algoritmos de empresas privadas.</p>
+        <p>Para entenderes a minha surpresa, aqui está o mesmo post da Eurosky visto através de três apps:</p>
 
-        <p>Investiguei e recapitulei. Isto era possível porque o Bluesky está construído sobre o AT Protocol, um protocolo aberto para redes sociais descentralizadas. Nele, os teus dados vivem num servidor de dados pessoal (PDS) e estão assinados criptograficamente. Por isso podemos mudar de fornecedor sem perder a conta nem os seguidores (os dados são nossos!), e até montar o nosso próprio servidor (<a href="URL" target="_blank" rel="noopener" title="ligação ao repositório no GitHub">ligação ao repositório no GitHub</a>). Podemos consumir os nossos dados e os das pessoas que seguimos a partir de diferentes apps. E podemos desenvolver ferramentas como o atproto-comments, que agora publiquei, sem depender do que uma empresa decida em cada momento.</p>
+        <ul>
+          <li>
+            <a href="https://bsky.app/profile/eurosky.social/post/3mnyoeuenq225" target="_blank" rel="noopener" title="chio da Eurosky no Bluesky">
+              Chio da Eurosky no Bluesky
+            </a>
+          </li>
+          <li>
+            <a href="https://mu.social/profile/eurosky.social/post/3mnyoeuenq225" target="_blank" rel="noopener" title="chio da Eurosky no mu.social">
+              Chio da Eurosky no mu.social
+            </a>
+          </li>
+          <li>
+            <a href="https://deer.social/profile/eurosky.social/post/3mnyoeuenq225" target="_blank" rel="noopener" title="chio da Eurosky no Deer">
+              Chio da Eurosky no Deer
+            </a>
+          </li>
+        </ul>
+
+        <p>Espera, isto lembrava-me algo que já tinha vivido. Claro, que saudade! Os blogues, o RSS, o Google Reader e o Feedly. Quando a internet era descentralizada, o que publicávamos era nosso e o que líamos não estava deformado polos algoritmos de empresas privadas.</p>
+
+        <p>Investiguei e recapitulei. Isto era possível porque o Bluesky está construído sobre o AT Protocol, um protocolo aberto para redes sociais descentralizadas. Nele, os teus dados vivem num servidor de dados pessoal (PDS) e estão assinados criptograficamente. Por isso podemos mudar de fornecedor sem perder a conta nem os seguidores (os dados são nossos!), e até montar o nosso próprio servidor (<a href="https://github.com/arinspunk/atproto-comments" target="_blank" rel="noopener" title="ligação ao repositório no GitHub">ligação ao repositório no GitHub</a>). Podemos consumir os nossos dados e os das pessoas que seguimos a partir de diferentes apps. E podemos desenvolver ferramentas como o atproto-comments, que agora publiquei, sem depender do que uma empresa decida em cada momento.</p>
 
         <h2>Como funciona por dentro</h2>
 
-        <p>Se queres ver as peças do puzzle, estas são as que entram em jogo quando o atproto-comments carrega os comentários:</p>
+        <p>Se queres conhecer as peças do puzzle, estas são as que entram em jogo quando o atproto-comments carrega os comentários:</p>
 
         <ul>
-          <li>Identidade (DID e handle): cada conta tem um identificador permanente (<code>did:plc:...</code>) e um nome legível (<code>@xulio.eurosky.social</code>). O DID é o que permite mudar de servidor sem perder nada.</li>
+          <li>Identidade (DID e handle): cada conta tem um identificador permanente (<code>did:plc:...</code>) e um nome legível (<code>@xulioze.eurosky.social</code>). O DID é o que permite mudar de servidor sem perder nada.</li>
           <li>PDS (Personal Data Server): o servidor onde vivem os teus dados, num repositório assinado. Pode ser o do Bluesky, o da Eurosky ou o teu próprio.</li>
           <li>Lexicons e registos: cada tipo de dado tem um esquema público. Um post é um registo da coleção <code>app.bsky.feed.post</code>; por isso a AT URI aponta para <code>at://&lt;did&gt;/app.bsky.feed.post/&lt;id&gt;</code>.</li>
-          <li>Relay: recolhe as mudanças de todos os PDS e emite-as num fluxo único (o <em>firehose</em>).</li>
+          <li>Relay: como os dados estão espalhados por muitos PDS, o Relay junta-os e reemite as suas mudanças num único fluxo em tempo real (o <em>firehose</em>).</li>
           <li>AppView: consome esse fluxo, indexa-o e serve vistas já montadas, como o fio de respostas de um post. O atproto-comments pede esse fio à API pública do AppView do Bluesky (<code>app.bsky.feed.getPostThread</code>), mas podes apontá-lo para outro AppView com o atributo <code>appview</code>.</li>
           <li>Apps clientes: Bluesky, Mu, Deer… são só interfaces diferentes sobre os mesmos dados, e cada uma pode decidir como os mostra: que algoritmo usa, como ordena o feed, que moderação aplica. Se um dia não gostar de como o Bluesky me serve o feed, mudo para outra app que o faça mais ao meu gosto, sem perder nada.</li>
         </ul>
 
-        <p>No fundo, é a mesma ideia daquela época dourada dos blogues: os dados são teus e podes lê-los, publicá-los e levá-los para onde quiseres. O atproto-comments é só uma pequena peça mais nesse puzzle. Experimenta-o e, se o usares no teu site, conta-mo respondendo ao post deste artigo: o teu comentário vai aparecer aqui em baixo.</p>
+        <p>No fundo, a ideia é muito semelhante à do RSS e dos blogues: os dados são de quem os publica, que pode levá-los para onde quiser, e cada um decide como e onde os consumir. E qualquer pessoa pode desenvolver ferramentas para o ecossistema sem pedir licença a ninguém, como o atproto-comments, que estreamos hoje aqui. Se já tens conta no AT Protocol, deixa um comentário aqui em baixo a partir da tua app favorita (Bluesky, Mu, Deer…) e vais vê-lo aparecer. Se não tens, <a href="https://portal.eurosky.tech/create-account" target="_blank" rel="noopener" title="Create your Eurosky account">cria uma conta na Eurosky</a> e usa-a na app que quiseres. Bem-vinda às redes sociais abertas!</p>
 
         <atproto-comments
           thread-uri="at://did:plc:ooensn4mr5mhznzypvxelfa3/app.bsky.feed.post/3mnyoeuenq225"
