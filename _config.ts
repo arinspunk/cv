@@ -11,7 +11,7 @@ const LANGUAGES = ["es", "en", "pt"];
 
 // Versión del web component atproto-comments (D16). El import de
 // src/vendor/atproto-comments.ts debe usar la misma; el build lo comprueba
-const ATPROTO_COMMENTS_VERSION = "1.1.2";
+const ATPROTO_COMMENTS_VERSION = "1.4.0";
 
 const site = lume({
   src: "./src",
