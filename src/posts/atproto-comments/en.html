@@ -3,7 +3,7 @@ id: atproto-comments
 lang: en
 url: /en/blog/atproto-comments.html
 title: "atproto-comments"
-description: "atproto-comments is a web component that brings AT Protocol comments (Bluesky, Mu, Deer…) to any website, with no database and no authentication."
+description: "atproto-comments is a web component that brings AT Protocol comments (Bluesky, Mu, Deer…) to any website, with no server and no database."
 image: /img/leiras-og.jpg
 date: 2026-10-19
 ---
@@ -13,15 +13,17 @@ date: 2026-10-19
           <figcaption>Atmosphere, wind turbines and fields (Thomas Richter)</figcaption>
         </figure>
 
-        <p>I've just published atproto-comments (on <a href="https://www.npmjs.com/package/atproto-comments" target="_blank" rel="noopener" title="atproto-comments on npm">npm</a> and <a href="https://jsr.io/@arinspunk/atproto-comments" target="_blank" rel="noopener" title="atproto-comments on JSR">JSR</a>), a web component that brings AT Protocol comments to any website, simply and with no authentication required.</p>
+        <p>I've just published atproto-comments (on <a href="https://www.npmjs.com/package/atproto-comments" target="_blank" rel="noopener" title="atproto-comments on npm">npm</a> and <a href="https://jsr.io/@arinspunk/atproto-comments" target="_blank" rel="noopener" title="atproto-comments on JSR">JSR</a>), a web component that brings AT Protocol comments to any website, simply and with no server or database.</p>
 
         <ol>
           <li>You publish an article on your website.</li>
           <li>You publish a post on an AT Protocol app (Bluesky, Mu, Deer, etc.) with a link to that article.</li>
-          <li>You add the component to your HTML, pointing to the post through its AT URI:</li>
+          <li>You add the component to your HTML, pointing to the post through its AT URI (<a href="https://github.com/arinspunk/atproto-comments#getting-the-at-uri-of-your-post" target="_blank" rel="noopener" title="How to get the AT URI of your post">how to get it</a>):</li>
         </ol>
 
-        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">&lt;atproto-comments thread-uri="at://did:plc:xxxx/app.bsky.feed.post/yyyy"&gt;&lt;/atproto-comments&gt;</code></pre>
+        <pre class="c-post__prompt c-post__prompt--scroll"><button class="c-post__copy-btn" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 -960 960 960"><path d="M362.31-260q-27.01 0-45.66-18.65T298-324.31v-455.38q0-27.01 18.65-45.66T362.31-844h359.38q27.01 0 45.66 18.65T786-779.69v455.38q0 27.01-18.65 45.66T721.69-260zm0-52h359.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46v-455.38q0-4.62-3.85-8.46-3.84-3.85-8.46-3.85H362.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v455.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85m-124 176q-27.01 0-45.66-18.65T174-200.31v-507.38h52v507.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h411.38v52zM350-312v-480z"/></svg></button><code class="c-post__prompt-code">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/atproto-comments@1/dist/atproto-comments.css"&gt;
+&lt;script type="module" src="https://cdn.jsdelivr.net/npm/atproto-comments@1/dist/index.js"&gt;&lt;/script&gt;
+&lt;atproto-comments thread-uri="at://did:plc:xxxx/app.bsky.feed.post/yyyy"&gt;&lt;/atproto-comments&gt;</code></pre>
 
         <p>And that's it: the replies to that post show up as comments on your article. What's more, if a visitor with an AT Protocol account wants to comment, they pick their app and get redirected to the post.</p>
 
@@ -33,7 +35,7 @@ date: 2026-10-19
 
         <p>In March I saw a post from Eurosky, an independent European initiative working to build an open social web, where <a href="https://eurosky.tech/accounts/migrate/" target="_blank" rel="noopener" title="How to move your account to Eurosky">they were inviting people to move their Bluesky accounts, hosted on servers in the US, to their servers in Europe</a>, and keep talking on Bluesky. How? That was already a bit stranger. But it was true: I moved my account to Eurosky and kept talking on Bluesky.</p>
 
-        <p>In June, <a href="https://bsky.app/profile/eurosky.social/post/3mnyoeuenq225" target="_blank" rel="noopener" title="Muve to the beat">another post from Eurosky</a>. This time they were announcing <a href="http://mu.social" target="_blank" rel="noopener" title="mu.social">mu.social</a>, a new microblogging app. I tried logging in with my Bluesky credentials and my jaw dropped. There was my profile, with my posts, the people I follow and my followers. Everything. Then I came across Deer, tested it and the same thing happened.</p>
+        <p>In June, <a href="https://bsky.app/profile/eurosky.social/post/3mnyoeuenq225" target="_blank" rel="noopener" title="Muve to the beat">another post from Eurosky</a>. This time they were announcing <a href="https://mu.social" target="_blank" rel="noopener" title="mu.social">mu.social</a>, a new microblogging app. I tried logging in with my Bluesky credentials and my jaw dropped. There was my profile, with my posts, the people I follow and my followers. Everything. Then I came across Deer, tested it and the same thing happened.</p>
 
         <p>To understand my surprise, here's the same Eurosky post seen through three apps:</p>
 
@@ -57,7 +59,7 @@ date: 2026-10-19
 
         <p>Wait, this reminded me of something I'd already lived through. Of course — I miss it! Blogs, RSS, Google Reader and Feedly. When the internet was decentralized, what we published was ours and what we read wasn't warped by the algorithms of private companies.</p>
 
-        <p>I did some research and put the pieces together. This was possible because Bluesky is built on the AT Protocol, an open protocol for decentralized social networks. In it, your data lives on a personal data server (PDS) and is cryptographically signed (DID). That's why we can switch providers without losing our account or our followers (the data is ours!), and even run <a href="https://sliplane.io/blog/self-hosting-bluesky-pds-from-scratch" target="_blank" rel="noopener" title="Self-hosting Bluesky PDS from Scratch">our own server</a>. We can consume our data, and that of the people we follow, from different apps. And we can build tools like atproto-comments, which I've just published, without depending on whatever a company decides at any given moment.</p>
+        <p>I did some research and put the pieces together. This was possible because Bluesky is built on the AT Protocol, an open protocol for decentralized social networks. In it, every account has a permanent identifier (DID) and its data lives on a personal data server (PDS), cryptographically signed. That's why we can switch providers without losing our account or our followers (the data is ours!), and even run <a href="https://sliplane.io/blog/self-hosting-bluesky-pds-from-scratch" target="_blank" rel="noopener" title="Self-hosting Bluesky PDS from Scratch">our own server</a>. We can consume our data, and that of the people we follow, from different apps. And we can build tools like atproto-comments without depending on whatever a company decides at any given moment.</p>
 
         <h2>How it works under the hood</h2>
 
@@ -68,11 +70,13 @@ date: 2026-10-19
           <li>PDS (Personal Data Server): the server where your data lives, in a signed repository. It can be Bluesky's, Eurosky's or your own.</li>
           <li>Lexicons and records: every data type has a public schema. A post is a record in the <code>app.bsky.feed.post</code> collection; that's why the AT URI points to <code>at://&lt;did&gt;/app.bsky.feed.post/&lt;id&gt;</code>.</li>
           <li>Relay: because the data is spread across many PDSes, the Relay gathers it and rebroadcasts its changes in a single real-time stream (the <em>firehose</em>).</li>
-          <li>AppView: consumes that stream, indexes it and serves ready-made views, such as the reply thread of a post. atproto-comments requests that thread from the Bluesky AppView's public API (<code>app.bsky.feed.getPostThread</code>), but you can point it to another AppView with the <code>appview</code> attribute.</li>
+          <li>AppView: consumes that stream, indexes it and serves ready-made views, such as the reply thread of a post. atproto-comments requests that thread from the Bluesky AppView's public API (<code>app.bsky.feed.getPostThread</code>), but you can point it to another AppView with the <code>appview</code> attribute. Keep in mind that this request comes from each visitor's browser and that, since the comments load with JavaScript, search engines don't usually index them.</li>
           <li>Client apps: Bluesky, Mu, Deer… are just different interfaces on top of the same data, and each one can decide how to display it: which algorithm it uses, how it sorts the feed, what moderation it applies. If one day I don't like how Bluesky serves me the feed, I switch to another app that does it more to my liking, without losing anything.</li>
         </ul>
 
-        <p>At heart, the idea is very similar to RSS and blogs: the data belongs to whoever publishes it and they can take it wherever they want. Each person decides how and where to consume it. And anyone can build tools for the ecosystem without asking permission, like atproto-comments, which we're launching here today. If you already have an AT Protocol account, leave a comment down here from your favorite app (Bluesky, Mu, Deer…) and you'll see it show up. If you don't, <a href="https://portal.eurosky.tech/create-account" target="_blank" rel="noopener" title="Create your Eurosky account">create an account on Eurosky</a> and use it in whichever app you like. Welcome to open social networks!</p>
+        <p>At heart, the idea is very similar to RSS and blogs: the data belongs to whoever publishes it and they can take it wherever they want. Each person decides how and where to consume it. And anyone can build tools for the ecosystem without asking permission, like atproto-comments, which we're launching here today.</p>
+
+        <p>If you already have an AT Protocol account, leave a comment down here from your favorite app (Bluesky, Mu, Deer…) and you'll see it show up. If you don't, <a href="https://portal.eurosky.tech/create-account" target="_blank" rel="noopener" title="Create your Eurosky account">create an account on Eurosky</a> and use it in whichever app you like. Welcome to open social networks!</p>
 
         <h2 class="c-post__body-title">Comments</h2>
 
